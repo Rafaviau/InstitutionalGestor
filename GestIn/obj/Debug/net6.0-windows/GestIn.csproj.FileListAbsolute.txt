@@ -1,0 +1,34 @@
+D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.exe
+D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
+D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
+D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.dll
+D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.Form1.resources
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.dll
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
+D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.exe
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.dll
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormMateria.resources
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.dll
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
+C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
