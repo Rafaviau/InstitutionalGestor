@@ -47,7 +47,7 @@
             // lblIDMateria
             // 
             this.lblIDMateria.AutoSize = true;
-            this.lblIDMateria.Location = new System.Drawing.Point(96, 42);
+            this.lblIDMateria.Location = new System.Drawing.Point(36, 43);
             this.lblIDMateria.Name = "lblIDMateria";
             this.lblIDMateria.Size = new System.Drawing.Size(58, 15);
             this.lblIDMateria.TabIndex = 0;
@@ -56,7 +56,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(96, 89);
+            this.lblNombre.Location = new System.Drawing.Point(36, 90);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(51, 15);
             this.lblNombre.TabIndex = 1;
@@ -65,7 +65,7 @@
             // lblAnioCarrera
             // 
             this.lblAnioCarrera.AutoSize = true;
-            this.lblAnioCarrera.Location = new System.Drawing.Point(96, 139);
+            this.lblAnioCarrera.Location = new System.Drawing.Point(36, 140);
             this.lblAnioCarrera.Name = "lblAnioCarrera";
             this.lblAnioCarrera.Size = new System.Drawing.Size(70, 15);
             this.lblAnioCarrera.TabIndex = 2;
@@ -74,7 +74,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 203);
+            this.label4.Location = new System.Drawing.Point(36, 204);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 15);
             this.label4.TabIndex = 3;
@@ -83,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 255);
+            this.label5.Location = new System.Drawing.Point(36, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 15);
             this.label5.TabIndex = 4;
@@ -91,42 +91,42 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(278, 34);
+            this.txtID.Location = new System.Drawing.Point(218, 35);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 23);
             this.txtID.TabIndex = 8;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(278, 81);
+            this.txtNombre.Location = new System.Drawing.Point(218, 82);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 23);
             this.txtNombre.TabIndex = 9;
             // 
             // txtAnioCarrera
             // 
-            this.txtAnioCarrera.Location = new System.Drawing.Point(278, 131);
+            this.txtAnioCarrera.Location = new System.Drawing.Point(218, 132);
             this.txtAnioCarrera.Name = "txtAnioCarrera";
             this.txtAnioCarrera.Size = new System.Drawing.Size(100, 23);
             this.txtAnioCarrera.TabIndex = 10;
             // 
             // txtCargaHorariaSemanal
             // 
-            this.txtCargaHorariaSemanal.Location = new System.Drawing.Point(278, 195);
+            this.txtCargaHorariaSemanal.Location = new System.Drawing.Point(218, 196);
             this.txtCargaHorariaSemanal.Name = "txtCargaHorariaSemanal";
             this.txtCargaHorariaSemanal.Size = new System.Drawing.Size(100, 23);
             this.txtCargaHorariaSemanal.TabIndex = 11;
             // 
             // txtCargaHorariaTotal
             // 
-            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(278, 252);
+            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(218, 253);
             this.txtCargaHorariaTotal.Name = "txtCargaHorariaTotal";
             this.txtCargaHorariaTotal.Size = new System.Drawing.Size(100, 23);
             this.txtCargaHorariaTotal.TabIndex = 12;
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(438, 34);
+            this.listView1.Location = new System.Drawing.Point(378, 35);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(236, 241);
             this.listView1.TabIndex = 13;
@@ -134,7 +134,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(79, 298);
+            this.btnGuardar.Location = new System.Drawing.Point(19, 299);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 14;
@@ -144,7 +144,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(177, 298);
+            this.btnModificar.Location = new System.Drawing.Point(117, 299);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 15;
@@ -154,7 +154,7 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(278, 298);
+            this.btnBorrar.Location = new System.Drawing.Point(218, 299);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 16;
@@ -166,7 +166,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ClientSize = new System.Drawing.Size(1584, 961);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnGuardar);

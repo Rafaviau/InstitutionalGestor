@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using GestIn.Vista.Inicio;
 
 namespace GestIn.Vista.Login
 {
@@ -69,11 +70,16 @@ namespace GestIn.Vista.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
+            formMenuInicio formMenuInicio = new formMenuInicio();
+            formMenuInicio.Show();
+            /*
             if (txtEmail.Text.Equals("")) {lblEmailVacio.Visible=true;}
             else { lblEmailVacio.Visible=false;}
 
             if (txtPassword.Text.Equals("")) {lblPasswordVacio.Visible = true;}
             else { lblPasswordVacio.Visible=false;}
+            */
         }
 
         private void linkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
