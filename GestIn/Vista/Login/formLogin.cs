@@ -9,16 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using GestIn.Vista.Inicio;
+using GestIn.Controladora;
 
 namespace GestIn.Vista.Login
 {
     public partial class formLogin : Form
     {
+        ControladoraPersona cntPersona = ControladoraPersona.GetInstance();
         public formLogin()
         {
             InitializeComponent();
             this.CenterToScreen();
+            cntPersona.loadListAlumnos();
         }
+       
         #region "Minimizar,cerrar y arrastrar"
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -58,6 +62,7 @@ namespace GestIn.Vista.Login
 
         private void btnViewPass_Click(object sender, EventArgs e)
         {
+            
             if (txtPassword.UseSystemPasswordChar)
             {
                 txtPassword.UseSystemPasswordChar = false;
@@ -86,6 +91,12 @@ namespace GestIn.Vista.Login
         {
             formRegistroAlumno formRegistroAlumno = new formRegistroAlumno();
             formRegistroAlumno.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            formBienvenido formBienvenido = new formBienvenido();
+            formBienvenido.ShowDialog();
         }
     }
 }

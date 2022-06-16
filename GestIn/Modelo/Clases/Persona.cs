@@ -23,27 +23,15 @@ namespace GestIn.Modelo.Clases
         protected Persona(int dNI, string mail, string password, string nombre, string apellido, DateOnly fechaDeNacimiento, string lugarDeNacimiento, string sexo, string celular, string celularDeEmergencia)
         {
             DNI = dNI;
-            Mail = mail ;
+            Mail = mail;
             Password = password;
             Nombre = nombre;
             Apellido = apellido;
             FechaDeNacimiento = fechaDeNacimiento;
-            LugarDeNacimiento = lugarDeNacimiento ;
+            LugarDeNacimiento = lugarDeNacimiento;
             Sexo = sexo;
             Celular = celular;
-            CelularDeEmergencia = celularDeEmergencia ;
-        }
-
-        protected Persona(int dNI, string mail, string contraseña, string nombre, string apellido, DateOnly fechaDeNacimiento,string lugarDeNacimiento, string sexo)
-        {
-            DNI = dNI;
-            Mail = mail;
-            Password = contraseña;
-            Nombre = nombre;
-            Apellido = apellido;
-            FechaDeNacimiento = fechaDeNacimiento;
-            LugarDeNacimiento= lugarDeNacimiento ;
-            Sexo = sexo;
+            CelularDeEmergencia = celularDeEmergencia;
         }
     }
 }

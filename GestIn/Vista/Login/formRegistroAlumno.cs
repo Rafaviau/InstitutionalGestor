@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestIn.Controladora;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace GestIn.Vista.Login
 {
     public partial class formRegistroAlumno : Form
     {
+        ControladoraPersona cntPersona = ControladoraPersona.GetInstance();
         public formRegistroAlumno()
         {
             InitializeComponent();
@@ -55,9 +57,229 @@ namespace GestIn.Vista.Login
 
         #endregion
 
+
+        #region Verificaciones
+        bool verifyAll() {
+            if(validEmail() == false)
+            {
+                updateErrorLbl("         Email invalido");
+                return false;
+            }
+            if (validPassword() == false)
+            {
+                updateErrorLbl("         La contraseña debe tener al menos 7 caracteres");
+                return false;
+            }
+            if(validConfirPass() == false) {
+                updateErrorLbl("         Las contraseñas deben coincidir");
+                return false;
+            }
+            if (validName() == false)
+            {
+                updateErrorLbl("         Nombre invalido");
+                return false;
+            }
+            if (validSurame() == false)
+            {
+                updateErrorLbl("         Apellido invalido");
+                return false;
+            }
+            if (validDni() == false)
+            {
+                updateErrorLbl("         DNI invalido");
+                return false;
+            }
+            if (validBirthplace() == false)
+            {
+                updateErrorLbl("         Lugar de nacimiento invalido");
+                return false;
+            }
+            if (validBirthday() == false)
+            {
+                updateErrorLbl("         Fecha de nacimiento invalido");
+                return false;
+            }
+            if (validGenre() == false)
+            {
+                updateErrorLbl("         Seleccione un sexo");
+                return false;
+            }
+            if (validPhoneNumber() == false)
+            {
+                updateErrorLbl("         Celular invalido");
+                return false;
+            }
+            if (validEmergencyPhoneNumber() == false)
+            {
+                updateErrorLbl("         Celular de emergencia invalido");
+                return false;
+            }
+            if (validWorking() == false)
+            {
+                updateErrorLbl("         Seleccione si trabaja");
+                return false;
+            }
+            lblError.Visible = false;
+            return true;
+
+        }
+        bool validEmail()
+        {
+            var trimmedEmail = txtEmail.Text.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(txtEmail.Text);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        bool validPassword(){
+            if (txtPassword.Text.Length > 6) { return true; }
+            return false;
+        }
+        bool validConfirPass()
+        {
+            if (txtConfirPassword.Text.Equals(txtPassword.Text)) { return true; }
+            return false;
+        }
+        bool validName()
+        {
+            if (txtNombre.Text.Length > 1) { return true; }
+            return false;
+        }
+        bool validSurame()
+        {
+            if (txtApellido.Text.Length > 1) { return true; }
+            return false;
+        }
+        bool validDni()
+        {
+            if (txtDni.Text.Length > 1 && int.TryParse(txtDni.Text, out int numericValue)) { return true; }
+            return false;
+        }
+        bool validBirthplace()
+        {
+            if (txtLugarDeNacimiento.Text.Length > 1) { return true; }
+            return false;
+        }
+        bool validBirthday()
+        {
+            if (DateOnly.TryParse(txtFechaDeNacimiento.Text, out DateOnly dDate)){return true; }
+            return false;
+        }
+        bool validGenre()
+        {
+            if (cbSexo.SelectedIndex > -1) { return true; }
+            return false;
+        }
+        bool validPhoneNumber()
+        {
+            if (txtCelular.Text.Length > 1) { return true; }
+            return false;
+        }
+        bool validEmergencyPhoneNumber()
+        {
+            if (txtCelularDeEmergencia.Text.Length > 1) { return true; }
+            return false;
+        }
+        bool validWorking()
+        {
+            if (cbTrabaja.SelectedIndex > -1) { return true; }
+            return false;
+        }
+        bool validWorkactivity()
+        {
+            if (txtActividadLaboral.Text.Length > 1) { return true; }
+            return false;
+        }
+        bool validworkinghours()
+        {
+            if (txtHorarioLaboral.Text.Length > 1) { return true; }
+            return false;
+        }
+        #endregion
         private void picInfo_MouseHover(object sender, EventArgs e)
         {
             toolTipFechaDeNacimiento.Show("   El formato correcto es: dd/mm/aaaa", picInfo);
+        }
+        void updateErrorLbl(string msg)
+        {
+            lblError.Text = msg;
+            lblError.Visible = true;
+        }
+        void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            if (verifyAll())
+            {
+                DateOnly fecha = DateOnly.Parse(txtFechaDeNacimiento.Text);
+                if (cntPersona.addAlumno(Int32.Parse(txtDni.Text), txtEmail.Text, txtPassword.Text, txtNombre.Text, txtApellido.Text,
+                                                    fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
+                                                    txtActividadLaboral.Text,txtHorarioLaboral.Text))
+                {
+                formBienvenido formBienvenido = new formBienvenido();
+                formBienvenido.ShowDialog();
+                this.Close();
+                }
+                else {
+                    updateErrorLbl("Error, por favor intentelo nuevamente");
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            clear();
+            txtEmail.Focus();
+        }
+        void clear()
+        {
+            txtDni.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+            txtConfirPassword.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtFechaDeNacimiento.Text = "";
+            txtLugarDeNacimiento.Text = "";
+            txtCelular.Text = "";
+            txtCelularDeEmergencia.Text = "";
+            txtObraSocial.Text = "";
+            txtActividadLaboral.Text = "";
+            txtHorarioLaboral.Text = "";
+            cbSexo.SelectedIndex = -1;
+            cbTrabaja.SelectedIndex = -1;
+        }
+
+        private void btnViewPass_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.UseSystemPasswordChar)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void btnViewConfirmPass_Click(object sender, EventArgs e)
+        {
+            if (txtConfirPassword.UseSystemPasswordChar)
+            {
+                txtConfirPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtConfirPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

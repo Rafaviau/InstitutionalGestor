@@ -19,8 +19,9 @@ namespace GestIn.Modelo.Clases
 		public string ActividadLaboral { get; set; }
 		public string HorarioLaboral { get; set; }
 
-        public Alumno(int dNI,string mail, string password, string nombre, string apellido, DateOnly fechaDeNacimiento, string lugarDeNacimiento, string sexo, string celular, string celularDeEmergencia, bool fotocopiaDNI, bool fotocopiaTitSecundario, bool fotos4x4, bool certificadoMedico, bool cerificadoDeNacimiento, bool constCUIL, bool cooperadora, string obraSocial, string actividadLaboral, string horarioLaboral) 
-            : base (dNI, mail, password, nombre, apellido, fechaDeNacimiento, lugarDeNacimiento, sexo, celular, celularDeEmergencia){
+        public Alumno(int dNI,string mail, string password, string nombre, string apellido, DateOnly fechaDeNacimiento, string lugarDeNacimiento, string sexo, string celular, string CelularDeEmergencia , bool fotocopiaDNI, bool fotocopiaTitSecundario, bool fotos4x4, bool certificadoMedico, bool cerificadoDeNacimiento, bool constCUIL, bool cooperadora, string obraSocial, string actividadLaboral, string horarioLaboral) 
+            : base (dNI, mail, password, nombre, apellido, fechaDeNacimiento, lugarDeNacimiento, sexo, celular, CelularDeEmergencia)
+        {
             FotocopiaDNI = fotocopiaDNI;
             FotocopiaTitSecundario = fotocopiaTitSecundario;
             Fotos4x4 = fotos4x4;
@@ -33,7 +34,7 @@ namespace GestIn.Modelo.Clases
             HorarioLaboral = horarioLaboral;
         }
 
-        public Alumno(int dNI, string mail, string contraseña, string nombre, string apellido, DateOnly fechaDeNacimiento, string sexo) : base(dNI, mail, contraseña, nombre, apellido, fechaDeNacimiento, sexo)
+        public Alumno(int dNI, string mail, string contraseña, string nombre, string apellido, DateOnly fechaDeNacimiento,string lugarDeNacimiento ,string sexo, string celular,string CelularDeEmergencia) : base(dNI, mail, contraseña, nombre, apellido, fechaDeNacimiento,lugarDeNacimiento, sexo, celular, CelularDeEmergencia)
         {
             FotocopiaDNI = false;
             FotocopiaTitSecundario = false;
@@ -45,6 +46,13 @@ namespace GestIn.Modelo.Clases
             ObraSocial = "";
             ActividadLaboral = "";
             HorarioLaboral = "";
+        }
+
+        public Alumno(int dNI, string mail, string contraseña, string nombre, string apellido, DateOnly fechaDeNacimiento, string lugarDeNacimiento, string sexo, string celular, string CelularDeEmergencia,string obraSocial, string actividadLaboral, string horarioLaboral) : base(dNI, mail, contraseña, nombre, apellido, fechaDeNacimiento, lugarDeNacimiento, sexo, celular, CelularDeEmergencia)
+        {
+            ObraSocial = obraSocial;
+            ActividadLaboral = actividadLaboral;
+            HorarioLaboral = horarioLaboral;
         }
     }
 

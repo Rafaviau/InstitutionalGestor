@@ -37,19 +37,15 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnViewConfirmPass = new System.Windows.Forms.PictureBox();
+            this.txtConfirPassword = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnViewPass = new System.Windows.Forms.PictureBox();
+            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtLugarDeNacimiento = new System.Windows.Forms.TextBox();
-            this.txtFechaDeNacimiento = new System.Windows.Forms.TextBox();
             this.txtCelularDeEmergencia = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.cbTrabaja = new System.Windows.Forms.ComboBox();
             this.txtObraSocial = new System.Windows.Forms.TextBox();
@@ -57,8 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCelular = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.picInfo = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -66,13 +60,23 @@
             this.txtActividadLaboral = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFechaDeNacimiento = new System.Windows.Forms.TextBox();
+            this.txtLugarDeNacimiento = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.picInfo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblEmailVacio = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.toolTipFechaDeNacimiento = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewConfirmPass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -156,7 +162,7 @@
             this.label14.Location = new System.Drawing.Point(335, 42);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(325, 42);
-            this.label14.TabIndex = 0;
+            this.label14.TabIndex = 99;
             this.label14.Text = "Crear una cuenta";
             // 
             // tableLayoutPanel1
@@ -166,22 +172,18 @@
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.btnViewConfirmPass, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtConfirPassword, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnViewPass, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnRegistrarse, 3, 7);
             this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtApellido, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtDni, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtLugarDeNacimiento, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtFechaDeNacimiento, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtCelularDeEmergencia, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.label10, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.cbTrabaja, 4, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtObraSocial, 4, 3);
@@ -189,8 +191,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label8, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtCelular, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.picInfo, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.label9, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label11, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.label16, 3, 2);
@@ -198,10 +198,22 @@
             this.tableLayoutPanel1.Controls.Add(this.txtActividadLaboral, 4, 5);
             this.tableLayoutPanel1.Controls.Add(this.label15, 3, 6);
             this.tableLayoutPanel1.Controls.Add(this.label12, 3, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 96);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtFechaDeNacimiento, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.txtLugarDeNacimiento, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtDni, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtApellido, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.picInfo, 2, 7);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 87);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -209,78 +221,82 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(939, 333);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(939, 395);
             this.tableLayoutPanel1.TabIndex = 18;
             // 
-            // label7
+            // btnViewConfirmPass
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 254);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 22);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Lugar de nacimiento";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnViewConfirmPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.btnViewConfirmPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewConfirmPass.Image = global::GestIn.Properties.Resources.Eye;
+            this.btnViewConfirmPass.Location = new System.Drawing.Point(446, 104);
+            this.btnViewConfirmPass.Name = "btnViewConfirmPass";
+            this.btnViewConfirmPass.Size = new System.Drawing.Size(25, 25);
+            this.btnViewConfirmPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnViewConfirmPass.TabIndex = 101;
+            this.btnViewConfirmPass.TabStop = false;
+            this.btnViewConfirmPass.Click += new System.EventHandler(this.btnViewConfirmPass_Click);
             // 
-            // label5
+            // txtConfirPassword
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 204);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 22);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Dni";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtConfirPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConfirPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtConfirPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConfirPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtConfirPassword.ForeColor = System.Drawing.Color.White;
+            this.txtConfirPassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtConfirPassword.Location = new System.Drawing.Point(220, 104);
+            this.txtConfirPassword.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.txtConfirPassword.Multiline = true;
+            this.txtConfirPassword.Name = "txtConfirPassword";
+            this.txtConfirPassword.PasswordChar = '*';
+            this.txtConfirPassword.Size = new System.Drawing.Size(220, 25);
+            this.txtConfirPassword.TabIndex = 3;
+            this.txtConfirPassword.WordWrap = false;
             // 
-            // label2
+            // label13
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 57);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Contraseña";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(3, 105);
+            this.label13.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(211, 22);
+            this.label13.TabIndex = 100;
+            this.label13.Text = "Confirmar contraseña";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // btnViewPass
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 105);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 22);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Nombre";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnViewPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.btnViewPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewPass.Image = global::GestIn.Properties.Resources.Eye;
+            this.btnViewPass.Location = new System.Drawing.Point(446, 56);
+            this.btnViewPass.Name = "btnViewPass";
+            this.btnViewPass.Size = new System.Drawing.Size(25, 25);
+            this.btnViewPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnViewPass.TabIndex = 100;
+            this.btnViewPass.TabStop = false;
+            this.btnViewPass.Click += new System.EventHandler(this.btnViewPass_Click);
             // 
-            // label4
+            // btnRegistrarse
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 153);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 22);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Apellido";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRegistrarse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnRegistrarse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRegistrarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarse.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRegistrarse.ForeColor = System.Drawing.Color.Black;
+            this.btnRegistrarse.Location = new System.Drawing.Point(477, 349);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.Size = new System.Drawing.Size(221, 43);
+            this.btnRegistrarse.TabIndex = 16;
+            this.btnRegistrarse.Text = "Registrarse";
+            this.btnRegistrarse.UseVisualStyleBackColor = false;
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
             // txtPassword
             // 
@@ -290,93 +306,14 @@
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.ForeColor = System.Drawing.Color.White;
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtPassword.Location = new System.Drawing.Point(215, 56);
+            this.txtPassword.Location = new System.Drawing.Point(220, 56);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(220, 25);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.WordWrap = false;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNombre.ForeColor = System.Drawing.Color.White;
-            this.txtNombre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtNombre.Location = new System.Drawing.Point(215, 104);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.txtNombre.Multiline = true;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(220, 25);
-            this.txtNombre.TabIndex = 3;
-            this.txtNombre.WordWrap = false;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtApellido.ForeColor = System.Drawing.Color.White;
-            this.txtApellido.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtApellido.Location = new System.Drawing.Point(215, 152);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.txtApellido.Multiline = true;
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(220, 25);
-            this.txtApellido.TabIndex = 4;
-            this.txtApellido.WordWrap = false;
-            // 
-            // txtDni
-            // 
-            this.txtDni.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDni.ForeColor = System.Drawing.Color.White;
-            this.txtDni.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtDni.Location = new System.Drawing.Point(215, 202);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.txtDni.Multiline = true;
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(220, 25);
-            this.txtDni.TabIndex = 5;
-            this.txtDni.WordWrap = false;
-            // 
-            // txtLugarDeNacimiento
-            // 
-            this.txtLugarDeNacimiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLugarDeNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtLugarDeNacimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLugarDeNacimiento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtLugarDeNacimiento.ForeColor = System.Drawing.Color.White;
-            this.txtLugarDeNacimiento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtLugarDeNacimiento.Location = new System.Drawing.Point(215, 253);
-            this.txtLugarDeNacimiento.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.txtLugarDeNacimiento.Multiline = true;
-            this.txtLugarDeNacimiento.Name = "txtLugarDeNacimiento";
-            this.txtLugarDeNacimiento.Size = new System.Drawing.Size(220, 25);
-            this.txtLugarDeNacimiento.TabIndex = 6;
-            this.txtLugarDeNacimiento.WordWrap = false;
-            // 
-            // txtFechaDeNacimiento
-            // 
-            this.txtFechaDeNacimiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFechaDeNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtFechaDeNacimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFechaDeNacimiento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFechaDeNacimiento.ForeColor = System.Drawing.Color.White;
-            this.txtFechaDeNacimiento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtFechaDeNacimiento.Location = new System.Drawing.Point(215, 301);
-            this.txtFechaDeNacimiento.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.txtFechaDeNacimiento.Multiline = true;
-            this.txtFechaDeNacimiento.Name = "txtFechaDeNacimiento";
-            this.txtFechaDeNacimiento.Size = new System.Drawing.Size(220, 25);
-            this.txtFechaDeNacimiento.TabIndex = 7;
-            this.txtFechaDeNacimiento.WordWrap = false;
             // 
             // txtCelularDeEmergencia
             // 
@@ -385,12 +322,12 @@
             this.txtCelularDeEmergencia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCelularDeEmergencia.ForeColor = System.Drawing.Color.White;
             this.txtCelularDeEmergencia.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtCelularDeEmergencia.Location = new System.Drawing.Point(688, 104);
+            this.txtCelularDeEmergencia.Location = new System.Drawing.Point(704, 104);
             this.txtCelularDeEmergencia.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtCelularDeEmergencia.Multiline = true;
             this.txtCelularDeEmergencia.Name = "txtCelularDeEmergencia";
             this.txtCelularDeEmergencia.Size = new System.Drawing.Size(233, 25);
-            this.txtCelularDeEmergencia.TabIndex = 10;
+            this.txtCelularDeEmergencia.TabIndex = 11;
             this.txtCelularDeEmergencia.WordWrap = false;
             // 
             // label1
@@ -403,10 +340,26 @@
             this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 22);
+            this.label1.Size = new System.Drawing.Size(211, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Email";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(704, 349);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(237, 43);
+            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label10
             // 
@@ -414,7 +367,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(461, 204);
+            this.label10.Location = new System.Drawing.Point(477, 204);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(221, 22);
@@ -432,11 +385,11 @@
             this.cbTrabaja.Items.AddRange(new object[] {
             "Si",
             "No"});
-            this.cbTrabaja.Location = new System.Drawing.Point(688, 207);
+            this.cbTrabaja.Location = new System.Drawing.Point(704, 207);
             this.cbTrabaja.Margin = new System.Windows.Forms.Padding(3, 10, 3, 20);
             this.cbTrabaja.Name = "cbTrabaja";
             this.cbTrabaja.Size = new System.Drawing.Size(233, 23);
-            this.cbTrabaja.TabIndex = 12;
+            this.cbTrabaja.TabIndex = 13;
             // 
             // txtObraSocial
             // 
@@ -445,12 +398,12 @@
             this.txtObraSocial.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtObraSocial.ForeColor = System.Drawing.Color.White;
             this.txtObraSocial.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtObraSocial.Location = new System.Drawing.Point(688, 152);
+            this.txtObraSocial.Location = new System.Drawing.Point(704, 152);
             this.txtObraSocial.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtObraSocial.Multiline = true;
             this.txtObraSocial.Name = "txtObraSocial";
             this.txtObraSocial.Size = new System.Drawing.Size(233, 25);
-            this.txtObraSocial.TabIndex = 11;
+            this.txtObraSocial.TabIndex = 12;
             this.txtObraSocial.WordWrap = false;
             // 
             // cbSexo
@@ -463,11 +416,11 @@
             this.cbSexo.Items.AddRange(new object[] {
             "Hombre",
             "Mujer"});
-            this.cbSexo.Location = new System.Drawing.Point(688, 10);
+            this.cbSexo.Location = new System.Drawing.Point(704, 10);
             this.cbSexo.Margin = new System.Windows.Forms.Padding(3, 10, 3, 20);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(233, 23);
-            this.cbSexo.TabIndex = 8;
+            this.cbSexo.TabIndex = 9;
             // 
             // label8
             // 
@@ -475,7 +428,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(461, 7);
+            this.label8.Location = new System.Drawing.Point(477, 7);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(221, 22);
@@ -491,7 +444,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtEmail.ForeColor = System.Drawing.Color.White;
             this.txtEmail.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtEmail.Location = new System.Drawing.Point(215, 5);
+            this.txtEmail.Location = new System.Drawing.Point(220, 5);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
@@ -506,39 +459,13 @@
             this.txtCelular.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCelular.ForeColor = System.Drawing.Color.White;
             this.txtCelular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtCelular.Location = new System.Drawing.Point(688, 56);
+            this.txtCelular.Location = new System.Drawing.Point(704, 56);
             this.txtCelular.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtCelular.Multiline = true;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(233, 25);
-            this.txtCelular.TabIndex = 9;
+            this.txtCelular.TabIndex = 10;
             this.txtCelular.WordWrap = false;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 302);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(206, 22);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Fecha de nacimiento";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picInfo
-            // 
-            this.picInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picInfo.Image = global::GestIn.Properties.Resources.info;
-            this.picInfo.Location = new System.Drawing.Point(441, 301);
-            this.picInfo.Name = "picInfo";
-            this.picInfo.Size = new System.Drawing.Size(14, 16);
-            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picInfo.TabIndex = 24;
-            this.picInfo.TabStop = false;
-            this.picInfo.MouseHover += new System.EventHandler(this.picInfo_MouseHover);
             // 
             // label9
             // 
@@ -546,7 +473,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(461, 57);
+            this.label9.Location = new System.Drawing.Point(477, 57);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(221, 22);
@@ -560,7 +487,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(461, 153);
+            this.label11.Location = new System.Drawing.Point(477, 153);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(221, 22);
@@ -574,7 +501,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(461, 105);
+            this.label16.Location = new System.Drawing.Point(477, 105);
             this.label16.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(221, 22);
@@ -589,12 +516,12 @@
             this.txtHorarioLaboral.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtHorarioLaboral.ForeColor = System.Drawing.Color.White;
             this.txtHorarioLaboral.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtHorarioLaboral.Location = new System.Drawing.Point(688, 301);
+            this.txtHorarioLaboral.Location = new System.Drawing.Point(704, 301);
             this.txtHorarioLaboral.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtHorarioLaboral.Multiline = true;
             this.txtHorarioLaboral.Name = "txtHorarioLaboral";
             this.txtHorarioLaboral.Size = new System.Drawing.Size(233, 25);
-            this.txtHorarioLaboral.TabIndex = 14;
+            this.txtHorarioLaboral.TabIndex = 15;
             this.txtHorarioLaboral.WordWrap = false;
             // 
             // txtActividadLaboral
@@ -604,12 +531,12 @@
             this.txtActividadLaboral.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtActividadLaboral.ForeColor = System.Drawing.Color.White;
             this.txtActividadLaboral.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtActividadLaboral.Location = new System.Drawing.Point(688, 253);
+            this.txtActividadLaboral.Location = new System.Drawing.Point(704, 253);
             this.txtActividadLaboral.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.txtActividadLaboral.Multiline = true;
             this.txtActividadLaboral.Name = "txtActividadLaboral";
             this.txtActividadLaboral.Size = new System.Drawing.Size(233, 25);
-            this.txtActividadLaboral.TabIndex = 13;
+            this.txtActividadLaboral.TabIndex = 14;
             this.txtActividadLaboral.WordWrap = false;
             // 
             // label15
@@ -618,7 +545,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(461, 302);
+            this.label15.Location = new System.Drawing.Point(477, 302);
             this.label15.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(221, 22);
@@ -632,7 +559,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(461, 254);
+            this.label12.Location = new System.Drawing.Point(477, 254);
             this.label12.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(221, 22);
@@ -640,19 +567,182 @@
             this.label12.Text = "Actividad laboral";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLogin
+            // label6
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(781, 449);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(159, 37);
-            this.btnLogin.TabIndex = 16;
-            this.btnLogin.Text = "Cancelar";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 351);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(211, 22);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Fecha de nacimiento";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 302);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(211, 22);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Lugar de nacimiento";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 254);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(211, 22);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Dni";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 204);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(211, 22);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Apellido";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 153);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(211, 22);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Nombre";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtFechaDeNacimiento
+            // 
+            this.txtFechaDeNacimiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFechaDeNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtFechaDeNacimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFechaDeNacimiento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFechaDeNacimiento.ForeColor = System.Drawing.Color.White;
+            this.txtFechaDeNacimiento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtFechaDeNacimiento.Location = new System.Drawing.Point(220, 349);
+            this.txtFechaDeNacimiento.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.txtFechaDeNacimiento.Multiline = true;
+            this.txtFechaDeNacimiento.Name = "txtFechaDeNacimiento";
+            this.txtFechaDeNacimiento.PlaceholderText = "dd/mm/aaaa";
+            this.txtFechaDeNacimiento.Size = new System.Drawing.Size(220, 25);
+            this.txtFechaDeNacimiento.TabIndex = 8;
+            this.txtFechaDeNacimiento.WordWrap = false;
+            // 
+            // txtLugarDeNacimiento
+            // 
+            this.txtLugarDeNacimiento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLugarDeNacimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtLugarDeNacimiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLugarDeNacimiento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtLugarDeNacimiento.ForeColor = System.Drawing.Color.White;
+            this.txtLugarDeNacimiento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtLugarDeNacimiento.Location = new System.Drawing.Point(220, 301);
+            this.txtLugarDeNacimiento.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.txtLugarDeNacimiento.Multiline = true;
+            this.txtLugarDeNacimiento.Name = "txtLugarDeNacimiento";
+            this.txtLugarDeNacimiento.Size = new System.Drawing.Size(220, 25);
+            this.txtLugarDeNacimiento.TabIndex = 7;
+            this.txtLugarDeNacimiento.WordWrap = false;
+            // 
+            // txtDni
+            // 
+            this.txtDni.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDni.ForeColor = System.Drawing.Color.White;
+            this.txtDni.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtDni.Location = new System.Drawing.Point(220, 253);
+            this.txtDni.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.txtDni.Multiline = true;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(220, 25);
+            this.txtDni.TabIndex = 6;
+            this.txtDni.WordWrap = false;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtApellido.ForeColor = System.Drawing.Color.White;
+            this.txtApellido.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtApellido.Location = new System.Drawing.Point(220, 202);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.txtApellido.Multiline = true;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(220, 25);
+            this.txtApellido.TabIndex = 5;
+            this.txtApellido.WordWrap = false;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNombre.ForeColor = System.Drawing.Color.White;
+            this.txtNombre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtNombre.Location = new System.Drawing.Point(220, 152);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.txtNombre.Multiline = true;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(220, 25);
+            this.txtNombre.TabIndex = 4;
+            this.txtNombre.WordWrap = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 57);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(211, 22);
+            this.label2.TabIndex = 99;
+            this.label2.Text = "Contraseña";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // picInfo
+            // 
+            this.picInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picInfo.Image = global::GestIn.Properties.Resources.info;
+            this.picInfo.Location = new System.Drawing.Point(446, 349);
+            this.picInfo.Name = "picInfo";
+            this.picInfo.Size = new System.Drawing.Size(16, 16);
+            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picInfo.TabIndex = 24;
+            this.picInfo.TabStop = false;
+            this.picInfo.MouseHover += new System.EventHandler(this.picInfo_MouseHover);
             // 
             // tableLayoutPanel3
             // 
@@ -702,33 +792,19 @@
             this.panel2.Size = new System.Drawing.Size(982, 18);
             this.panel2.TabIndex = 19;
             // 
-            // button1
+            // lblError
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(604, 449);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 37);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Registrarse";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // lblEmailVacio
-            // 
-            this.lblEmailVacio.AutoSize = true;
-            this.lblEmailVacio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmailVacio.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblEmailVacio.Image = global::GestIn.Properties.Resources.Error;
-            this.lblEmailVacio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEmailVacio.Location = new System.Drawing.Point(21, 449);
-            this.lblEmailVacio.Name = "lblEmailVacio";
-            this.lblEmailVacio.Size = new System.Drawing.Size(29, 17);
-            this.lblEmailVacio.TabIndex = 20;
-            this.lblEmailVacio.Text = "       ";
-            this.lblEmailVacio.Visible = false;
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblError.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblError.Image = global::GestIn.Properties.Resources.Error;
+            this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblError.Location = new System.Drawing.Point(27, 487);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(37, 20);
+            this.lblError.TabIndex = 20;
+            this.lblError.Text = "       ";
+            this.lblError.Visible = false;
             // 
             // formRegistroAlumno
             // 
@@ -736,13 +812,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(982, 528);
-            this.Controls.Add(this.lblEmailVacio);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formRegistroAlumno";
             this.Text = "formRegistroAlumno";
@@ -754,6 +828,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewConfirmPass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -802,10 +878,14 @@
         private TextBox txtActividadLaboral;
         private TextBox txtHorarioLaboral;
         private Label label8;
-        private Button btnLogin;
-        private Button button1;
-        private Label lblEmailVacio;
+        private Button btnCancelar;
+        private Button btnRegistrarse;
+        private Label lblError;
         private PictureBox picInfo;
         private ToolTip toolTipFechaDeNacimiento;
+        private PictureBox btnViewPass;
+        private PictureBox btnViewConfirmPass;
+        private TextBox txtConfirPassword;
+        private Label label13;
     }
 }
