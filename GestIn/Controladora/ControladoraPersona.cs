@@ -11,7 +11,7 @@ namespace GestIn.Controladora
     internal class ControladoraPersona
     {
         #region Atributos
-        daoEstudiante daoEstudiante = new daoEstudiante();
+        daoAlumnos daoEstudiante = new daoAlumnos();
         List<Alumno> ListAlumnos;
         static ControladoraPersona? Instance;
         #endregion
@@ -39,36 +39,34 @@ namespace GestIn.Controladora
             if(alumno != null) { return alumno; }
             return null;
         }
-
-
         //Falta verificar si el alumno ya tiene una cuenta
-        public Boolean AddToDatabase(Alumno a)
+        public Boolean AddToDatabase(Alumno alumno)
         {
-            if (readAlumno(a.DNI) == null) {
-                daoEstudiante.create(a);
+            if (verifyUsuarioExist(alumno.DNI) == false) {
+                
+                daoEstudiante.create(alumno);
             }
-            if (daoEstudiante.createAlumno(a)) { return true; }
+            if (daoEstudiante.createAlumno(alumno)) { return true; }
             return false;
         }
-        public Boolean AddToListAlumno(Alumno a) {
-            ListAlumnos.Add(a);
-            return true;
+        public void AddToListAlumno(Alumno alumno) {
+            ListAlumnos.Add(alumno);
         }
         public Boolean addAlumno(int dNI, string mail, string password, string nombre, string apellido, DateOnly fechaDeNacimiento, string lugarDeNacimiento,
                                 string sexo, string celular, string celularDeEmergencia, string obraSocial, string actividadLaboral, string horarioLaboral)
         {
-            Alumno a = createAlumno(dNI, mail, password, nombre, apellido, fechaDeNacimiento, lugarDeNacimiento, sexo, celular, celularDeEmergencia, obraSocial, actividadLaboral, horarioLaboral);
-            if (a != null) {
-                if (AddToDatabase(a) && AddToListAlumno(a)) {return true;}
+            Alumno alumno = createAlumno(dNI, mail, password, nombre, apellido, fechaDeNacimiento, lugarDeNacimiento, sexo, celular, celularDeEmergencia, obraSocial, actividadLaboral, horarioLaboral);
+            if (alumno != null) {
+                if (AddToDatabase(alumno)) {
+                    AddToListAlumno(alumno);
+                    return true;
+                }
             }
             return false;
         }
         public List<Alumno> ReadAll() {
             return daoEstudiante.readALL();
         }
-        
-
-        
         public void loadListAlumnos() {
             ListAlumnos = ReadAll();
         }
@@ -88,7 +86,13 @@ namespace GestIn.Controladora
             }
             return alumno;
         }
+        bool verifyUsuarioExist(int dni) {
+            if (daoEstudiante.ReadUsuario(dni)) 
+            {
+                return true; 
+            }
+            return false;
+        }
         #endregion
-
     }
 }

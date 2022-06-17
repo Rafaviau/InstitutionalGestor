@@ -10,13 +10,14 @@ using System.Data;
 
 namespace GestIn.Modelo.DAO
 {
-    class daoEstudiante : ConexionDb, Idao<Alumno>
+    class daoAlumnos : ConexionDb, Idao<Alumno>
     {
         private readonly String SQL_CREATEUSER = "INSERT INTO USUARIOS VALUES (@Dni,@Email,@Password,@rol,@Nombre,@Apellido,@FechaDeNacimiento,@LugarDeNacimiento,@Celular,@CelularDeEmergencia,@Sexo)";
-        private readonly String SQL_CREATEESTUDIANTE = "INSERT INTO ESTUDIANTES VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
+        private readonly String SQL_CREATEALUMNO = "INSERT INTO ALUMNOS VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
                                                      "@ConstCUIL,@Cooperadora,@ObraSocial,@ActividadLaboral,@HorarioLaboral)";
-        private readonly String SQL_SELECTALLESTUDIANTES = "SELECT * FROM USUARIOS";
-        public bool create(Alumno c)
+        private readonly String SQL_SELECTUSUARIO = "SELECT * FROM USUARIOS WHERE Dni = @Dni";
+        private readonly String SQL_READALUMNO = "SELECT * FROM USUARIOS INNER JOIN ALUMNOS ON USUARIOS.Dni = ALUMNOS.Dni WHERE ALUMNOS.Dni = @dni";
+        public bool create(Alumno c) //Crea un usuario
         {
             using (var connection = GetConnection())
             {
@@ -28,7 +29,7 @@ namespace GestIn.Modelo.DAO
                     command.Parameters.AddWithValue("@Dni", c.DNI);
                     command.Parameters.AddWithValue("@Email", c.Mail);
                     command.Parameters.AddWithValue("@Password", c.Password);
-                    command.Parameters.AddWithValue("@rol", "Estudiante");
+                    command.Parameters.AddWithValue("@rol", "Alumnos");
                     command.Parameters.AddWithValue("@Nombre", c.Nombre);
                     command.Parameters.AddWithValue("@Apellido", c.Apellido);
                     command.Parameters.AddWithValue("@FechaDeNacimiento", c.FechaDeNacimiento.ToString());
@@ -41,7 +42,7 @@ namespace GestIn.Modelo.DAO
                     {
                         if (command.ExecuteNonQuery() != 0) { return true; }
                     }
-                    catch (SqlException ex){}
+                    catch (SqlException ex) { }
                     return false;
                 }
             }
@@ -54,7 +55,7 @@ namespace GestIn.Modelo.DAO
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = SQL_CREATEESTUDIANTE;
+                    command.CommandText = SQL_CREATEALUMNO;
 
                     command.Parameters.AddWithValue("@dniFk", c.DNI);
                     command.Parameters.AddWithValue("@FotocopiaDni", c.FotocopiaDNI);
@@ -82,43 +83,79 @@ namespace GestIn.Modelo.DAO
             throw new NotImplementedException();
         }
 
-        public Alumno read(object key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Alumno> readALL()
+        public Alumno read(object dni)
         {
             using (var connection = GetConnection())
             {
-                List<Alumno> listAlumnos = new List<Alumno>();
+                Alumno alumno = null;
                 connection.Open();
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = SQL_SELECTALLESTUDIANTES;
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        listAlumnos.Add(new Alumno(reader.GetInt32(0),
-                            reader.GetString(1),
-                            reader.GetString(2),
-                            reader.GetString(4),
-                            reader.GetString(5),
-                            DateOnly.Parse(reader.GetDateTime(6).ToString("dd-MM-yyy")),
-                            reader.GetString(7),
-                            reader.GetString(8),
-                            reader.GetString(9),
-                            reader.GetString(10)));
+                    command.CommandText = SQL_READALUMNO;
+                    command.Parameters.AddWithValue("@Dni", dni);
+                    try { 
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            alumno = new Alumno(
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(4),
+                                reader.GetString(5),
+                                DateOnly.Parse(reader.GetDateTime(6).ToString("dd-MM-yyy")),
+                                reader.GetString(7),
+                                reader.GetString(8),
+                                reader.GetString(9),
+                                reader.GetString(10),
+                                reader.GetBoolean(12),
+                                reader.GetBoolean(13),
+                                reader.GetBoolean(14),
+                                reader.GetBoolean(15),
+                                reader.GetBoolean(16),
+                                reader.GetBoolean(17),
+                                reader.GetBoolean(18),
+                                reader.GetString(19),
+                                reader.GetString(20),
+                                reader.GetString(21)
+                                );
+                        }
                     }
-                    return listAlumnos;
+                    catch (SqlException ex) { }
+                    return alumno;
                 }
             }
+        }
+
+        public List<Alumno> readALL()
+        {
+            throw new NotImplementedException();
         }
 
         public bool update(Alumno c)
         {
             throw new NotImplementedException();
+        }
+        public bool ReadUsuario(int dni)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = SQL_SELECTUSUARIO;
+                    command.Parameters.AddWithValue("@Dni", dni);
+                    command.CommandType = CommandType.Text;
+                    try
+                    {
+                        if (command.ExecuteNonQuery() != 0) {return true; }
+                    }
+                    catch (SqlException ex) { }
+                    return false;
+                }
+            }
         }
     }
 }

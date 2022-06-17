@@ -13,7 +13,7 @@ namespace GestIn.Vista.Login
 {
     public partial class formRegistroAlumno : Form
     {
-        ControladoraPersona cntPersona = ControladoraPersona.GetInstance();
+        ControladoraPersona personaController = ControladoraPersona.GetInstance();
         public formRegistroAlumno()
         {
             InitializeComponent();
@@ -220,7 +220,7 @@ namespace GestIn.Vista.Login
             if (verifyAll())
             {
                 DateOnly fecha = DateOnly.Parse(txtFechaDeNacimiento.Text);
-                if (cntPersona.addAlumno(Int32.Parse(txtDni.Text), txtEmail.Text, txtPassword.Text, txtNombre.Text, txtApellido.Text,
+                if (personaController.addAlumno(Int32.Parse(txtDni.Text), txtEmail.Text, txtPassword.Text, txtNombre.Text, txtApellido.Text,
                                                     fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
                                                     txtActividadLaboral.Text,txtHorarioLaboral.Text))
                 {
@@ -229,7 +229,7 @@ namespace GestIn.Vista.Login
                 this.Close();
                 }
                 else {
-                    updateErrorLbl("Error, por favor intentelo nuevamente");
+                    updateErrorLbl("     Error, por favor intentelo nuevamente");
                 }
             }
         }
@@ -280,6 +280,11 @@ namespace GestIn.Vista.Login
             {
                 txtConfirPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void formRegistroAlumno_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

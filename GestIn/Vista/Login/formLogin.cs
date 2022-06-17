@@ -20,7 +20,6 @@ namespace GestIn.Vista.Login
         {
             InitializeComponent();
             this.CenterToScreen();
-            cntPersona.loadListAlumnos();
         }
        
         #region "Minimizar,cerrar y arrastrar"
@@ -93,10 +92,9 @@ namespace GestIn.Vista.Login
             formRegistroAlumno.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void formLogin_Load(object sender, EventArgs e)
         {
-            formBienvenido formBienvenido = new formBienvenido();
-            formBienvenido.ShowDialog();
+
         }
     }
 }
