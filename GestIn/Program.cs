@@ -1,4 +1,6 @@
-using GestIn.Vista;
+using GestIn.Vista.Login;
+using GestIn.Vista.Test;
+
 namespace GestIn
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace GestIn
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormMateria());
+            Application.Run(new formLogin());
         }
     }
 }

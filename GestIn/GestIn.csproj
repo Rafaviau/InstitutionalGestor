@@ -9,8 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controladores\" />
-    <Folder Include="Vistas\" />
+    <Compile Remove="Controladores\**" />
+    <Compile Remove="Vistas\**" />
+    <EmbeddedResource Remove="Controladores\**" />
+    <EmbeddedResource Remove="Vistas\**" />
+    <None Remove="Controladores\**" />
+    <None Remove="Vistas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
 </Project>

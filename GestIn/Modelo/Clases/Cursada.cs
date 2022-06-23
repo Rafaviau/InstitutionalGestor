@@ -3,30 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestIn.Modelo.Clases;
 
 namespace GestIn.Modelo.Clases
 {
     internal class Cursada
     {
-        public int cicloLectivo { get; set; }
-        public Alumno alumno { get; set; } 
-        public Materia materia { get; set; }
-        public bool aprobada { get; set; }
+        int cicloLectivo;
+        Alumno alumno;
+        Materia materia;
+        bool aprobada;
 
-        public Cursada(int _cicloLectivo,Alumno _alumno,Materia _materia,bool _aprobada)
+        public Cursada(int anio, Alumno alumno, Materia materia, bool aprobada)
         {
-            cicloLectivo = _cicloLectivo;
-            alumno = _alumno;
-            materia = _materia;
-            aprobada = _aprobada;
+            CICLOLECTIVO = cicloLectivo;
+            ALUMNO = alumno;
+            MATERIA = materia;
+            APROBADA = aprobada;
+        }
+        public int CICLOLECTIVO
+        {
+            set { cicloLectivo = value; }
+            get { return this.cicloLectivo; }
         }
 
-        public Cursada(int _cicloLectivo,Alumno _alumno,Materia _materia)
+        public Materia MATERIA
         {
-            cicloLectivo = _cicloLectivo;
-            alumno = _alumno;
-            materia = _materia;
+            set { materia = value; }
+            get { return materia; }
         }
 
+        public bool APROBADA
+        {
+            set { aprobada = value; }
+            get { return aprobada; }
+        }
+
+        public Alumno ALUMNO
+        {
+            set { alumno = value; }
+            get { return alumno;  }
+        }
     }
 }

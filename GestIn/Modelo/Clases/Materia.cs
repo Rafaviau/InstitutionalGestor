@@ -12,13 +12,12 @@ namespace GestIn.Modelo.Clases
         String Nombre;
         List<Materia> Correlativas;
         List<Docente> Docentes;
-        List<DateTime> Cronograma;
+        Dictionary<string, TimeSpan>? Cronograma;
         int AnioEnCarrera;
         int CargaHorariaSemanal;
         int CargaHorariaTotal;
-        
 
-        public Materia(int id, string nombre, List<Materia> correlativas, List<Docente> docentes, List<DateTime> cronograma, int anioEnCarrera, int cargaHorariaSemanal, int cargaHorariaTotal)
+        public Materia(int id, string nombre, List<Materia> correlativas, List<Docente> docentes, Dictionary<string, TimeSpan> cronograma, int anioEnCarrera, int cargaHorariaSemanal, int cargaHorariaTotal)
         {
             ID = id;
             NOMBRE = nombre;
@@ -30,7 +29,7 @@ namespace GestIn.Modelo.Clases
             CARGAHORARIATOTAL = cargaHorariaTotal;
         }
 
-        public Materia(int id, List<Materia> correlativas, List<Docente> docentes, List<DateTime> cronograma) : this(id)
+        public Materia(int id, List<Materia> correlativas, List<Docente> docentes, Dictionary<string, TimeSpan> cronograma) : this(id)
         {
             Correlativas = correlativas;
             Docentes = docentes;
@@ -53,46 +52,43 @@ namespace GestIn.Modelo.Clases
 
         public int ID
         {
-            set { this.Id = value; }
-            get { return this.Id; }
+            set { Id = value; }
+            get { return Id; }
         }
-        public String NOMBRE
+        public string NOMBRE
         {
-            set { this.Nombre = value; }
-            get { return this.Nombre; }
+            set { Nombre = value; }
+            get { return Nombre; }
         }
         public List<Materia> CORRELATIVAS
         {
-            set { this.Correlativas = value; }
-            get { return this.Correlativas; }
+            set { Correlativas = value; }
+            get { return Correlativas; }
         }
         public List<Docente> DOCENTES
         {
-            set { this.Docentes = value; }
-            get { return this.Docentes; }
+            set { Docentes = value; }
+            get { return Docentes; }
         }
-        public List<DateTime> CRONOGRAMA
+        public Dictionary<string, TimeSpan> CRONOGRAMA
         {
-            set { this.Cronograma = value; }
-            get { return this.Cronograma; }
+            set { Cronograma = value; }
+            get { return Cronograma; }
         }
         public int ANIOENCARRERA
         {
-            set { this.AnioEnCarrera = value; }
-            get { return this.AnioEnCarrera; }
+            set { AnioEnCarrera = value; }
+            get { return AnioEnCarrera; }
         }
         public int CARGAHORARIASEMANAL
         {
-            set { this.CargaHorariaSemanal = value; }
-            get { return this.CargaHorariaSemanal; }
+            set { CargaHorariaSemanal = value; }
+            get { return CargaHorariaSemanal; }
         }
         public int CARGAHORARIATOTAL
         {
-            set { this.CargaHorariaTotal = value; }
-            get { return this.CargaHorariaTotal; }
+            set { CargaHorariaTotal = value; }
+            get { return CargaHorariaTotal; }
         }
     }
-
-
-
 }

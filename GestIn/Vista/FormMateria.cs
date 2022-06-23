@@ -12,16 +12,16 @@ namespace GestIn.Vista
 {
     public partial class FormMateria : Form
     {
-        ControladoraMateria obj;
+        //ControladoraMateria obj;
         public FormMateria()
         {
-            this.obj = ControladoraMateria.GetInstance();
+            //this.obj = ControladoraMateria.GetInstance();
             InitializeComponent();
         }
 
         private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
         {
-            obj.CreateMateria(Int32.Parse(txtID.Text),txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaSemanal.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+           // obj.CreateMateria(Int32.Parse(txtID.Text),txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaSemanal.Text), Int32.Parse(txtCargaHorariaTotal.Text));
         }
 
         private void btnModificar_MouseClick(object sender, MouseEventArgs e)
@@ -31,7 +31,7 @@ namespace GestIn.Vista
 
         private void btnBorrar_MouseClick(object sender, MouseEventArgs e)
         {
-            obj.DeleteMateria(Convert.ToInt32(this.txtID.Text));
+            //obj.DeleteMateria(Convert.ToInt32(this.txtID.Text));
         }
     }
 }

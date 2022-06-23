@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Carlota\\source\\repos\\gestin-BrianBranchMateria\\GestIn\\GestIn.csproj": {}
+    "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Carlota\\source\\repos\\gestin-BrianBranchMateria\\GestIn\\GestIn.csproj": {
+    "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Carlota\\source\\repos\\gestin-BrianBranchMateria\\GestIn\\GestIn.csproj",
+        "projectUniqueName": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj",
         "projectName": "GestIn",
-        "projectPath": "C:\\Users\\Carlota\\source\\repos\\gestin-BrianBranchMateria\\GestIn\\GestIn.csproj",
-        "packagesPath": "C:\\Users\\Carlota\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carlota\\source\\repos\\gestin-BrianBranchMateria\\GestIn\\obj\\",
+        "projectPath": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj",
+        "packagesPath": "C:\\Users\\14-3Año\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Carlota\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\14-3Año\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

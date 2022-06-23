@@ -4,5 +4,20 @@
     <Compile Update="Vista\FormMateria.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Vista\Inicio\formMenuInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vista\Login\formBienvenido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vista\Login\formLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vista\Login\formRegistroAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Vista\Test\prueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

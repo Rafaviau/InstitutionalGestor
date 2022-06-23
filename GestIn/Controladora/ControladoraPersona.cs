@@ -39,7 +39,6 @@ namespace GestIn.Controladora
             if(alumno != null) { return alumno; }
             return null;
         }
-        //Falta verificar si el alumno ya tiene una cuenta
         public Boolean AddToDatabase(Alumno alumno)
         {
             if (verifyUsuarioExist(alumno.DNI) == false) {
@@ -76,15 +75,7 @@ namespace GestIn.Controladora
         }
         public Alumno readAlumno(int dni)
         {
-            Alumno alumno = null;
-            foreach(Alumno alumno1 in ListAlumnos)
-            {
-                if(alumno1.DNI == dni)
-                {
-                    alumno = alumno1;
-                }
-            }
-            return alumno;
+            return daoEstudiante.read(dni);
         }
         bool verifyUsuarioExist(int dni) {
             if (daoEstudiante.ReadUsuario(dni)) 
