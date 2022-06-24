@@ -13,10 +13,10 @@ namespace GestIn.Modelo.DAO
     class daoAlumnos : ConexionDb, Idao<Alumno>
     {
         private readonly String SQL_CREATEUSER = "INSERT INTO USUARIOS VALUES (@Dni,@Email,@Password,@rol,@Nombre,@Apellido,@FechaDeNacimiento,@LugarDeNacimiento,@Celular,@CelularDeEmergencia,@Sexo)";
-        private readonly String SQL_CREATEALUMNO = "INSERT INTO ALUMNOS VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
+        private readonly String SQL_CREATEALUMNO = "INSERT INTO ESTUDIANTES VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
                                                      "@ConstCUIL,@Cooperadora,@ObraSocial,@ActividadLaboral,@HorarioLaboral)";
         private readonly String SQL_SELECTUSUARIO = "SELECT * FROM USUARIOS WHERE Dni = @Dni";
-        private readonly String SQL_READALUMNO = "SELECT * FROM USUARIOS INNER JOIN ALUMNOS ON USUARIOS.Dni = ALUMNOS.Dni WHERE ALUMNOS.Dni = @dni";
+        private readonly String SQL_READALUMNO = "SELECT * FROM USUARIOS INNER JOIN ESTUDIANTES ON USUARIOS.Dni = ESTUDIANTES.Dni WHERE ESTUDIANTES.Dni = @dni";
         public bool create(Alumno c) //Crea un usuario
         {
             using (var connection = GetConnection())
@@ -71,7 +71,7 @@ namespace GestIn.Modelo.DAO
                     command.CommandType = CommandType.Text;
                     try
                     {
-                        if (command.ExecuteNonQuery() != 0) { return true; }
+                        if (command.ExecuteNonQuery() != -1) { return true; }
                     }
                     catch (SqlException ex) { }
                     return false;
@@ -150,11 +150,11 @@ namespace GestIn.Modelo.DAO
                     command.CommandType = CommandType.Text;
                     try
                     {
-                        if (command.ExecuteNonQuery() != 0) {return true; }
+                        if (command.ExecuteNonQuery() != -1) {return true; }
                     }
                     catch (SqlException ex) { }
-                    return false;
                 }
+                return false;
             }
         }
     }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj": {}
+    "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj": {}
   },
   "projects": {
-    "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj": {
+    "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj",
+        "projectUniqueName": "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
         "projectName": "GestIn",
-        "projectPath": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj",
-        "packagesPath": "C:\\Users\\14-3Año\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\obj\\",
+        "projectPath": "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
+        "packagesPath": "C:\\Users\\Rafa\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\14-3Año\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.2.9, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.3, )"

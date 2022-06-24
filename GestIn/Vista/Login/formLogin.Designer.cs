@@ -115,7 +115,7 @@
             this.linkReportarError.LinkColor = System.Drawing.Color.Black;
             this.linkReportarError.Location = new System.Drawing.Point(310, 0);
             this.linkReportarError.Name = "linkReportarError";
-            this.linkReportarError.Size = new System.Drawing.Size(123, 20);
+            this.linkReportarError.Size = new System.Drawing.Size(100, 15);
             this.linkReportarError.TabIndex = 6;
             this.linkReportarError.TabStop = true;
             this.linkReportarError.Text = "Reportar un error!";
@@ -151,7 +151,7 @@
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label6.Location = new System.Drawing.Point(34, 283);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(317, 20);
+            this.label6.Size = new System.Drawing.Size(258, 17);
             this.label6.TabIndex = 24;
             this.label6.Text = "          Datos invalidos, intente nuevamente";
             this.label6.Visible = false;
@@ -177,7 +177,7 @@
             this.linkRegistrarse.LinkColor = System.Drawing.Color.Gray;
             this.linkRegistrarse.Location = new System.Drawing.Point(14, 364);
             this.linkRegistrarse.Name = "linkRegistrarse";
-            this.linkRegistrarse.Size = new System.Drawing.Size(119, 20);
+            this.linkRegistrarse.Size = new System.Drawing.Size(99, 15);
             this.linkRegistrarse.TabIndex = 5;
             this.linkRegistrarse.TabStop = true;
             this.linkRegistrarse.Text = "Crear una cuenta";
@@ -192,10 +192,11 @@
             this.linkRecuperarPassword.LinkColor = System.Drawing.Color.Gray;
             this.linkRecuperarPassword.Location = new System.Drawing.Point(14, 334);
             this.linkRecuperarPassword.Name = "linkRecuperarPassword";
-            this.linkRecuperarPassword.Size = new System.Drawing.Size(145, 20);
+            this.linkRecuperarPassword.Size = new System.Drawing.Size(118, 15);
             this.linkRecuperarPassword.TabIndex = 4;
             this.linkRecuperarPassword.TabStop = true;
             this.linkRecuperarPassword.Text = "Olvide mi contraseña";
+            this.linkRecuperarPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRecuperarPassword_LinkClicked);
             // 
             // lblPasswordVacio
             // 
@@ -206,7 +207,7 @@
             this.lblPasswordVacio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblPasswordVacio.Location = new System.Drawing.Point(34, 182);
             this.lblPasswordVacio.Name = "lblPasswordVacio";
-            this.lblPasswordVacio.Size = new System.Drawing.Size(317, 20);
+            this.lblPasswordVacio.Size = new System.Drawing.Size(254, 17);
             this.lblPasswordVacio.TabIndex = 20;
             this.lblPasswordVacio.Text = "          La contraseña no puede estar vacia";
             this.lblPasswordVacio.Visible = false;
@@ -220,7 +221,7 @@
             this.lblEmailVacio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblEmailVacio.Location = new System.Drawing.Point(34, 82);
             this.lblEmailVacio.Name = "lblEmailVacio";
-            this.lblEmailVacio.Size = new System.Drawing.Size(266, 20);
+            this.lblEmailVacio.Size = new System.Drawing.Size(214, 17);
             this.lblEmailVacio.TabIndex = 19;
             this.lblEmailVacio.Text = "          El email no puede estar vacio";
             this.lblEmailVacio.Visible = false;
@@ -260,7 +261,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(65, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 30);
+            this.label2.Size = new System.Drawing.Size(119, 22);
             this.label2.TabIndex = 15;
             this.label2.Text = "Contraseña";
             // 
@@ -300,7 +301,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(65, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 30);
+            this.label1.Size = new System.Drawing.Size(56, 22);
             this.label1.TabIndex = 12;
             this.label1.Text = "Email";
             // 
@@ -325,13 +326,13 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(150, 63);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 55);
+            this.label5.Size = new System.Drawing.Size(109, 42);
             this.label5.TabIndex = 12;
             this.label5.Text = "Login";
             // 
             // formLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(410, 598);

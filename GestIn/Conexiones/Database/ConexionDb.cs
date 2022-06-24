@@ -13,7 +13,7 @@ namespace GestIn.Conexiones.Database
         protected ConexionDb()
         {
             connectionString = "" +
-                "Server=LAPTOP-E6PCVT2U\\SQLEXPRESS;" +
+                "Server=DESKTOP-CKP73PI\\SQLEXPRESS;" +
                 "DataBase = DbGestin; " +
                 "integrated security= true";
         }

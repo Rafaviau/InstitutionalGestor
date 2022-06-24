@@ -96,5 +96,11 @@ namespace GestIn.Vista.Login
         {
 
         }
+
+        private void linkRecuperarPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formRecuperarPassword formRecuperarPassword = new formRecuperarPassword();
+            formRecuperarPassword.ShowDialog();
+        }
     }
 }
