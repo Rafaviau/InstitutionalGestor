@@ -36,6 +36,7 @@ namespace GestIn.Modelo.Clases
             TURNO = turno;
         }
 
+
         public int NRORESOLUCION
         {
             set { NroResolucion = value; }
@@ -59,13 +60,13 @@ namespace GestIn.Modelo.Clases
             get { return Turno; }
         }
 
-        public List<Materia>? LIST_MATERIAS
+        public List<Materia> LIST_MATERIAS
         {
             set { Materias = value; }
             get { return Materias; }
         }
 
-        public String toString()
+        public override string ToString()
         {
             return "Carrera{" + "_NRORESOLUCION=" + NRORESOLUCION + ", Nombre=" + NOMBRE + ", NombreCorto" + NOMBRECORTO + ", Turno=" + TURNO + ", ListaMaterias=" + LIST_MATERIAS + '}';
         }

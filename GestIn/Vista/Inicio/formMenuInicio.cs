@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestIn.Vista.Test;
 
 namespace GestIn.Vista.Inicio
 {
@@ -46,7 +47,7 @@ namespace GestIn.Vista.Inicio
         }
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FormMateria());
+            AbrirFormularioHijo(new formMateria());
 
             EsconderSubMenu();
         }
