@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj": {}
+    "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\GestIn.csproj": {}
   },
   "projects": {
-    "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj": {
+    "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\GestIn.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
+        "projectUniqueName": "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\GestIn.csproj",
         "projectName": "GestIn",
-        "projectPath": "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
+        "projectPath": "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\GestIn.csproj",
         "packagesPath": "C:\\Users\\Rafa\\.nuget\\packages\\",
-        "outputPath": "E:\\Proyectos\\Gestin\\Gestin\\GestIn\\obj\\",
+        "outputPath": "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "Microsoft.AspNet.WebPages": {
               "target": "Package",
               "version": "[3.2.9, )"

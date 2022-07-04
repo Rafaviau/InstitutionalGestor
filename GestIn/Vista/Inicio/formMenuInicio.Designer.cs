@@ -35,13 +35,6 @@
             this.lblCargo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelSubmenuCarreras = new System.Windows.Forms.Panel();
-            this.btnEnfermeria = new System.Windows.Forms.Button();
-            this.btnTecnicaturaEnTurismo = new System.Windows.Forms.Button();
-            this.btnIndustriasAgroalimentarias = new System.Windows.Forms.Button();
-            this.btnAcompañanteTerapeutico = new System.Windows.Forms.Button();
-            this.btnServiciosGastronomicos = new System.Windows.Forms.Button();
-            this.btnAnalistaProgramador = new System.Windows.Forms.Button();
             this.btnCarreras = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelSeparador1 = new System.Windows.Forms.Panel();
@@ -51,7 +44,6 @@
             this.panelMenuLateral.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelSubmenuCarreras.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +55,6 @@
             this.panelMenuLateral.Controls.Add(this.btnCerrarSesion);
             this.panelMenuLateral.Controls.Add(this.panelSeparador2);
             this.panelMenuLateral.Controls.Add(this.panel1);
-            this.panelMenuLateral.Controls.Add(this.panelSubmenuCarreras);
             this.panelMenuLateral.Controls.Add(this.btnCarreras);
             this.panelMenuLateral.Controls.Add(this.btnInicio);
             this.panelMenuLateral.Controls.Add(this.panelSeparador1);
@@ -144,135 +135,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelSubmenuCarreras
-            // 
-            this.panelSubmenuCarreras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(69)))));
-            this.panelSubmenuCarreras.Controls.Add(this.btnEnfermeria);
-            this.panelSubmenuCarreras.Controls.Add(this.btnTecnicaturaEnTurismo);
-            this.panelSubmenuCarreras.Controls.Add(this.btnIndustriasAgroalimentarias);
-            this.panelSubmenuCarreras.Controls.Add(this.btnAcompañanteTerapeutico);
-            this.panelSubmenuCarreras.Controls.Add(this.btnServiciosGastronomicos);
-            this.panelSubmenuCarreras.Controls.Add(this.btnAnalistaProgramador);
-            this.panelSubmenuCarreras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenuCarreras.Location = new System.Drawing.Point(0, 115);
-            this.panelSubmenuCarreras.Name = "panelSubmenuCarreras";
-            this.panelSubmenuCarreras.Size = new System.Drawing.Size(250, 198);
-            this.panelSubmenuCarreras.TabIndex = 4;
-            // 
-            // btnEnfermeria
-            // 
-            this.btnEnfermeria.AutoSize = true;
-            this.btnEnfermeria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(77)))));
-            this.btnEnfermeria.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEnfermeria.FlatAppearance.BorderSize = 0;
-            this.btnEnfermeria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnfermeria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEnfermeria.ForeColor = System.Drawing.Color.White;
-            this.btnEnfermeria.Location = new System.Drawing.Point(0, 160);
-            this.btnEnfermeria.Name = "btnEnfermeria";
-            this.btnEnfermeria.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnEnfermeria.Size = new System.Drawing.Size(250, 32);
-            this.btnEnfermeria.TabIndex = 5;
-            this.btnEnfermeria.Text = "Enfermeria";
-            this.btnEnfermeria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnfermeria.UseVisualStyleBackColor = false;
-            this.btnEnfermeria.Click += new System.EventHandler(this.btnEnfermeria_Click);
-            // 
-            // btnTecnicaturaEnTurismo
-            // 
-            this.btnTecnicaturaEnTurismo.AutoSize = true;
-            this.btnTecnicaturaEnTurismo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(77)))));
-            this.btnTecnicaturaEnTurismo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTecnicaturaEnTurismo.FlatAppearance.BorderSize = 0;
-            this.btnTecnicaturaEnTurismo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTecnicaturaEnTurismo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTecnicaturaEnTurismo.ForeColor = System.Drawing.Color.White;
-            this.btnTecnicaturaEnTurismo.Location = new System.Drawing.Point(0, 128);
-            this.btnTecnicaturaEnTurismo.Name = "btnTecnicaturaEnTurismo";
-            this.btnTecnicaturaEnTurismo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnTecnicaturaEnTurismo.Size = new System.Drawing.Size(250, 32);
-            this.btnTecnicaturaEnTurismo.TabIndex = 4;
-            this.btnTecnicaturaEnTurismo.Text = "Tecnicatura en turismo";
-            this.btnTecnicaturaEnTurismo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTecnicaturaEnTurismo.UseVisualStyleBackColor = false;
-            this.btnTecnicaturaEnTurismo.Click += new System.EventHandler(this.btnTecnicaturaEnTurismo_Click);
-            // 
-            // btnIndustriasAgroalimentarias
-            // 
-            this.btnIndustriasAgroalimentarias.AutoSize = true;
-            this.btnIndustriasAgroalimentarias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(77)))));
-            this.btnIndustriasAgroalimentarias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnIndustriasAgroalimentarias.FlatAppearance.BorderSize = 0;
-            this.btnIndustriasAgroalimentarias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIndustriasAgroalimentarias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIndustriasAgroalimentarias.ForeColor = System.Drawing.Color.White;
-            this.btnIndustriasAgroalimentarias.Location = new System.Drawing.Point(0, 96);
-            this.btnIndustriasAgroalimentarias.Name = "btnIndustriasAgroalimentarias";
-            this.btnIndustriasAgroalimentarias.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnIndustriasAgroalimentarias.Size = new System.Drawing.Size(250, 32);
-            this.btnIndustriasAgroalimentarias.TabIndex = 3;
-            this.btnIndustriasAgroalimentarias.Text = "Industrias agroalimentarias";
-            this.btnIndustriasAgroalimentarias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIndustriasAgroalimentarias.UseVisualStyleBackColor = false;
-            this.btnIndustriasAgroalimentarias.Click += new System.EventHandler(this.btnIndustriasAgroalimentarias_Click);
-            // 
-            // btnAcompañanteTerapeutico
-            // 
-            this.btnAcompañanteTerapeutico.AutoSize = true;
-            this.btnAcompañanteTerapeutico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(77)))));
-            this.btnAcompañanteTerapeutico.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAcompañanteTerapeutico.FlatAppearance.BorderSize = 0;
-            this.btnAcompañanteTerapeutico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcompañanteTerapeutico.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAcompañanteTerapeutico.ForeColor = System.Drawing.Color.White;
-            this.btnAcompañanteTerapeutico.Location = new System.Drawing.Point(0, 64);
-            this.btnAcompañanteTerapeutico.Name = "btnAcompañanteTerapeutico";
-            this.btnAcompañanteTerapeutico.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAcompañanteTerapeutico.Size = new System.Drawing.Size(250, 32);
-            this.btnAcompañanteTerapeutico.TabIndex = 2;
-            this.btnAcompañanteTerapeutico.Text = "Acompañante terapeutico";
-            this.btnAcompañanteTerapeutico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcompañanteTerapeutico.UseVisualStyleBackColor = false;
-            this.btnAcompañanteTerapeutico.Click += new System.EventHandler(this.btnAcompañanteTerapeutico_Click);
-            // 
-            // btnServiciosGastronomicos
-            // 
-            this.btnServiciosGastronomicos.AutoSize = true;
-            this.btnServiciosGastronomicos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(77)))));
-            this.btnServiciosGastronomicos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnServiciosGastronomicos.FlatAppearance.BorderSize = 0;
-            this.btnServiciosGastronomicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServiciosGastronomicos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnServiciosGastronomicos.ForeColor = System.Drawing.Color.White;
-            this.btnServiciosGastronomicos.Location = new System.Drawing.Point(0, 32);
-            this.btnServiciosGastronomicos.Name = "btnServiciosGastronomicos";
-            this.btnServiciosGastronomicos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnServiciosGastronomicos.Size = new System.Drawing.Size(250, 32);
-            this.btnServiciosGastronomicos.TabIndex = 1;
-            this.btnServiciosGastronomicos.Text = "Servicios gastronomicos";
-            this.btnServiciosGastronomicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnServiciosGastronomicos.UseVisualStyleBackColor = false;
-            this.btnServiciosGastronomicos.Click += new System.EventHandler(this.btnServiciosGastronomicos_Click);
-            // 
-            // btnAnalistaProgramador
-            // 
-            this.btnAnalistaProgramador.AutoSize = true;
-            this.btnAnalistaProgramador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(77)))));
-            this.btnAnalistaProgramador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAnalistaProgramador.FlatAppearance.BorderSize = 0;
-            this.btnAnalistaProgramador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalistaProgramador.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAnalistaProgramador.ForeColor = System.Drawing.Color.White;
-            this.btnAnalistaProgramador.Location = new System.Drawing.Point(0, 0);
-            this.btnAnalistaProgramador.Name = "btnAnalistaProgramador";
-            this.btnAnalistaProgramador.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAnalistaProgramador.Size = new System.Drawing.Size(250, 32);
-            this.btnAnalistaProgramador.TabIndex = 0;
-            this.btnAnalistaProgramador.Text = "Analista programador";
-            this.btnAnalistaProgramador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnalistaProgramador.UseVisualStyleBackColor = false;
-            this.btnAnalistaProgramador.Click += new System.EventHandler(this.btnAnalistaProgramador_Click);
             // 
             // btnCarreras
             // 
@@ -374,8 +236,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelSubmenuCarreras.ResumeLayout(false);
-            this.panelSubmenuCarreras.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -387,14 +247,7 @@
         private Panel panelMenuLateral;
         private Button btnInicio;
         private Panel panelSeparador1;
-        private Panel panelSubmenuCarreras;
-        private Button btnAnalistaProgramador;
         private Button btnCarreras;
-        private Button btnEnfermeria;
-        private Button btnTecnicaturaEnTurismo;
-        private Button btnIndustriasAgroalimentarias;
-        private Button btnAcompañanteTerapeutico;
-        private Button btnServiciosGastronomicos;
         private Panel panel1;
         private Label lblNombre;
         private PictureBox pictureBox1;

@@ -12,11 +12,12 @@ namespace GestIn.Modelo.DAO
 {
     class daoAlumnos : ConexionDb, Idao<Alumno>
     {
-        private readonly String SQL_CREATEUSER = "INSERT INTO USUARIOS VALUES (@Dni,@Email,@Password,@rol,@Nombre,@Apellido,@FechaDeNacimiento,@LugarDeNacimiento,@Celular,@CelularDeEmergencia,@Sexo)";
-        private readonly String SQL_CREATEALUMNO = "INSERT INTO ESTUDIANTES VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
+        private readonly String Sql_CreateUsuario = "INSERT INTO USUARIOS VALUES (@Dni,@Email,@Password,@rol,@Nombre,@Apellido,@FechaDeNacimiento,@LugarDeNacimiento,@Celular,@CelularDeEmergencia,@Sexo)";
+        private readonly String Sql_CreateAlumno = "INSERT INTO ALUMNOS VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
                                                      "@ConstCUIL,@Cooperadora,@ObraSocial,@ActividadLaboral,@HorarioLaboral)";
-        private readonly String SQL_SELECTUSUARIO = "SELECT * FROM USUARIOS WHERE Dni = @Dni";
-        private readonly String SQL_READALUMNO = "SELECT * FROM USUARIOS INNER JOIN ESTUDIANTES ON USUARIOS.Dni = ESTUDIANTES.Dni WHERE ESTUDIANTES.Dni = @dni";
+        private readonly String Sql_ReadUsuario = "SELECT * FROM USUARIOS WHERE Dni = @Dni";
+        private readonly String Sql_ReadAlumno = "SELECT * FROM USUARIOS INNER JOIN ALUMNOS ON USUARIOS.Dni = ALUMNOS.Dni WHERE ALUMNOS.Dni = @dni";
+        private readonly String Sql_UpdatePassword = "UPDATE USUARIOS SET Password = @Password WHERE Email = @email";
         public bool create(Alumno c) //Crea un usuario
         {
             using (var connection = GetConnection())
@@ -25,7 +26,7 @@ namespace GestIn.Modelo.DAO
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = SQL_CREATEUSER;
+                    command.CommandText = Sql_CreateUsuario;
                     command.Parameters.AddWithValue("@Dni", c.DNI);
                     command.Parameters.AddWithValue("@Email", c.Mail);
                     command.Parameters.AddWithValue("@Password", c.Password);
@@ -55,7 +56,7 @@ namespace GestIn.Modelo.DAO
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = SQL_CREATEALUMNO;
+                    command.CommandText = Sql_CreateAlumno;
 
                     command.Parameters.AddWithValue("@dniFk", c.DNI);
                     command.Parameters.AddWithValue("@FotocopiaDni", c.FotocopiaDNI);
@@ -92,7 +93,7 @@ namespace GestIn.Modelo.DAO
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = SQL_READALUMNO;
+                    command.CommandText = Sql_ReadAlumno;
                     command.Parameters.AddWithValue("@Dni", dni);
                     try { 
                         SqlDataReader reader = command.ExecuteReader();
@@ -145,7 +146,7 @@ namespace GestIn.Modelo.DAO
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = SQL_SELECTUSUARIO;
+                    command.CommandText = Sql_ReadUsuario;
                     command.Parameters.AddWithValue("@Dni", dni);
                     command.CommandType = CommandType.Text;
                     try
@@ -155,6 +156,26 @@ namespace GestIn.Modelo.DAO
                     catch (SqlException ex) { }
                 }
                 return false;
+            }
+        }
+        public bool changePassword(string mail,string pass) {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = Sql_UpdatePassword;
+                    command.Parameters.AddWithValue("@Email", mail);
+                    command.Parameters.AddWithValue("@Password", pass);
+                    command.CommandType = CommandType.Text;
+                    try
+                    {
+                        if (command.ExecuteNonQuery() != 0) { return true; }
+                    }
+                    catch (SqlException ex) { }
+                    return false;
+                }
             }
         }
     }

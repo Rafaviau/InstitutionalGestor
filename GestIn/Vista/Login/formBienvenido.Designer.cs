@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblText = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,16 +44,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label14
+            // lblText
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(248, 198);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(228, 42);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "¡Bienvenido!";
+            this.lblText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblText.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblText.ForeColor = System.Drawing.Color.White;
+            this.lblText.Location = new System.Drawing.Point(0, 0);
+            this.lblText.Name = "lblText";
+            this.lblText.Padding = new System.Windows.Forms.Padding(0, 70, 0, 0);
+            this.lblText.Size = new System.Drawing.Size(735, 332);
+            this.lblText.TabIndex = 1;
+            this.lblText.Text = "¡Bienvenido!";
+            this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnOk
             // 
@@ -62,7 +64,7 @@
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOk.ForeColor = System.Drawing.Color.Black;
-            this.btnOk.Location = new System.Drawing.Point(275, 257);
+            this.btnOk.Location = new System.Drawing.Point(290, 256);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(159, 37);
             this.btnOk.TabIndex = 16;
@@ -78,7 +80,7 @@
             this.ClientSize = new System.Drawing.Size(735, 332);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lblText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formBienvenido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -92,7 +94,7 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Label label14;
+        private Label lblText;
         private Button btnOk;
     }
 }

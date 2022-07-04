@@ -112,10 +112,7 @@ E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\net
 E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormBrian.resources
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormMateria.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.formRafa.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormTest.resources
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
@@ -133,3 +130,6 @@ E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
 E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRecuperarPassword.resources
+E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\MailKit.dll
+E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\MimeKit.dll
+E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll

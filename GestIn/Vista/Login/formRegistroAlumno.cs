@@ -226,7 +226,7 @@ namespace GestIn.Vista.Login
                                                     fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
                                                     txtActividadLaboral.Text,txtHorarioLaboral.Text))
                 {
-                formBienvenido formBienvenido = new formBienvenido();
+                formBienvenido formBienvenido = new formBienvenido("¡Bienvenido!");
                 formBienvenido.ShowDialog();
                 this.Close();
                 }

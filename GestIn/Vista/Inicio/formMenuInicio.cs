@@ -12,88 +12,25 @@ namespace GestIn.Vista.Inicio
 {
     public partial class formMenuInicio : Form
     {
+        private Form formActivo = null;
         public formMenuInicio()
         {
             InitializeComponent();
-            CustomizarSubMenu();
         }
 
         private void formMenuInicio_FormClosing(object sender, FormClosingEventArgs e)
         {
                 Application.Exit(); 
         }
-        private void CustomizarSubMenu() {
-            panelSubmenuCarreras.Visible = false;
-        }
-        private void EsconderSubMenu()
-        {
-            if (panelSubmenuCarreras.Visible)
-            {
-                panelSubmenuCarreras.Visible = false;
-            }
-        }
-        private void MostrarSubMenu(Panel submenu)
-        {
-            if(submenu.Visible == false)
-            {
-                EsconderSubMenu();
-                submenu.Visible = true;
-            }
-            else
-            {
-                submenu.Visible = false;
-            }
-        }
+        
         private void btnInicio_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new FormMateria());
-
-            EsconderSubMenu();
         }
-        #region Submenu Carreras
         private void btnCarreras_Click(object sender, EventArgs e)
         {
-            MostrarSubMenu(panelSubmenuCarreras);
+
         }
-
-        private void btnAnalistaProgramador_Click(object sender, EventArgs e)
-        {
-
-            EsconderSubMenu();
-        }
-
-        private void btnServiciosGastronomicos_Click(object sender, EventArgs e)
-        {
-
-            EsconderSubMenu();
-        }
-
-        private void btnAcompañanteTerapeutico_Click(object sender, EventArgs e)
-        {
-
-            EsconderSubMenu();
-        }
-
-        private void btnIndustriasAgroalimentarias_Click(object sender, EventArgs e)
-        {
-
-            EsconderSubMenu();
-        }
-
-        private void btnTecnicaturaEnTurismo_Click(object sender, EventArgs e)
-        {
-
-            EsconderSubMenu();
-        }
-
-        private void btnEnfermeria_Click(object sender, EventArgs e)
-        {
-
-            EsconderSubMenu();
-        }
-        #endregion
-
-        private Form formActivo = null;
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
             {

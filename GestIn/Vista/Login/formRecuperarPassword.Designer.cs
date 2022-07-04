@@ -32,21 +32,29 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblError1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbViewConfPass = new System.Windows.Forms.PictureBox();
+            this.pbViewPass = new System.Windows.Forms.PictureBox();
+            this.pbViewCod = new System.Windows.Forms.PictureBox();
+            this.lblError2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtVerifyNewPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
+            this.btnChangePass = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodVerificacion = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbViewConfPass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbViewPass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbViewCod)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -87,6 +95,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel3.Controls.Add(this.lblError1);
             this.panel3.Controls.Add(this.btnLogin);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtEmail);
@@ -95,6 +104,20 @@
             this.panel3.Size = new System.Drawing.Size(405, 183);
             this.panel3.TabIndex = 15;
             // 
+            // lblError1
+            // 
+            this.lblError1.AutoSize = true;
+            this.lblError1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblError1.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblError1.Image = global::GestIn.Properties.Resources.Error;
+            this.lblError1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblError1.Location = new System.Drawing.Point(51, 116);
+            this.lblError1.Name = "lblError1";
+            this.lblError1.Size = new System.Drawing.Size(258, 17);
+            this.lblError1.TabIndex = 25;
+            this.lblError1.Text = "          Datos invalidos, intente nuevamente";
+            this.lblError1.Visible = false;
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
@@ -102,7 +125,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(153, 125);
+            this.btnLogin.Location = new System.Drawing.Point(157, 136);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(201, 29);
             this.btnLogin.TabIndex = 13;
@@ -142,18 +165,69 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel2.Controls.Add(this.pbViewConfPass);
+            this.panel2.Controls.Add(this.pbViewPass);
+            this.panel2.Controls.Add(this.pbViewCod);
+            this.panel2.Controls.Add(this.lblError2);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtVerifyNewPass);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.txtNewPass);
+            this.panel2.Controls.Add(this.btnChangePass);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(12, 142);
+            this.panel2.Controls.Add(this.txtCodVerificacion);
+            this.panel2.Location = new System.Drawing.Point(12, 133);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(405, 321);
+            this.panel2.Size = new System.Drawing.Size(405, 342);
             this.panel2.TabIndex = 16;
             this.panel2.Visible = false;
+            // 
+            // pbViewConfPass
+            // 
+            this.pbViewConfPass.Image = global::GestIn.Properties.Resources.Eye;
+            this.pbViewConfPass.Location = new System.Drawing.Point(375, 211);
+            this.pbViewConfPass.Name = "pbViewConfPass";
+            this.pbViewConfPass.Size = new System.Drawing.Size(24, 24);
+            this.pbViewConfPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbViewConfPass.TabIndex = 28;
+            this.pbViewConfPass.TabStop = false;
+            this.pbViewConfPass.Click += new System.EventHandler(this.pbViewConfPass_Click);
+            // 
+            // pbViewPass
+            // 
+            this.pbViewPass.Image = global::GestIn.Properties.Resources.Eye;
+            this.pbViewPass.Location = new System.Drawing.Point(375, 127);
+            this.pbViewPass.Name = "pbViewPass";
+            this.pbViewPass.Size = new System.Drawing.Size(24, 24);
+            this.pbViewPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbViewPass.TabIndex = 27;
+            this.pbViewPass.TabStop = false;
+            this.pbViewPass.Click += new System.EventHandler(this.pbViewPass_Click);
+            // 
+            // pbViewCod
+            // 
+            this.pbViewCod.Image = global::GestIn.Properties.Resources.Eye;
+            this.pbViewCod.Location = new System.Drawing.Point(375, 55);
+            this.pbViewCod.Name = "pbViewCod";
+            this.pbViewCod.Size = new System.Drawing.Size(24, 24);
+            this.pbViewCod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbViewCod.TabIndex = 26;
+            this.pbViewCod.TabStop = false;
+            this.pbViewCod.Click += new System.EventHandler(this.pbViewCod_Click);
+            // 
+            // lblError2
+            // 
+            this.lblError2.AutoSize = true;
+            this.lblError2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblError2.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblError2.Image = global::GestIn.Properties.Resources.Error;
+            this.lblError2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblError2.Location = new System.Drawing.Point(70, 252);
+            this.lblError2.Name = "lblError2";
+            this.lblError2.Size = new System.Drawing.Size(258, 17);
+            this.lblError2.TabIndex = 25;
+            this.lblError2.Text = "          Datos invalidos, intente nuevamente";
+            this.lblError2.Visible = false;
             // 
             // label4
             // 
@@ -169,20 +243,21 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Confirmar su contraseña";
             // 
-            // textBox3
+            // txtVerifyNewPass
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox3.Location = new System.Drawing.Point(30, 220);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(335, 25);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.WordWrap = false;
+            this.txtVerifyNewPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtVerifyNewPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtVerifyNewPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtVerifyNewPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtVerifyNewPass.ForeColor = System.Drawing.Color.White;
+            this.txtVerifyNewPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtVerifyNewPass.Location = new System.Drawing.Point(30, 211);
+            this.txtVerifyNewPass.Multiline = true;
+            this.txtVerifyNewPass.Name = "txtVerifyNewPass";
+            this.txtVerifyNewPass.PasswordChar = '*';
+            this.txtVerifyNewPass.Size = new System.Drawing.Size(335, 25);
+            this.txtVerifyNewPass.TabIndex = 16;
+            this.txtVerifyNewPass.WordWrap = false;
             // 
             // label3
             // 
@@ -198,34 +273,36 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Ingresar una contraseña nueva";
             // 
-            // textBox2
+            // txtNewPass
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox2.Location = new System.Drawing.Point(30, 142);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(339, 25);
-            this.textBox2.TabIndex = 14;
-            this.textBox2.WordWrap = false;
+            this.txtNewPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNewPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtNewPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNewPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNewPass.ForeColor = System.Drawing.Color.White;
+            this.txtNewPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtNewPass.Location = new System.Drawing.Point(30, 131);
+            this.txtNewPass.Multiline = true;
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.PasswordChar = '*';
+            this.txtNewPass.Size = new System.Drawing.Size(339, 25);
+            this.txtNewPass.TabIndex = 14;
+            this.txtNewPass.WordWrap = false;
             // 
-            // button1
+            // btnChangePass
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(92, 264);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 29);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Cambiar contraseña";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnChangePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePass.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnChangePass.ForeColor = System.Drawing.Color.Black;
+            this.btnChangePass.Location = new System.Drawing.Point(99, 300);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(201, 29);
+            this.btnChangePass.TabIndex = 13;
+            this.btnChangePass.Text = "Cambiar contraseña";
+            this.btnChangePass.UseVisualStyleBackColor = false;
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // label2
             // 
@@ -241,20 +318,21 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Ingresar codigo de verificacion";
             // 
-            // textBox1
+            // txtCodVerificacion
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox1.Location = new System.Drawing.Point(30, 66);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(339, 25);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.WordWrap = false;
+            this.txtCodVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodVerificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtCodVerificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodVerificacion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCodVerificacion.ForeColor = System.Drawing.Color.White;
+            this.txtCodVerificacion.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtCodVerificacion.Location = new System.Drawing.Point(30, 54);
+            this.txtCodVerificacion.Multiline = true;
+            this.txtCodVerificacion.Name = "txtCodVerificacion";
+            this.txtCodVerificacion.PasswordChar = '*';
+            this.txtCodVerificacion.Size = new System.Drawing.Size(339, 25);
+            this.txtCodVerificacion.TabIndex = 1;
+            this.txtCodVerificacion.WordWrap = false;
             // 
             // formRecuperarPassword
             // 
@@ -276,6 +354,9 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbViewConfPass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbViewPass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbViewCod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,12 +372,17 @@
         private TextBox txtEmail;
         private Button btnLogin;
         private Panel panel2;
-        private Button button1;
+        private Button btnChangePass;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtCodVerificacion;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox txtVerifyNewPass;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox txtNewPass;
+        private Label lblError1;
+        private Label lblError2;
+        private PictureBox pbViewConfPass;
+        private PictureBox pbViewPass;
+        private PictureBox pbViewCod;
     }
 }

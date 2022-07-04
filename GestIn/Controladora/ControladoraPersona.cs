@@ -11,7 +11,7 @@ namespace GestIn.Controladora
     internal class ControladoraPersona
     {
         #region Atributos
-        daoAlumnos daoEstudiante = new daoAlumnos();
+        daoAlumnos daoAlumnos = new daoAlumnos();
         List<Alumno> ListAlumnos;
         static ControladoraPersona? Instance;
         #endregion
@@ -43,9 +43,9 @@ namespace GestIn.Controladora
         {
             if (verifyUsuarioExist(alumno.DNI) == false) {
                 
-                daoEstudiante.create(alumno);
+                daoAlumnos.create(alumno);
             }
-            if (daoEstudiante.createAlumno(alumno)) { return true; }
+            if (daoAlumnos.createAlumno(alumno)) { return true; }
             return false;
         }
         public void AddToListAlumno(Alumno alumno) {
@@ -64,7 +64,7 @@ namespace GestIn.Controladora
             return false;
         }
         public List<Alumno> ReadAll() {
-            return daoEstudiante.readALL();
+            return daoAlumnos.readALL();
         }
         public void loadListAlumnos() {
             ListAlumnos = ReadAll();
@@ -75,10 +75,10 @@ namespace GestIn.Controladora
         }
         public Alumno readAlumno(int dni)
         {
-            return daoEstudiante.read(dni);
+            return daoAlumnos.read(dni);
         }
         bool verifyUsuarioExist(int dni) {
-            if (daoEstudiante.ReadUsuario(dni)) 
+            if (daoAlumnos.ReadUsuario(dni)) 
             {
                 return true; 
             }

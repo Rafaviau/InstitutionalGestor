@@ -12,9 +12,10 @@ namespace GestIn.Vista.Login
 {
     public partial class formBienvenido : Form
     {
-        public formBienvenido()
+        public formBienvenido(string texto)
         {
             InitializeComponent();
+            lblText.Text = texto;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
