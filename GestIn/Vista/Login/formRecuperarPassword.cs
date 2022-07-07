@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using System.Windows.Forms;
 using GestIn.Controladora;
 
@@ -92,7 +91,7 @@ namespace GestIn.Vista.Login
                 lblError2.Visible = true;
                 lblError2.Text = "        Error. Las contraseñas no coinciden";
             }
-            else if (cntMail.cambiarPassword(txtEmail.Text, Crypto.HashPassword(txtNewPass.Text)))
+            else if (cntMail.cambiarPassword(txtEmail.Text,System.Web.Helpers.Crypto.HashPassword(txtNewPass.Text)))
             {
                 formBienvenido formBienvenido = new formBienvenido("¡Contraseña cambiada con exito!");
                 formBienvenido.ShowDialog();

@@ -12,7 +12,7 @@ namespace GestIn.Modelo.Clases
         String Nombre;
         List<Materia> Correlativas;
         List<Docente> Docentes;
-        Dictionary<string, TimeSpan>? Cronograma;
+        Dictionary<string, TimeSpan>? Cronograma = new();
         int AnioEnCarrera;
         int CargaHorariaSemanal;
         int CargaHorariaTotal;
@@ -24,6 +24,16 @@ namespace GestIn.Modelo.Clases
             CORRELATIVAS = correlativas;
             DOCENTES = docentes;
             CRONOGRAMA = cronograma;
+            ANIOENCARRERA = anioEnCarrera;
+            CARGAHORARIASEMANAL = cargaHorariaSemanal;
+            CARGAHORARIATOTAL = cargaHorariaTotal;
+        }
+
+        public Materia(int id, string nombre, List<Materia> correlativas, int anioEnCarrera, int cargaHorariaSemanal, int cargaHorariaTotal)
+        {
+            ID = id;
+            NOMBRE = nombre;
+            CORRELATIVAS = correlativas;
             ANIOENCARRERA = anioEnCarrera;
             CARGAHORARIASEMANAL = cargaHorariaSemanal;
             CARGAHORARIATOTAL = cargaHorariaTotal;
@@ -89,6 +99,23 @@ namespace GestIn.Modelo.Clases
         {
             set { CargaHorariaTotal = value; }
             get { return CargaHorariaTotal; }
+        }
+
+        public override string ToString()
+        {
+            return "MATERIA {" + "_ID=" + ID + ", Nombre=" + NOMBRE + ", Correlativas" + CORRELATIVAS + ", Docente=" + DOCENTES + ", ANIOENCARRERA=" + ANIOENCARRERA + ", Correlativas" + CORRELATIVAS + ", CARGAHORARIASEMANAL=" + CARGAHORARIASEMANAL + ", CARGAHORARIATOTAL=" + CARGAHORARIATOTAL + '}';
+        }
+
+        /*
+        public override string ToString()
+        {
+            return (ID + " " + NOMBRE);
+        }
+        */
+
+        public string CronogramaToString()
+        {
+            return string.Join("CRONOGRAMA",CRONOGRAMA.Select(x => x.Key + " " + x.Value).ToArray());
         }
     }
 }

@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Web.Helpers;
 
 namespace GestIn.Vista.Login
 {
@@ -220,7 +219,7 @@ namespace GestIn.Vista.Login
         {
             if (verifyAll())
             {
-                String pass =Crypto.HashPassword(txtPassword.Text);
+                String pass = System.Web.Helpers.Crypto.HashPassword(txtPassword.Text);
                 DateOnly fecha = DateOnly.Parse(txtFechaDeNacimiento.Text);
                 if (personaController.addAlumno(Int32.Parse(txtDni.Text), txtEmail.Text, pass, txtNombre.Text, txtApellido.Text,
                                                     fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
