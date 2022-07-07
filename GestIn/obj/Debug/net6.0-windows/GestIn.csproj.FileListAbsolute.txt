@@ -94,6 +94,7 @@ C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\G
 C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
 C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormTest.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
 E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
 E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
@@ -135,6 +136,8 @@ E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\MailKit.dll
 E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\MimeKit.dll
 E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 =======
+=======
+>>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445
 C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
 C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
 C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
@@ -195,6 +198,7 @@ C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\refint\
 C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
 C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
 C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
+<<<<<<< HEAD
 >>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445
 C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.formHeredable.resources
 C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.Carreras.formCarrerasView.resources
@@ -210,3 +214,5 @@ C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebP
 C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Web.Infrastructure.dll
 C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\MimeKit.dll
 C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+=======
+>>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445

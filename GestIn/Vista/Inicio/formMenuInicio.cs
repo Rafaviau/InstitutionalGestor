@@ -27,6 +27,11 @@ namespace GestIn.Vista.Inicio
         private void btnInicio_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new formMateria());
+<<<<<<< HEAD
+=======
+
+            EsconderSubMenu();
+>>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445
         }
         private void btnCarreras_Click(object sender, EventArgs e)
         {

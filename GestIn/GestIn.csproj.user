@@ -1,33 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
-  <ItemGroup>
-    <Compile Update="Vista\formHeredable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Inicio\Carreras\formCarrerasView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Inicio\formMenuInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Login\formBienvenido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Login\formLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Login\formRecuperarPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Login\formRegistroAlumno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Test\formCarrera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Vista\Test\formMateria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
 </Project>
