@@ -7,6 +7,7 @@ using GestIn.Modelo.Clases;
 using GestIn.Conexiones.Database;
 using System.Data.SqlClient;
 using System.Data;
+using GestIn.Model;
 
 namespace GestIn.Modelo.DAO
 {
@@ -22,8 +23,7 @@ namespace GestIn.Modelo.DAO
         {
             using (var connection = GetConnection())
             {
-                connection.Open();
-                using (var command = new SqlCommand())
+                using (var context = new SqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = Sql_CreateUsuario;

@@ -1,218 +1,73 @@
-D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-D:\PP analista programador\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.Form1.resources
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-D:\PP analista programador\GestIn\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormMateria.resources
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-C:\Users\Carlota\source\repos\gestin-BrianBranchMateria\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormMateria.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.prueba.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormMateria.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.prueba.resources
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-C:\Users\15 3°año\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormTest.resources
-<<<<<<< HEAD
-<<<<<<< HEAD
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.Razor.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.Helpers.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.Deployment.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.Razor.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Web.Infrastructure.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-E:\Proyectos\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.FormMateria.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.prueba.resources
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-E:\Proyectos\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRecuperarPassword.resources
-E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\MailKit.dll
-E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\MimeKit.dll
-E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
-=======
-=======
->>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formCarrera.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formMateria.resources
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-C:\Users\15 3°año\Desktop\gestin\gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formCarrera.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formMateria.resources
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
-C:\Users\Aeth\source\repos\gestin\gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-<<<<<<< HEAD
->>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.formHeredable.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.Carreras.formCarrerasView.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRecuperarPassword.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formCarrera.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formMateria.resources
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\MailKit.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Web.Razor.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Web.Helpers.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.Deployment.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.Razor.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Web.Infrastructure.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\MimeKit.dll
-C:\Users\14-3Año\Desktop\gestin\GestIn\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
-=======
->>>>>>> be5a5e07f214d262f38ecb9294d889f1b4adb445
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.exe
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\GestIn.pdb
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Humanizer.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\MailKit.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.Razor.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.Helpers.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.Deployment.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.Razor.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Web.WebPages.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Identity.Client.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Web.Infrastructure.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\MimeKit.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.formHeredable.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.Carreras.formCarrerasView.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRecuperarPassword.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formMateria.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfo.cs
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCompileInputs.cache
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formTestEntityFramework.resources

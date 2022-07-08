@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj": {}
+    "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\GestIn.csproj": {}
   },
   "projects": {
-    "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj": {
+    "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\GestIn.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj",
+        "projectUniqueName": "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
         "projectName": "GestIn",
-        "projectPath": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\GestIn.csproj",
+        "projectPath": "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
         "packagesPath": "C:\\Users\\14-3Año\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\14-3Año\\Desktop\\gestin\\GestIn\\obj\\",
+        "outputPath": "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\14-3Año\\AppData\\Roaming\\NuGet\\NuGet.Config",
