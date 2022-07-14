@@ -7,23 +7,23 @@ using GestIn.Modelo.Clases;
 using GestIn.Conexiones.Database;
 using System.Data.SqlClient;
 using System.Data;
-using GestIn.Model;
 
-namespace GestIn.Modelo.DAO
+namespace GestIn.Modelo
 {
     class daoAlumnos : ConexionDb, Idao<Alumno>
     {
-        private readonly String Sql_CreateUsuario = "INSERT INTO USUARIOS VALUES (@Dni,@Email,@Password,@rol,@Nombre,@Apellido,@FechaDeNacimiento,@LugarDeNacimiento,@Celular,@CelularDeEmergencia,@Sexo)";
-        private readonly String Sql_CreateAlumno = "INSERT INTO ALUMNOS VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
+        private readonly string Sql_CreateUsuario = "INSERT INTO USUARIOS VALUES (@Dni,@Email,@Password,@rol,@Nombre,@Apellido,@FechaDeNacimiento,@LugarDeNacimiento,@Celular,@CelularDeEmergencia,@Sexo)";
+        private readonly string Sql_CreateAlumno = "INSERT INTO ALUMNOS VALUES (@dniFk,@FotocopiaDni,@FotocopiaTitSecundario,@Fotos4x4,@CertificadoMedico,@CertificadoDeNacimiento," +
                                                      "@ConstCUIL,@Cooperadora,@ObraSocial,@ActividadLaboral,@HorarioLaboral)";
-        private readonly String Sql_ReadUsuario = "SELECT * FROM USUARIOS WHERE Dni = @Dni";
-        private readonly String Sql_ReadAlumno = "SELECT * FROM USUARIOS INNER JOIN ALUMNOS ON USUARIOS.Dni = ALUMNOS.Dni WHERE ALUMNOS.Dni = @dni";
-        private readonly String Sql_UpdatePassword = "UPDATE USUARIOS SET Password = @Password WHERE Email = @email";
+        private readonly string Sql_ReadUsuario = "SELECT * FROM USUARIOS WHERE Dni = @Dni";
+        private readonly string Sql_ReadAlumno = "SELECT * FROM USUARIOS INNER JOIN ALUMNOS ON USUARIOS.Dni = ALUMNOS.Dni WHERE ALUMNOS.Dni = @dni";
+        private readonly string Sql_UpdatePassword = "UPDATE USUARIOS SET Password = @Password WHERE Email = @email";
         public bool create(Alumno c) //Crea un usuario
         {
             using (var connection = GetConnection())
             {
-                using (var context = new SqlCommand())
+                connection.Open();
+                using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = Sql_CreateUsuario;
@@ -95,7 +95,8 @@ namespace GestIn.Modelo.DAO
                     command.Connection = connection;
                     command.CommandText = Sql_ReadAlumno;
                     command.Parameters.AddWithValue("@Dni", dni);
-                    try { 
+                    try
+                    {
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
@@ -151,14 +152,15 @@ namespace GestIn.Modelo.DAO
                     command.CommandType = CommandType.Text;
                     try
                     {
-                        if (command.ExecuteNonQuery() != -1) {return true; }
+                        if (command.ExecuteNonQuery() != -1) { return true; }
                     }
                     catch (SqlException ex) { }
                 }
                 return false;
             }
         }
-        public bool changePassword(string mail,string pass) {
+        public bool changePassword(string mail, string pass)
+        {
             using (var connection = GetConnection())
             {
                 connection.Open();

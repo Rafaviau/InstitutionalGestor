@@ -7,7 +7,7 @@ using GestIn.Modelo.Clases;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
-using GestIn.Modelo.DAO;
+using GestIn.Modelo;
 
 namespace GestIn.Controladora
 {

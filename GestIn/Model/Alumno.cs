@@ -11,6 +11,7 @@ namespace GestIn.Model
     {
         public Alumno()
         {
+            Calificaciones = new HashSet<Calificacione>();
             Cursada = new HashSet<Cursada>();
             Inscripcionescarreras = new HashSet<Inscripcionescarrera>();
         }
@@ -37,6 +38,8 @@ namespace GestIn.Model
         [ForeignKey("Usuario")]
         [InverseProperty("Alumnos")]
         public virtual Usuario UsuarioNavigation { get; set; } = null!;
+        [InverseProperty("IdAlumnoNavigation")]
+        public virtual ICollection<Calificacione> Calificaciones { get; set; }
         [InverseProperty("IdUsuarioNavigation")]
         public virtual ICollection<Cursada> Cursada { get; set; }
         [InverseProperty("IdAlumnoNavigation")]

@@ -5,18 +5,19 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace GestIn.Model
 {
-    public partial class Context : DbContext
+    public partial class AdventureContext : DbContext
     {
-        public Context()
+        public AdventureContext()
         {
         }
 
-        public Context(DbContextOptions<Context> options)
+        public AdventureContext(DbContextOptions<AdventureContext> options)
             : base(options)
         {
         }
 
         public virtual DbSet<Alumno> Alumnos { get; set; } = null!;
+        public virtual DbSet<Calificacione> Calificaciones { get; set; } = null!;
         public virtual DbSet<Carrera> Carreras { get; set; } = null!;
         public virtual DbSet<Correlativa> Correlativas { get; set; } = null!;
         public virtual DbSet<Cronograma> Cronogramas { get; set; } = null!;
@@ -47,6 +48,21 @@ namespace GestIn.Model
                     .HasForeignKey(d => d.Usuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ALUMNOS_USUARIOS");
+            });
+
+            modelBuilder.Entity<Calificacione>(entity =>
+            {
+                entity.HasOne(d => d.IdAlumnoNavigation)
+                    .WithMany(p => p.Calificaciones)
+                    .HasForeignKey(d => d.IdAlumno)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Calificaciones_ALUMNOS");
+
+                entity.HasOne(d => d.IdMateriaNavigation)
+                    .WithMany(p => p.Calificaciones)
+                    .HasForeignKey(d => d.IdMateria)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Calificaciones_MATERIAS");
             });
 
             modelBuilder.Entity<Correlativa>(entity =>

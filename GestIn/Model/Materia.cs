@@ -11,6 +11,7 @@ namespace GestIn.Model
     {
         public Materia()
         {
+            Calificaciones = new HashSet<Calificacione>();
             CorrelativaIdMateriaCorrelativaNavigations = new HashSet<Correlativa>();
             CorrelativaIdMateriaNavigations = new HashSet<Correlativa>();
             Cronogramas = new HashSet<Cronograma>();
@@ -30,6 +31,8 @@ namespace GestIn.Model
         [ForeignKey("Carrera")]
         [InverseProperty("Materia")]
         public virtual Carrera CarreraNavigation { get; set; } = null!;
+        [InverseProperty("IdMateriaNavigation")]
+        public virtual ICollection<Calificacione> Calificaciones { get; set; }
         [InverseProperty("IdMateriaCorrelativaNavigation")]
         public virtual ICollection<Correlativa> CorrelativaIdMateriaCorrelativaNavigations { get; set; }
         [InverseProperty("IdMateriaNavigation")]

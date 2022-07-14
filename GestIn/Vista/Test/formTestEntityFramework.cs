@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestIn.Model;
+using GestIn.Modelo.Clases;
 
 namespace GestIn.Vista.Test
 {
@@ -20,14 +20,7 @@ namespace GestIn.Vista.Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Usuario> lista = new List<Usuario>();
-            using (var context = new Context())
-            {
-                foreach (var item in context.Usuarios.ToList()) {
-                    lista.Add(item);
-                }
-            }
-            MessageBox.Show(lista.Count.ToString());
+            
         }
     }
 }

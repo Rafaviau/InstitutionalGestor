@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.linkReportarError = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkReportarError = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,11 +40,22 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.linkReportarError);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 426);
+            this.panel2.Location = new System.Drawing.Point(0, 417);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 24);
+            this.panel2.Size = new System.Drawing.Size(846, 24);
             this.panel2.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(719, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Reportar un error!";
             // 
             // linkReportarError
             // 
@@ -54,7 +65,7 @@
             this.linkReportarError.DisabledLinkColor = System.Drawing.Color.Black;
             this.linkReportarError.ForeColor = System.Drawing.Color.Black;
             this.linkReportarError.LinkColor = System.Drawing.Color.Black;
-            this.linkReportarError.Location = new System.Drawing.Point(1266, -185);
+            this.linkReportarError.Location = new System.Drawing.Point(1281, -185);
             this.linkReportarError.Name = "linkReportarError";
             this.linkReportarError.Size = new System.Drawing.Size(127, 20);
             this.linkReportarError.TabIndex = 6;
@@ -62,22 +73,12 @@
             this.linkReportarError.Text = "Reportar un error!";
             this.linkReportarError.VisitedLinkColor = System.Drawing.Color.Black;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(673, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Reportar un error!";
-            // 
             // formHeredable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(846, 441);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formHeredable";

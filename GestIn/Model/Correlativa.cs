@@ -13,6 +13,7 @@ namespace GestIn.Model
         public int Id { get; set; }
         public int IdMateria { get; set; }
         public int IdMateriaCorrelativa { get; set; }
+        public bool CorrelativasFinal { get; set; }
 
         [ForeignKey("IdMateriaCorrelativa")]
         [InverseProperty("CorrelativaIdMateriaCorrelativaNavigations")]

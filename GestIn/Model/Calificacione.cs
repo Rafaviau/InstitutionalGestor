@@ -6,20 +6,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestIn.Model
 {
-    [Keyless]
-    [Table("INSCRIPCIONESEXAMENES")]
-    public partial class Inscripcionesexamene
+    public partial class Calificacione
     {
+        [Key]
         public int Id { get; set; }
         public int IdAlumno { get; set; }
-        public int IdExamen { get; set; }
-        public int? NotaNumerica { get; set; }
-        [StringLength(50)]
-        public string? NotaEscrita { get; set; }
+        public int IdMateria { get; set; }
+        public int Nota { get; set; }
 
         [ForeignKey("IdAlumno")]
+        [InverseProperty("Calificaciones")]
         public virtual Alumno IdAlumnoNavigation { get; set; } = null!;
-        [ForeignKey("IdExamen")]
-        public virtual Examene IdExamenNavigation { get; set; } = null!;
+        [ForeignKey("IdMateria")]
+        [InverseProperty("Calificaciones")]
+        public virtual Materia IdMateriaNavigation { get; set; } = null!;
     }
 }
