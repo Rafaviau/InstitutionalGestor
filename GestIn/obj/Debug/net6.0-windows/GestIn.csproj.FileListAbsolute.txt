@@ -41,7 +41,6 @@ C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.V
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRecuperarPassword.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formMateria.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache

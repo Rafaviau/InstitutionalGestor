@@ -26,7 +26,6 @@ namespace GestIn.Vista.Inicio
         
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new formMateria());
         }
         private void btnCarreras_Click(object sender, EventArgs e)
         {

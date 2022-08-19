@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GestIn.Modelo.Clases;
 
 namespace GestIn.Controladora
 {
@@ -34,8 +33,8 @@ namespace GestIn.Controladora
 
 		public void CreateCursada(int cicloLectivo,Alumno alumno, Materia materia, bool aprobada)
         {
-			Cursada cur = new Cursada(cicloLectivo, alumno, materia, aprobada);
-			ListCursadas.Add(cur);
+			//Cursada cur = new Cursada(cicloLectivo, alumno, materia, aprobada);
+			//ListCursadas.Add(cur);
         }
 
 		public List<Cursada> ReadCursada(int cicloLectivo)
@@ -44,7 +43,7 @@ namespace GestIn.Controladora
 
 			foreach (Cursada aux in ListCursadas)
 			{
-				if (aux.CICLOLECTIVO == cicloLectivo)
+				//if (aux.CICLOLECTIVO == cicloLectivo)
 				{
 					listAux.Add(aux);
 				}
@@ -57,7 +56,7 @@ namespace GestIn.Controladora
 		{
 			foreach (Cursada c in ListCursadas)
 			{
-				if (c.CICLOLECTIVO == nuevacursada.CICLOLECTIVO) //ID
+				//if (c.CICLOLECTIVO == nuevacursada.CICLOLECTIVO) //ID
 				{
 					ListCursadas.Remove(c);
 					ListCursadas.Add(nuevacursada);
@@ -69,7 +68,7 @@ namespace GestIn.Controladora
 		{
 			foreach (Cursada c in ListCursadas)
 			{
-				if (c.CICLOLECTIVO == cursada.CICLOLECTIVO) //ID
+				//if (c.CICLOLECTIVO == cursada.CICLOLECTIVO) //ID
 				{
 					ListCursadas.Remove(c);
 				}

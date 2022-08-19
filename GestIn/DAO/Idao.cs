@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestIn.Modelo
+namespace GestIn.DAO
 {
     internal interface Idao<objeto>
     {

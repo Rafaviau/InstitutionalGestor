@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GestIn.Modelo;
-using GestIn.Modelo.Clases;
+using GestIn.DAO;
+using GestIn.Model;
 
 namespace GestIn.Controladora
 {
@@ -34,17 +34,20 @@ namespace GestIn.Controladora
         #region Alumnos
         public Alumno createAlumno(int dNI,string mail,string password,string nombre,string apellido,DateOnly fechaDeNacimiento,string lugarDeNacimiento,
                                 string sexo, string celular, string celularDeEmergencia,string obraSocial, string actividadLaboral, string horarioLaboral)
-        { 
+        { /*
             Alumno alumno = new Alumno(dNI, mail, password, nombre, apellido, fechaDeNacimiento, lugarDeNacimiento, sexo, celular, celularDeEmergencia, obraSocial, actividadLaboral,horarioLaboral);
             if(alumno != null) { return alumno; }
+            */
             return null;
         }
         public Boolean AddToDatabase(Alumno alumno)
         {
+            /*
             if (verifyUsuarioExist(alumno.DNI) == false) {
                 
                 daoAlumnos.create(alumno);
             }
+            */
             if (daoAlumnos.createAlumno(alumno)) { return true; }
             return false;
         }

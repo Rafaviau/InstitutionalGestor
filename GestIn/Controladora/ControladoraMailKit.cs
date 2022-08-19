@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GestIn.Modelo.Clases;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
-using GestIn.Modelo;
+using GestIn.DAO;
 
 namespace GestIn.Controladora
 {
