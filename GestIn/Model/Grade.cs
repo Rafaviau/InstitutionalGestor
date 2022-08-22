@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace GestIn.Model
+{
+    [Table("Grade")]
+    public partial class Grade
+    {
+        [Key]
+        public int Id { get; set; }
+        public int StudentId { get; set; }
+        public int SubjectId { get; set; }
+        [Column("Grade")]
+        public int Grade1 { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        [StringLength(50)]
+        public string LastModificationBy { get; set; } = null!;
+
+        [ForeignKey("StudentId")]
+        [InverseProperty("Grades")]
+        public virtual Student Student { get; set; } = null!;
+        [ForeignKey("SubjectId")]
+        [InverseProperty("Grades")]
+        public virtual Subject Subject { get; set; } = null!;
+    }
+}

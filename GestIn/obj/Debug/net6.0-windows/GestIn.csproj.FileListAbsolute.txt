@@ -34,13 +34,6 @@ C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.AssemblyReference.cache
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Properties.Resources.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.formHeredable.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.Carreras.formCarrerasView.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Inicio.formMenuInicio.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formBienvenido.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formLogin.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRecuperarPassword.resources
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Login.formRegistroAlumno.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.GenerateResource.cache
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.AssemblyInfoInputs.cache
@@ -52,7 +45,6 @@ C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\refint\G
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
-C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.Vista.Test.formTestEntityFramework.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\Microsoft.Identity.Client.dll
@@ -70,3 +62,4 @@ C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.test.resources
