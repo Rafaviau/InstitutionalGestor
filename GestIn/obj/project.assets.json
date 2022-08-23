@@ -2370,19 +2370,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\14-3Año\\.nuget\\packages\\": {}
+    "C:\\Users\\Rafa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
+      "projectUniqueName": "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\GestIn.csproj",
       "projectName": "GestIn",
-      "projectPath": "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\GestIn.csproj",
-      "packagesPath": "C:\\Users\\14-3Año\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\14-3Año\\Desktop\\Gestin\\Gestin\\GestIn\\obj\\",
+      "projectPath": "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\GestIn.csproj",
+      "packagesPath": "C:\\Users\\Rafa\\.nuget\\packages\\",
+      "outputPath": "E:\\Proyectos\\GestIn\\GestIn\\GestIn\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\14-3Año\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
