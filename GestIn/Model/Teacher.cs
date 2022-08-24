@@ -28,7 +28,11 @@ namespace GestIn.Model
         public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
+        public int LoginInformationId { get; set; }
 
+        [ForeignKey("LoginInformationId")]
+        [InverseProperty("Teachers")]
+        public virtual LoginInformation LoginInformation { get; set; } = null!;
         [ForeignKey("UserId")]
         [InverseProperty("Teachers")]
         public virtual User User { get; set; } = null!;

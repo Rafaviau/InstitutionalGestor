@@ -18,6 +18,7 @@ namespace GestIn.Model
         [Key]
         public int Id { get; set; }
         public int UserId { get; set; }
+        public int LoginInformationId { get; set; }
         public bool DniPhotocopy { get; set; }
         public bool HighSchoolTitPhotocopy { get; set; }
         public bool Photo4x4 { get; set; }
@@ -37,6 +38,9 @@ namespace GestIn.Model
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
 
+        [ForeignKey("LoginInformationId")]
+        [InverseProperty("Students")]
+        public virtual LoginInformation LoginInformation { get; set; } = null!;
         [ForeignKey("UserId")]
         [InverseProperty("Students")]
         public virtual User User { get; set; } = null!;

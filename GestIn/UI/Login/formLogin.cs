@@ -16,7 +16,7 @@ namespace GestIn.UI.Login
 {
     public partial class formLogin : Form
     {
-        userController cntPersona = userController.GetInstance();
+        userController cntUser = userController.GetInstance();
         public formLogin()
         {
             InitializeComponent();
@@ -75,9 +75,23 @@ namespace GestIn.UI.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            formHome formHome = new formHome();
-            formHome.Show();
+            btnLogin.Text = "Cargando...";
+
+            if (txtEmail.Text.Equals("")) { lblEmailVacio.Visible = true; }
+            else{  lblEmailVacio.Visible = false;}
+            if (txtPassword.Text.Equals("")) { lblPasswordVacio.Visible = true; }
+            else { lblPasswordVacio.Visible = false; }
+            if (!txtEmail.Text.Equals("") && !txtPassword.Text.Equals("")) {
+                if (cntUser.verifyLogin(txtEmail.Text, txtPassword.Text)){
+                    this.Visible = false;
+                    formHome formHome = new formHome();
+                    formHome.Show();
+                }
+                else {
+                    lblInvalidData.Visible = true;
+                }
+            }
+            btnLogin.Text = "Login";
         }
 
         private void linkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

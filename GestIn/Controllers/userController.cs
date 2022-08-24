@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,16 +27,25 @@ namespace GestIn.Controllers
             return Instance;
         }
 
-
+        #region login
+        public bool verifyLogin(string email, string pass) {
+            using (var db = new Context())
+            {
+                LoginInformation log = db.LoginInformations.Where(u => u.Email == email).FirstOrDefault();
+                if (log != null) {
+                    if (System.Web.Helpers.Crypto.VerifyHashedPassword(log.Password, pass)) { return true; }
+                }
+            }
+            return false;
+        }
+        #endregion
         #region Alumnos
-        int createUser(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
+        User createUser(int Dni, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)
         {
             try {
                 User user = new User();
                 user.Dni = Dni;
-                user.Email = mail;
-                user.Password = password;
                 user.Name = name;
                 user.LastName = lastname;
                 user.DateOfBirth = dateOfBirth;
@@ -52,21 +62,56 @@ namespace GestIn.Controllers
                     db.SaveChanges();
                 }
 
-                return user.Id;
+                return user;
             }
-            catch {}
-            return -1;
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE DNI DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return null;
         }
-
-        public Student createStudent(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
-                                string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
-        {
+        LoginInformation createLoginInformation(string email, string password, string name, string lastname) {
             try
             {
-                int id = createUser(Dni, mail, password, name, lastname, dateOfBirth, placeOfBirth,
-                                gender, phone, emergencyphone);
+                LoginInformation log = new LoginInformation();
+                log.Email = email;
+                log.Password = password;
+                log.CreatedAt = DateTime.Now;
+                log.LastModificationBy = name + " " + lastname;
+
+                using (var db = new Context())
+                {
+                    db.LoginInformations.Add(log);
+                    db.SaveChanges();
+                }
+
+                return log;
+            }
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE EMAIL DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return null;
+        }
+        bool createStudent(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
+                                string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours,LoginInformation log, User user) {
+            try
+            {
                 Student student = new Student();
-                student.UserId = id;
+                student.UserId = user.Id;
+                student.LoginInformationId = log.Id;
                 student.DniPhotocopy = false;
                 student.HighSchoolTitPhotocopy = false;
                 student.Photo4x4 = false;
@@ -79,17 +124,38 @@ namespace GestIn.Controllers
                 student.WorkingHours = workingHours;
                 student.CreatedAt = DateTime.Now;
                 student.LastModificationBy = name + " " + lastname;
-
                 using (var db = new Context())
                 {
                     db.Students.Add(student);
                     db.SaveChanges();
                 }
 
-                return student;
+                return true;
             }
-            catch { }
-            return null;
+            catch (SqlException exception)
+            {
+                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return false;
+
+        }
+        public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
+                                string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
+        {
+            User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
+            if (user != null) 
+            {
+                LoginInformation log = createLoginInformation(mail, password, name, lastname);
+                if (log != null)
+                {
+                    return (createStudent(Dni, mail, password, name, lastname, dateOfBirth, placeOfBirth,
+                            gender, phone, emergencyphone, socialWork, workActivity, workingHours, log, user));
+                }
+            }
+
+
+            //borrar todo
+            return false;
         }
         #endregion
     }

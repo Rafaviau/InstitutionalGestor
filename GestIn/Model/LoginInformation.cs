@@ -6,11 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestIn.Model
 {
-    [Table("User")]
-    [Index("Dni", Name = "IX_User", IsUnique = true)]
-    public partial class User
+    [Table("LoginInformation")]
+    public partial class LoginInformation
     {
-        public User()
+        public LoginInformation()
         {
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
@@ -18,30 +17,19 @@ namespace GestIn.Model
 
         [Key]
         public int Id { get; set; }
-        public int Dni { get; set; }
-        [StringLength(50)]
-        public string Name { get; set; } = null!;
-        [StringLength(50)]
-        public string LastName { get; set; } = null!;
-        [Column(TypeName = "date")]
-        public DateTime DateOfBirth { get; set; }
+        [StringLength(100)]
+        public string Email { get; set; } = null!;
         [StringLength(500)]
-        public string PlaceOfBirth { get; set; } = null!;
-        [StringLength(50)]
-        public string PhoneNumbre { get; set; } = null!;
-        [StringLength(50)]
-        public string EmergencyPhoneNumber { get; set; } = null!;
-        [StringLength(50)]
-        public string Gender { get; set; } = null!;
+        public string Password { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
 
-        [InverseProperty("User")]
+        [InverseProperty("LoginInformation")]
         public virtual ICollection<Student> Students { get; set; }
-        [InverseProperty("User")]
+        [InverseProperty("LoginInformation")]
         public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

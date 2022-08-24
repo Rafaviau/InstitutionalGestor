@@ -74,12 +74,6 @@ E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CoreCom
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.dll
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\refint\GestIn.dll
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.pdb
-E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.formHeredable.resources
-E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formLogin.resources
-E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formRecoverPass.resources
-E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formStudentEnroment.resources
-E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formWelcome.resources
-E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.formHome.resources
 E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.exe
 E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.deps.json
 E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\GestIn.runtimeconfig.json
@@ -134,3 +128,9 @@ E:\Proyectos\GestIn\GestIn\GestIn\bin\Debug\net6.0-windows\runtimes\win\lib\nets
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.csproj.CopyComplete
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.genruntimeconfig.cache
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\ref\GestIn.dll
+E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.formHeredable.resources
+E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.formHome.resources
+E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formLogin.resources
+E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formRecoverPass.resources
+E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formStudentEnroment.resources
+E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formWelcome.resources

@@ -221,9 +221,10 @@ namespace GestIn.UI.Login
             {
                 String pass = System.Web.Helpers.Crypto.HashPassword(txtPassword.Text);
                 DateTime fecha = DateTime.Parse(txtFechaDeNacimiento.Text);
-                if (userController.createStudent(Int32.Parse(txtDni.Text), txtEmail.Text, pass, txtNombre.Text, txtApellido.Text,
+                
+                if (userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, pass, txtNombre.Text, txtApellido.Text,
                                                     fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
-                                                    txtActividadLaboral.Text,txtHorarioLaboral.Text) != null)
+                                                    txtActividadLaboral.Text,txtHorarioLaboral.Text))
                 {
                 formWelcome formBienvenido = new formWelcome("¡Bienvenido!");
                 formBienvenido.ShowDialog();

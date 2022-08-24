@@ -23,6 +23,7 @@ namespace GestIn.Model
         public virtual DbSet<ExamEnrolment> ExamEnrolments { get; set; } = null!;
         public virtual DbSet<ExamEnrolmentConfig> ExamEnrolmentConfigs { get; set; } = null!;
         public virtual DbSet<Grade> Grades { get; set; } = null!;
+        public virtual DbSet<LoginInformation> LoginInformations { get; set; } = null!;
         public virtual DbSet<Schedule> Schedules { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<Subject> Subjects { get; set; } = null!;
@@ -144,6 +145,12 @@ namespace GestIn.Model
 
             modelBuilder.Entity<Student>(entity =>
             {
+                entity.HasOne(d => d.LoginInformation)
+                    .WithMany(p => p.Students)
+                    .HasForeignKey(d => d.LoginInformationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Student_LoginInformation");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => d.UserId)
@@ -176,6 +183,12 @@ namespace GestIn.Model
 
             modelBuilder.Entity<Teacher>(entity =>
             {
+                entity.HasOne(d => d.LoginInformation)
+                    .WithMany(p => p.Teachers)
+                    .HasForeignKey(d => d.LoginInformationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Teacher_LoginInformation1");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Teachers)
                     .HasForeignKey(d => d.UserId)

@@ -74,10 +74,10 @@ namespace GestIn.Controllers
         public bool changePass(string email, string password)
         {
             using (var db = new Context()) {
-                User user = db.Users.Where(u => u.Email == email).FirstOrDefault();
-                user.Password = password;
+                LoginInformation log = db.LoginInformations.Where(u => u.Email == email).FirstOrDefault();
+                log.Password = password;
                 db.SaveChanges();
-                return (user != null);
+                return (log != null);
             }
         }
     }

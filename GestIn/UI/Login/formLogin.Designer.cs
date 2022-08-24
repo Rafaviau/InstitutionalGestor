@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkReportarError = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblInvalidData = new System.Windows.Forms.Label();
             this.btnViewPass = new System.Windows.Forms.PictureBox();
             this.linkRegistrarse = new System.Windows.Forms.LinkLabel();
             this.linkRecuperarPassword = new System.Windows.Forms.LinkLabel();
@@ -124,7 +124,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.lblInvalidData);
             this.panel3.Controls.Add(this.btnViewPass);
             this.panel3.Controls.Add(this.linkRegistrarse);
             this.panel3.Controls.Add(this.linkRecuperarPassword);
@@ -142,19 +142,19 @@
             this.panel3.Size = new System.Drawing.Size(386, 390);
             this.panel3.TabIndex = 11;
             // 
-            // label6
+            // lblInvalidData
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.DarkGray;
-            this.label6.Image = global::GestIn.Properties.Resources.Error;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(34, 283);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(258, 17);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "          Datos invalidos, intente nuevamente";
-            this.label6.Visible = false;
+            this.lblInvalidData.AutoSize = true;
+            this.lblInvalidData.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblInvalidData.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblInvalidData.Image = global::GestIn.Properties.Resources.Error;
+            this.lblInvalidData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblInvalidData.Location = new System.Drawing.Point(34, 283);
+            this.lblInvalidData.Name = "lblInvalidData";
+            this.lblInvalidData.Size = new System.Drawing.Size(258, 17);
+            this.lblInvalidData.TabIndex = 24;
+            this.lblInvalidData.Text = "          Datos invalidos, intente nuevamente";
+            this.lblInvalidData.Visible = false;
             // 
             // btnViewPass
             // 
@@ -383,6 +383,6 @@
         private PictureBox btnMinimize;
         private PictureBox btnViewPass;
         private Label label5;
-        private Label label6;
+        private Label lblInvalidData;
     }
 }
