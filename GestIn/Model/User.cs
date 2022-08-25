@@ -24,15 +24,15 @@ namespace GestIn.Model
         [StringLength(50)]
         public string LastName { get; set; } = null!;
         [Column(TypeName = "date")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         [StringLength(500)]
-        public string PlaceOfBirth { get; set; } = null!;
+        public string? PlaceOfBirth { get; set; }
         [StringLength(50)]
-        public string PhoneNumbre { get; set; } = null!;
+        public string? PhoneNumbre { get; set; }
         [StringLength(50)]
-        public string EmergencyPhoneNumber { get; set; } = null!;
+        public string? EmergencyPhoneNumber { get; set; }
         [StringLength(50)]
-        public string Gender { get; set; } = null!;
+        public string? Gender { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

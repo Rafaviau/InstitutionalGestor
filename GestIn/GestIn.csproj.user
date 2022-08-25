@@ -11,6 +11,9 @@
     <Compile Update="UI\Home\formHome.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Home\Grades\formGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Login\formWelcome.cs">
       <SubType>Form</SubType>
     </Compile>

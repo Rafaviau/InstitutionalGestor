@@ -134,3 +134,10 @@ E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formL
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formRecoverPass.resources
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formStudentEnroment.resources
 E:\Proyectos\GestIn\GestIn\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formWelcome.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.formHeredable.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.formHome.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formLogin.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formRecoverPass.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formStudentEnroment.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formWelcome.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.Grades.formGrades.resources

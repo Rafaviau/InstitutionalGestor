@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace GestIn.Model
 {
-    public partial class Context : DbContext
+    public partial class DbGestinContext : DbContext
     {
-        public Context()
+        public DbGestinContext()
         {
         }
 
-        public Context(DbContextOptions<Context> options)
+        public DbGestinContext(DbContextOptions<DbGestinContext> options)
             : base(options)
         {
         }
@@ -121,6 +121,8 @@ namespace GestIn.Model
 
             modelBuilder.Entity<Grade>(entity =>
             {
+                entity.Property(e => e.BookRecord).HasDefaultValueSql("(N's/n')");
+
                 entity.HasOne(d => d.Student)
                     .WithMany(p => p.Grades)
                     .HasForeignKey(d => d.StudentId)
