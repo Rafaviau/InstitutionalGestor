@@ -11,12 +11,10 @@ namespace GestIn.Controllers
 {
     internal class userController
     {
-        List<Student> ListAlumnos;
         static userController? Instance;
 
         private userController()
         {
-            ListAlumnos = new List<Student>();
         }
         public static userController GetInstance()
         {
@@ -76,6 +74,38 @@ namespace GestIn.Controllers
             }
             return null;
         }
+
+        User createUser(int Dni, string name, string lastname)
+        {
+            try
+            {
+                User user = new User();
+                user.Dni = Dni;
+                user.Name = name;
+                user.LastName = lastname;
+                user.CreatedAt = DateTime.Now;
+                user.LastModificationBy = "Preceptor cargando notas";
+
+                using (var db = new Context())
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+
+                return user;
+            }
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE DNI DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return null;
+        }
         LoginInformation createLoginInformation(string email, string password, string name, string lastname) {
             try
             {
@@ -84,6 +114,36 @@ namespace GestIn.Controllers
                 log.Password = password;
                 log.CreatedAt = DateTime.Now;
                 log.LastModificationBy = name + " " + lastname;
+
+                using (var db = new Context())
+                {
+                    db.LoginInformations.Add(log);
+                    db.SaveChanges();
+                }
+
+                return log;
+            }
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE EMAIL DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return null;
+        }
+        LoginInformation createLoginInformation(string email, int dni)
+        {
+            try
+            {
+                LoginInformation log = new LoginInformation();
+                log.Email = email;
+                log.Password = dni.ToString();
+                log.CreatedAt = DateTime.Now;
+                log.LastModificationBy = "Preceptor cargando notas";
 
                 using (var db = new Context())
                 {
@@ -139,6 +199,37 @@ namespace GestIn.Controllers
             return false;
 
         }
+        bool createStudent(int Dni, string mail, string name, string lastname, LoginInformation log, User user)
+        {
+            try
+            {
+                Student student = new Student();
+                student.UserId = user.Id;
+                student.LoginInformationId = log.Id;
+                student.DniPhotocopy = false;
+                student.HighSchoolTitPhotocopy = false;
+                student.Photo4x4 = false;
+                student.MedicalCertificate = false;
+                student.BirthCertificate = false;
+                student.CuilConstansy = false;
+                student.Cooperative = false;
+                student.CreatedAt = DateTime.Now;
+                student.LastModificationBy = "Preceptor carando notas";
+                using (var db = new Context())
+                {
+                    db.Students.Add(student);
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (SqlException exception)
+            {
+                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return false;
+
+        }
         public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
         {
@@ -156,6 +247,34 @@ namespace GestIn.Controllers
 
             //borrar todo
             return false;
+        }
+        public bool enrolStudent(int Dni, string mail, string name, string lastname)
+        {
+            User user = createUser(Dni, name, lastname);
+            if (user != null)
+            {
+                LoginInformation log = createLoginInformation(mail, Dni);
+                if (log != null)
+                {
+                    return (createStudent(Dni, mail, name, lastname, log, user));
+                }
+            }
+            //borrar todo
+            return false;
+        }
+        public Student findStudent(int dni) {
+            using (var db = new Context())
+            {
+                return db.Students.Where(x => x.User.Dni == dni).FirstOrDefault();
+            }
+        }
+        public Dictionary<string, string> loadStudentInformation(int dni) {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            Student student = findStudent(dni);
+            data.Add("name", student.User.Name);
+            data.Add("lastname", student.User.LastName);
+            data.Add("email", student.LoginInformation.Email);
+            return data;
         }
         #endregion
     }

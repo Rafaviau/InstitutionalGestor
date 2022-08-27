@@ -37,6 +37,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtGrade = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBookRecord = new System.Windows.Forms.TextBox();
+            this.txtAcreditationDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -68,26 +72,29 @@
             // 
             // cbCareer
             // 
+            this.cbCareer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCareer.FormattingEnabled = true;
             this.cbCareer.Location = new System.Drawing.Point(221, 70);
             this.cbCareer.Name = "cbCareer";
             this.cbCareer.Size = new System.Drawing.Size(151, 28);
-            this.cbCareer.TabIndex = 3;
+            this.cbCareer.TabIndex = 2;
+            this.cbCareer.SelectedValueChanged += new System.EventHandler(this.cbCareer_SelectedValueChanged);
             // 
             // cbSubject
             // 
+            this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubject.FormattingEnabled = true;
             this.cbSubject.Location = new System.Drawing.Point(221, 112);
             this.cbSubject.Name = "cbSubject";
             this.cbSubject.Size = new System.Drawing.Size(151, 28);
-            this.cbSubject.TabIndex = 4;
+            this.cbSubject.TabIndex = 3;
             // 
             // txtDni
             // 
             this.txtDni.Location = new System.Drawing.Point(221, 32);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(151, 27);
-            this.txtDni.TabIndex = 5;
+            this.txtDni.TabIndex = 1;
             // 
             // label4
             // 
@@ -103,22 +110,61 @@
             this.txtGrade.Location = new System.Drawing.Point(220, 156);
             this.txtGrade.Name = "txtGrade";
             this.txtGrade.Size = new System.Drawing.Size(152, 27);
-            this.txtGrade.TabIndex = 7;
+            this.txtGrade.TabIndex = 4;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(62, 234);
+            this.btnSave.Location = new System.Drawing.Point(61, 294);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 20);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Acta";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 243);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Fecha de acreditacion";
+            // 
+            // txtBookRecord
+            // 
+            this.txtBookRecord.Location = new System.Drawing.Point(221, 198);
+            this.txtBookRecord.Name = "txtBookRecord";
+            this.txtBookRecord.Size = new System.Drawing.Size(151, 27);
+            this.txtBookRecord.TabIndex = 5;
+            // 
+            // txtAcreditationDate
+            // 
+            this.txtAcreditationDate.Location = new System.Drawing.Point(221, 236);
+            this.txtAcreditationDate.Name = "txtAcreditationDate";
+            this.txtAcreditationDate.PlaceholderText = "DD/MM/AAAA";
+            this.txtAcreditationDate.Size = new System.Drawing.Size(151, 27);
+            this.txtAcreditationDate.TabIndex = 6;
             // 
             // formGrades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 298);
+            this.ClientSize = new System.Drawing.Size(792, 404);
+            this.Controls.Add(this.txtAcreditationDate);
+            this.Controls.Add(this.txtBookRecord);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtGrade);
             this.Controls.Add(this.label4);
@@ -146,5 +192,9 @@
         private Label label4;
         private TextBox txtGrade;
         private Button btnSave;
+        private Label label5;
+        private Label label6;
+        private TextBox txtBookRecord;
+        private TextBox txtAcreditationDate;
     }
 }

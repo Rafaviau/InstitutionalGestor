@@ -1,4 +1,4 @@
-using GestIn.UI.Login;
+using GestIn.UI.Home.Grades;
 
 namespace GestIn
 {
@@ -13,7 +13,7 @@ namespace GestIn
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new formLogin());
+            Application.Run(new formMenu());
         }
     }
 }

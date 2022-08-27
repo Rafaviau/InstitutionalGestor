@@ -47,5 +47,10 @@ namespace GestIn.Model
         public virtual ICollection<SubjectEnrolment> SubjectEnrolments { get; set; }
         [InverseProperty("Subject")]
         public virtual ICollection<TeacherSubject> TeacherSubjects { get; set; }
+
+        override public string ToString()
+        {
+            return this.Name;
+        }
     }
 }

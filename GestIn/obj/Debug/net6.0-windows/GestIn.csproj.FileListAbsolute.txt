@@ -141,3 +141,6 @@ C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.U
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formStudentEnroment.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Login.formWelcome.resources
 C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.Grades.formGrades.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.Grades.TempStudentCreate.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.Grades.TempCareer.resources
+C:\Users\14-3Año\Desktop\Gestin\Gestin\GestIn\obj\Debug\net6.0-windows\GestIn.UI.Home.Grades.formMenu.resources
