@@ -2,6 +2,22 @@
 
 Sistema de administración para institutos superiores de la provincia de Buenos Aires
 
+# Initial BD and update
+EF is implemented for migrations.
+To have the initial DB run the following command.
+```
+dotnet ef database update
+```
+To change the DB. Change the model and run the following commands.
+```
+dotnet ef migrations add BriefDescription
+```
+Then
+```
+dotnet ef database update
+```
+[More information](https://docs.microsoft.com/es-es/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
