@@ -23,7 +23,6 @@ namespace GestIn.Model
         public string Name { get; set; } = null!;
         [StringLength(50)]
         public string LastName { get; set; } = null!;
-        [Column(TypeName = "date")]
         public DateTime? DateOfBirth { get; set; }
         [StringLength(500)]
         public string? PlaceOfBirth { get; set; }

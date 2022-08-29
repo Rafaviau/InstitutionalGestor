@@ -11,7 +11,7 @@ namespace GestIn.Model
     {
         [Key]
         public int Id { get; set; }
-        public int UsersId { get; set; }
+        public int StudentId { get; set; }
         public int SubjectId { get; set; }
         public int Year { get; set; }
         public bool Approved { get; set; }
@@ -22,6 +22,9 @@ namespace GestIn.Model
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
 
+        [ForeignKey("StudentId")]
+        [InverseProperty("SubjectEnrolments")]
+        public virtual Student Student { get; set; } = null!;
         [ForeignKey("SubjectId")]
         [InverseProperty("SubjectEnrolments")]
         public virtual Subject Subject { get; set; } = null!;

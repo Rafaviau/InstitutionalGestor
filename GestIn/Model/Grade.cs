@@ -15,14 +15,14 @@ namespace GestIn.Model
         public int SubjectId { get; set; }
         [Column("Grade")]
         public int Grade1 { get; set; }
-        [StringLength(50)]
-        public string BookRecord { get; set; } = null!;
-        public DateTime AccreditationDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
+        [StringLength(50)]
+        public string? BookRecord { get; set; }
+        public DateTime? AccreditationDate { get; set; }
 
         [ForeignKey("StudentId")]
         [InverseProperty("Grades")]

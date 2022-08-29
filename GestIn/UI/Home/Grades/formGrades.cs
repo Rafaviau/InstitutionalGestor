@@ -16,6 +16,7 @@ namespace GestIn.UI.Home.Grades
         careerController careerController = careerController.GetInstance();
         userController userController = userController.GetInstance();
         gradeContorller gradeController = gradeContorller.GetInstance();
+        subjectEnrolmentController gradeEnrolmentController = subjectEnrolmentController.GetInstance();
         public formGrades()
         {
             InitializeComponent();
@@ -32,12 +33,25 @@ namespace GestIn.UI.Home.Grades
                 {
                     try
                     {
-                        gradeController.addGrade(
-                            studentId,
-                            cbSubject.SelectedItem,
-                            Int32.Parse(txtGrade.Text),
-                            txtBookRecord.Text,
-                            DateTime.Parse(txtAcreditationDate.Text));
+                        bool added = gradeEnrolmentController.enrolToAprovedSubject(studentId, cbSubject.SelectedIndex, Int32.Parse(txtEntomentYear.Text), ccbPresential.Checked);
+                        if (added)
+                        {
+                            if (txtGrade.Text.Equals("") && txtBookRecord.Text.Equals("") && txtAcreditationDate.Equals(""))
+                            {
+                                gradeController.addGrade(
+                                    studentId,
+                                    cbSubject.SelectedItem,
+                                    Int32.Parse(txtGrade.Text),
+                                    txtBookRecord.Text,
+                                    DateTime.Parse(txtAcreditationDate.Text));
+                            }
+                            else {
+                                MessageBox.Show("Para agregar una nota a un examen todos los campos deben estar completos");
+                            }
+                        }
+                        else {
+                            MessageBox.Show("No se pudo guardar la cursada, verifique los datos");
+                        }
                     }
                     catch { }
                 }

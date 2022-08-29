@@ -38,7 +38,7 @@ namespace GestIn.Model
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-E6PCVT2U\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-CKP73PI\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 
@@ -169,6 +169,12 @@ namespace GestIn.Model
 
             modelBuilder.Entity<SubjectEnrolment>(entity =>
             {
+                entity.HasOne(d => d.Student)
+                    .WithMany(p => p.SubjectEnrolments)
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_SubjectEnrolment_Student");
+
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.SubjectEnrolments)
                     .HasForeignKey(d => d.SubjectId)

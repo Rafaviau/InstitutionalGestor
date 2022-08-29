@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 using GestIn.Model;
 
@@ -259,22 +260,51 @@ namespace GestIn.Controllers
                     return (createStudent(Dni, mail, name, lastname, log, user));
                 }
             }
-            //borrar todo
             return false;
         }
         public Student findStudent(int dni) {
             using (var db = new Context())
             {
-                return db.Students.Where(x => x.User.Dni == dni).FirstOrDefault();
+                try { 
+                    var student = db.Students.Where(x => x.User.Dni == dni).Include(x => x.User).Include(x => x.LoginInformation).First();
+                    return student;
+                } catch { }return null;
+                
             }
         }
         public Dictionary<string, string> loadStudentInformation(int dni) {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            Student student = findStudent(dni);
-            data.Add("name", student.User.Name);
-            data.Add("lastname", student.User.LastName);
-            data.Add("email", student.LoginInformation.Email);
-            return data;
+            try {
+                Student student = findStudent(dni);
+                if (student != null) {
+                    data.Add("name", student.User.Name);
+                    data.Add("lastname", student.User.LastName);
+                    data.Add("email", student.LoginInformation.Email);
+                    return data;
+                }
+                return null;
+            } catch { }
+            return null;
+        }
+        public void updateStudent(int dni,string email, string name, string lastname) {
+            using (var db = new Context())
+            {
+                var result = findStudent(dni);
+                if (result != null)
+                {
+                    result.User.Name = name;
+                    result.User.LastName = lastname;
+                    result.LoginInformation.Email = email;
+                    result.UpdatedAt = DateTime.Now;
+                    result.LastModificationBy = "Preceptor cargando notas";
+                    result.User.UpdatedAt = DateTime.Now;
+                    result.User.LastModificationBy = "Preceptor cargando notas";
+                    result.LoginInformation.UpdatedAt = DateTime.Now;
+                    result.LoginInformation.LastModificationBy = "Preceptor cargando notas";
+                    db.Update(result);
+                    db.SaveChanges();
+                }
+            }
         }
         #endregion
     }

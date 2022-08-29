@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestIn.Model
 {
     [Table("Career")]
+    [Index("Resolution", Name = "IX_Career", IsUnique = true)]
     public partial class Career
     {
         public Career()
@@ -35,11 +36,5 @@ namespace GestIn.Model
         public virtual ICollection<CareerEnrolment> CareerEnrolments { get; set; }
         [InverseProperty("Career")]
         public virtual ICollection<Subject> Subjects { get; set; }
-
-        
-        override public string ToString()
-        {
-            return this.Name;
-        }
     }
 }
