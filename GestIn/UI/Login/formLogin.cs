@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 using GestIn.Controllers;
-using GestIn.UI.Home;
+using GestIn.Vista.Home;
 
-namespace GestIn.UI.Login
+namespace GestIn.Vista.Login
 {
     public partial class formLogin : Form
     {

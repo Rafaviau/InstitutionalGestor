@@ -1,0 +1,440 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GestIn.Model;
+
+namespace GestIn.Controladora
+{
+    internal class careerController
+    {
+		#region Atributos
+		private List<Career> ListCareers;
+		private static careerController? Instance;
+		#endregion
+
+		#region Singletone
+		private careerController()
+		{
+			ListCareers = new List<Career>();
+		}
+
+		public static careerController GetInstance()
+		{
+			if (Instance == null)
+			{
+				Instance = new careerController();
+			}
+			return Instance;
+		}
+        #endregion
+
+        #region ReturnList
+        public List<Career> ReturnListCarreras()
+		{
+			return ListCareers;
+		}
+
+		public List<Subject> ReturnListMateriasDeCarrera(Career carreraExistente)
+		{
+            Career aux = ReadCarrera(carreraExistente.ID);
+			return aux.LIST_SUBJECTS;
+			
+		}
+		#endregion
+
+		#region CRUD Carrera 
+
+		/*********************************************************************************************************************/
+
+		/*CARRERAS*/
+
+		/*********************************************************************************************************************/
+		public void CreateCarrera(int id, string nroResolucion, string nombre, string degree, string turno, List<Subject> materiasEnCarrera)
+        {
+			Career nuevacarrera = new Career(id, nroResolucion, nombre, degree, turno, materiasEnCarrera);
+			ListCareers.Add(nuevacarrera); //ID NECESSARY
+        }
+
+		public void CreateCarrera(string nroResolucion, string nombre, string degree ,string turno)
+		{
+			Career nuevacarrera = new Career(nroResolucion, nombre, degree, turno);
+			ListCareers.Add(nuevacarrera); //ID NOT NECESSARY
+		}
+
+		public Career ReadCarrera(int id)
+		{
+			Career carrera = null;
+
+			foreach (Career aux in ListCareers)
+			{
+				if (aux.ID == id)
+				{
+					carrera = aux;
+				}
+			}
+			return carrera;
+		}
+
+
+		public void UpdateCarrera(int id, string nroResolucion, string nombre, string degree, string turno)
+		{
+			Career nuevacarrera = new Career(id, nroResolucion, nombre, degree, turno);
+			foreach (Career carreraExistente in ListCareers)
+			{
+				if (carreraExistente.ID == nuevacarrera.ID) //ID NECESSARY
+				{
+					ListCareers.Remove(carreraExistente);
+					ListCareers.Add(nuevacarrera);
+				}
+			}
+		}
+
+
+		public void DeleteCarrera(int id)
+		{
+			ListCareers.Remove(ReadCarrera(id));
+		}
+
+		public List<Subject> MateriasDeUnaCarrera(object carreraSelectorObject)
+		{
+			List<Subject> subjectList = new List<Subject>();
+
+			Career carreraSelector = (Career)carreraSelectorObject;
+
+			foreach (Career carrera in ReturnListCarreras())
+			{
+				if (carrera.ID == carreraSelector.ID)
+				{
+                    foreach (Subject item in carrera.LIST_SUBJECTS)
+                    {
+						subjectList.Add(item);
+                    }
+					carrera.LIST_SUBJECTS = subjectList;
+				}
+				return subjectList;
+			}
+			return null;
+		}
+
+		public List<Subject> MateriasDeUnaCarrera(object carreraSelectorObject, object materiaSelectorObject) //no muestra la misma materia
+		{
+			Career carreraSelector = (Career)carreraSelectorObject;
+			Subject materiaSelector = (Subject)materiaSelectorObject;
+			List<Subject> ListaMaterias = carreraSelector.LIST_SUBJECTS; //Correlativas
+			List<Subject> ListCorrelativas = new List<Subject>();
+
+			foreach (Subject materiaExistente in ListaMaterias)
+			{
+				ListCorrelativas.Add(materiaExistente);
+			}
+
+			if (ListCorrelativas.Contains(materiaSelector))
+			{
+				ListCorrelativas.Remove(materiaSelector);
+            }
+            else
+			{
+                MessageBox.Show("Algo Salio Mal <- Correlativas");
+            }
+
+            return ListCorrelativas;
+		}
+
+		public void TestCarrera()
+		{
+			Career nuevacarrera = new Career(1,"numreso232", "Analisis Gastronomico", "AnaCom", "Tarde");
+			ListCareers.Add(nuevacarrera);
+			Career nuevacarrera1 = new Career(2,"numreso434", "Programacion Terapeutica", "ProTera", "Vespertino");
+			ListCareers.Add(nuevacarrera1);
+		}
+
+		public string TOSTRINGCARRERA(Career c) //Prueba
+		{
+			return ("ID = " + c.RESOLUTION + " " + "Nombre" + " " + c.NAME);
+		}
+
+        #endregion
+
+        #region CRUD Materia
+
+        /*********************************************************************************************************************/
+
+        /*MATERIAS*/
+
+        /*********************************************************************************************************************/
+
+        public void CreateMateria(int careerID, string nombre, int anioEnCarrera, int cargaHorariaTotal, object carreraObject)
+        {
+            Career carrera = (Career)carreraObject;
+            Subject nuevaMateria = new Subject(careerID, nombre, anioEnCarrera, cargaHorariaTotal);
+            carrera.LIST_SUBJECTS.Add(nuevaMateria);
+            MessageBox.Show("CREATED SUCCESSFULLY"); //ID NOT NECESSARY
+        }
+
+        public void CreateMateria(int careerID, string nombre, int anioEnCarrera, int cargaHorariaTotal, List<Subject> correlativas, object carreraObject)
+        {
+            Career carrera = (Career)carreraObject;
+            Subject nuevaMateria = new Subject(careerID, nombre, anioEnCarrera, cargaHorariaTotal, correlativas);
+            carrera.LIST_SUBJECTS.Add(nuevaMateria);
+            MessageBox.Show("CREATED SUCCESSFULLY"); //ID NOT NECESSARY
+        }
+
+        public void CreateMateria(int id, int careerID, string nombre, List<Subject> correlativas, List<Teacher> docentes, Dictionary<string, TimeSpan> cronograma, int anioEnCarrera, int cargaHorariaTotal, Career carrera)
+		{
+			Subject nuevaMateria = new Subject(id, careerID, nombre, anioEnCarrera, cargaHorariaTotal, correlativas, docentes, cronograma);
+			carrera.LIST_SUBJECTS.Add(nuevaMateria);
+			MessageBox.Show("CREATED SUCCESSFULLY"); //Total
+		}
+
+		public void CreateMateria(int id, int careerID, string nombre, List<Subject> correlativas, int anioEnCarrera, int cargaHorariaTotal, object carreraObject)
+		{
+			Career carrera = (Career)carreraObject;
+			Subject nuevaMateria = new Subject(id, careerID, nombre, cargaHorariaTotal, anioEnCarrera , correlativas);
+			carrera.LIST_SUBJECTS.Add(nuevaMateria);
+			MessageBox.Show("CREATED SUCCESSFULLY"); //ID NECESSARY
+		}
+
+		public Subject ReadMateria(object materiaObject, object carreraObject) //Original
+		{
+			Career carreraExistente = (Career)carreraObject;
+			Subject materia = (Subject)materiaObject;
+			Subject _materia_TOREAD = null;
+			foreach (Subject aux in carreraExistente.LIST_SUBJECTS)
+			{
+				if (aux.YearInCareer == materia.YearInCareer)
+				{
+					_materia_TOREAD = aux;
+				}
+			}
+			return _materia_TOREAD;
+		}
+
+
+		public void UpdateMateria(int id, int careerID, string nombre, int anioEnCarrera, int cargaHorariaTotal, object carreraExistenteObject)
+		{
+			Career carreraExistente = (Career)carreraExistenteObject;
+			Subject nuevaMateria = new Subject(id, careerID, nombre, cargaHorariaTotal, anioEnCarrera);
+			foreach (Career carrera in ListCareers)
+            {
+				if(carreraExistente.ID == carrera.ID) //ID CARRERA
+                {
+					foreach (Subject materia in carrera.LIST_SUBJECTS)
+					{
+						if (materia.ID == nuevaMateria.ID) //ID MATERIA
+						{
+							carrera.LIST_SUBJECTS.Remove(materia);
+							carrera.LIST_SUBJECTS.Add(nuevaMateria);
+							MessageBox.Show("UPDATE SUCCESSFULL");
+						}
+					}
+				}
+			}
+		}
+
+
+		public void UpdateMateria(object carreraExistenteObject, object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal)
+		{
+			Career carreraExistente = (Career)carreraExistenteObject;
+			Subject nuevaMateria = (Subject)materiaObject;
+			nuevaMateria.NAME = nombre;
+			nuevaMateria.YEARINCAREER = anioEnCarrera;
+			nuevaMateria.ANNUALHOURLYLOAD = cargaHorariaTotal;
+
+			foreach (Career carrera in ListCareers)
+			{
+				if (carreraExistente.ID == carrera.ID) //ID CARRERA
+				{
+					foreach (Subject materia in carrera.LIST_SUBJECTS)
+					{
+						if (materia.ID == nuevaMateria.ID) //ID MATERIA
+						{
+							carrera.LIST_SUBJECTS.Remove(materia);
+							carrera.LIST_SUBJECTS.Add(nuevaMateria);
+							MessageBox.Show("UPDATE SUCCESSFULL");
+						}
+					}
+				}
+			}
+		}
+
+		public void UpdateMateria(object carreraExistenteObject, object materiaObject, object correlativeSubject)
+		{
+			Career carreraExistente = (Career)carreraExistenteObject; //Solamente para correlativas
+			Subject thisSubject = (Subject)materiaObject;
+			Subject correlativesubject = (Subject)correlativeSubject;
+
+			foreach (Career carrera in ListCareers)
+			{
+				if (carreraExistente.ID == carrera.ID) //ID CARRERA
+				{
+					foreach (Subject materia in carrera.LIST_SUBJECTS)
+					{
+						if (materia.ID == thisSubject.ID) //ID MATERIA
+						{
+							thisSubject.CORRELATIVES.Add(correlativesubject);
+							MessageBox.Show("CORRELATIVE ADDED SUCCESSFULLY");
+						}
+					}
+				}
+			}
+		}
+
+		public void DeleteMateria(object materiaObject, object carreraObject)
+		{
+			Subject materiaBorrar = (Subject)materiaObject;
+			Career carreraExistente = (Career)carreraObject;
+
+			foreach (Career carrera in ListCareers)
+			{
+				if (carrera.ID == carreraExistente.ID)
+				{
+					foreach (Subject materia in carreraExistente.LIST_SUBJECTS)
+					{
+						if (materiaBorrar.ID == materia.ID) //ID
+						{
+							carrera.LIST_SUBJECTS.Remove(materiaBorrar);
+						}
+					}
+				}
+			}
+		}
+
+		public void DeleteMateria(object carreraExistenteObject, object materiaObject, object correlativeSubject)
+		{
+			Career carreraExistente = (Career)carreraExistenteObject; //Solamente para correlativas
+			Subject thisSubject = (Subject)materiaObject;
+			Subject correlativesubject = (Subject)correlativeSubject;
+
+			foreach (Career carrera in ListCareers)
+			{
+				if (carreraExistente.ID == carrera.ID) //ID CARRERA
+				{
+					foreach (Subject materia in carrera.LIST_SUBJECTS)
+					{
+						if (materia.ID == thisSubject.ID) //ID MATERIA
+						{
+							thisSubject.CORRELATIVES.Remove(correlativesubject);
+							MessageBox.Show("CORRELATIVE ADDED SUCCESSFULLY");
+						}
+					}
+				}
+			}
+		}
+
+		/*
+		public Materia FiltrarMateria(object carreraSelected,int materiaSelector) //Checklist casteando
+		{
+			Materia objMateria = null;
+			foreach (Materia materia in MateriasDeUnaCarrera((Carrera)carreraSelected))
+			{
+				if (materiaSelector == materia.ID)
+				{
+					objMateria = materia;
+				}
+			}
+			return objMateria;
+		}
+
+		public Subject GetMateria(object materiaSelector) //Checklist casteando
+        {
+            Subject objMateria = (Subject)materiaSelector;
+            foreach (Subject materia in MateriasDeUnaCarrera(materiaSelector))
+            {
+                if (objMateria.ID == materia.ID || objMateria.NAME == materia.NAME)
+                {
+                    objMateria = materia;
+                }
+            }
+            return objMateria;
+        }
+
+		*/
+
+		public Subject GetMateria(object materiaSelector) //Checklist casteando
+        {
+            Subject objMateria = (Subject)materiaSelector;
+            return objMateria;
+        }
+
+        public Subject GetMateria(object carreraSelected,object materiaObject) //Pedir -> Docentes/Cronograma/Correlativas
+		{
+			Subject objMateria = null;
+			Subject materiaSelector = (Subject)materiaObject;
+            foreach (Subject materia in MateriasDeUnaCarrera((Career)carreraSelected))
+            {
+                if (materiaSelector.ID == materia.ID)
+                {
+                    objMateria = materia;
+                }
+            }
+			return objMateria;
+		}
+
+		public Subject GetMateria(object carreraSelected, int materiaID) //Pedir -> Docentes/Cronograma/Correlativas
+		{
+			Subject objMateria = null;
+			foreach (Subject materia in MateriasDeUnaCarrera((Career)carreraSelected))
+			{
+				if (materiaID == materia.ID)
+				{
+					objMateria = materia;
+				}
+			}
+			return objMateria;
+		}
+
+		public void TestMateria()
+		{
+			List<Subject> testCorrelativasA = new List<Subject>();
+			List<Subject> testCorrelativasB = new List<Subject>();
+
+			foreach (Career carrera in ListCareers)
+			{
+				if (carrera.ID == 1)
+				{
+					Subject nuevamateria = new Subject(1,1, "Cocina Orientada a Objetos", 3451, 1);
+					carrera.LIST_SUBJECTS.Add(nuevamateria);
+					Subject nuevamateria1 = new Subject(2,1, "Gestion de Reposteria", 143, 1);
+					carrera.LIST_SUBJECTS.Add(nuevamateria1);
+
+						testCorrelativasA.Add(nuevamateria);
+						testCorrelativasA.Add(nuevamateria1);
+
+					Subject nuevamateria2 = new Subject(3,1, "Investigacion Culinaria", 2, 24, testCorrelativasA);
+					carrera.LIST_SUBJECTS.Add(nuevamateria2);
+
+						testCorrelativasB.Add(nuevamateria2);
+
+					Subject nuevamateria3 = new Subject(4,1, "Practica Profesionalizante", 3, 24, testCorrelativasB);
+					carrera.LIST_SUBJECTS.Add(nuevamateria3);
+				}
+				else if (carrera.ID == 2)
+                {
+					Subject nuevamateria = new Subject(5,2,"Terapia Intensiva por sobreutilización de GIT", 1,  24);
+					carrera.LIST_SUBJECTS.Add(nuevamateria);
+					Subject nuevamateria1 = new Subject(6,2, "Psicologia de Programadores", 2, 24);
+					carrera.LIST_SUBJECTS.Add(nuevamateria1);
+				}
+			}
+		}
+
+		public List<Subject> GetCheckedCorrelativas(List<object> checkedItems) //Lista de Correlativas
+		{
+			List<Subject> correlativasList = new List<Subject>();
+			foreach (Subject checkedMateria in checkedItems)
+			{
+				correlativasList.Add(checkedMateria);
+			}
+			return correlativasList;
+		}
+
+
+		public int CalcularHorasSemanales(int horasTotales) 
+        {
+			return horasTotales / 32;
+        }
+        #endregion
+    }
+}

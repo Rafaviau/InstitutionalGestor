@@ -26,6 +26,18 @@
     <Compile Update="UI\Login\formStudentEnroment.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Test\formCareer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Test\formSubjectCorrelatives.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Test\Subject\formSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Test\formSubjectCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

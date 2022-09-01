@@ -1,4 +1,4 @@
-﻿namespace GestIn.UI
+﻿namespace GestIn.Vista
 {
     partial class formHeredable
     {

@@ -1,4 +1,4 @@
-﻿namespace GestIn.UI.Home.Grades
+﻿namespace GestIn.Vista.Home.Grades
 {
     partial class formGrades
     {
@@ -55,7 +55,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Materia";
+            this.label2.Text = "Career";
             // 
             // label3
             // 
@@ -64,7 +64,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Carrera:";
+            this.label3.Text = "Career:";
             // 
             // cbCareer
             // 

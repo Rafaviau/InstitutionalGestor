@@ -1,4 +1,4 @@
-﻿namespace GestIn.UI.Login
+﻿namespace GestIn.Vista.Login
 {
     partial class formRecoverPass
     {

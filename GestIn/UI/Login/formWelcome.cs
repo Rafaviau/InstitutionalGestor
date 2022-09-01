@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.UI.Login
+namespace GestIn.Vista.Login
 {
     public partial class formWelcome : Form
     {

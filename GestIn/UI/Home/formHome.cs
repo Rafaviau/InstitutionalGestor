@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.UI.Home
+namespace GestIn.Vista.Home
 {
     public partial class formHome : Form
     {

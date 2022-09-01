@@ -1,4 +1,4 @@
-﻿namespace GestIn.UI.Home
+﻿namespace GestIn.Vista.Home
 {
     partial class formHome
     {
