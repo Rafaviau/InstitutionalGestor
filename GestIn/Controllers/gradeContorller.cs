@@ -11,7 +11,6 @@ namespace GestIn.Controllers
     internal class gradeContorller
     {
         static gradeContorller? Instance;
-        string? verificationCode;
         private gradeContorller() { }
         public static gradeContorller GetInstance()
         {
@@ -22,7 +21,7 @@ namespace GestIn.Controllers
             return Instance;
         }
 
-        public bool addGrade(int studentid, object subject, int grade, string bookRecord, DateTime acreditation) {
+        public bool addGrade(int studentid, object subject, int grade, string bookRecord, DateTime accreditation,string accreditationType) {
             try
             {
                 Subject subId = (Subject)subject;
@@ -31,7 +30,8 @@ namespace GestIn.Controllers
                 grade_.SubjectId = subId.Id;
                 grade_.Grade1 = grade;
                 grade_.BookRecord = bookRecord;
-                grade_.AccreditationDate = acreditation;
+                grade_.AccreditationDate = accreditation;
+                grade_.AccreditationType = accreditationType;
                 grade_.CreatedAt = DateTime.Now;
                 grade_.LastModificationBy = "Preceptor cargando notas";
                 using (var db = new Context())

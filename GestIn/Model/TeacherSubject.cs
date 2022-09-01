@@ -13,8 +13,10 @@ namespace GestIn.Model
         public int Id { get; set; }
         public int? TeacherId { get; set; }
         public int SubjectId { get; set; }
-        public int Year { get; set; }
-        public bool Tenured { get; set; }
+        public DateTime DateSince { get; set; }
+        public DateTime? DateUntil { get; set; }
+        [StringLength(50)]
+        public string Condition { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

@@ -45,77 +45,72 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 28);
+            this.label1.Location = new System.Drawing.Point(49, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 15);
+            this.label1.Size = new System.Drawing.Size(32, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dni";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 50);
+            this.label2.Location = new System.Drawing.Point(51, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.Size = new System.Drawing.Size(64, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 74);
+            this.label3.Location = new System.Drawing.Point(49, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 15);
+            this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Apellido";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 99);
+            this.label4.Location = new System.Drawing.Point(49, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 15);
+            this.label4.Size = new System.Drawing.Size(46, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Email";
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(165, 22);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDni.Location = new System.Drawing.Point(189, 29);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(110, 23);
+            this.txtDni.Size = new System.Drawing.Size(125, 27);
             this.txtDni.TabIndex = 4;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(165, 47);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName.Location = new System.Drawing.Point(189, 63);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(110, 23);
+            this.txtName.Size = new System.Drawing.Size(125, 27);
             this.txtName.TabIndex = 5;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(165, 72);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLastName.Location = new System.Drawing.Point(189, 96);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(110, 23);
+            this.txtLastName.Size = new System.Drawing.Size(125, 27);
             this.txtLastName.TabIndex = 6;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(165, 97);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEmail.Location = new System.Drawing.Point(189, 129);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(110, 23);
+            this.txtEmail.Size = new System.Drawing.Size(125, 27);
             this.txtEmail.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(165, 129);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(189, 172);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 22);
+            this.button1.Size = new System.Drawing.Size(125, 29);
             this.button1.TabIndex = 8;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -123,10 +118,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(280, 22);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(320, 29);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(109, 22);
+            this.btnSearch.Size = new System.Drawing.Size(125, 29);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "buscar por dni";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -134,9 +128,10 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(165, 129);
+            this.btnSaveChanges.Location = new System.Drawing.Point(189, 172);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(109, 23);
+            this.btnSaveChanges.Size = new System.Drawing.Size(125, 31);
             this.btnSaveChanges.TabIndex = 10;
             this.btnSaveChanges.Text = "Guardar cambios";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
@@ -145,9 +140,10 @@
             // 
             // btnStopEditing
             // 
-            this.btnStopEditing.Location = new System.Drawing.Point(280, 129);
+            this.btnStopEditing.Location = new System.Drawing.Point(320, 172);
+            this.btnStopEditing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStopEditing.Name = "btnStopEditing";
-            this.btnStopEditing.Size = new System.Drawing.Size(109, 23);
+            this.btnStopEditing.Size = new System.Drawing.Size(125, 31);
             this.btnStopEditing.TabIndex = 11;
             this.btnStopEditing.Text = "Dejar de editar";
             this.btnStopEditing.UseVisualStyleBackColor = true;
@@ -156,9 +152,9 @@
             // 
             // TempStudentCreate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 181);
+            this.ClientSize = new System.Drawing.Size(545, 241);
             this.Controls.Add(this.btnStopEditing);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.btnSearch);
@@ -171,7 +167,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TempStudentCreate";
             this.Text = "TempStudentCreate";
             this.ResumeLayout(false);

@@ -49,66 +49,62 @@
             this.btnSearchRes = new System.Windows.Forms.Button();
             this.btnCareerUpdate = new System.Windows.Forms.Button();
             this.btnCareerStopEditing = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 59);
+            this.label1.Location = new System.Drawing.Point(11, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 15);
+            this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Resolucion";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 116);
+            this.label2.Location = new System.Drawing.Point(11, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.Size = new System.Drawing.Size(64, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 151);
+            this.label3.Location = new System.Drawing.Point(11, 201);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 15);
+            this.label3.Size = new System.Drawing.Size(125, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Titulo que otorga";
             // 
             // txtCareerRes
             // 
-            this.txtCareerRes.Location = new System.Drawing.Point(126, 56);
-            this.txtCareerRes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCareerRes.Location = new System.Drawing.Point(144, 75);
             this.txtCareerRes.Name = "txtCareerRes";
-            this.txtCareerRes.Size = new System.Drawing.Size(112, 23);
+            this.txtCareerRes.Size = new System.Drawing.Size(127, 27);
             this.txtCareerRes.TabIndex = 3;
             // 
             // txtCareerName
             // 
-            this.txtCareerName.Location = new System.Drawing.Point(126, 110);
-            this.txtCareerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCareerName.Location = new System.Drawing.Point(144, 147);
             this.txtCareerName.Name = "txtCareerName";
-            this.txtCareerName.Size = new System.Drawing.Size(112, 23);
+            this.txtCareerName.Size = new System.Drawing.Size(127, 27);
             this.txtCareerName.TabIndex = 4;
             // 
             // txtCareerDegree
             // 
-            this.txtCareerDegree.Location = new System.Drawing.Point(126, 148);
-            this.txtCareerDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCareerDegree.Location = new System.Drawing.Point(144, 197);
             this.txtCareerDegree.Name = "txtCareerDegree";
-            this.txtCareerDegree.Size = new System.Drawing.Size(112, 23);
+            this.txtCareerDegree.Size = new System.Drawing.Size(127, 27);
             this.txtCareerDegree.TabIndex = 5;
             // 
             // btnCareerCreate
             // 
-            this.btnCareerCreate.Location = new System.Drawing.Point(12, 188);
-            this.btnCareerCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCareerCreate.Location = new System.Drawing.Point(14, 251);
             this.btnCareerCreate.Name = "btnCareerCreate";
-            this.btnCareerCreate.Size = new System.Drawing.Size(112, 22);
+            this.btnCareerCreate.Size = new System.Drawing.Size(128, 29);
             this.btnCareerCreate.TabIndex = 6;
             this.btnCareerCreate.Text = "Crear";
             this.btnCareerCreate.UseVisualStyleBackColor = true;
@@ -117,9 +113,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(94, 20);
+            this.label4.Location = new System.Drawing.Point(107, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 15);
+            this.label4.Size = new System.Drawing.Size(94, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Crear carrera";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -127,9 +123,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(573, 20);
+            this.label5.Location = new System.Drawing.Point(655, 27);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 15);
+            this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Crear y agregar materias";
             // 
@@ -137,78 +133,73 @@
             // 
             this.cbCareer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCareer.FormattingEnabled = true;
-            this.cbCareer.Location = new System.Drawing.Point(637, 56);
-            this.cbCareer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCareer.Location = new System.Drawing.Point(728, 75);
             this.cbCareer.Name = "cbCareer";
-            this.cbCareer.Size = new System.Drawing.Size(133, 23);
+            this.cbCareer.Size = new System.Drawing.Size(151, 28);
             this.cbCareer.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(526, 59);
+            this.label6.Location = new System.Drawing.Point(601, 79);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 15);
+            this.label6.Size = new System.Drawing.Size(57, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Carrera";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(526, 97);
+            this.label7.Location = new System.Drawing.Point(601, 129);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 15);
+            this.label7.Size = new System.Drawing.Size(64, 20);
             this.label7.TabIndex = 11;
             this.label7.Text = "Nombre";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(526, 156);
+            this.label8.Location = new System.Drawing.Point(601, 208);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 15);
+            this.label8.Size = new System.Drawing.Size(46, 20);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Año en la carrera";
+            this.label8.Text = "Curso";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(526, 193);
+            this.label9.Location = new System.Drawing.Point(601, 262);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 15);
+            this.label9.Size = new System.Drawing.Size(102, 20);
             this.label9.TabIndex = 13;
             this.label9.Text = "Horas anuales";
             // 
             // txtSubjectName
             // 
-            this.txtSubjectName.Location = new System.Drawing.Point(637, 94);
-            this.txtSubjectName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSubjectName.Location = new System.Drawing.Point(728, 125);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(133, 23);
+            this.txtSubjectName.Size = new System.Drawing.Size(151, 27);
             this.txtSubjectName.TabIndex = 14;
             // 
             // txtYearinCareer
             // 
-            this.txtYearinCareer.Location = new System.Drawing.Point(637, 153);
-            this.txtYearinCareer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtYearinCareer.Location = new System.Drawing.Point(728, 204);
             this.txtYearinCareer.Name = "txtYearinCareer";
-            this.txtYearinCareer.Size = new System.Drawing.Size(133, 23);
+            this.txtYearinCareer.Size = new System.Drawing.Size(151, 27);
             this.txtYearinCareer.TabIndex = 15;
             // 
             // txtHours
             // 
-            this.txtHours.Location = new System.Drawing.Point(637, 185);
-            this.txtHours.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHours.Location = new System.Drawing.Point(728, 252);
             this.txtHours.Name = "txtHours";
-            this.txtHours.Size = new System.Drawing.Size(133, 23);
+            this.txtHours.Size = new System.Drawing.Size(151, 27);
             this.txtHours.TabIndex = 16;
             // 
             // btnCreateSubject
             // 
-            this.btnCreateSubject.Location = new System.Drawing.Point(526, 222);
-            this.btnCreateSubject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateSubject.Location = new System.Drawing.Point(601, 301);
             this.btnCreateSubject.Name = "btnCreateSubject";
-            this.btnCreateSubject.Size = new System.Drawing.Size(114, 25);
+            this.btnCreateSubject.Size = new System.Drawing.Size(130, 33);
             this.btnCreateSubject.TabIndex = 17;
             this.btnCreateSubject.Text = "Crear";
             this.btnCreateSubject.UseVisualStyleBackColor = true;
@@ -216,9 +207,10 @@
             // 
             // btnSearchRes
             // 
-            this.btnSearchRes.Location = new System.Drawing.Point(244, 55);
+            this.btnSearchRes.Location = new System.Drawing.Point(279, 73);
+            this.btnSearchRes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearchRes.Name = "btnSearchRes";
-            this.btnSearchRes.Size = new System.Drawing.Size(146, 23);
+            this.btnSearchRes.Size = new System.Drawing.Size(167, 31);
             this.btnSearchRes.TabIndex = 18;
             this.btnSearchRes.Text = "Buscar por resolucion";
             this.btnSearchRes.UseVisualStyleBackColor = true;
@@ -226,9 +218,10 @@
             // 
             // btnCareerUpdate
             // 
-            this.btnCareerUpdate.Location = new System.Drawing.Point(10, 188);
+            this.btnCareerUpdate.Location = new System.Drawing.Point(11, 251);
+            this.btnCareerUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCareerUpdate.Name = "btnCareerUpdate";
-            this.btnCareerUpdate.Size = new System.Drawing.Size(114, 23);
+            this.btnCareerUpdate.Size = new System.Drawing.Size(130, 31);
             this.btnCareerUpdate.TabIndex = 19;
             this.btnCareerUpdate.Text = "Guardar cambios";
             this.btnCareerUpdate.UseVisualStyleBackColor = true;
@@ -237,30 +230,32 @@
             // 
             // btnCareerStopEditing
             // 
-            this.btnCareerStopEditing.Location = new System.Drawing.Point(126, 187);
+            this.btnCareerStopEditing.Location = new System.Drawing.Point(144, 249);
+            this.btnCareerStopEditing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCareerStopEditing.Name = "btnCareerStopEditing";
-            this.btnCareerStopEditing.Size = new System.Drawing.Size(112, 23);
+            this.btnCareerStopEditing.Size = new System.Drawing.Size(128, 31);
             this.btnCareerStopEditing.TabIndex = 20;
             this.btnCareerStopEditing.Text = "Dejar de editar";
             this.btnCareerStopEditing.UseVisualStyleBackColor = true;
             this.btnCareerStopEditing.Visible = false;
             this.btnCareerStopEditing.Click += new System.EventHandler(this.btnCareerStopEditing_Click);
             // 
-            // label10
+            // label12
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 248);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 15);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "label10";
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label12.Location = new System.Drawing.Point(642, 208);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 20);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "1°,2°,3°,etc";
             // 
             // TempCareer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 338);
-            this.Controls.Add(this.label10);
+            this.ClientSize = new System.Drawing.Size(1099, 451);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnCareerStopEditing);
             this.Controls.Add(this.btnCareerUpdate);
             this.Controls.Add(this.btnSearchRes);
@@ -282,7 +277,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TempCareer";
             this.Text = "TempCareer";
             this.ResumeLayout(false);
@@ -313,6 +307,6 @@
         private Button btnSearchRes;
         private Button btnCareerUpdate;
         private Button btnCareerStopEditing;
-        private Label label10;
+        private Label label12;
     }
 }

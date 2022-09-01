@@ -64,9 +64,6 @@ namespace GestIn.UI.Home.Grades
                 if (careerData != null)
                 {
                     careerId = Int32.Parse(careerData["id"]);
-
-                    label10.Text = careerId.ToString();
-
                     txtCareerDegree.Text = careerData["degree"];
                     txtCareerName.Text = careerData["name"];
                     btnSearchRes.Enabled = true;

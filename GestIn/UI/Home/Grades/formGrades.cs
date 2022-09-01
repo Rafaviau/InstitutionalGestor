@@ -33,17 +33,20 @@ namespace GestIn.UI.Home.Grades
                 {
                     try
                     {
-                        bool added = gradeEnrolmentController.enrolToAprovedSubject(studentId, cbSubject.SelectedIndex, Int32.Parse(txtEntomentYear.Text), ccbPresential.Checked);
+                        bool added = gradeEnrolmentController.enrolToAprovedSubject(studentId, cbSubject.SelectedItem, Int32.Parse(txtEntomentYear.Text), ccbPresential.Checked);
                         if (added)
                         {
-                            if (txtGrade.Text.Equals("") && txtBookRecord.Text.Equals("") && txtAcreditationDate.Equals(""))
+                            if (!txtGrade.Text.Equals("") && !txtBookRecord.Text.Equals("") && !txtAcreditationDate.Equals(""))
                             {
                                 gradeController.addGrade(
                                     studentId,
                                     cbSubject.SelectedItem,
                                     Int32.Parse(txtGrade.Text),
                                     txtBookRecord.Text,
-                                    DateTime.Parse(txtAcreditationDate.Text));
+                                    DateTime.Parse(txtAcreditationDate.Text),
+                                    cbAccType.SelectedItem.ToString()
+                                    );
+                                MessageBox.Show("Agreggado correctamente");
                             }
                             else {
                                 MessageBox.Show("Para agregar una nota a un examen todos los campos deben estar completos");
