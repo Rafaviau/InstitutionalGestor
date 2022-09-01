@@ -16,8 +16,10 @@ namespace GestIn.Model
         [Column("Grade")]
         public int Grade1 { get; set; }
         [StringLength(50)]
-        public string BookRecord { get; set; } = null!;
-        public DateTime AccreditationDate { get; set; }
+        public string? BookRecord { get; set; }
+        public DateTime? AccreditationDate { get; set; }
+        [StringLength(50)]
+        public string AccreditationType { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

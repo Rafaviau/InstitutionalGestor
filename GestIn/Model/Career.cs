@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestIn.Model
 {
     [Table("Career")]
+    [Index("Resolution", Name = "IX_Career", IsUnique = true)]
     public partial class Career
     {
         public Career()

@@ -13,6 +13,7 @@ namespace GestIn.Model
         {
             CareerEnrolments = new HashSet<CareerEnrolment>();
             Grades = new HashSet<Grade>();
+            SubjectEnrolments = new HashSet<SubjectEnrolment>();
         }
 
         [Key]
@@ -48,5 +49,7 @@ namespace GestIn.Model
         public virtual ICollection<CareerEnrolment> CareerEnrolments { get; set; }
         [InverseProperty("Student")]
         public virtual ICollection<Grade> Grades { get; set; }
+        [InverseProperty("Student")]
+        public virtual ICollection<SubjectEnrolment> SubjectEnrolments { get; set; }
     }
 }

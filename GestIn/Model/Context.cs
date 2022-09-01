@@ -169,6 +169,12 @@ namespace GestIn.Model
 
             modelBuilder.Entity<SubjectEnrolment>(entity =>
             {
+                entity.HasOne(d => d.Student)
+                    .WithMany(p => p.SubjectEnrolments)
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_SubjectEnrolment_Student");
+
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.SubjectEnrolments)
                     .HasForeignKey(d => d.SubjectId)
