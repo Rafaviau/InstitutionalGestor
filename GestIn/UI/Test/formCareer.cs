@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestIn.Controladora;
+using GestIn.Controllers;
 using GestIn.UI.Test.Subject;
 using GestIn.Vista.Test;
 using GestIn.Model;
@@ -27,8 +27,8 @@ namespace GestIn.Vista.Test
         private void formCarrera_Load(object sender, EventArgs e)
         {
             RefreshTableCarrera();
-            carreraController.TestCarrera();
-            carreraController.TestMateria();
+            //carreraController.TestCarrera();
+            //carreraController.TestMateria();
             //personaController.TestDocente();
             RefreshTableCarrera();
         }
@@ -44,7 +44,7 @@ namespace GestIn.Vista.Test
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            carreraController.CreateCarrera(this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            carreraController.createCareer(this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
             RefreshTableCarrera();
         }
 
@@ -53,13 +53,13 @@ namespace GestIn.Vista.Test
             dataGridViewCarreras.ClearSelection();
             //Carrera aux = new Carrera(Int32.Parse(this.txtNumResolucion.Text), this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
             //carreraController.UpdateCarrera(aux);
-            carreraController.UpdateCarrera(1,this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text); //HARDCODED
+            carreraController.updateCareer(1,this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text); //HARDCODED
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
-            carreraController.DeleteCarrera(1); //HARDCODED
+            carreraController.deleteCarrera(1); //HARDCODED
         }
 
         private void btnFormMateria_Click(object sender, EventArgs e)

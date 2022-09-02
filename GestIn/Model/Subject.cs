@@ -30,12 +30,11 @@ namespace GestIn.Model
         public string LastModificationBy = null!;
 
 
+        public List<Correlative> ListCorrelatives = new List<Correlative>();
+        public List<Teacher> ListTeachers = new List<Teacher>();
+        public List<Schedule> ListSchedule = new List<Schedule>();
 
-        public List<Subject> ListCorrelatives = new List<Subject>();
-        public List<Teacher> ListTeachers;
-        Dictionary<string, TimeSpan>? Cronogram = new();
-
-        Dictionary<int, bool> DictEstado = new();
+        //Dictionary<string, TimeSpan>? Cronogram = null!;
         //public List<Dictionary<int, bool>> ListCorrelatives = new List<Dictionary<int, bool>> ();
 
         public Subject(int id)
@@ -51,7 +50,7 @@ namespace GestIn.Model
             ANNUALHOURLYLOAD = annualHourlyLoad;
         }
 
-        public Subject(int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Subject> listcorrelatives) //CREATE
+        public Subject(int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Correlative> listcorrelatives) //CREATE
         {
             CAREERID = careerId;
             NAME = name;
@@ -69,16 +68,16 @@ namespace GestIn.Model
             ANNUALHOURLYLOAD = annualHourlyLoad;
         }
 
-        public Subject(int id, int careerId, List<Subject> listCorrelatives, List<Teacher> listTeachers, Dictionary<string, TimeSpan>? cronogram) //Databases
+        public Subject(int id, int careerId, List<Correlative> listCorrelatives, List<Teacher> listTeachers, List<Schedule> cronogram) //Databases
         {
             ID = id;
             CAREERID = careerId;
             CORRELATIVES = listCorrelatives;
             TEACHERS = listTeachers;
-            CRONOGRAM = cronogram;
+            SCHEDULES = cronogram;
         }
 
-        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Subject> listCorrelatives)
+        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Correlative> listCorrelatives)
         {
             ID = id;
             CAREERID = careerId;
@@ -88,7 +87,7 @@ namespace GestIn.Model
             CORRELATIVES = listCorrelatives;
         }
 
-        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Subject> listCorrelatives, List<Teacher> listTeachers)
+        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Correlative> listCorrelatives, List<Teacher> listTeachers)
         {
             ID = id;
             CAREERID = careerId;
@@ -99,7 +98,7 @@ namespace GestIn.Model
             TEACHERS = listTeachers;
         }
 
-        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Subject> listCorrelatives, List<Teacher> listTeachers, Dictionary<string, TimeSpan>? cronogram)
+        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, List<Correlative> listCorrelatives, List<Teacher> listTeachers, List<Schedule> cronogram)
         {
             ID = id;
             CAREERID = careerId;
@@ -108,7 +107,7 @@ namespace GestIn.Model
             ANNUALHOURLYLOAD = annualHourlyLoad;
             CORRELATIVES = listCorrelatives;
             TEACHERS = listTeachers;
-            CRONOGRAM = cronogram;
+            SCHEDULES = cronogram;
         }
 
         public int ID
@@ -126,7 +125,7 @@ namespace GestIn.Model
             set { Name = value; }
             get { return Name; }
         }
-        public List<Subject> CORRELATIVES
+        public List<Correlative> CORRELATIVES
         {
             set { ListCorrelatives = value; }
             get { return ListCorrelatives; }
@@ -136,11 +135,13 @@ namespace GestIn.Model
             set { ListTeachers = value; }
             get { return ListTeachers; }
         }
-        public Dictionary<string, TimeSpan> CRONOGRAM
+        
+        public List<Schedule> SCHEDULES
         {
-            set { Cronogram = value; }
-            get { return Cronogram; }
+            set { ListSchedule = value; }
+            get { return ListSchedule; }
         }
+        
         public int YEARINCAREER
         {
             set { YearInCareer = value; }
@@ -164,12 +165,13 @@ namespace GestIn.Model
         {
             return (ID + " " + NOMBRE);
         }
-        */
+        
 
         public string CronogramTOSTRING()
         {
-            return string.Join("CRONOGRAMA", CRONOGRAM.Select(x => x.Key + " " + x.Value).ToArray());
+            return string.Join("CRONOGRAMA", SCHEDULES.Select(x => x.Key + " " + x.Value).ToArray());
         }
+        */
 
         [ForeignKey("CareerId")]
         [InverseProperty("Subjects")]

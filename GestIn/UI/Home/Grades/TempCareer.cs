@@ -30,7 +30,7 @@ namespace GestIn.UI.Home.Grades
         private void btnCareerCreate_Click(object sender, EventArgs e)
         {
             try {
-                object career = careerController.createCareer(txtCareerRes.Text, txtCareerName.Text, txtCareerDegree.Text);
+                object career = careerController.createCareer(txtCareerRes.Text, txtCareerName.Text, txtCareerDegree.Text,"TURNO AQUI");
                 cbCareer.Items.Add(career);
                 MessageBox.Show("AGregado correctamente");
             } catch {
@@ -42,9 +42,10 @@ namespace GestIn.UI.Home.Grades
         private void btnCreateSubject_Click(object sender, EventArgs e)
         {
             try {
-                careerController.createSubject(txtSubjectName.Text,
-                Int32.Parse(txtYearinCareer.Text), 
-                Int32.Parse(txtHours.Text), 
+                careerController.createSubject(123,
+                txtSubjectName.Text,
+                Int32.Parse(txtYearinCareer.Text),
+                Int32.Parse(txtHours.Text),
                 cbCareer.SelectedItem);
                 clearCareerText();
                 MessageBox.Show("Guardado correctamente");

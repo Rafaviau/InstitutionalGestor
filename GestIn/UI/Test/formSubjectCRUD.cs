@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestIn.Controladora;
+using GestIn.Controllers;
 
 namespace GestIn.UI.Test.Subject
 {
@@ -74,7 +74,7 @@ namespace GestIn.UI.Test.Subject
 
         private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
         {
-            carreraController.CreateMateria(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), cbbCarreraSelector.SelectedItem);
+            carreraController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), cbbCarreraSelector.SelectedItem);
             RefreshTableMateria();
         }
 
@@ -84,7 +84,7 @@ namespace GestIn.UI.Test.Subject
             {
                 object selectedCareer = cbbCarreraSelector.SelectedItem;
                 object selectedMateria = SetGlobalSubjectium();
-                carreraController.UpdateMateria(selectedCareer, selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+                carreraController.updateSubject(selectedCareer, selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
                 RefreshTableMateria();
             }
         }

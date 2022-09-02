@@ -1,4 +1,4 @@
-﻿using GestIn.Controladora;
+﻿using GestIn.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,14 +78,14 @@ namespace GestIn.UI.Test
         private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
-            carreraController.UpdateMateria(receivedCareer, receivedSubject, selectedSubject);
+            carreraController.updateSubject(receivedCareer, receivedSubject, selectedSubject);
             RefreshTableCorrelativas();
         }
 
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
-            carreraController.DeleteMateria(receivedCareer, receivedSubject, selectedSubject);
+            carreraController.deleteSubject(receivedCareer, receivedSubject, selectedSubject);
             RefreshTableCorrelativas();
         }
     }
