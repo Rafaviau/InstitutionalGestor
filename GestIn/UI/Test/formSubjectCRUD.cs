@@ -91,23 +91,15 @@ namespace GestIn.UI.Test.Subject
             }
         }
 
-        private object SetGlobalSubjectium()
+        private object SetGlobalSubjectium() //solamente de testeo
         {
             int idmaterium;
-            try
-            {
-                if (dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
-                {
-                    idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
-                    object selectedSubject = subjectController.getSubject(cbbCarreraSelector.SelectedItem, idmaterium);
-                    MessageBox.Show(" ID OF MATERIUM " + idmaterium);
-                    return selectedSubject;
-                }
-            }catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return null;
+            idmaterium = 1;
+            //idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
+            object selectedSubject = subjectController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
+            MessageBox.Show(" ATENTI: HARDCORDEADO " + " ID OF MATERIUM " + idmaterium);
+            return selectedSubject;
+
         }
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -124,6 +116,7 @@ namespace GestIn.UI.Test.Subject
 
         private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
         {
+            SetGlobalSubjectium().ToString();
             formSubjectCorrelatives formMateria = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem,SetGlobalSubjectium());
             formMateria.ShowDialog();
         }

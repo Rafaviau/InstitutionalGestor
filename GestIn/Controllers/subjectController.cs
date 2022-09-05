@@ -156,33 +156,6 @@ namespace GestIn.Controllers
             return objMateria;
         }
 
-        public Subject getSubject(object carreraSelected, object materiaObject) //Pedir -> Docentes/Cronograma/Correlativas
-        {
-            Subject objMateria = null;
-            Subject materiaSelector = (Subject)materiaObject;
-            foreach (Subject materia in loadSubject((Career)carreraSelected))
-            {
-                if (materiaSelector.ID == materia.ID)
-                {
-                    objMateria = materia;
-                }
-            }
-            return objMateria;
-        }
-
-        public Subject getSubject(object carreraSelected, int materiaID) //Pedir -> Docentes/Cronograma/Correlativas
-        {
-            Subject objMateria = null;
-            foreach (Subject materia in loadSubject((Career)carreraSelected))
-            {
-                if (materiaID == materia.ID)
-                {
-                    objMateria = materia;
-                }
-            }
-            return objMateria;
-        }
-
         public List<Correlative> loadCorrelatives()
         {
             using (var db = new Context())
@@ -254,6 +227,33 @@ namespace GestIn.Controllers
             }
             return specifiedListSubjects;
         }
+        public Subject getSpecificSubjectFromCareer(object carreraSelected, int materiaID) //Pedir -> Docentes/Cronograma/Correlativas
+        {
+            Subject objMateria = null;
+            foreach (Subject materia in getSubjectsFromCareer(carreraSelected))
+            {
+                if (materiaID == materia.ID)
+                {
+                    objMateria = materia;
+                }
+            }
+            return objMateria;
+        }
+
+        public Subject getSpecificSubjectFromCareer(object carreraSelected, object materiaSelected) //Pedir -> Docentes/Cronograma/Correlativas
+        {
+            Subject objMateria = (Subject)materiaSelected;
+            Career objCareer = (Career)carreraSelected;
+            foreach (Subject materia in getSubjectsFromCareer(carreraSelected))
+            {
+                if (objMateria.ID == objCareer.ID)
+                {
+                    objMateria = materia;
+                }
+            }
+            return objMateria;
+        }
+
         public List<Correlative> getCorrelativesFromSubject(object subjectMatter) //pido las correlativas de una determinada materia
         {
             List <Correlative> specifiedListCorrelatives = new List<Correlative>();

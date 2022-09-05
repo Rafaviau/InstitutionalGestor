@@ -36,7 +36,7 @@ namespace GestIn.UI.Test
 
         public void RefreshComboboxCorrelativas() //en teoria recibo la lista de materias menos la misma
         {
-            bindingSourceCorrelativasMenosMisma.DataSource = subjectController.getSubject(receivedCareer, receivedSubject); //Sobrecarga para no mostrar misma materia
+            bindingSourceCorrelativasMenosMisma.DataSource = subjectController.getSpecificSubjectFromCareer(receivedCareer, receivedSubject); //Sobrecarga para no mostrar misma materia
             bindingSourceCorrelativasMenosMisma.ResetBindings(true);
             cbbCorrelativas.DataSource = bindingSourceCorrelativasMenosMisma;
             cbbCorrelativas.DisplayMember = "NAME";
@@ -61,7 +61,7 @@ namespace GestIn.UI.Test
         {
             try
             {
-                lblmateriaName.Text = (subjectController.getSubject(receivedSubject).NAME);
+                lblmateriaName.Text = subjectController.getSubject(receivedSubject).NAME;
             }
             catch (Exception exc)
             {
