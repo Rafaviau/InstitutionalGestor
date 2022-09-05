@@ -14,6 +14,7 @@ namespace GestIn.UI.Home.Grades
     public partial class TempCareer : Form
     {
         careerController careerController = careerController.GetInstance();
+        subjectController subjectController = subjectController.GetInstance();
         private int careerId;
 
         public TempCareer()
@@ -42,7 +43,7 @@ namespace GestIn.UI.Home.Grades
         private void btnCreateSubject_Click(object sender, EventArgs e)
         {
             try {
-                careerController.createSubject(123,
+                subjectController.createSubject(123,
                 txtSubjectName.Text,
                 Int32.Parse(txtYearinCareer.Text),
                 Int32.Parse(txtHours.Text),

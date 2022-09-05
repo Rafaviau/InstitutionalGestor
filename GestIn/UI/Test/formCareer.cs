@@ -35,10 +35,10 @@ namespace GestIn.Vista.Test
 
         public void RefreshTableCarrera()
         {
-            BindingSourceCarreras.DataSource = carreraController.ReturnListCarreras();
+            BindingSourceCarreras.DataSource = carreraController.ReturnListCareers();
             BindingSourceCarreras.ResetBindings(false);
             dataGridViewCarreras.DataSource = null;
-            if (carreraController.ReturnListCarreras().Count > 0)
+            if (carreraController.ReturnListCareers().Count > 0)
                 dataGridViewCarreras.DataSource = dataGridViewCarreras.DataSource = BindingSourceCarreras;
         }
 
@@ -51,15 +51,14 @@ namespace GestIn.Vista.Test
         private void btnModificar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
-            //Carrera aux = new Carrera(Int32.Parse(this.txtNumResolucion.Text), this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
-            //carreraController.UpdateCarrera(aux);
-            carreraController.updateCareer(1,this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text); //HARDCODED
+            //object aux = new object(Int32.Parse(this.txtNumResolucion.Text), this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            //carreraController.updateCareer(1,this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text); //HARDCODED
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
-            carreraController.deleteCarrera(1); //HARDCODED
+            //carreraController.deleteCarrera(1); //HARDCODED
         }
 
         private void btnFormMateria_Click(object sender, EventArgs e)

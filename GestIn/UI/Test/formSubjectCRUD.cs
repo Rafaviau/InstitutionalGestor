@@ -14,9 +14,11 @@ namespace GestIn.UI.Test.Subject
     public partial class formSubjectCRUD : Form
     {
         careerController carreraController;
+        subjectController subjectController;
         public formSubjectCRUD()
         {
             carreraController = careerController.GetInstance();
+            subjectController = subjectController.GetInstance();
             InitializeComponent();
         }
 
@@ -27,25 +29,25 @@ namespace GestIn.UI.Test.Subject
 
         public void NullCheckCarreras() //Para que no me paresca errores
         {
-            if (carreraController.ReturnListCarreras().Count != 0)
+            if (carreraController.ReturnListCareers().Count != 0)
             {
-                RefreshCbbCarreras();
-                RefreshTableMateria();
+                RefreshCbbCareers();
+                RefreshTableSubjects();
             }
         }
 
-        public void RefreshTableMateria()
+        public void RefreshTableSubjects()
         {
-            bindingSourceCarreraMaterias.DataSource = carreraController.MateriasDeUnaCarrera(cbbCarreraSelector.SelectedItem);
+            bindingSourceCarreraMaterias.DataSource = subjectController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
             bindingSourceCarreraMaterias.ResetBindings(false);
             dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
         }
 
-        public void RefreshCbbCarreras()
+        public void RefreshCbbCareers()
         {
             try
             {
-                bindingSourceCarreras.DataSource = carreraController.ReturnListCarreras();
+                bindingSourceCarreras.DataSource = carreraController.ReturnListCareers();
                 bindingSourceCarreras.ResetBindings(true);
                 cbbCarreraSelector.DataSource = bindingSourceCarreras;
                 cbbCarreraSelector.DisplayMember = "NAME";
@@ -74,8 +76,8 @@ namespace GestIn.UI.Test.Subject
 
         private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
         {
-            carreraController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), cbbCarreraSelector.SelectedItem);
-            RefreshTableMateria();
+            subjectController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), cbbCarreraSelector.SelectedItem);
+            RefreshTableSubjects();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -84,17 +86,28 @@ namespace GestIn.UI.Test.Subject
             {
                 object selectedCareer = cbbCarreraSelector.SelectedItem;
                 object selectedMateria = SetGlobalSubjectium();
-                carreraController.updateSubject(selectedCareer, selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
-                RefreshTableMateria();
+                //carreraController.updateSubject(selectedCareer, selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+                RefreshTableSubjects();
             }
         }
 
         private object SetGlobalSubjectium()
         {
-            int idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
-            object selectedSubject = carreraController.GetMateria(cbbCarreraSelector.SelectedItem, idmaterium);
-            MessageBox.Show(" ID OF MATERIUM " + idmaterium);
-            return selectedSubject;
+            int idmaterium;
+            try
+            {
+                if (dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
+                {
+                    idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
+                    object selectedSubject = subjectController.getSubject(cbbCarreraSelector.SelectedItem, idmaterium);
+                    MessageBox.Show(" ID OF MATERIUM " + idmaterium);
+                    return selectedSubject;
+                }
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
         }
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +119,7 @@ namespace GestIn.UI.Test.Subject
 
         private void cbbCarreraSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshTableMateria();
+            RefreshTableSubjects();
         }
 
         private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
