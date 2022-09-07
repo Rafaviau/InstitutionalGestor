@@ -19,7 +19,7 @@ namespace GestIn.Controllers
         #region Singletone
         private careerController()
         {
-            ListCareers = new List<Career>();
+            //ListCareers = new List<Career>();
 
             ListCareers = loadCareers();
         }
@@ -42,13 +42,18 @@ namespace GestIn.Controllers
 
        #endregion
 
-        public Career createCareer(string resolutionNum, string name, string degree, string turn)
+        public Career createCareer(string ResolutionNum, string name, string degree, string turn)
         {
-            Career nuevacarrera = new Career(resolutionNum, name, degree, turn);
+            Career nuevacarrera = new Career();
+            
             try
             {
-                nuevacarrera.CREATEDAT = DateTime.Now;
-                nuevacarrera.LASTMODIFICATIONBY = "Preceptor cargando materias";
+                nuevacarrera.Resolution = ResolutionNum;
+                nuevacarrera.Name = name;
+                nuevacarrera.Degree = degree;
+                nuevacarrera.Turn = turn;
+                nuevacarrera.CreatedAt = DateTime.Now;
+                nuevacarrera.LastModificationBy = "Preceptor cargando materias";
                 MessageBox.Show(nuevacarrera.TOSTRING());
                 using (var db = new Context())
                 {
@@ -71,7 +76,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool updateCareer(int idcareer, string resolutionNum, string name, string degree, string turn)
+        public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn)
         {
             try
             {
@@ -80,12 +85,12 @@ namespace GestIn.Controllers
                     var updatedCareer = findCareer(idcareer);
                     if (updatedCareer != null)
                     {
-                        updatedCareer.RESOLUTION = resolutionNum;
-                        updatedCareer.NAME = name;
-                        updatedCareer.DEGREE = degree;
-                        updatedCareer.TURN = turn;
-                        updatedCareer.LASTMODIFICATIONBY = "Alguien actualizo la carrera";
-                        updatedCareer.UPDATEDAT = DateTime.Now;
+                        updatedCareer.Resolution = ResolutionNum;
+                        updatedCareer.Name = name;
+                        updatedCareer.Degree = degree;
+                        updatedCareer.Turn = turn;
+                        updatedCareer.LastModificationBy = "Alguien actualizo la carrera";
+                        updatedCareer.UpdatedAt = DateTime.Now;
                         db.Update(updatedCareer);
                         db.SaveChanges();
                     }
@@ -101,7 +106,7 @@ namespace GestIn.Controllers
 
             foreach (Career aux in ListCareers)
             {
-                if (aux.ID == id)
+                if (aux.Id == id)
                 {
                     carrera = aux;
                 }
@@ -117,12 +122,12 @@ namespace GestIn.Controllers
             }
         }
 
-        public Dictionary<string, string> loadCareerInformation(string resolutionNum)
+        public Dictionary<string, string> loadCareerInformation(string ResolutionNum)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
             try
             {
-                Career career = findCareer(resolutionNum);
+                Career career = findCareer(ResolutionNum);
                 if (career != null)
                 {
                     data.Add("id", career.Id.ToString());
@@ -150,18 +155,31 @@ namespace GestIn.Controllers
             }
         }
 
-        public Career findCareer(string resolutionNum)
+        public Career findCareer(string ResolutionNum)
         {
             using (var db = new Context())
             {
                 try
                 {
-                    var career = db.Careers.Where(x => x.RESOLUTION == resolutionNum).First();
+                    var career = db.Careers.Where(x => x.Resolution == ResolutionNum).First();
                     return career;
                 }
                 catch { }
                 return null;
             }
+        }
+
+        public Career getCareer(object cmbcareer)
+        {
+            Career thiscareer = (Career)cmbcareer;
+            foreach(Career car in ListCareers)
+            {
+                if(thiscareer.Id==car.Id)
+                {
+                    thiscareer = car;
+                }
+            }
+            return thiscareer;
         }
 
         internal bool updateCareer(int id, string reso, string name, string degree) //Rafa
@@ -187,5 +205,7 @@ namespace GestIn.Controllers
             catch { }
             return false;
         }
+
+
     }
 }

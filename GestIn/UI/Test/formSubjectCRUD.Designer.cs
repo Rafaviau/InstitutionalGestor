@@ -46,9 +46,16 @@
             this.btnDocentes = new System.Windows.Forms.Button();
             this.btnCronograma = new System.Windows.Forms.Button();
             this.btnCorrelativas = new System.Windows.Forms.Button();
+            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAREERIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yEARINCAREERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreraMaterias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCarrera
@@ -144,7 +151,15 @@
             // 
             // dataGridViewMaterias
             // 
+            this.dataGridViewMaterias.AutoGenerateColumns = false;
             this.dataGridViewMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.cAREERIDDataGridViewTextBoxColumn,
+            this.nAMEDataGridViewTextBoxColumn,
+            this.yEARINCAREERDataGridViewTextBoxColumn,
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn});
+            this.dataGridViewMaterias.DataSource = this.subjectBindingSource;
             this.dataGridViewMaterias.Location = new System.Drawing.Point(29, 416);
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
@@ -154,7 +169,6 @@
             this.dataGridViewMaterias.Size = new System.Drawing.Size(774, 319);
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
-            this.dataGridViewMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellContentClick);
             // 
             // label1
             // 
@@ -193,6 +207,55 @@
             this.btnCorrelativas.UseVisualStyleBackColor = true;
             this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelativas_MouseClick);
             // 
+            // subjectBindingSource
+            // 
+            this.subjectBindingSource.DataSource = typeof(GestIn.Model.Subject);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cAREERIDDataGridViewTextBoxColumn
+            // 
+            this.cAREERIDDataGridViewTextBoxColumn.DataPropertyName = "CAREERID";
+            this.cAREERIDDataGridViewTextBoxColumn.HeaderText = "CAREERID";
+            this.cAREERIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cAREERIDDataGridViewTextBoxColumn.Name = "cAREERIDDataGridViewTextBoxColumn";
+            this.cAREERIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cAREERIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nAMEDataGridViewTextBoxColumn
+            // 
+            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.HeaderText = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
+            this.nAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nAMEDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // yEARINCAREERDataGridViewTextBoxColumn
+            // 
+            this.yEARINCAREERDataGridViewTextBoxColumn.DataPropertyName = "YEARINCAREER";
+            this.yEARINCAREERDataGridViewTextBoxColumn.HeaderText = "YEARINCAREER";
+            this.yEARINCAREERDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.yEARINCAREERDataGridViewTextBoxColumn.Name = "yEARINCAREERDataGridViewTextBoxColumn";
+            this.yEARINCAREERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.yEARINCAREERDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // aNNUALHOURLYLOADDataGridViewTextBoxColumn
+            // 
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn.DataPropertyName = "ANNUALHOURLYLOAD";
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn.HeaderText = "ANNUALHOURLYLOAD";
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn.Name = "aNNUALHOURLYLOADDataGridViewTextBoxColumn";
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aNNUALHOURLYLOADDataGridViewTextBoxColumn.Width = 125;
+            // 
             // formSubjectCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -220,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreraMaterias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +308,11 @@
         private Button btnDocentes;
         private Button btnCronograma;
         private Button btnCorrelativas;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cAREERIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn yEARINCAREERDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn aNNUALHOURLYLOADDataGridViewTextBoxColumn;
+        private BindingSource subjectBindingSource;
     }
 }

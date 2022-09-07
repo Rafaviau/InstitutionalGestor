@@ -17,17 +17,17 @@ namespace GestIn.Model
         }
 
         [Key]
-        public int Id;
-        public int CareerId;
+        public int Id { get; set; }
+        public int CareerId { get; set; }
         [StringLength(50)]
-        public string Name = null!;
-        public int YearInCareer;
-        public int AnnualHourlyLoad;
-        public DateTime CreatedAt;
-        public DateTime? UpdatedAt;
-        public DateTime? DeletedAt;
+        public string Name { get; set; } = null!;
+        public int YearInCareer { get; set; }
+        public int AnnualHourlyLoad { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
-        public string LastModificationBy = null!;
+        public string LastModificationBy { get; set; } = null!;
 
 
         [ForeignKey("CareerId")]
@@ -50,30 +50,27 @@ namespace GestIn.Model
 
         public Subject(int id)
         {
-            ID = id;
+           Id = id;
         }
 
         public Subject(int careerId, string name, int yearInCareer, int annualHourlyLoad) //CREATE
         {
-            CAREERID = careerId;
-            NAME = name;
-            YEARINCAREER = yearInCareer;
-            ANNUALHOURLYLOAD = annualHourlyLoad;
+            CareerId = careerId;
+            Name = name;
+            YearInCareer = yearInCareer;
+            AnnualHourlyLoad = annualHourlyLoad;
         }
 
-        public Subject(int id, int careerId, string name, int yearInCareer, int annualHourlyLoad, DateTime createdAt, DateTime? updatedAt, DateTime? deletedAt, string lastModificationBy) //CREATE DATABASE
+        public string TOSTRING()
         {
-            ID = ID;
-            CAREERID = careerId;
-            NAME = name;
-            YEARINCAREER = yearInCareer;
-            ANNUALHOURLYLOAD = annualHourlyLoad;
-            CREATEDAT = createdAt;
-            UPDATEDAT = updatedAt;
-            DELETEDAT = deletedAt;
-            LASTMODIFICATIONBY = lastModificationBy;
+            return this.Id.ToString() + " "
+                + this.CareerId.ToString() + " "
+                + this.Name.ToString() + " "
+                + this.YearInCareer.ToString() + " "
+                + this.AnnualHourlyLoad.ToString();
         }
 
+        /*
         public int ID
         {
             set { Id = value; }
@@ -126,17 +123,8 @@ namespace GestIn.Model
             get { return LastModificationBy; }
         }
 
-        public string TOSTRING()
-        {
-            return this.ID.ToString() + " "
-                + this.CAREERID.ToString() + " "
-                + this.NAME.ToString() + " "
-                + this.YEARINCAREER.ToString() + " "
-                + this.ANNUALHOURLYLOAD.ToString();
-        }
+        
 
-
-        /*
        public List<Correlative> ListCorrelatives = new List<Correlative>();
        public List<Teacher> ListTeachers = new List<Teacher>();
        public List<Schedule> ListSchedule = new List<Schedule>();

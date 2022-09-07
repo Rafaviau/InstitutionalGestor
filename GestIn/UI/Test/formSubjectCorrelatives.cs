@@ -61,7 +61,7 @@ namespace GestIn.UI.Test
         {
             try
             {
-                lblmateriaName.Text = subjectController.getSubject(receivedSubject).NAME;
+                lblmateriaName.Text = subjectController.getSubject(receivedSubject).Name;
             }
             catch (Exception exc)
             {

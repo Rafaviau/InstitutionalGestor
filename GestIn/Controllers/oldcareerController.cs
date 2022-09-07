@@ -240,7 +240,7 @@ public void TestCarrera()
 
 public string TOSTRINGCARRERA(Career c) //Prueba
 {
-    return ("ID = " + c.RESOLUTION + " " + "Nombre" + " " + c.NAME);
+    return ("ID = " + c.Resolution + " " + "Nombre" + " " + c.NAME);
 }
 
 #endregion
@@ -478,11 +478,11 @@ namespace GestIn.Controllers
                 return db.Careers.ToList();
             }
         }
-        public Career createCareer(string resolution, string name, string degree) {
+        public Career createCareer(string Resolution, string name, string degree) {
                     try
                     {
                         Career career = new Career();
-                        career.Resolution = resolution;
+                        career.Resolution = Resolution;
                         career.Name = name;
                         career.Degree = degree;
                         career.CreatedAt = DateTime.Now;

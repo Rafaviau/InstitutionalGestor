@@ -59,12 +59,6 @@ namespace GestIn.UI.Test.Subject
             {
                 MessageBox.Show(exc.Message);
             }
-
-        }
-
-        private void dataGridViewMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         public void ClearAll()
@@ -97,7 +91,7 @@ namespace GestIn.UI.Test.Subject
             idmaterium = 1;
             //idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
             object selectedSubject = subjectController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
-            MessageBox.Show(" ATENTI: HARDCORDEADO " + " ID OF MATERIUM " + idmaterium);
+            MessageBox.Show(" ATENTI: HARDCODEADO " + " ID OF SUBJECT " + idmaterium);
             return selectedSubject;
 
         }
@@ -105,8 +99,8 @@ namespace GestIn.UI.Test.Subject
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNombre.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
-            txtAnioCarrera.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
-            txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[5].Value);
+            txtAnioCarrera.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
+            txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
         }
 
         private void cbbCarreraSelector_SelectedIndexChanged(object sender, EventArgs e)

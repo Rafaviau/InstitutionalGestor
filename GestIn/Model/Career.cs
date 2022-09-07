@@ -17,59 +17,34 @@ namespace GestIn.Model
         }
 
         [Key]
-        public int Id  {get; set; }
+        public int Id {get; set; }
         [StringLength(50)]
         public string Resolution { get; set; } = null!;
         [StringLength(50)]
-        public string Name = null!;
+        public string Name { get; set; } = null!;
         [StringLength(50)]
-        public string Degree= null!;
+        public string Degree { get; set; } = null!;
         [StringLength(50)]
-        public string? Turn;
-        public DateTime CreatedAt;
-        public DateTime? UpdatedAt;
-        public DateTime? DeletedAt;
+        public string? Turn { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
-        public string LastModificationBy = null!;
+        public string LastModificationBy { get; set; } = null!;
 
         [InverseProperty("Career")]
         public virtual ICollection<CareerEnrolment> CareerEnrolments { get; set; }
         [InverseProperty("Career")]
         public virtual ICollection<Subject> Subjects { get; set; }
 
-
-        public Career(int id)
-        {
-            Id = id;
-        }
-        public Career(string resolution, string name, string degree, string? turn)
-        {
-            Resolution = resolution;
-            NAME = name;
-            DEGREE = degree;
-            TURN = turn;
-        }
-
-        public Career(int id, string resolution, string name, string degree, string? turn, DateTime createdAt, DateTime? updatedAt, DateTime? deletedAt, string lastModificationBy)
-        {
-            ID = id;
-            Resolution = resolution;
-            NAME = name;
-            DEGREE = degree;
-            TURN = turn;
-            CREATEDAT = createdAt;
-            UPDATEDAT = updatedAt;
-            DELETEDAT = deletedAt;
-            LASTMODIFICATIONBY = lastModificationBy;
-        }
-
+        /*
         public int ID
         {
             set { Id = value; }
             get { return Id; }
         }
 
-        public string RESOLUTION
+        public string Resolution
         {
             set { Resolution = value; }
             get { return Resolution; }
@@ -115,6 +90,7 @@ namespace GestIn.Model
             set { LastModificationBy = value; }
             get { return LastModificationBy; }
         }
+        */
 
         public int CalcularHorasSemanales(int horasTotales)
         {
@@ -123,11 +99,11 @@ namespace GestIn.Model
 
         public string TOSTRING()
         {
-            return this.ID.ToString() + " "
-                + this.RESOLUTION.ToString() + " "
-                + this.NAME.ToString() + " "
-                + this.DEGREE.ToString() + " "
-                + this.TURN.ToString();
+            return this.Id.ToString() + " "
+                + this.Resolution.ToString() + " "
+                + this.Name.ToString() + " "
+                + this.Degree.ToString() + " "
+                + this.Turn.ToString();
         }
 
         /*
@@ -143,12 +119,12 @@ namespace GestIn.Model
 
         public override string ToString()
         {
-            return "Career{" + "_NRORESOLUCION=" + RESOLUTION + ", Nombre=" + NAME + ", Turno=" + TURN + ", ListaMaterias=" + LIST_SUBJECTS + '}';
+            return "Career{" + "_NRORESOLUCION=" + Resolution + ", Nombre=" + NAME + ", Turno=" + TURN + ", ListaMaterias=" + LIST_SUBJECTS + '}';
         }
 
-        public Career(string resolution, string name, string degree, string? turn, List<Subject> listSubjects)
+        public Career(string Resolution, string name, string degree, string? turn, List<Subject> listSubjects)
         {
-            RESOLUTION = resolution;
+            Resolution = Resolution;
             NAME = name;
             DEGREE = degree;
             TURN = turn;

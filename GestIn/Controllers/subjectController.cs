@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Xml.Linq;
 
 namespace GestIn.Controllers
@@ -25,10 +24,12 @@ namespace GestIn.Controllers
         #region Singletone
         private subjectController()
         {
+            /*
             ListSubjects = new List<Subject>();
             ListCorrelatives = new List<Correlative>();
             ListTeachers = new List<TeacherSubject>();
             ListSchedules = new List<Schedule>();
+            */
 
             ListSubjects = loadSubjects();
             ListCorrelatives = loadCorrelatives();
@@ -74,9 +75,9 @@ namespace GestIn.Controllers
             Career carreraExistente = (Career)carreraObject;
             try
             {
-                nuevaMateria.CAREERID = carreraExistente.ID;
-                nuevaMateria.CREATEDAT = DateTime.Now;
-                nuevaMateria.LASTMODIFICATIONBY = "Preceptor cargando materias";
+                nuevaMateria.CareerId = carreraExistente.Id;
+                nuevaMateria.CreatedAt = DateTime.Now;
+                nuevaMateria.LastModificationBy = "Preceptor cargando materias";
                 using (var db = new Context())
                 {
                     db.Subjects.Add(nuevaMateria);
@@ -109,7 +110,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    var result = db.Subjects.Where(x => x.Id == subject.ID).First();
+                    var result = db.Subjects.Where(x => x.Id == subject.Id).First();
                     return result;
                 }
                 catch { }
@@ -121,21 +122,21 @@ namespace GestIn.Controllers
         {
             Career carreraExistente = (Career)carreraExistenteObject; //not really necessary, test later
             Subject existingSubject = (Subject)materiaObject;
-            existingSubject.CAREERID = carreraExistente.ID;
-            existingSubject.NAME = nombre;
-            existingSubject.YEARINCAREER = anioEnCarrera;
-            existingSubject.ANNUALHOURLYLOAD = cargaHorariaTotal;
+            existingSubject.CareerId = carreraExistente.Id;
+            existingSubject.Name = nombre;
+            existingSubject.YearInCareer = anioEnCarrera;
+            existingSubject.AnnualHourlyLoad = cargaHorariaTotal;
 
             try
             {
                 using (var db = new Context())
                 {
-                    var resultSubject = findSubject(existingSubject.ID);
+                    var resultSubject = findSubject(existingSubject.Id);
                     if (resultSubject != null)
                     {
-                        resultSubject.NAME = nombre;
-                        resultSubject.YEARINCAREER = anioEnCarrera;
-                        resultSubject.ANNUALHOURLYLOAD = cargaHorariaTotal;
+                        resultSubject.Name = nombre;
+                        resultSubject.YearInCareer = anioEnCarrera;
+                        resultSubject.AnnualHourlyLoad = cargaHorariaTotal;
                         resultSubject.LastModificationBy = "Alguien actualizo esta materia";
                         resultSubject.UpdatedAt = DateTime.Now;
                         db.Update(resultSubject);
@@ -219,39 +220,39 @@ namespace GestIn.Controllers
 
             foreach (Subject subject in ListSubjects)
             {
-                if (subject.CAREERID == carreraSelector.ID)
+                if (subject.CareerId == carreraSelector.Id)
                 {
                     specifiedListSubjects.Add(subject);
                     //MessageBox.Show(subject.TOSTRING());
                 }
-            }
+            } 
             return specifiedListSubjects;
         }
-        public Subject getSpecificSubjectFromCareer(object carreraSelected, int materiaID) //Pedir -> Docentes/Cronograma/Correlativas
+        public Subject getSpecificSubjectFromCareer(object careerMatter, int subjectID) //Pedir -> Docentes/Cronograma/Correlativas
         {
-            Subject objMateria = null;
-            foreach (Subject materia in getSubjectsFromCareer(carreraSelected))
+            Subject subject = null;
+            foreach (Subject materia in getSubjectsFromCareer(careerMatter))
             {
-                if (materiaID == materia.ID)
+                if (subjectID == materia.Id)
                 {
-                    objMateria = materia;
+                    subject = materia;
                 }
             }
-            return objMateria;
+            return subject;
         }
 
-        public Subject getSpecificSubjectFromCareer(object carreraSelected, object materiaSelected) //Pedir -> Docentes/Cronograma/Correlativas
+        public Subject getSpecificSubjectFromCareer(object careerMatter, object subjectMatter) //Pedir -> Docentes/Cronograma/Correlativas
         {
-            Subject objMateria = (Subject)materiaSelected;
-            Career objCareer = (Career)carreraSelected;
-            foreach (Subject materia in getSubjectsFromCareer(carreraSelected))
+            Subject subject = (Subject)subjectMatter;
+            Career career = (Career)careerMatter;
+            foreach (Subject materia in getSubjectsFromCareer(careerMatter))
             {
-                if (objMateria.ID == objCareer.ID)
+                if (subject.Id == career.Id)
                 {
-                    objMateria = materia;
+                    subject = materia;
                 }
             }
-            return objMateria;
+            return subject;
         }
 
         public List<Correlative> getCorrelativesFromSubject(object subjectMatter) //pido las correlativas de una determinada materia
@@ -261,7 +262,7 @@ namespace GestIn.Controllers
 
             foreach (Correlative cor in ListCorrelatives)
             {
-                if (subject.ID == cor.SubjectId)
+                if (subject.Id == cor.SubjectId)
                 {
                     specifiedListCorrelatives.Add(cor);
                 }
