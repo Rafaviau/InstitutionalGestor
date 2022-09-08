@@ -70,7 +70,7 @@ namespace GestIn.UI.Test.Subject
 
         private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
         {
-            subjectController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), cbbCarreraSelector.SelectedItem);
+            subjectController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
             RefreshTableSubjects();
         }
 
@@ -85,13 +85,11 @@ namespace GestIn.UI.Test.Subject
             }
         }
 
-        private object SetGlobalSubjectium() //solamente de testeo
+        private object SetGlobalSubjectium() //solamente de testeo try ctach later
         {
             int idmaterium;
-            idmaterium = 1;
-            //idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
+            idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
             object selectedSubject = subjectController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
-            MessageBox.Show(" ATENTI: HARDCODEADO " + " ID OF SUBJECT " + idmaterium);
             return selectedSubject;
 
         }

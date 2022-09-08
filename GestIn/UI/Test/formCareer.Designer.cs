@@ -43,8 +43,15 @@
             this.btnFormMateria = new System.Windows.Forms.Button();
             this.dataGridViewCarreras = new System.Windows.Forms.DataGridView();
             this.BindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
+            this.careerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resolutionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCarreras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNumResolucion
@@ -159,7 +166,15 @@
             // 
             // dataGridViewCarreras
             // 
+            this.dataGridViewCarreras.AutoGenerateColumns = false;
             this.dataGridViewCarreras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCarreras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.resolutionDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.degreeDataGridViewTextBoxColumn,
+            this.turnDataGridViewTextBoxColumn});
+            this.dataGridViewCarreras.DataSource = this.careerBindingSource;
             this.dataGridViewCarreras.Location = new System.Drawing.Point(426, 38);
             this.dataGridViewCarreras.Name = "dataGridViewCarreras";
             this.dataGridViewCarreras.RowHeadersWidth = 51;
@@ -168,6 +183,50 @@
             this.dataGridViewCarreras.TabIndex = 14;
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
+            // 
+            // careerBindingSource
+            // 
+            this.careerBindingSource.DataSource = typeof(GestIn.Model.Career);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // resolutionDataGridViewTextBoxColumn
+            // 
+            this.resolutionDataGridViewTextBoxColumn.DataPropertyName = "Resolution";
+            this.resolutionDataGridViewTextBoxColumn.HeaderText = "Resolution";
+            this.resolutionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.resolutionDataGridViewTextBoxColumn.Name = "resolutionDataGridViewTextBoxColumn";
+            this.resolutionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // degreeDataGridViewTextBoxColumn
+            // 
+            this.degreeDataGridViewTextBoxColumn.DataPropertyName = "Degree";
+            this.degreeDataGridViewTextBoxColumn.HeaderText = "Degree";
+            this.degreeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.degreeDataGridViewTextBoxColumn.Name = "degreeDataGridViewTextBoxColumn";
+            this.degreeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // turnDataGridViewTextBoxColumn
+            // 
+            this.turnDataGridViewTextBoxColumn.DataPropertyName = "Turn";
+            this.turnDataGridViewTextBoxColumn.HeaderText = "Turn";
+            this.turnDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.turnDataGridViewTextBoxColumn.Name = "turnDataGridViewTextBoxColumn";
+            this.turnDataGridViewTextBoxColumn.Width = 125;
             // 
             // formCareer
             // 
@@ -193,6 +252,7 @@
             this.Load += new System.EventHandler(this.formCarrera_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCarreras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +274,11 @@
         private Button btnFormMateria;
         private DataGridView dataGridViewCarreras;
         private BindingSource BindingSourceCarreras;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn resolutionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn degreeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn turnDataGridViewTextBoxColumn;
+        private BindingSource careerBindingSource;
     }
 }

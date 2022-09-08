@@ -69,13 +69,42 @@ namespace GestIn.Controllers
 
         #endregion
 
-        public Subject createSubject(int careerID, string name, int yearInCareer, int anualTotalhours, object carreraObject)
+        public Subject createSubject(int careerID, string name, int yearInCareer, int annualTotalhours)
         {
-            Subject nuevaMateria = new Subject(careerID, name, yearInCareer, anualTotalhours);
-            Career carreraExistente = (Career)carreraObject;
+            Subject nuevaMateria = new Subject();
             try
             {
-                nuevaMateria.CareerId = carreraExistente.Id;
+                nuevaMateria.CareerId = careerID;
+                nuevaMateria.Name = name;
+                nuevaMateria.YearInCareer = yearInCareer;
+                nuevaMateria.AnnualHourlyLoad = annualTotalhours;
+                nuevaMateria.CreatedAt = DateTime.Now;
+                nuevaMateria.LastModificationBy = "Preceptor cargando materias";
+                using (var db = new Context())
+                {
+                    db.Subjects.Add(nuevaMateria);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("CREATED SUCCESSFULLY");
+
+                ListSubjects.Add(nuevaMateria);
+                return nuevaMateria;
+            }
+            catch (SqlException exception)
+            {
+                throw exception;
+            }
+        }
+
+        public Subject createSubject(int careerID, string name, int yearInCareer, int annualTotalhours,object career) //Rafa
+        {
+            Subject nuevaMateria = new Subject();
+            try
+            {
+                nuevaMateria.CareerId = careerID;
+                nuevaMateria.Name = name;
+                nuevaMateria.YearInCareer = yearInCareer;
+                nuevaMateria.AnnualHourlyLoad = annualTotalhours;
                 nuevaMateria.CreatedAt = DateTime.Now;
                 nuevaMateria.LastModificationBy = "Preceptor cargando materias";
                 using (var db = new Context())
@@ -120,13 +149,8 @@ namespace GestIn.Controllers
 
         public bool updateSubject(object carreraExistenteObject, object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal)
         {
-            Career carreraExistente = (Career)carreraExistenteObject; //not really necessary, test later
+            Career carreraExistente = (Career)carreraExistenteObject;
             Subject existingSubject = (Subject)materiaObject;
-            existingSubject.CareerId = carreraExistente.Id;
-            existingSubject.Name = nombre;
-            existingSubject.YearInCareer = anioEnCarrera;
-            existingSubject.AnnualHourlyLoad = cargaHorariaTotal;
-
             try
             {
                 using (var db = new Context())
@@ -137,6 +161,7 @@ namespace GestIn.Controllers
                         resultSubject.Name = nombre;
                         resultSubject.YearInCareer = anioEnCarrera;
                         resultSubject.AnnualHourlyLoad = cargaHorariaTotal;
+                        resultSubject.CareerId = carreraExistente.Id; //Check Later
                         resultSubject.LastModificationBy = "Alguien actualizo esta materia";
                         resultSubject.UpdatedAt = DateTime.Now;
                         db.Update(resultSubject);

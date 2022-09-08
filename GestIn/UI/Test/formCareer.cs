@@ -51,8 +51,8 @@ namespace GestIn.Vista.Test
         private void btnModificar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
-            //object aux = new object(Int32.Parse(this.txtNumResolucion.Text), this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
-            //carreraController.updateCareer(1,this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text); //HARDCODED
+            int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
+            carreraController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
