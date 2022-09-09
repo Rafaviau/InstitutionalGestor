@@ -16,43 +16,61 @@ namespace GestIn.Vista.Test
 {
     public partial class formCareer : Form
     {
-        careerController carreraController;
+        careerController careerController;
         //ControladoraPersona personaController; // para Testear
         public formCareer()
         {
-            carreraController = careerController.GetInstance();
+            careerController = careerController.GetInstance();
             InitializeComponent();
         }
 
         private void formCarrera_Load(object sender, EventArgs e)
         {
             RefreshTableCarrera();
-            //carreraController.TestCarrera();
-            //carreraController.TestMateria();
-            //personaController.TestDocente();
-            RefreshTableCarrera();
         }
 
         public void RefreshTableCarrera()
         {
-            BindingSourceCarreras.DataSource = carreraController.ReturnListCareers();
+            BindingSourceCarreras.DataSource = careerController.ReturnListCareers();
             BindingSourceCarreras.ResetBindings(false);
             dataGridViewCarreras.DataSource = null;
-            if (carreraController.ReturnListCareers().Count > 0)
+            if (careerController.ReturnListCareers().Count > 0)
                 dataGridViewCarreras.DataSource = dataGridViewCarreras.DataSource = BindingSourceCarreras;
+        }
+
+        public void RefreshLableCareerName(int careerID)
+        {
+            try
+            {
+                lblcarreraaqui.Text = careerController.getCareer(careerID).Name;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        public void DisableTextBox()
+        {
+            txtNumResolucion.Enabled = false;
+            txtNombre.Enabled = false;
+            txtTitulo.Enabled = false;
+            cbbTurno.Enabled = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            carreraController.createCareer(this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            careerController.createCareer(this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
             RefreshTableCarrera();
+            DisableTextBox();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            carreraController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            DisableTextBox();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -89,15 +107,22 @@ namespace GestIn.Vista.Test
 
         private void dataGridViewCarreras_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
             txtNumResolucion.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[1].Value);
             txtNombre.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[2].Value);
             txtTitulo.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[3].Value);
             cbbTurno.SelectedItem = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value);
+            RefreshLableCareerName(id);
         }
 
-        private void txtNumResolucion_TextChanged(object sender, EventArgs e)
+        private void btnModificar_MouseClick(object sender, MouseEventArgs e)
         {
-
+            btnInsert.Enabled = true;
+            btnUpdate.Enabled = true;
+            txtNumResolucion.Enabled = true;
+            txtNombre.Enabled = true;
+            txtTitulo.Enabled = true;
+            cbbTurno.Enabled = true;
         }
     }
 }

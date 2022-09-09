@@ -13,7 +13,6 @@ namespace GestIn.UI.Test
 {
     public partial class formSubjectCorrelatives : Form
     {
-        careerController carreraController;
         subjectController subjectController;
         object receivedCareer;
         object receivedSubject;
@@ -21,7 +20,6 @@ namespace GestIn.UI.Test
         {
             receivedCareer = sentCareer;
             receivedSubject = sentSubject;
-            carreraController = careerController.GetInstance();
             subjectController = subjectController.GetInstance();
             InitializeComponent();
         }
@@ -36,7 +34,7 @@ namespace GestIn.UI.Test
 
         public void RefreshComboboxCorrelativas() //en teoria recibo la lista de materias menos la misma
         {
-            bindingSourceCorrelativasMenosMisma.DataSource = subjectController.getSpecificSubjectFromCareer(receivedCareer, receivedSubject); //Sobrecarga para no mostrar misma materia
+            bindingSourceCorrelativasMenosMisma.DataSource = subjectController.getSubjectsFromCareer(receivedCareer,receivedSubject); //Sobrecarga para no mostrar misma materia
             bindingSourceCorrelativasMenosMisma.ResetBindings(true);
             cbbCorrelativas.DataSource = bindingSourceCorrelativasMenosMisma;
             cbbCorrelativas.DisplayMember = "NAME";
@@ -50,6 +48,9 @@ namespace GestIn.UI.Test
                 bindingSourceMateriaCorrelativas.DataSource = subjectController.getCorrelativesFromSubject(receivedSubject); //clono una materia y pido su materias correlativas
                 bindingSourceMateriaCorrelativas.ResetBindings(true);
                 dataGridViewCorrelativas.DataSource = bindingSourceMateriaCorrelativas;
+
+
+                dataGridViewCorrelativas.Rows.Add("DDD", "ssss", true);
             }
             catch (Exception exc)
             {
@@ -69,25 +70,17 @@ namespace GestIn.UI.Test
             }
         }
 
-        private void cbbCorrelativas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((subjectController.getCorrelativesFromSubject(receivedSubject).Any()))
-            {
-                RefreshTableCorrelativas();
-            }
-        }
-
         private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
-            //subjectController.updateSubject(receivedCareer, receivedSubject, selectedSubject);
+            subjectController.createCorrelative(subjectController.getSubject(selectedSubject), chkEstado.Checked);
             RefreshTableCorrelativas();
         }
 
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
-            object selectedSubject = cbbCorrelativas.SelectedItem;
-            //subjectController.deleteSubject(receivedCareer, receivedSubject, selectedSubject);
+            int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
+            subjectController.removeCorrelative(subjectController.getCorrelative(selectedSubjectID));
             RefreshTableCorrelativas();
         }
     }

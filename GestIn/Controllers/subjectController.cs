@@ -13,10 +13,8 @@ namespace GestIn.Controllers
     internal class subjectController
     {
         #region Atributos
-        private List<Subject> ListSubjects = new List<Subject>();
-        private List<Correlative> ListCorrelatives = new List<Correlative>();
-        private List<TeacherSubject> ListTeachers = new List<TeacherSubject>();
-        private List<Schedule> ListSchedules = new List<Schedule>();
+        //private List<TeacherSubject> ListTeachers = new List<TeacherSubject>();
+        //private List<Schedule> ListSchedules = new List<Schedule>();
         private static subjectController? Instance;
         //ControladoraPersona personaController; // para Testear
         #endregion
@@ -24,18 +22,8 @@ namespace GestIn.Controllers
         #region Singletone
         private subjectController()
         {
-            /*
-            ListSubjects = new List<Subject>();
-            ListCorrelatives = new List<Correlative>();
-            ListTeachers = new List<TeacherSubject>();
-            ListSchedules = new List<Schedule>();
-            */
-
-            ListSubjects = loadSubjects();
-            ListCorrelatives = loadCorrelatives();
-            ListTeachers = loadTeachers();
-            ListSchedules = loadSchedules();
-            
+            //ListTeachers = new List<TeacherSubject>();
+            //ListSchedules = new List<Schedule>();
         }
 
         public static subjectController GetInstance()
@@ -49,14 +37,8 @@ namespace GestIn.Controllers
         #endregion
 
         #region ReturnList
-        public List<Subject> ReturnListSubjects()
-        {
-            return ListSubjects;
-        }
-        public List<Correlative> ReturnListCorrelatives()
-        {
-            return ListCorrelatives;
-        }
+
+        /*
         public List<TeacherSubject> ReturnListTeachers()
         {
             return ListTeachers;
@@ -65,6 +47,7 @@ namespace GestIn.Controllers
         {
             return ListSchedules;
         }
+        */
         
 
         #endregion
@@ -87,7 +70,6 @@ namespace GestIn.Controllers
                 }
                 MessageBox.Show("CREATED SUCCESSFULLY");
 
-                ListSubjects.Add(nuevaMateria);
                 return nuevaMateria;
             }
             catch (SqlException exception)
@@ -114,13 +96,40 @@ namespace GestIn.Controllers
                 }
                 MessageBox.Show("CREATED SUCCESSFULLY");
 
-                ListSubjects.Add(nuevaMateria);
                 return nuevaMateria;
             }
             catch (SqlException exception)
             {
                 throw exception;
             }
+        }
+
+        public bool updateSubject(object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal)
+        {
+            Subject existingSubject = (Subject)materiaObject;
+            try
+            {
+                using (var db = new Context())
+                {
+                    var resultSubject = findSubject(existingSubject);
+                    if (resultSubject != null)
+                    {
+                        resultSubject.Name = nombre;
+                        resultSubject.YearInCareer = anioEnCarrera;
+                        resultSubject.AnnualHourlyLoad = cargaHorariaTotal;
+                        //resultSubject.CareerId = carreraExistente.Id; //Check Later
+                        resultSubject.LastModificationBy = "Alguien actualizo esta materia";
+                        resultSubject.UpdatedAt = DateTime.Now;
+                        db.Update(resultSubject);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+                MessageBox.Show("MATERIA ACTUALIZADA");
+            }
+
+            catch { }
+            return false;
         }
 
         public IEnumerable<Subject> loadSubject(object objectCareer)
@@ -147,34 +156,34 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool updateSubject(object carreraExistenteObject, object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal)
+        public Subject findSubject(int subjectID)
         {
-            Career carreraExistente = (Career)carreraExistenteObject;
-            Subject existingSubject = (Subject)materiaObject;
-            try
+            using (var db = new Context())
             {
-                using (var db = new Context())
+                try
                 {
-                    var resultSubject = findSubject(existingSubject.Id);
-                    if (resultSubject != null)
-                    {
-                        resultSubject.Name = nombre;
-                        resultSubject.YearInCareer = anioEnCarrera;
-                        resultSubject.AnnualHourlyLoad = cargaHorariaTotal;
-                        resultSubject.CareerId = carreraExistente.Id; //Check Later
-                        resultSubject.LastModificationBy = "Alguien actualizo esta materia";
-                        resultSubject.UpdatedAt = DateTime.Now;
-                        db.Update(resultSubject);
-                        db.SaveChanges();
-                        return true;
-                    }
+                    var result = db.Subjects.Where(x => x.Id == subjectID).First();
+                    return result;
                 }
+                catch { }
+                return null;
             }
-
-            catch { }
-            return false;
         }
 
+        public Correlative findCorrelative(object objectCorrelative)
+        {
+            Correlative correlative = (Correlative)objectCorrelative;
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Correlatives.Where(x => x.Id == correlative.Id).First();
+                    return result;
+                }
+                catch { }
+                return null;
+            }
+        }
 
         public Subject getSubject(object materiaSelector) //Checklist casteando
         {
@@ -243,17 +252,42 @@ namespace GestIn.Controllers
             List<Subject> specifiedListSubjects = new List<Subject>(); 
             Career carreraSelector = (Career)career;
 
-            foreach (Subject subject in ListSubjects)
+            using (var db = new Context())
             {
-                if (subject.CareerId == carreraSelector.Id)
+                try
+                {
+                    foreach (var item in db.Subjects.Where(x => x.CareerId == carreraSelector.Id).ToList())
+                    {
+                        specifiedListSubjects.Add(item);
+                    }
+                    return specifiedListSubjects;
+                }
+                catch (SqlException exception) { throw exception; }
+                return null;
+            }
+            return specifiedListSubjects;
+        }
+
+        public List<Subject> getSubjectsFromCareer(object objcareer, object objsubject) // pido las materias menos la misma para correlativas
+        {
+            List<Subject> specifiedListSubjects = new List<Subject>();
+            Career carreraSelector = (Career)objcareer;
+            Subject subjectSelector = (Subject)objsubject;
+            Correlative correlativePossible = null;
+
+
+            foreach (Subject subject in getSubjectsFromCareer(carreraSelector))
+            {
+                if (subject.CareerId == carreraSelector.Id && subject.Id != subjectSelector.Id) //que la id de la materia que estoy pasando no sea la misma que en la que esta en la lista
                 {
                     specifiedListSubjects.Add(subject);
                     //MessageBox.Show(subject.TOSTRING());
                 }
-            } 
+            }
             return specifiedListSubjects;
         }
-        public Subject getSpecificSubjectFromCareer(object careerMatter, int subjectID) //Pedir -> Docentes/Cronograma/Correlativas
+
+        public Subject getSpecificSubjectFromCareer(object careerMatter, int subjectID) //Pedir una materia especifica por int
         {
             Subject subject = null;
             foreach (Subject materia in getSubjectsFromCareer(careerMatter))
@@ -266,7 +300,8 @@ namespace GestIn.Controllers
             return subject;
         }
 
-        public Subject getSpecificSubjectFromCareer(object careerMatter, object subjectMatter) //Pedir -> Docentes/Cronograma/Correlativas
+
+        public Subject getSpecificSubjectFromCareer(object careerMatter, object subjectMatter) //Pedir una materia especifica por obj
         {
             Subject subject = (Subject)subjectMatter;
             Career career = (Career)careerMatter;
@@ -280,138 +315,115 @@ namespace GestIn.Controllers
             return subject;
         }
 
+
+
+        public List<Correlative> getCorrelativesFromSubject(object subjectMatter) //pido las correlativas de una determinada materia
+        {
+            List<Correlative> specifiedListCorrelatives = new List<Correlative>();
+            List < string > ewew = new List<string>();
+            Subject existingsubject = (Subject)subjectMatter;
+
+            using (var db = new Context())
+            {
+                try
+                {
+                    foreach (var item in db.Correlatives.Where(x => x.Id == existingsubject.Id).ToList())
+                    {
+                        item.Subject = findSubject(existingsubject.Id);
+                        specifiedListCorrelatives.Add(item);
+                    }
+                    return specifiedListCorrelatives;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public Correlative createCorrelative(object subject, bool state)
+        {
+            Correlative newCorrelative = new Correlative();
+            Subject existingSubject = (Subject)subject;
+            try
+            {
+                newCorrelative.SubjectId = existingSubject.Id;
+                newCorrelative.CorrelativeSubjectId = existingSubject.Id;
+                newCorrelative.CorrelativeFinal = state;
+                newCorrelative.CreatedAt = DateTime.Now;
+                newCorrelative.LastModificationBy = "Preceptor cargando materias";
+                using (var db = new Context())
+                {
+                    db.Correlatives.Add(newCorrelative);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("CORRELATIVE ADDED");
+
+                return newCorrelative;
+            }
+            catch (SqlException exception) { throw exception; }
+        }
+
+        public bool removeCorrelative(object cmbcorrelative)
+        {
+            Correlative existingCorrelative = (Correlative)cmbcorrelative;
+            try
+            {
+                using (var db = new Context())
+                {
+                    var resultCorrelative = findCorrelative(existingCorrelative);
+                    if (resultCorrelative != null)
+                    {
+                        db.Remove(resultCorrelative);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    MessageBox.Show("CORRELATIVE REMOVED");
+                }
+            }
+            catch (SqlException exception) { throw exception; }
+            return false;
+
+        }
+
+        public Correlative getCorrelative(int IDcorrelative)
+        {
+            Correlative correlative = null;
+            using (var db = new Context())
+            {
+                try
+                {
+                    foreach (Correlative cor in db.Correlatives.Where(x => x.Id == IDcorrelative).ToList())
+                    {
+                        if (cor.Id == IDcorrelative)
+                        {
+                            correlative = cor;
+                        }
+                    }
+                    return correlative;
+                }
+                catch (SqlException exception) { throw exception; }
+                return null;
+            }
+
+            
+        }
+
+          /*
+         * 
+         * DEPRECATED 
         public List<Correlative> getCorrelativesFromSubject(object subjectMatter) //pido las correlativas de una determinada materia
         {
             List <Correlative> specifiedListCorrelatives = new List<Correlative>();
-            Subject subject = (Subject)subjectMatter;
-
+            Subject existingsubject = (Subject)subjectMatter;
+            
             foreach (Correlative cor in ListCorrelatives)
             {
-                if (subject.Id == cor.SubjectId)
+                //MessageBox.Show("Amount Correlatives " + " " + specifiedListCorrelatives.Count + " " + existingsubject.Id + " VS " + cor.CorrelativeSubjectId);
+                if (existingsubject.Id == cor.CorrelativeSubjectId)
                 {
                     specifiedListCorrelatives.Add(cor);
+                    
                 }
             }
             return specifiedListCorrelatives;
-        }
-
-        /*
-
-        public Subject ReadMateria(object materiaObject, object carreraObject) //Original
-        {
-            Career carreraExistente = (Career)carreraObject;
-            Subject materia = (Subject)materiaObject;
-            Subject _materia_TOREAD = null;
-            foreach (Subject aux in carreraExistente.LIST_SUBJECTS)
-            {
-                if (aux.YearInCareer == materia.YearInCareer)
-                {
-                    _materia_TOREAD = aux;
-                }
-            }
-            return _materia_TOREAD;
-        }
-
-        
-
-        public void updateSubject(object carreraExistenteObject, object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal)
-        {
-            Career carreraExistente = (Career)carreraExistenteObject;
-            Subject nuevaMateria = (Subject)materiaObject;
-            nuevaMateria.NAME = nombre;
-            nuevaMateria.YEARINCAREER = anioEnCarrera;
-            nuevaMateria.ANNUALHOURLYLOAD = cargaHorariaTotal;
-
-            foreach (Career carrera in ListCareers)
-            {
-                if (carreraExistente.ID == carrera.ID) //ID CARRERA
-                {
-                    foreach (Subject materia in carrera.LIST_SUBJECTS)
-                    {
-                        if (materia.ID == nuevaMateria.ID) //ID MATERIA
-                        {
-                            carrera.LIST_SUBJECTS.Remove(materia);
-                            carrera.LIST_SUBJECTS.Add(nuevaMateria);
-                            MessageBox.Show("UPDATE SUCCESSFULL");
-                        }
-                    }
-                }
-            }
-        }
-
-        public void updateSubject(object carreraExistenteObject, object materiaObject, object correlativeSubject)
-        {
-            Career carreraExistente = (Career)carreraExistenteObject; //Solamente para correlativas
-            Subject thisSubject = (Subject)materiaObject;
-            Correlative correlativesubject = (Correlative)correlativeSubject;
-
-            foreach (Career carrera in ListCareers)
-            {
-                if (carreraExistente.ID == carrera.ID) //ID CARRERA
-                {
-                    foreach (Subject materia in carrera.LIST_SUBJECTS)
-                    {
-                        if (materia.ID == thisSubject.ID) //ID MATERIA
-                        {
-                            thisSubject.CORRELATIVES.Add(correlativesubject);
-                            MessageBox.Show("CORRELATIVE ADDED SUCCESSFULLY");
-                        }
-                    }
-                }
-            }
-        }
-
-        public void deleteSubject(object materiaObject, object carreraObject)
-        {
-            Subject materiaBorrar = (Subject)materiaObject;
-            Career carreraExistente = (Career)carreraObject;
-
-            foreach (Career carrera in ListCareers)
-            {
-                if (carrera.ID == carreraExistente.ID)
-                {
-                    foreach (Subject materia in carreraExistente.LIST_SUBJECTS)
-                    {
-                        if (materiaBorrar.ID == materia.ID) //ID
-                        {
-                            carrera.LIST_SUBJECTS.Remove(materiaBorrar);
-                        }
-                    }
-                }
-            }
-        }
-
-        public Subject GetMateria(object materiaSelector) //Checklist casteando
-        {
-            Subject objMateria = (Subject)materiaSelector;
-            return objMateria;
-        }
-
-        public Subject GetMateria(object carreraSelected, object materiaObject) //Pedir -> Docentes/Cronograma/Correlativas
-        {
-            Subject objMateria = null;
-            Subject materiaSelector = (Subject)materiaObject;
-            foreach (Subject materia in MateriasDeUnaCarrera((Career)carreraSelected))
-            {
-                if (materiaSelector.ID == materia.ID)
-                {
-                    objMateria = materia;
-                }
-            }
-            return objMateria;
-        }
-
-        public Subject GetMateria(object carreraSelected, int materiaID) //Pedir -> Docentes/Cronograma/Correlativas
-        {
-            Subject objMateria = null;
-            foreach (Subject materia in MateriasDeUnaCarrera((Career)carreraSelected))
-            {
-                if (materiaID == materia.ID)
-                {
-                    objMateria = materia;
-                }
-            }
-            return objMateria;
         }
         */
     }

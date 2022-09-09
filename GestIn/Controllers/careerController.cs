@@ -19,8 +19,7 @@ namespace GestIn.Controllers
         #region Singletone
         private careerController()
         {
-            //ListCareers = new List<Career>();
-
+            ListCareers = new List<Career>();
             ListCareers = loadCareers();
         }
 
@@ -35,6 +34,12 @@ namespace GestIn.Controllers
         #endregion
 
         #region ReturnList
+
+        public void reloadTables()
+        {
+            ListCareers = loadCareers();
+        }
+
         public List<Career> ReturnListCareers()
         {
             return ListCareers;
@@ -94,6 +99,7 @@ namespace GestIn.Controllers
                         db.Update(updatedCareer);
                         db.SaveChanges();
                     }
+                    reloadTables();
                 }
             }
             catch {}
@@ -180,6 +186,19 @@ namespace GestIn.Controllers
                 }
             }
             return thiscareer;
+        }
+
+        public Career getCareer(int idcareer)
+        {
+            Career thisCareer = null;
+            foreach (Career car in ListCareers)
+            {
+                if (idcareer == car.Id)
+                {
+                    thisCareer = car;
+                }
+            }
+            return thisCareer;
         }
 
         internal bool updateCareer(int id, string reso, string name, string degree) //Rafa

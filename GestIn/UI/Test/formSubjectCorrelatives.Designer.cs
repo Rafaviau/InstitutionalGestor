@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewCorrelativas = new System.Windows.Forms.DataGridView();
+            this.correlativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddCorrelativas = new System.Windows.Forms.Button();
@@ -41,46 +42,38 @@
             this.lblmateriaName = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.correlativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correlativeSubjectIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deletedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastModificationByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correlativeSubjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMateriaCorrelativas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCorrelativasMenosMisma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewCorrelativas
             // 
+            this.dataGridViewCorrelativas.AllowUserToAddRows = false;
+            this.dataGridViewCorrelativas.AllowUserToDeleteRows = false;
             this.dataGridViewCorrelativas.AutoGenerateColumns = false;
+            this.dataGridViewCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.subjectIdDataGridViewTextBoxColumn,
-            this.correlativeSubjectIdDataGridViewTextBoxColumn,
-            this.correlativeFinalDataGridViewCheckBoxColumn,
-            this.createdAtDataGridViewTextBoxColumn,
-            this.updatedAtDataGridViewTextBoxColumn,
-            this.deletedAtDataGridViewTextBoxColumn,
-            this.lastModificationByDataGridViewTextBoxColumn,
-            this.correlativeSubjectDataGridViewTextBoxColumn,
-            this.subjectDataGridViewTextBoxColumn});
+            this.Subject,
+            this.correlativeFinalDataGridViewCheckBoxColumn});
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource;
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(102, 289);
             this.dataGridViewCorrelativas.Name = "dataGridViewCorrelativas";
             this.dataGridViewCorrelativas.ReadOnly = true;
             this.dataGridViewCorrelativas.RowHeadersWidth = 51;
             this.dataGridViewCorrelativas.RowTemplate.Height = 29;
-            this.dataGridViewCorrelativas.Size = new System.Drawing.Size(463, 200);
+            this.dataGridViewCorrelativas.Size = new System.Drawing.Size(481, 200);
             this.dataGridViewCorrelativas.TabIndex = 31;
+            // 
+            // correlativeBindingSource
+            // 
+            this.correlativeBindingSource.DataSource = typeof(GestIn.Model.Correlative);
             // 
             // label7
             // 
@@ -117,13 +110,12 @@
             this.cbbCorrelativas.Name = "cbbCorrelativas";
             this.cbbCorrelativas.Size = new System.Drawing.Size(216, 28);
             this.cbbCorrelativas.TabIndex = 45;
-            this.cbbCorrelativas.SelectedIndexChanged += new System.EventHandler(this.cbbCorrelativas_SelectedIndexChanged);
             // 
             // btnRemoveCorrelative
             // 
-            this.btnRemoveCorrelative.Location = new System.Drawing.Point(404, 203);
+            this.btnRemoveCorrelative.Location = new System.Drawing.Point(407, 203);
             this.btnRemoveCorrelative.Name = "btnRemoveCorrelative";
-            this.btnRemoveCorrelative.Size = new System.Drawing.Size(161, 37);
+            this.btnRemoveCorrelative.Size = new System.Drawing.Size(158, 37);
             this.btnRemoveCorrelative.TabIndex = 46;
             this.btnRemoveCorrelative.Text = "Remove Correlative";
             this.btnRemoveCorrelative.UseVisualStyleBackColor = true;
@@ -166,10 +158,6 @@
             this.label3.TabIndex = 50;
             this.label3.Text = "Estado";
             // 
-            // correlativeBindingSource
-            // 
-            this.correlativeBindingSource.DataSource = typeof(GestIn.Model.Correlative);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -177,25 +165,14 @@
             this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
-            // subjectIdDataGridViewTextBoxColumn
+            // Subject
             // 
-            this.subjectIdDataGridViewTextBoxColumn.DataPropertyName = "SubjectId";
-            this.subjectIdDataGridViewTextBoxColumn.HeaderText = "SubjectId";
-            this.subjectIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subjectIdDataGridViewTextBoxColumn.Name = "subjectIdDataGridViewTextBoxColumn";
-            this.subjectIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // correlativeSubjectIdDataGridViewTextBoxColumn
-            // 
-            this.correlativeSubjectIdDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeSubjectId";
-            this.correlativeSubjectIdDataGridViewTextBoxColumn.HeaderText = "CorrelativeSubjectId";
-            this.correlativeSubjectIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.correlativeSubjectIdDataGridViewTextBoxColumn.Name = "correlativeSubjectIdDataGridViewTextBoxColumn";
-            this.correlativeSubjectIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativeSubjectIdDataGridViewTextBoxColumn.Width = 125;
+            this.Subject.DataPropertyName = "Subject";
+            this.Subject.HeaderText = "Subject";
+            this.Subject.MinimumWidth = 6;
+            this.Subject.Name = "Subject";
+            this.Subject.ReadOnly = true;
             // 
             // correlativeFinalDataGridViewCheckBoxColumn
             // 
@@ -204,61 +181,6 @@
             this.correlativeFinalDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.correlativeFinalDataGridViewCheckBoxColumn.Name = "correlativeFinalDataGridViewCheckBoxColumn";
             this.correlativeFinalDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.correlativeFinalDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // createdAtDataGridViewTextBoxColumn
-            // 
-            this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
-            this.createdAtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdAtDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // updatedAtDataGridViewTextBoxColumn
-            // 
-            this.updatedAtDataGridViewTextBoxColumn.DataPropertyName = "UpdatedAt";
-            this.updatedAtDataGridViewTextBoxColumn.HeaderText = "UpdatedAt";
-            this.updatedAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.updatedAtDataGridViewTextBoxColumn.Name = "updatedAtDataGridViewTextBoxColumn";
-            this.updatedAtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.updatedAtDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // deletedAtDataGridViewTextBoxColumn
-            // 
-            this.deletedAtDataGridViewTextBoxColumn.DataPropertyName = "DeletedAt";
-            this.deletedAtDataGridViewTextBoxColumn.HeaderText = "DeletedAt";
-            this.deletedAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.deletedAtDataGridViewTextBoxColumn.Name = "deletedAtDataGridViewTextBoxColumn";
-            this.deletedAtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deletedAtDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lastModificationByDataGridViewTextBoxColumn
-            // 
-            this.lastModificationByDataGridViewTextBoxColumn.DataPropertyName = "LastModificationBy";
-            this.lastModificationByDataGridViewTextBoxColumn.HeaderText = "LastModificationBy";
-            this.lastModificationByDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastModificationByDataGridViewTextBoxColumn.Name = "lastModificationByDataGridViewTextBoxColumn";
-            this.lastModificationByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastModificationByDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // correlativeSubjectDataGridViewTextBoxColumn
-            // 
-            this.correlativeSubjectDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeSubject";
-            this.correlativeSubjectDataGridViewTextBoxColumn.HeaderText = "CorrelativeSubject";
-            this.correlativeSubjectDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.correlativeSubjectDataGridViewTextBoxColumn.Name = "correlativeSubjectDataGridViewTextBoxColumn";
-            this.correlativeSubjectDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativeSubjectDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // subjectDataGridViewTextBoxColumn
-            // 
-            this.subjectDataGridViewTextBoxColumn.DataPropertyName = "Subject";
-            this.subjectDataGridViewTextBoxColumn.HeaderText = "Subject";
-            this.subjectDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subjectDataGridViewTextBoxColumn.Name = "subjectDataGridViewTextBoxColumn";
-            this.subjectDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectDataGridViewTextBoxColumn.Width = 125;
             // 
             // formSubjectCorrelatives
             // 
@@ -280,9 +202,9 @@
             this.Text = "formSubjectCorrelatives";
             this.Load += new System.EventHandler(this.formSubjectCorrelatives_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMateriaCorrelativas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCorrelativasMenosMisma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,16 +223,9 @@
         private Label lblmateriaName;
         private CheckBox chkEstado;
         private Label label3;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn subjectIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn correlativeSubjectIdDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn correlativeFinalDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn updatedAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn deletedAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastModificationByDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn correlativeSubjectDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn subjectDataGridViewTextBoxColumn;
         private BindingSource correlativeBindingSource;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Subject;
+        private DataGridViewCheckBoxColumn correlativeFinalDataGridViewCheckBoxColumn;
     }
 }

@@ -37,61 +37,6 @@ namespace GestIn.Model
         [InverseProperty("Career")]
         public virtual ICollection<Subject> Subjects { get; set; }
 
-        /*
-        public int ID
-        {
-            set { Id = value; }
-            get { return Id; }
-        }
-
-        public string Resolution
-        {
-            set { Resolution = value; }
-            get { return Resolution; }
-        }
-        public string NAME
-        {
-            set { Name = value; }
-            get { return Name; }
-        }
-
-        public string DEGREE
-        {
-            set { Degree = value; }
-            get { return Degree; }
-        }
-
-        public string? TURN
-        {
-            set { Turn = value; }
-            get { return Turn; }
-        }
-
-        public DateTime CREATEDAT
-        {
-            set { CreatedAt = value; }
-            get { return CreatedAt; }
-        }
-
-        public DateTime? UPDATEDAT
-        {
-            set { UpdatedAt = value; }
-            get { return UpdatedAt; }
-        }
-
-        public DateTime? DELETEDAT
-        {
-            set { DeletedAt = value; }
-            get { return DeletedAt; }
-        }
-
-        public string LASTMODIFICATIONBY
-        {
-            set { LastModificationBy = value; }
-            get { return LastModificationBy; }
-        }
-        */
-
         public int CalcularHorasSemanales(int horasTotales)
         {
             return horasTotales / 32;
@@ -105,33 +50,6 @@ namespace GestIn.Model
                 + this.Degree.ToString() + " "
                 + this.Turn.ToString();
         }
-
-        /*
-        public List<Subject> ListSubjects = new();
-
-        
-        public List<Subject> LIST_SUBJECTS
-        {
-            set { ListSubjects = value; }
-            get { return ListSubjects; }
-        }
-       
-
-        public override string ToString()
-        {
-            return "Career{" + "_NRORESOLUCION=" + Resolution + ", Nombre=" + NAME + ", Turno=" + TURN + ", ListaMaterias=" + LIST_SUBJECTS + '}';
-        }
-
-        public Career(string Resolution, string name, string degree, string? turn, List<Subject> listSubjects)
-        {
-            Resolution = Resolution;
-            NAME = name;
-            DEGREE = degree;
-            TURN = turn;
-            LIST_SUBJECTS = listSubjects;
-        }
-        */
-
 
     }
 }
