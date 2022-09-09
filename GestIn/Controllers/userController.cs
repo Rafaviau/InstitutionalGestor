@@ -114,7 +114,7 @@ namespace GestIn.Controllers
             {
                 LoginInformation log = new LoginInformation();
                 log.Email = email;
-                log.Password = password;
+                log.Password = System.Web.Helpers.Crypto.HashPassword(password);
                 log.CreatedAt = DateTime.Now;
                 log.LastModificationBy = name + " " + lastname;
 
@@ -144,7 +144,7 @@ namespace GestIn.Controllers
             {
                 LoginInformation log = new LoginInformation();
                 log.Email = email;
-                log.Password = dni.ToString();
+                log.Password = System.Web.Helpers.Crypto.HashPassword(dni.ToString());
                 log.CreatedAt = DateTime.Now;
                 log.LastModificationBy = "Preceptor cargando notas";
 

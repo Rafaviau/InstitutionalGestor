@@ -76,7 +76,7 @@ namespace GestIn.UI.Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
             btnLogin.Text = "Cargando...";
-
+            
             if (txtEmail.Text.Equals("")) { lblEmailVacio.Visible = true; }
             else{  lblEmailVacio.Visible = false;}
             if (txtPassword.Text.Equals("")) { lblPasswordVacio.Visible = true; }
@@ -92,6 +92,7 @@ namespace GestIn.UI.Login
                 }
             }
             btnLogin.Text = "Login";
+            
         }
 
         private void linkRegistrarse_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
