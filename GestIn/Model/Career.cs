@@ -18,11 +18,11 @@ namespace GestIn.Model
 
         [Key]
         public int Id { get; set; }
-        [StringLength(50)]
+        [StringLength(520)]
         public string Resolution { get; set; } = null!;
-        [StringLength(50)]
+        [StringLength(200)]
         public string Name { get; set; } = null!;
-        [StringLength(50)]
+        [StringLength(200)]
         public string Degree { get; set; } = null!;
         [StringLength(50)]
         public string? Turn { get; set; }

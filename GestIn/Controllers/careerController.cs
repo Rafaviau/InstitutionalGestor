@@ -166,6 +166,37 @@ namespace GestIn.Controllers
                     }
                     return null;
                 }
+        public Subject createSubject(string name, int yearincareer, int hourlyLoad, int careerId)
+        {
+            try
+            {
+                Subject subject = new Subject();
+                subject.CareerId = careerId;
+                subject.Name = name;
+                subject.YearInCareer = yearincareer;
+                subject.AnnualHourlyLoad = hourlyLoad;
+                subject.CreatedAt = DateTime.Now;
+                subject.LastModificationBy = "Preceptor cargando materias";
+                using (var db = new Context())
+                {
+                    db.Subjects.Add(subject);
+                    db.SaveChanges();
+                }
+
+                return subject;
+            }
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE DNI DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return null;
+        }
 
 
         #endregion

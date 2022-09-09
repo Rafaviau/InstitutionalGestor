@@ -22,7 +22,7 @@ namespace GestIn.Model
         [Key]
         public int Id { get; set; }
         public int CareerId { get; set; }
-        [StringLength(50)]
+        [StringLength(200)]
         public string Name { get; set; } = null!;
         public int YearInCareer { get; set; }
         public int AnnualHourlyLoad { get; set; }

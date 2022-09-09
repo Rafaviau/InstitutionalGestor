@@ -19,6 +19,7 @@ namespace GestIn.Model
         protected string host { get; set; }
         protected int port { get; set; }
 
+
         public Mail(string senderMail, string password, string host, int port)
         {
             smtpClient = new SmtpClient();
@@ -49,7 +50,7 @@ namespace GestIn.Model
                 smtpClient.Disconnect(true);
                 return true;
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {}
             finally
             {
                 mensaje.Dispose();

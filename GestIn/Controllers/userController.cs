@@ -76,7 +76,7 @@ namespace GestIn.Controllers
             return null;
         }
 
-        User createUser(int Dni, string name, string lastname)
+        User createUser(int Dni, string name, string lastname,DateTime dateOfBirth,string phone)
         {
             try
             {
@@ -84,6 +84,8 @@ namespace GestIn.Controllers
                 user.Dni = Dni;
                 user.Name = name;
                 user.LastName = lastname;
+                user.DateOfBirth = dateOfBirth;
+                user.PhoneNumbre = phone;
                 user.CreatedAt = DateTime.Now;
                 user.LastModificationBy = "Preceptor cargando notas";
 
@@ -249,9 +251,9 @@ namespace GestIn.Controllers
             //borrar todo
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname)
+        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime dateOfBirth, string phone)
         {
-            User user = createUser(Dni, name, lastname);
+            User user = createUser(Dni, name, lastname,dateOfBirth,phone);
             if (user != null)
             {
                 LoginInformation log = createLoginInformation(mail, Dni);
