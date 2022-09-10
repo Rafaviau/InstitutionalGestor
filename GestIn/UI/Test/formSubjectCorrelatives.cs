@@ -48,9 +48,7 @@ namespace GestIn.UI.Test
                 bindingSourceMateriaCorrelativas.DataSource = subjectController.getCorrelativesFromSubject(receivedSubject); //clono una materia y pido su materias correlativas
                 bindingSourceMateriaCorrelativas.ResetBindings(true);
                 dataGridViewCorrelativas.DataSource = bindingSourceMateriaCorrelativas;
-
-
-                dataGridViewCorrelativas.Rows.Add("DDD", "ssss", true);
+                //dataGridViewCorrelativas.Rows.Add("DDD", "ssss", true);
             }
             catch (Exception exc)
             {
@@ -73,8 +71,14 @@ namespace GestIn.UI.Test
         private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
-            subjectController.createCorrelative(subjectController.getSubject(selectedSubject), chkEstado.Checked);
+            bool status = false;
+            if (chkEstado.Checked)
+            {
+                status = true;
+            }
+            subjectController.createCorrelative(receivedSubject, selectedSubject, status);
             RefreshTableCorrelativas();
+            RefreshComboboxCorrelativas();
         }
 
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
@@ -82,6 +86,7 @@ namespace GestIn.UI.Test
             int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
             subjectController.removeCorrelative(subjectController.getCorrelative(selectedSubjectID));
             RefreshTableCorrelativas();
+            RefreshComboboxCorrelativas();
         }
     }
 }

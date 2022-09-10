@@ -273,16 +273,18 @@ namespace GestIn.Controllers
             List<Subject> specifiedListSubjects = new List<Subject>();
             Career carreraSelector = (Career)objcareer;
             Subject subjectSelector = (Subject)objsubject;
-            Correlative correlativePossible = null;
-
 
             foreach (Subject subject in getSubjectsFromCareer(carreraSelector))
             {
-                if (subject.CareerId == carreraSelector.Id && subject.Id != subjectSelector.Id) //que la id de la materia que estoy pasando no sea la misma que en la que esta en la lista
+                foreach (Correlative correlative in getCorrelativesFromSubject(subjectSelector))
                 {
-                    specifiedListSubjects.Add(subject);
-                    //MessageBox.Show(subject.TOSTRING());
+                    if (subject.CareerId == carreraSelector.Id && subject.Id != subjectSelector.Id && subjectSelector.YearInCareer > subject.YearInCareer && correlative.CorrelativeSubjectId != subject.Id) //que la id de la materia que estoy pasando no sea la misma que en la que esta en la lista
+                    {
+                        specifiedListSubjects.Add(subject);
+                        //MessageBox.Show(subject.TOSTRING());
+                    }
                 }
+
             }
             return specifiedListSubjects;
         }
@@ -316,21 +318,23 @@ namespace GestIn.Controllers
         }
 
 
-
         public List<Correlative> getCorrelativesFromSubject(object subjectMatter) //pido las correlativas de una determinada materia
         {
             List<Correlative> specifiedListCorrelatives = new List<Correlative>();
-            List < string > ewew = new List<string>();
-            Subject existingsubject = (Subject)subjectMatter;
+            Subject existingsubject = getSubject((Subject)subjectMatter);
 
             using (var db = new Context())
             {
                 try
                 {
-                    foreach (var item in db.Correlatives.Where(x => x.Id == existingsubject.Id).ToList())
+                    foreach (var correlative in db.Correlatives.Where(x => x.SubjectId == existingsubject.Id).ToList())
                     {
-                        item.Subject = findSubject(existingsubject.Id);
-                        specifiedListCorrelatives.Add(item);
+                        if(correlative.SubjectId == existingsubject.Id)
+                        {
+                            correlative.Subject = findSubject(correlative.CorrelativeSubjectId);
+                            //MessageBox.Show(correlative.Id + " " + correlative.Subject.Name + " || " + existingsubject.Id + " " + existingsubject.Name);
+                            specifiedListCorrelatives.Add(correlative);
+                        }
                     }
                     return specifiedListCorrelatives;
                 }
@@ -338,14 +342,15 @@ namespace GestIn.Controllers
             }
         }
 
-        public Correlative createCorrelative(object subject, bool state)
+        public Correlative createCorrelative(object subject, object cmbsubject, bool state)
         {
             Correlative newCorrelative = new Correlative();
-            Subject existingSubject = (Subject)subject;
+            Subject selectedSubject = (Subject)subject;
+            Subject correlativeSubject = (Subject)cmbsubject;
             try
             {
-                newCorrelative.SubjectId = existingSubject.Id;
-                newCorrelative.CorrelativeSubjectId = existingSubject.Id;
+                newCorrelative.SubjectId = selectedSubject.Id;
+                newCorrelative.CorrelativeSubjectId = correlativeSubject.Id;
                 newCorrelative.CorrelativeFinal = state;
                 newCorrelative.CreatedAt = DateTime.Now;
                 newCorrelative.LastModificationBy = "Preceptor cargando materias";

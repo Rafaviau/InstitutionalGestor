@@ -40,22 +40,7 @@
             this.lblAnioCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.careerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearInCareerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.annualHourlyLoadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deletedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastModificationByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.careerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correlativeSubjectsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gradesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schedulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectEnrolmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherSubjectsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.bindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
@@ -64,7 +49,13 @@
             this.btnCronograma = new System.Windows.Forms.Button();
             this.btnCorrelativas = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreraMaterias)).BeginInit();
@@ -173,26 +164,15 @@
             this.dataGridViewMaterias.AllowUserToDeleteRows = false;
             this.dataGridViewMaterias.AllowUserToResizeRows = false;
             this.dataGridViewMaterias.AutoGenerateColumns = false;
-            this.dataGridViewMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridViewMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.careerIdDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.yearInCareerDataGridViewTextBoxColumn,
-            this.annualHourlyLoadDataGridViewTextBoxColumn,
-            this.createdAtDataGridViewTextBoxColumn,
-            this.updatedAtDataGridViewTextBoxColumn,
-            this.deletedAtDataGridViewTextBoxColumn,
-            this.lastModificationByDataGridViewTextBoxColumn,
-            this.careerDataGridViewTextBoxColumn,
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn,
-            this.correlativeSubjectsDataGridViewTextBoxColumn,
-            this.gradesDataGridViewTextBoxColumn,
-            this.schedulesDataGridViewTextBoxColumn,
-            this.subjectEnrolmentsDataGridViewTextBoxColumn,
-            this.teacherSubjectsDataGridViewTextBoxColumn});
-            this.dataGridViewMaterias.DataSource = this.subjectBindingSource;
+            this.Id,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewMaterias.DataSource = this.subjectBindingSource1;
             this.dataGridViewMaterias.Location = new System.Drawing.Point(29, 416);
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
@@ -203,149 +183,9 @@
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             // 
-            // idDataGridViewTextBoxColumn
+            // subjectBindingSource1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // careerIdDataGridViewTextBoxColumn
-            // 
-            this.careerIdDataGridViewTextBoxColumn.DataPropertyName = "CareerId";
-            this.careerIdDataGridViewTextBoxColumn.HeaderText = "CareerId";
-            this.careerIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.careerIdDataGridViewTextBoxColumn.Name = "careerIdDataGridViewTextBoxColumn";
-            this.careerIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.careerIdDataGridViewTextBoxColumn.Width = 94;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // yearInCareerDataGridViewTextBoxColumn
-            // 
-            this.yearInCareerDataGridViewTextBoxColumn.DataPropertyName = "YearInCareer";
-            this.yearInCareerDataGridViewTextBoxColumn.HeaderText = "YearInCareer";
-            this.yearInCareerDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.yearInCareerDataGridViewTextBoxColumn.Name = "yearInCareerDataGridViewTextBoxColumn";
-            this.yearInCareerDataGridViewTextBoxColumn.ReadOnly = true;
-            this.yearInCareerDataGridViewTextBoxColumn.Width = 121;
-            // 
-            // annualHourlyLoadDataGridViewTextBoxColumn
-            // 
-            this.annualHourlyLoadDataGridViewTextBoxColumn.DataPropertyName = "AnnualHourlyLoad";
-            this.annualHourlyLoadDataGridViewTextBoxColumn.HeaderText = "AnnualHourlyLoad";
-            this.annualHourlyLoadDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.annualHourlyLoadDataGridViewTextBoxColumn.Name = "annualHourlyLoadDataGridViewTextBoxColumn";
-            this.annualHourlyLoadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.annualHourlyLoadDataGridViewTextBoxColumn.Width = 161;
-            // 
-            // createdAtDataGridViewTextBoxColumn
-            // 
-            this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
-            this.createdAtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdAtDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // updatedAtDataGridViewTextBoxColumn
-            // 
-            this.updatedAtDataGridViewTextBoxColumn.DataPropertyName = "UpdatedAt";
-            this.updatedAtDataGridViewTextBoxColumn.HeaderText = "UpdatedAt";
-            this.updatedAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.updatedAtDataGridViewTextBoxColumn.Name = "updatedAtDataGridViewTextBoxColumn";
-            this.updatedAtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.updatedAtDataGridViewTextBoxColumn.Width = 111;
-            // 
-            // deletedAtDataGridViewTextBoxColumn
-            // 
-            this.deletedAtDataGridViewTextBoxColumn.DataPropertyName = "DeletedAt";
-            this.deletedAtDataGridViewTextBoxColumn.HeaderText = "DeletedAt";
-            this.deletedAtDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.deletedAtDataGridViewTextBoxColumn.Name = "deletedAtDataGridViewTextBoxColumn";
-            this.deletedAtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deletedAtDataGridViewTextBoxColumn.Width = 106;
-            // 
-            // lastModificationByDataGridViewTextBoxColumn
-            // 
-            this.lastModificationByDataGridViewTextBoxColumn.DataPropertyName = "LastModificationBy";
-            this.lastModificationByDataGridViewTextBoxColumn.HeaderText = "LastModificationBy";
-            this.lastModificationByDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastModificationByDataGridViewTextBoxColumn.Name = "lastModificationByDataGridViewTextBoxColumn";
-            this.lastModificationByDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastModificationByDataGridViewTextBoxColumn.Width = 165;
-            // 
-            // careerDataGridViewTextBoxColumn
-            // 
-            this.careerDataGridViewTextBoxColumn.DataPropertyName = "Career";
-            this.careerDataGridViewTextBoxColumn.HeaderText = "Career";
-            this.careerDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.careerDataGridViewTextBoxColumn.Name = "careerDataGridViewTextBoxColumn";
-            this.careerDataGridViewTextBoxColumn.ReadOnly = true;
-            this.careerDataGridViewTextBoxColumn.Width = 81;
-            // 
-            // correlativeCorrelativeSubjectsDataGridViewTextBoxColumn
-            // 
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeCorrelativeSubjects";
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn.HeaderText = "CorrelativeCorrelativeSubjects";
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn.Name = "correlativeCorrelativeSubjectsDataGridViewTextBoxColumn";
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativeCorrelativeSubjectsDataGridViewTextBoxColumn.Width = 237;
-            // 
-            // correlativeSubjectsDataGridViewTextBoxColumn
-            // 
-            this.correlativeSubjectsDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeSubjects";
-            this.correlativeSubjectsDataGridViewTextBoxColumn.HeaderText = "CorrelativeSubjects";
-            this.correlativeSubjectsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.correlativeSubjectsDataGridViewTextBoxColumn.Name = "correlativeSubjectsDataGridViewTextBoxColumn";
-            this.correlativeSubjectsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correlativeSubjectsDataGridViewTextBoxColumn.Width = 165;
-            // 
-            // gradesDataGridViewTextBoxColumn
-            // 
-            this.gradesDataGridViewTextBoxColumn.DataPropertyName = "Grades";
-            this.gradesDataGridViewTextBoxColumn.HeaderText = "Grades";
-            this.gradesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.gradesDataGridViewTextBoxColumn.Name = "gradesDataGridViewTextBoxColumn";
-            this.gradesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.gradesDataGridViewTextBoxColumn.Width = 84;
-            // 
-            // schedulesDataGridViewTextBoxColumn
-            // 
-            this.schedulesDataGridViewTextBoxColumn.DataPropertyName = "Schedules";
-            this.schedulesDataGridViewTextBoxColumn.HeaderText = "Schedules";
-            this.schedulesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.schedulesDataGridViewTextBoxColumn.Name = "schedulesDataGridViewTextBoxColumn";
-            this.schedulesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.schedulesDataGridViewTextBoxColumn.Width = 104;
-            // 
-            // subjectEnrolmentsDataGridViewTextBoxColumn
-            // 
-            this.subjectEnrolmentsDataGridViewTextBoxColumn.DataPropertyName = "SubjectEnrolments";
-            this.subjectEnrolmentsDataGridViewTextBoxColumn.HeaderText = "SubjectEnrolments";
-            this.subjectEnrolmentsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subjectEnrolmentsDataGridViewTextBoxColumn.Name = "subjectEnrolmentsDataGridViewTextBoxColumn";
-            this.subjectEnrolmentsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectEnrolmentsDataGridViewTextBoxColumn.Width = 161;
-            // 
-            // teacherSubjectsDataGridViewTextBoxColumn
-            // 
-            this.teacherSubjectsDataGridViewTextBoxColumn.DataPropertyName = "TeacherSubjects";
-            this.teacherSubjectsDataGridViewTextBoxColumn.HeaderText = "TeacherSubjects";
-            this.teacherSubjectsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherSubjectsDataGridViewTextBoxColumn.Name = "teacherSubjectsDataGridViewTextBoxColumn";
-            this.teacherSubjectsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teacherSubjectsDataGridViewTextBoxColumn.Width = 144;
+            this.subjectBindingSource1.DataSource = typeof(GestIn.Model.Subject);
             // 
             // subjectBindingSource
             // 
@@ -398,6 +238,46 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseClick);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CareerId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CareerId";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "YearInCareer";
+            this.dataGridViewTextBoxColumn4.HeaderText = "YearInCareer";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn5.HeaderText = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
             // formSubjectCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -424,6 +304,7 @@
             this.Text = "formSubjectCRUD";
             this.Load += new System.EventHandler(this.formSubjectCRUD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreraMaterias)).EndInit();
@@ -457,22 +338,12 @@
         private DataGridViewTextBoxColumn yEARINCAREERDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn aNNUALHOURLYLOADDataGridViewTextBoxColumn;
         private BindingSource subjectBindingSource;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn careerIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn yearInCareerDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn annualHourlyLoadDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn updatedAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn deletedAtDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastModificationByDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn careerDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn correlativeCorrelativeSubjectsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn correlativeSubjectsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn gradesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn schedulesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn subjectEnrolmentsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn teacherSubjectsDataGridViewTextBoxColumn;
         private Button btnModificar;
+        private BindingSource subjectBindingSource1;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

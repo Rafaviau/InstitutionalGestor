@@ -42,7 +42,7 @@
             this.lblmateriaName = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).BeginInit();
@@ -59,7 +59,7 @@
             this.dataGridViewCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
+            this.Id,
             this.Subject,
             this.correlativeFinalDataGridViewCheckBoxColumn});
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource;
@@ -99,7 +99,7 @@
             this.btnAddCorrelativas.Name = "btnAddCorrelativas";
             this.btnAddCorrelativas.Size = new System.Drawing.Size(158, 38);
             this.btnAddCorrelativas.TabIndex = 44;
-            this.btnAddCorrelativas.Text = "Add Correlative";
+            this.btnAddCorrelativas.Text = "Agregar Correlativa";
             this.btnAddCorrelativas.UseVisualStyleBackColor = true;
             this.btnAddCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelativas_MouseClick);
             // 
@@ -117,7 +117,7 @@
             this.btnRemoveCorrelative.Name = "btnRemoveCorrelative";
             this.btnRemoveCorrelative.Size = new System.Drawing.Size(158, 37);
             this.btnRemoveCorrelative.TabIndex = 46;
-            this.btnRemoveCorrelative.Text = "Remove Correlative";
+            this.btnRemoveCorrelative.Text = "Remover Correlativa";
             this.btnRemoveCorrelative.UseVisualStyleBackColor = true;
             this.btnRemoveCorrelative.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnRemoveCorrelative_MouseClick);
             // 
@@ -158,13 +158,13 @@
             this.label3.TabIndex = 50;
             this.label3.Text = "Estado";
             // 
-            // idDataGridViewTextBoxColumn
+            // Id
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Subject
             // 
@@ -224,7 +224,7 @@
         private CheckBox chkEstado;
         private Label label3;
         private BindingSource correlativeBindingSource;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Subject;
         private DataGridViewCheckBoxColumn correlativeFinalDataGridViewCheckBoxColumn;
     }
