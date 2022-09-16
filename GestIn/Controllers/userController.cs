@@ -76,14 +76,18 @@ namespace GestIn.Controllers
             return null;
         }
 
-        User createUser(int Dni, string name, string lastname)
+        User createUser(int Dni, string name, string lastname,DateTime dateOfBirth,string phone)
         {
+            Student search = findStudent(Dni);
+            if (search != null) { return search.User; }
             try
             {
                 User user = new User();
                 user.Dni = Dni;
                 user.Name = name;
                 user.LastName = lastname;
+                user.DateOfBirth = dateOfBirth;
+                user.PhoneNumbre = phone;
                 user.CreatedAt = DateTime.Now;
                 user.LastModificationBy = "Preceptor cargando notas";
 
@@ -112,7 +116,7 @@ namespace GestIn.Controllers
             {
                 LoginInformation log = new LoginInformation();
                 log.Email = email;
-                log.Password = password;
+                log.Password = System.Web.Helpers.Crypto.HashPassword(password);
                 log.CreatedAt = DateTime.Now;
                 log.LastModificationBy = name + " " + lastname;
 
@@ -142,7 +146,7 @@ namespace GestIn.Controllers
             {
                 LoginInformation log = new LoginInformation();
                 log.Email = email;
-                log.Password = dni.ToString();
+                log.Password = System.Web.Helpers.Crypto.HashPassword(dni.ToString());
                 log.CreatedAt = DateTime.Now;
                 log.LastModificationBy = "Preceptor cargando notas";
 
@@ -249,9 +253,9 @@ namespace GestIn.Controllers
             //borrar todo
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname)
+        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime dateOfBirth, string phone)
         {
-            User user = createUser(Dni, name, lastname);
+            User user = createUser(Dni, name, lastname,dateOfBirth,phone);
             if (user != null)
             {
                 LoginInformation log = createLoginInformation(mail, Dni);

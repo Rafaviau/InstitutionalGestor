@@ -164,7 +164,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(383, 56);
+            this.label14.Location = new System.Drawing.Point(384, 43);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(408, 55);
             this.label14.TabIndex = 99;
@@ -816,7 +816,7 @@
             this.lblError.Text = "       ";
             this.lblError.Visible = false;
             // 
-            // formRegistroAlumno
+            // formStudentEnroment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -829,7 +829,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "formRegistroAlumno";
+            this.Name = "formStudentEnroment";
             this.Text = "formRegistroAlumno";
             this.Load += new System.EventHandler(this.formRegistroAlumno_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formRegistroAlumno_MouseDown);

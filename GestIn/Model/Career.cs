@@ -17,13 +17,13 @@ namespace GestIn.Model
         }
 
         [Key]
-        public int Id;
-        [StringLength(50)]
-        public string Resolution = null!;
-        [StringLength(50)]
-        public string Name = null!;
-        [StringLength(50)]
-        public string Degree= null!;
+        public int Id { get; set; }
+        [StringLength(520)]
+        public string Resolution { get; set; } = null!;
+        [StringLength(200)]
+        public string Name { get; set; } = null!;
+        [StringLength(200)]
+        public string Degree { get; set; } = null!;
         [StringLength(50)]
         public string? Turn;
         public DateTime CreatedAt;

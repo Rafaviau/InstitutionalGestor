@@ -17,15 +17,15 @@ namespace GestIn.Model
         }
 
         [Key]
-        public int Id;
-        public int CareerId;
-        [StringLength(50)]
-        public string Name = null!;
-        public int YearInCareer;
-        public int AnnualHourlyLoad;
-        public DateTime CreatedAt;
-        public DateTime? UpdatedAt;
-        public DateTime? DeletedAt;
+        public int Id { get; set; }
+        public int CareerId { get; set; }
+        [StringLength(200)]
+        public string Name { get; set; } = null!;
+        public int YearInCareer { get; set; }
+        public int AnnualHourlyLoad { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
         public string LastModificationBy = null!;
 
