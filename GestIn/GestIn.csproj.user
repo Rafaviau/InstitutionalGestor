@@ -41,7 +41,7 @@
     <Compile Update="UI\Test\formSubjectCorrelatives.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UI\Test\formSubjectCRUD.cs">
+    <Compile Update="UI\Test\formSubject.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

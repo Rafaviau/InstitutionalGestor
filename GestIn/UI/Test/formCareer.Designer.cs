@@ -1,4 +1,4 @@
-﻿namespace GestIn.Vista.Test
+﻿namespace GestIn.UI.Test
 {
     partial class formCareer
     {

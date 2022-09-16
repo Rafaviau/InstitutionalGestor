@@ -1,5 +1,5 @@
 using GestIn.UI.Home.Grades;
-using GestIn.Vista.Test;
+using GestIn.UI.Test;
 
 namespace GestIn
 {

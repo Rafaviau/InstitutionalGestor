@@ -13,14 +13,14 @@ namespace GestIn.UI.Test
 {
     public partial class formSubjectCorrelatives : Form
     {
-        subjectController subjectController;
+        careerController careerController;
         object receivedCareer;
         object receivedSubject;
         public formSubjectCorrelatives(object sentCareer,object sentSubject)
         {
             receivedCareer = sentCareer;
             receivedSubject = sentSubject;
-            subjectController = subjectController.GetInstance();
+            careerController = careerController.GetInstance();
             InitializeComponent();
         }
 
@@ -34,7 +34,7 @@ namespace GestIn.UI.Test
 
         public void RefreshComboboxCorrelativas() //en teoria recibo la lista de materias menos la misma
         {
-            bindingSourceCorrelativasMenosMisma.DataSource = subjectController.getSubjectsFromCareer(receivedCareer,receivedSubject); //Sobrecarga para no mostrar misma materia
+            bindingSourceCorrelativasMenosMisma.DataSource = careerController.getEnabledCorrelatives(receivedCareer,receivedSubject); //Sobrecarga para no mostrar misma materia
             bindingSourceCorrelativasMenosMisma.ResetBindings(true);
             cbbCorrelativas.DataSource = bindingSourceCorrelativasMenosMisma;
             cbbCorrelativas.DisplayMember = "NAME";
@@ -45,7 +45,7 @@ namespace GestIn.UI.Test
         {
             try
             {
-                bindingSourceMateriaCorrelativas.DataSource = subjectController.getCorrelativesFromSubject(receivedSubject); //clono una materia y pido su materias correlativas
+                bindingSourceMateriaCorrelativas.DataSource = careerController.getCorrelativesFromSubject(receivedSubject); 
                 bindingSourceMateriaCorrelativas.ResetBindings(true);
                 dataGridViewCorrelativas.DataSource = bindingSourceMateriaCorrelativas;
                 //dataGridViewCorrelativas.Rows.Add("DDD", "ssss", true);
@@ -60,7 +60,7 @@ namespace GestIn.UI.Test
         {
             try
             {
-                lblmateriaName.Text = subjectController.getSubject(receivedSubject).Name;
+                lblmateriaName.Text = careerController.getSubject(receivedSubject).Name;
             }
             catch (Exception exc)
             {
@@ -76,7 +76,7 @@ namespace GestIn.UI.Test
             {
                 status = true;
             }
-            subjectController.createCorrelative(receivedSubject, selectedSubject, status);
+            careerController.createCorrelative(receivedSubject, selectedSubject, status);
             RefreshTableCorrelativas();
             RefreshComboboxCorrelativas();
         }
@@ -84,7 +84,7 @@ namespace GestIn.UI.Test
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
             int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
-            subjectController.removeCorrelative(subjectController.getCorrelative(selectedSubjectID));
+            careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
             RefreshTableCorrelativas();
             RefreshComboboxCorrelativas();
         }

@@ -9,27 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.Controllers;
 
-namespace GestIn.UI.Test.Subject
+namespace GestIn.UI.Test
 {
-    public partial class formSubjectCRUD : Form
+    public partial class formSubject : Form
     {
-        careerController carreraController;
-        subjectController subjectController;
-        public formSubjectCRUD()
+        careerController careerController;
+        public formSubject()
         {
-            carreraController = careerController.GetInstance();
-            subjectController = subjectController.GetInstance();
+            careerController = careerController.GetInstance();
             InitializeComponent();
         }
 
-        private void formSubjectCRUD_Load(object sender, EventArgs e)
+        private void formSubject_Load(object sender, EventArgs e)
         {
             NullCheckCarreras();
         }
 
         public void NullCheckCarreras() //Para que no me paresca errores
         {
-            if (carreraController.ReturnListCareers().Count != 0)
+            if (careerController.loadCareers().Count != 0)
             {
                 RefreshCbbCareers();
                 RefreshTableSubjects();
@@ -38,7 +36,7 @@ namespace GestIn.UI.Test.Subject
 
         public void RefreshTableSubjects()
         {
-            bindingSourceCarreraMaterias.DataSource = subjectController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
+            bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
             bindingSourceCarreraMaterias.ResetBindings(false);
             dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
         }
@@ -47,7 +45,7 @@ namespace GestIn.UI.Test.Subject
         {
             try
             {
-                bindingSourceCarreras.DataSource = carreraController.ReturnListCareers();
+                bindingSourceCarreras.DataSource = careerController.loadCareers();
                 bindingSourceCarreras.ResetBindings(true);
                 cbbCarreraSelector.DataSource = bindingSourceCarreras;
                 cbbCarreraSelector.DisplayMember = "NAME";
@@ -60,7 +58,7 @@ namespace GestIn.UI.Test.Subject
                 MessageBox.Show(exc.Message);
             }
         }
-        public void DisableTextBox()
+        public void DisableUserInput()
         {
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
@@ -79,33 +77,32 @@ namespace GestIn.UI.Test.Subject
 
         private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
         {
-            subjectController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
             RefreshTableSubjects();
-            DisableTextBox();
+            DisableUserInput();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dataGridViewMaterias.CurrentRow.Cells[0].Value!=null)
             {
-                object selectedMateria = SetGlobalSubjectium();
-                subjectController.updateSubject(selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+                object selectedMateria = SetGlobalSubject();
+                careerController.updateSubject(selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
                 RefreshTableSubjects();
-                DisableTextBox();
+                DisableUserInput();
             }
         }
 
-        private object SetGlobalSubjectium() //solamente de testeo try catch later
+        private object SetGlobalSubject() //a seleccionar una fila/materia de la grilla
         {
             int idmaterium;
             try
             {
                 idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
-                object selectedSubject = subjectController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
+                object selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
                 return selectedSubject;
             }
-            catch { }
-            return null;
+            catch(Exception e) { throw e; }
         }
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -125,11 +122,11 @@ namespace GestIn.UI.Test.Subject
         {
             try
             {
-                SetGlobalSubjectium().ToString();
-                formSubjectCorrelatives formMateria = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubjectium());
+                SetGlobalSubject().ToString();
+                formSubjectCorrelatives formMateria = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject());
                 formMateria.ShowDialog();
-            }catch{ }
-            
+            }
+            catch {}
         }
 
         private void btnModificar_MouseClick(object sender, MouseEventArgs e)
@@ -141,5 +138,7 @@ namespace GestIn.UI.Test.Subject
             txtCargaHorariaTotal.Enabled = true;
             cbbCarreraSelector.Enabled = true;
         }
+
+        
     }
 }

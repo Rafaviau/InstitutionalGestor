@@ -1,6 +1,6 @@
-﻿namespace GestIn.UI.Test.Subject
+﻿namespace GestIn.UI.Test
 {
-    partial class formSubjectCRUD
+    partial class formSubject
     {
         /// <summary>
         /// Required designer variable.
@@ -40,20 +40,20 @@
             this.lblAnioCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.bindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceCarreraMaterias = new System.Windows.Forms.BindingSource(this.components);
             this.btnDocentes = new System.Windows.Forms.Button();
             this.btnCronograma = new System.Windows.Forms.Button();
             this.btnCorrelativas = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
@@ -83,7 +83,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(472, 319);
+            this.btnUpdate.Location = new System.Drawing.Point(488, 321);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(88, 31);
@@ -95,7 +95,7 @@
             // btnInsert
             // 
             this.btnInsert.Enabled = false;
-            this.btnInsert.Location = new System.Drawing.Point(370, 319);
+            this.btnInsert.Location = new System.Drawing.Point(386, 321);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(86, 31);
@@ -183,61 +183,6 @@
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             // 
-            // subjectBindingSource1
-            // 
-            this.subjectBindingSource1.DataSource = typeof(GestIn.Model.Subject);
-            // 
-            // subjectBindingSource
-            // 
-            this.subjectBindingSource.DataSource = typeof(GestIn.Model.Subject);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(424, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 20);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "CRUD SUBJECT";
-            // 
-            // btnDocentes
-            // 
-            this.btnDocentes.Location = new System.Drawing.Point(827, 543);
-            this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Size = new System.Drawing.Size(107, 51);
-            this.btnDocentes.TabIndex = 33;
-            this.btnDocentes.Text = "Cargar Docentes";
-            this.btnDocentes.UseVisualStyleBackColor = true;
-            // 
-            // btnCronograma
-            // 
-            this.btnCronograma.Location = new System.Drawing.Point(827, 629);
-            this.btnCronograma.Name = "btnCronograma";
-            this.btnCronograma.Size = new System.Drawing.Size(107, 62);
-            this.btnCronograma.TabIndex = 34;
-            this.btnCronograma.Text = "Cargar Cronograma";
-            this.btnCronograma.UseVisualStyleBackColor = true;
-            // 
-            // btnCorrelativas
-            // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(827, 460);
-            this.btnCorrelativas.Name = "btnCorrelativas";
-            this.btnCorrelativas.Size = new System.Drawing.Size(107, 52);
-            this.btnCorrelativas.TabIndex = 35;
-            this.btnCorrelativas.Text = "Cargar Correlativas";
-            this.btnCorrelativas.UseVisualStyleBackColor = true;
-            this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelativas_MouseClick);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(709, 381);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(94, 29);
-            this.btnModificar.TabIndex = 36;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseClick);
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -278,7 +223,62 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // formSubjectCRUD
+            // subjectBindingSource1
+            // 
+            this.subjectBindingSource1.DataSource = typeof(GestIn.Model.Subject);
+            // 
+            // subjectBindingSource
+            // 
+            this.subjectBindingSource.DataSource = typeof(GestIn.Model.Subject);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(424, 51);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(60, 20);
+            this.lblTitle.TabIndex = 31;
+            this.lblTitle.Text = "Materia";
+            // 
+            // btnDocentes
+            // 
+            this.btnDocentes.Location = new System.Drawing.Point(827, 543);
+            this.btnDocentes.Name = "btnDocentes";
+            this.btnDocentes.Size = new System.Drawing.Size(107, 51);
+            this.btnDocentes.TabIndex = 33;
+            this.btnDocentes.Text = "Cargar Docentes";
+            this.btnDocentes.UseVisualStyleBackColor = true;
+            // 
+            // btnCronograma
+            // 
+            this.btnCronograma.Location = new System.Drawing.Point(827, 629);
+            this.btnCronograma.Name = "btnCronograma";
+            this.btnCronograma.Size = new System.Drawing.Size(107, 62);
+            this.btnCronograma.TabIndex = 34;
+            this.btnCronograma.Text = "Cargar Cronograma";
+            this.btnCronograma.UseVisualStyleBackColor = true;
+            // 
+            // btnCorrelativas
+            // 
+            this.btnCorrelativas.Location = new System.Drawing.Point(827, 460);
+            this.btnCorrelativas.Name = "btnCorrelativas";
+            this.btnCorrelativas.Size = new System.Drawing.Size(107, 52);
+            this.btnCorrelativas.TabIndex = 35;
+            this.btnCorrelativas.Text = "Cargar Correlativas";
+            this.btnCorrelativas.UseVisualStyleBackColor = true;
+            this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelativas_MouseClick);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(709, 381);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(94, 29);
+            this.btnModificar.TabIndex = 36;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseClick);
+            // 
+            // formSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -288,7 +288,7 @@
             this.Controls.Add(this.btnCorrelativas);
             this.Controls.Add(this.btnCronograma);
             this.Controls.Add(this.btnDocentes);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dataGridViewMaterias);
             this.Controls.Add(this.lblCarrera);
             this.Controls.Add(this.cbbCarreraSelector);
@@ -300,9 +300,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblAnioCarrera);
             this.Controls.Add(this.lblNombre);
-            this.Name = "formSubjectCRUD";
-            this.Text = "formSubjectCRUD";
-            this.Load += new System.EventHandler(this.formSubjectCRUD_Load);
+            this.Name = "formSubject";
+            this.Text = "formSubject";
+            this.Load += new System.EventHandler(this.formSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
@@ -326,7 +326,7 @@
         private Label lblAnioCarrera;
         private Label lblNombre;
         private DataGridView dataGridViewMaterias;
-        private Label label1;
+        private Label lblTitle;
         private BindingSource bindingSourceCarreras;
         private BindingSource bindingSourceCarreraMaterias;
         private Button btnDocentes;

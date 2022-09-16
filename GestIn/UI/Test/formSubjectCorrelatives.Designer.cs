@@ -43,7 +43,7 @@
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorrelativeSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).BeginInit();
@@ -60,7 +60,7 @@
             this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.Subject,
+            this.CorrelativeSubject,
             this.correlativeFinalDataGridViewCheckBoxColumn});
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource;
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(102, 289);
@@ -166,13 +166,13 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
-            // Subject
+            // CorrelativeSubject
             // 
-            this.Subject.DataPropertyName = "Subject";
-            this.Subject.HeaderText = "Subject";
-            this.Subject.MinimumWidth = 6;
-            this.Subject.Name = "Subject";
-            this.Subject.ReadOnly = true;
+            this.CorrelativeSubject.DataPropertyName = "CorrelativeSubject";
+            this.CorrelativeSubject.HeaderText = "CorrelativeSubject";
+            this.CorrelativeSubject.MinimumWidth = 6;
+            this.CorrelativeSubject.Name = "CorrelativeSubject";
+            this.CorrelativeSubject.ReadOnly = true;
             // 
             // correlativeFinalDataGridViewCheckBoxColumn
             // 
@@ -225,7 +225,7 @@
         private Label label3;
         private BindingSource correlativeBindingSource;
         private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Subject;
+        private DataGridViewTextBoxColumn CorrelativeSubject;
         private DataGridViewCheckBoxColumn correlativeFinalDataGridViewCheckBoxColumn;
     }
 }

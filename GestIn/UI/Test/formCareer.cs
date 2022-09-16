@@ -8,16 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.Controllers;
-using GestIn.UI.Test.Subject;
-using GestIn.Vista.Test;
+using GestIn.UI.Test;
 using GestIn.Model;
 
-namespace GestIn.Vista.Test
+namespace GestIn.UI.Test
 {
     public partial class formCareer : Form
     {
         careerController careerController;
-        //ControladoraPersona personaController; // para Testear
         public formCareer()
         {
             careerController = careerController.GetInstance();
@@ -31,10 +29,10 @@ namespace GestIn.Vista.Test
 
         public void RefreshTableCarrera()
         {
-            BindingSourceCarreras.DataSource = careerController.ReturnListCareers();
+            BindingSourceCarreras.DataSource = careerController.loadCareers();
             BindingSourceCarreras.ResetBindings(false);
             dataGridViewCarreras.DataSource = null;
-            if (careerController.ReturnListCareers().Count > 0)
+            if (careerController.loadCareers().Count > 0)
                 dataGridViewCarreras.DataSource = dataGridViewCarreras.DataSource = BindingSourceCarreras;
         }
 
@@ -50,7 +48,7 @@ namespace GestIn.Vista.Test
             }
         }
 
-        public void DisableTextBox()
+        public void DisableUserInput()
         {
             txtNumResolucion.Enabled = false;
             txtNombre.Enabled = false;
@@ -62,7 +60,7 @@ namespace GestIn.Vista.Test
         {
             careerController.createCareer(this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
             RefreshTableCarrera();
-            DisableTextBox();
+            DisableUserInput();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -70,18 +68,12 @@ namespace GestIn.Vista.Test
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
             careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
-            DisableTextBox();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            dataGridViewCarreras.ClearSelection();
-            //carreraController.deleteCarrera(1); //HARDCODED
+            DisableUserInput();
         }
 
         private void btnFormMateria_Click(object sender, EventArgs e)
         {
-            formSubjectCRUD formMateria = new formSubjectCRUD();
+            formSubject formMateria = new formSubject();
             formMateria.ShowDialog();
             
         }
@@ -89,7 +81,6 @@ namespace GestIn.Vista.Test
         private void btnTesteo_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Testing Values Added");
-
         }
 
         private void dataGridViewCarreras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
