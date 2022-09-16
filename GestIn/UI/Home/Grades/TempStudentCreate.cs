@@ -24,7 +24,7 @@ namespace GestIn.UI.Home.Grades
             if (txtDni.Equals("") || txtEmail.Equals("") || txtLastName.Equals("") || txtName.Equals("")) { MessageBox.Show("Complete todos los campos"); }
             else {
                 try {
-                //userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text);
+                userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text,DateTime.Parse(txtBirth.Text) ,txtPhone.Text);
                 MessageBox.Show("Guardado correctamente");
                 CleanText();
                 } 

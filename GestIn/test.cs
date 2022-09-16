@@ -86,7 +86,7 @@ namespace GestIn
                 
                 CareerId++;
                 s2.SelectWorksheet(career);
-                while (!string.IsNullOrEmpty(s1.GetCellValueAsString(row, 1)))
+                while (!string.IsNullOrEmpty(s2.GetCellValueAsString(row, 1)))
                 {
                     string Dni = s2.GetCellValueAsString(row, 3);
                     string name = s2.GetCellValueAsString(row, 2);

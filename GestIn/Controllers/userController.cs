@@ -78,6 +78,8 @@ namespace GestIn.Controllers
 
         User createUser(int Dni, string name, string lastname,DateTime dateOfBirth,string phone)
         {
+            Student search = findStudent(Dni);
+            if (search != null) { return search.User; }
             try
             {
                 User user = new User();

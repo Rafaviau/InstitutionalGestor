@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.linkReportarError = new System.Windows.Forms.LinkLabel();
-            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -76,10 +73,6 @@
             this.linkReportarError.Text = "Reportar un error!";
             this.linkReportarError.VisitedLinkColor = System.Drawing.Color.Black;
             // 
-            // subjectBindingSource
-            // 
-            this.subjectBindingSource.DataSource = typeof(GestIn.Model.Subject);
-            // 
             // formHeredable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -92,7 +85,6 @@
             this.Text = "formHeredable";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -102,6 +94,5 @@
         private Panel panel2;
         private LinkLabel linkReportarError;
         private Label label1;
-        private BindingSource subjectBindingSource;
     }
 }
