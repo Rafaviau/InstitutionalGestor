@@ -25,89 +25,31 @@ namespace GestIn.Model
         [StringLength(200)]
         public string Degree { get; set; } = null!;
         [StringLength(50)]
-        public string? Turn;
-        public DateTime CreatedAt;
-        public DateTime? UpdatedAt;
-        public DateTime? DeletedAt;
+        public string? Turn { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
-        public string LastModificationBy = null!;
-        public List<Subject> ListSubjects = new();
-
-        public Career(int id)
-        {
-            Id = id;
-        }
-        public Career(string resolution, string name, string degree, string? turn)
-        {
-            RESOLUTION = resolution;
-            NAME = name;
-            DEGREE = degree;
-            TURN = turn;
-        }
-
-        public Career(int id, string resolution, string name, string degree, string? turn)
-        {
-            ID = id;
-            RESOLUTION = resolution;
-            NAME = name;
-            DEGREE = degree;
-            TURN = turn;
-        }
-
-
-        public Career(int id, string resolution, string name, string degree, string? turn, List<Subject> listSubjects)
-        {
-            ID = id;
-            RESOLUTION = resolution;
-            NAME = name;
-            DEGREE = degree;
-            TURN = turn;
-            LIST_SUBJECTS = listSubjects;
-        }
-
-        public int ID
-        {
-            set { Id = value; }
-            get { return Id; }
-        }
-
-        public string RESOLUTION
-        {
-            set { Resolution = value; }
-            get { return Resolution; }
-        }
-        public string NAME
-        {
-            set { Name = value; }
-            get { return Name; }
-        }
-
-        public string DEGREE
-        {
-            set { Degree = value; }
-            get { return Degree; }
-        }
-
-        public string TURN
-        {
-            set { Turn = value; }
-            get { return Turn; }
-        }
-
-        public List<Subject> LIST_SUBJECTS
-        {
-            set { ListSubjects = value; }
-            get { return ListSubjects; }
-        }
-
-        public override string ToString()
-        {
-            return "Career{" + "_NRORESOLUCION=" + RESOLUTION + ", Nombre=" + NAME + ", Turno=" + TURN + ", ListaMaterias=" + LIST_SUBJECTS + '}';
-        }
+        public string LastModificationBy { get; set; } = null!;
 
         [InverseProperty("Career")]
         public virtual ICollection<CareerEnrolment> CareerEnrolments { get; set; }
         [InverseProperty("Career")]
         public virtual ICollection<Subject> Subjects { get; set; }
+
+        public int CalcularHorasSemanales(int horasTotales)
+        {
+            return horasTotales / 32;
+        }
+
+        public string TOSTRING()
+        {
+            return this.Id.ToString() + " "
+                + this.Resolution.ToString() + " "
+                + this.Name.ToString() + " "
+                + this.Degree.ToString() + " "
+                + this.Turn.ToString();
+        }
+
     }
 }

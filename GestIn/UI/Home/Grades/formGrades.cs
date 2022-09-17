@@ -13,7 +13,7 @@ namespace GestIn.Vista.Home.Grades
 {
     public partial class formGrades : Form
     {
-        careerController careerController = careerController.GetInstance();
+        careerController careerController = Controllers.careerController.GetInstance();
         userController userController = userController.GetInstance();
         gradeContorller gradeController = gradeContorller.GetInstance();
         subjectEnrolmentController gradeEnrolmentController = subjectEnrolmentController.GetInstance();

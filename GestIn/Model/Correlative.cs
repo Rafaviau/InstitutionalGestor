@@ -26,5 +26,11 @@ namespace GestIn.Model
         [ForeignKey("SubjectId")]
         [InverseProperty("CorrelativeSubjects")]
         public virtual Subject Subject { get; set; } = null!;
+
+        public override string ToString()
+        {
+            return CorrelativeSubject.Name;
+        }
+
     }
 }

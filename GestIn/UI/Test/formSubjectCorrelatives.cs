@@ -1,4 +1,4 @@
-﻿using GestIn.Controladora;
+﻿using GestIn.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +13,14 @@ namespace GestIn.UI.Test
 {
     public partial class formSubjectCorrelatives : Form
     {
-        careerController carreraController;
+        careerController careerController;
         object receivedCareer;
         object receivedSubject;
         public formSubjectCorrelatives(object sentCareer,object sentSubject)
         {
             receivedCareer = sentCareer;
             receivedSubject = sentSubject;
-            carreraController = careerController.GetInstance();
+            careerController = careerController.GetInstance();
             InitializeComponent();
         }
 
@@ -34,7 +34,7 @@ namespace GestIn.UI.Test
 
         public void RefreshComboboxCorrelativas() //en teoria recibo la lista de materias menos la misma
         {
-            bindingSourceCorrelativasMenosMisma.DataSource = carreraController.MateriasDeUnaCarrera(receivedCareer, receivedSubject); //Sobrecarga para no mostrar misma materia
+            bindingSourceCorrelativasMenosMisma.DataSource = careerController.getEnabledCorrelatives(receivedCareer,receivedSubject); //Sobrecarga para no mostrar misma materia
             bindingSourceCorrelativasMenosMisma.ResetBindings(true);
             cbbCorrelativas.DataSource = bindingSourceCorrelativasMenosMisma;
             cbbCorrelativas.DisplayMember = "NAME";
@@ -45,9 +45,10 @@ namespace GestIn.UI.Test
         {
             try
             {
-                bindingSourceMateriaCorrelativas.DataSource = carreraController.GetMateria(receivedCareer, receivedSubject).CORRELATIVES; //clono una materia y pido su materias correlativas
+                bindingSourceMateriaCorrelativas.DataSource = careerController.getCorrelativesFromSubject(receivedSubject); 
                 bindingSourceMateriaCorrelativas.ResetBindings(true);
                 dataGridViewCorrelativas.DataSource = bindingSourceMateriaCorrelativas;
+                //dataGridViewCorrelativas.Rows.Add("DDD", "ssss", true);
             }
             catch (Exception exc)
             {
@@ -59,7 +60,7 @@ namespace GestIn.UI.Test
         {
             try
             {
-                lblmateriaName.Text = (carreraController.GetMateria(receivedSubject).NAME);
+                lblmateriaName.Text = careerController.getSubject(receivedSubject).Name;
             }
             catch (Exception exc)
             {
@@ -67,26 +68,25 @@ namespace GestIn.UI.Test
             }
         }
 
-        private void cbbCorrelativas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((carreraController.GetMateria(receivedSubject).CORRELATIVES).Any())
-            {
-                RefreshTableCorrelativas();
-            }
-        }
-
         private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
-            carreraController.UpdateMateria(receivedCareer, receivedSubject, selectedSubject);
+            bool status = false;
+            if (chkEstado.Checked)
+            {
+                status = true;
+            }
+            careerController.createCorrelative(receivedSubject, selectedSubject, status);
             RefreshTableCorrelativas();
+            RefreshComboboxCorrelativas();
         }
 
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
-            object selectedSubject = cbbCorrelativas.SelectedItem;
-            carreraController.DeleteMateria(receivedCareer, receivedSubject, selectedSubject);
+            int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
+            careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
             RefreshTableCorrelativas();
+            RefreshComboboxCorrelativas();
         }
     }
 }

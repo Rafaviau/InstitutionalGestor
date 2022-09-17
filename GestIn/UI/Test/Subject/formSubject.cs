@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestIn.Controladora;
+using GestIn.Controllers;
 
 namespace GestIn.Vista.Test
 {
@@ -73,7 +73,7 @@ namespace GestIn.Vista.Test
         {
             try
             {
-                bindingSourceMateriaCronograma.DataSource = carreraController.GetMateria(materiaSelector).CRONOGRAM; //clono una materia y pido su cronograma
+                bindingSourceMateriaCronograma.DataSource = carreraController.GetMateria(materiaSelector).SCHEDULES; //clono una materia y pido su cronograma
                 bindingSourceMateriaCronograma.ResetBindings(true);
                 dataGridViewCronograma.DataSource = bindingSourceMateriaCronograma;
             }
@@ -164,7 +164,7 @@ namespace GestIn.Vista.Test
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             
-            carreraController.CreateMateria(Convert.ToInt32(cbbCarreraSelector.SelectedValue),txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), carreraController.GetCheckedCorrelativas(checkedListCorrelativas.CheckedItems.Cast<object>().ToList()), cbbCarreraSelector.SelectedItem);
+            carreraController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue),txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text), carreraController.GetCheckedCorrelativas(checkedListCorrelativas.CheckedItems.Cast<object>().ToList()), cbbCarreraSelector.SelectedItem);
             //MessageBox.Show("This is Checkbox Item" + " " + TestingCheckList());
             RefreshTableMateria();
         }
@@ -176,7 +176,7 @@ namespace GestIn.Vista.Test
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            carreraController.DeleteMateria(cbbMateriaSelector.SelectedItem,cbbCarreraSelector.SelectedItem);
+            carreraController.deleteSubject(cbbMateriaSelector.SelectedItem,cbbCarreraSelector.SelectedItem);
             MessageBox.Show("N/A");
         }
 
@@ -213,11 +213,11 @@ namespace GestIn.Vista.Test
                     RefreshTableCorrelativas(carreraCheck, materiaCheck); //Problema era de aca, mejorar en el futuro
                 }
 
-                if (carreraController.GetMateria(carreraCheck, materiaCheck).CRONOGRAM.Any())
+                if (carreraController.GetMateria(carreraCheck, materiaCheck).SCHEDULES.Any())
                 {
                     foreach(string key in ListaDias())
                     {
-                        if(carreraController.GetMateria(carreraCheck, materiaCheck).CRONOGRAM.ContainsKey(key))
+                        if(carreraController.GetMateria(carreraCheck, materiaCheck).SCHEDULES.ContainsKey(key))
                         {
                             RefreshTableCronograma(materiaCheck);
                         }
@@ -237,8 +237,8 @@ namespace GestIn.Vista.Test
             {
                 if (MessageBox.Show("Desea agregar este cronograma a la materia" + " " + materiaCheck.ToString() + " " + "?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    carreraController.GetMateria(materiaCheck).CRONOGRAM.Add(cbbDia.Text, TimeSpan.Parse(txtHorarioDesde.Text));
-                    MessageBox.Show(carreraController.GetMateria(materiaCheck).CRONOGRAM.ToString());
+                    carreraController.GetMateria(materiaCheck).SCHEDULES.Add(cbbDia.Text, TimeSpan.Parse(txtHorarioDesde.Text));
+                    MessageBox.Show(carreraController.GetMateria(materiaCheck).SCHEDULES.ToString());
                     RefreshTableCronograma(materiaCheck);
                 }
             }
