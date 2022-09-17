@@ -50,6 +50,10 @@ namespace GestIn.Model
                 + this.Degree.ToString() + " "
                 + this.Turn.ToString();
         }
+        public override string ToString()
+        {
+            return this.Name;
+        }
 
     }
 }

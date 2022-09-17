@@ -64,28 +64,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(584, 65);
+            this.label2.Location = new System.Drawing.Point(389, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Career";
+            this.label2.Text = "Materias";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(303, 65);
+            this.label3.Location = new System.Drawing.Point(389, 64);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(63, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Career:";
+            this.label3.Text = "Carreras";
             // 
             // cbCareer
             // 
             this.cbCareer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCareer.FormattingEnabled = true;
-            this.cbCareer.Location = new System.Drawing.Point(365, 61);
+            this.cbCareer.Location = new System.Drawing.Point(458, 61);
             this.cbCareer.Name = "cbCareer";
-            this.cbCareer.Size = new System.Drawing.Size(151, 28);
+            this.cbCareer.Size = new System.Drawing.Size(347, 28);
             this.cbCareer.TabIndex = 2;
             this.cbCareer.SelectedValueChanged += new System.EventHandler(this.cbCareer_SelectedValueChanged);
             // 
@@ -93,9 +93,9 @@
             // 
             this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSubject.FormattingEnabled = true;
-            this.cbSubject.Location = new System.Drawing.Point(645, 61);
+            this.cbSubject.Location = new System.Drawing.Point(458, 101);
             this.cbSubject.Name = "cbSubject";
-            this.cbSubject.Size = new System.Drawing.Size(151, 28);
+            this.cbSubject.Size = new System.Drawing.Size(347, 28);
             this.cbSubject.TabIndex = 3;
             // 
             // txtDni
@@ -179,7 +179,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(581, 139);
+            this.label8.Location = new System.Drawing.Point(573, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 32);
             this.label8.TabIndex = 12;

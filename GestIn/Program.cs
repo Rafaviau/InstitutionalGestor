@@ -1,3 +1,4 @@
+using GestIn.UI.Home.Grades;
 using GestIn.Vista.Login;
 namespace GestIn
 {
@@ -13,7 +14,7 @@ namespace GestIn
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new test());
-            Application.Run(new formLogin());
+            Application.Run(new formMenu());
         }
     }
 }

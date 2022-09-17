@@ -130,6 +130,37 @@ namespace GestIn.Controllers
                     throw; // MANEAJAR EXCEPEPTION INDEFINIDA
             }
         }
+        public Career createCareer(string resolution, string name, string degree)
+        {
+            try
+            {
+                Career career = new Career();
+                career.Resolution = resolution;
+                career.Name = name;
+                career.Degree = degree;
+                career.CreatedAt = DateTime.Now;
+                career.LastModificationBy = "Preceptor cargando materias";
+                using (var db = new Context())
+                {
+                    db.Careers.Add(career);
+                    db.SaveChanges();
+                }
+
+                return career;
+            }
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE DNI DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return null;
+        }
+
 
         public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn)
         {

@@ -31,6 +31,7 @@
             this.btnLoadCareer = new System.Windows.Forms.Button();
             this.btnLoadSubjects = new System.Windows.Forms.Button();
             this.btnLoadStudents = new System.Windows.Forms.Button();
+            this.btnLoadCareerEnrolment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoadCareer
@@ -63,11 +64,22 @@
             this.btnLoadStudents.UseVisualStyleBackColor = true;
             this.btnLoadStudents.Click += new System.EventHandler(this.btnLoadStudents_Click);
             // 
+            // btnLoadCareerEnrolment
+            // 
+            this.btnLoadCareerEnrolment.Location = new System.Drawing.Point(51, 184);
+            this.btnLoadCareerEnrolment.Name = "btnLoadCareerEnrolment";
+            this.btnLoadCareerEnrolment.Size = new System.Drawing.Size(185, 52);
+            this.btnLoadCareerEnrolment.TabIndex = 3;
+            this.btnLoadCareerEnrolment.Text = "Agregar incripcion a carrera";
+            this.btnLoadCareerEnrolment.UseVisualStyleBackColor = true;
+            this.btnLoadCareerEnrolment.Click += new System.EventHandler(this.btnLoadCareerEnrolment_Click);
+            // 
             // test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.btnLoadCareerEnrolment);
             this.Controls.Add(this.btnLoadStudents);
             this.Controls.Add(this.btnLoadSubjects);
             this.Controls.Add(this.btnLoadCareer);
@@ -82,5 +94,6 @@
         private Button btnLoadCareer;
         private Button btnLoadSubjects;
         private Button btnLoadStudents;
+        private Button btnLoadCareerEnrolment;
     }
 }

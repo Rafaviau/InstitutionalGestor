@@ -26,18 +26,17 @@ namespace GestIn
 
         careerController cntCareer = careerController.GetInstance();
         userController cntUser = userController.GetInstance();
+        careerEnrolmentController cntCareerEnrol = careerEnrolmentController.GetInstance();
+
         List<string> careers = new List<string>();
         private void btnLoadCareer_Click(object sender, EventArgs e)
         {
             loadCareer();
         }
-
         private void btnLoadSubjects_Click(object sender, EventArgs e)
         {
             loadsubject();
         }
-
-
         void loadCareer()
         {
             foreach (string career in careers)
@@ -68,7 +67,7 @@ namespace GestIn
                     {
                         string name = s1.GetCellValueAsString(row, 1);
                         int hours = s1.GetCellValueAsInt32(row, 2);
-                        cntCareer.createSubject(name, year, hours, CareerId);
+                        cntCareer.createSubject( CareerId,name, year, hours );
                     }
                     row++;
                 }
@@ -120,6 +119,44 @@ namespace GestIn
         private void btnLoadStudents_Click(object sender, EventArgs e)
         {
             loadStudent();
+        }
+
+        private void btnLoadCareerEnrolment_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, int> careerIds = new Dictionary<string, int>();
+
+            careerIds.Add("Higiene y Seguridad",10);
+            careerIds.Add("Enfermería",3);
+            careerIds.Add("Gastronomía",5);
+            careerIds.Add("Turismo",2);
+            careerIds.Add("AT",7);
+            careerIds.Add("Agroalimentos",6);
+            careerIds.Add("Analista Programador",9);
+            careerIds.Add("Paleontologos",8);
+
+            foreach (string career in careers)
+            {
+                int row = 3;
+                if (career == "paleontologos")
+                {
+                    row = 2;
+                }
+                s2.SelectWorksheet(career);
+                while (!string.IsNullOrEmpty(s2.GetCellValueAsString(row, 1)))
+                {
+                    try
+                    {
+                        string Dni = s2.GetCellValueAsString(row, 3);
+                        int _dni = Int32.Parse(Regex.Replace(Dni, "[@,\\.\";'\\\\]", string.Empty));
+                        int userId = cntUser.findStudent(_dni).UserId;
+                        int careerId = careerIds["career"];
+                        int yearOfRegistration = 2022;
+                        cntCareerEnrol.enrolStudent(userId, careerId, yearOfRegistration);
+                        row++;
+                    }
+                    catch { }
+                }
+            }
         }
     }
 }
