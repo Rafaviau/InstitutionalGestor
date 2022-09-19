@@ -1,4 +1,5 @@
-﻿using GestIn.Vista.Home.Grades;
+﻿using GestIn.UI.Test;
+using GestIn.Vista.Home.Grades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,8 +27,8 @@ namespace GestIn.UI.Home.Grades
 
         private void btnAddCareer_Click(object sender, EventArgs e)
         {
-            TempCareer formCareer = new TempCareer();
-            formCareer.ShowDialog();
+            formCareer thisformCareer = new formCareer();
+            thisformCareer.ShowDialog();
         }
 
         private void addGrade_Click(object sender, EventArgs e)

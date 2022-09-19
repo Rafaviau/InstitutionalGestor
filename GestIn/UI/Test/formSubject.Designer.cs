@@ -40,13 +40,16 @@
             this.lblAnioCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblTitle = new System.Windows.Forms.Label();
             this.bindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceCarreraMaterias = new System.Windows.Forms.BindingSource(this.components);
@@ -55,7 +58,6 @@
             this.btnCorrelativas = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreraMaterias)).BeginInit();
@@ -72,7 +74,6 @@
             // 
             // cbbCarreraSelector
             // 
-            this.cbbCarreraSelector.Enabled = false;
             this.cbbCarreraSelector.FormattingEnabled = true;
             this.cbbCarreraSelector.Location = new System.Drawing.Point(472, 121);
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
@@ -167,12 +168,12 @@
             this.dataGridViewMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dataGridViewMaterias.DataSource = this.subjectBindingSource1;
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.dataGridViewMaterias.DataSource = this.subjectBindingSource;
             this.dataGridViewMaterias.Location = new System.Drawing.Point(29, 416);
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
@@ -183,13 +184,49 @@
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             // 
-            // Id
+            // dataGridViewTextBoxColumn1
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "CareerId";
+            this.dataGridViewTextBoxColumn6.HeaderText = "CareerId";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "YearInCareer";
+            this.dataGridViewTextBoxColumn8.HeaderText = "YearInCareer";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn9.HeaderText = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // subjectBindingSource
+            // 
+            this.subjectBindingSource.DataSource = typeof(GestIn.Model.Subject);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -197,7 +234,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "CareerId";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 144;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -205,7 +242,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Name";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 181;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -213,7 +250,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "YearInCareer";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 241;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -221,15 +258,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "AnnualHourlyLoad";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // subjectBindingSource1
-            // 
-            this.subjectBindingSource1.DataSource = typeof(GestIn.Model.Subject);
-            // 
-            // subjectBindingSource
-            // 
-            this.subjectBindingSource.DataSource = typeof(GestIn.Model.Subject);
+            this.dataGridViewTextBoxColumn5.Width = 360;
             // 
             // lblTitle
             // 
@@ -302,9 +331,9 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "formSubject";
             this.Text = "formSubject";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSubject_FormClosed);
             this.Load += new System.EventHandler(this.formSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreraMaterias)).EndInit();
@@ -337,13 +366,16 @@
         private DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn yEARINCAREERDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn aNNUALHOURLYLOADDataGridViewTextBoxColumn;
-        private BindingSource subjectBindingSource;
         private Button btnModificar;
-        private BindingSource subjectBindingSource1;
-        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private BindingSource subjectBindingSource;
     }
 }

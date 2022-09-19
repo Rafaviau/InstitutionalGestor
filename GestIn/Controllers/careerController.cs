@@ -546,7 +546,7 @@ namespace GestIn.Controllers
                 if (carreraSelector.Id != sub.Id)
                 {
                     allSubjects.Add(sub);
-                    MessageBox.Show(sub.TOSTRING());
+                    //MessageBox.Show(sub.TOSTRING());
                 }
                 else if (carreraSelector.Id == sub.Id)
                 {

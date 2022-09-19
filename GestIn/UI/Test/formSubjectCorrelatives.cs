@@ -13,15 +13,27 @@ namespace GestIn.UI.Test
 {
     public partial class formSubjectCorrelatives : Form
     {
+        formSubject parentFormSubject;
+        formCareer parentFormCareer;
         careerController careerController;
         object receivedCareer;
         object receivedSubject;
-        public formSubjectCorrelatives(object sentCareer,object sentSubject)
+        public formSubjectCorrelatives(object sentCareer,object sentSubject, formSubject receivedFormSubject, formCareer parentFormCareer)
         {
+            parentFormSubject = receivedFormSubject;
+            parentFormCareer = parentFormCareer;
             receivedCareer = sentCareer;
             receivedSubject = sentSubject;
             careerController = careerController.GetInstance();
             InitializeComponent();
+        }
+
+        private void formSubjectCorrelatives_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            parentFormSubject = new formSubject(parentFormCareer);
+            parentFormSubject.ShowDialog();
+            this.Close();
         }
 
         private void formSubjectCorrelatives_Load(object sender, EventArgs e)
@@ -88,5 +100,7 @@ namespace GestIn.UI.Test
             RefreshTableCorrelativas();
             RefreshComboboxCorrelativas();
         }
+
+
     }
 }
