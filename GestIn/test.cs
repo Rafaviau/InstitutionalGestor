@@ -148,8 +148,8 @@ namespace GestIn
                     {
                         string Dni = s2.GetCellValueAsString(row, 3);
                         int _dni = Int32.Parse(Regex.Replace(Dni, "[@,\\.\";'\\\\]", string.Empty));
-                        int userId = cntUser.findStudent(_dni).UserId;
-                        int careerId = careerIds["career"];
+                        int userId = cntUser.findStudent(_dni).Id;
+                        int careerId = careerIds[career];
                         int yearOfRegistration = 2022;
                         cntCareerEnrol.enrolStudent(userId, careerId, yearOfRegistration);
                         row++;

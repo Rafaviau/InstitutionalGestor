@@ -23,6 +23,7 @@ namespace GestIn.Vista.Home.Grades
             foreach (object career in careerController.loadCareers()) {
                 cbCareer.Items.Add(career);
             }
+            cbAccType.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace GestIn.Vista.Home.Grades
                                     DateTime.Parse(txtAcreditationDate.Text),
                                     cbAccType.SelectedItem.ToString()
                                     );
+                                clearCamps();
                                 MessageBox.Show("Agreggado correctamente");
                             }
                             else {
@@ -76,6 +78,14 @@ namespace GestIn.Vista.Home.Grades
 
                 cbSubject.Items.Add(subject);
             }
+        }
+        void clearCamps() {
+            txtEntomentYear.Text = "";
+            ccbPresential.Checked = true;
+            cbAccType.SelectedIndex = 0;
+            txtGrade.Text = "";
+            txtBookRecord.Text = "";
+            txtAcreditationDate.Text = "";
         }
     }
 }

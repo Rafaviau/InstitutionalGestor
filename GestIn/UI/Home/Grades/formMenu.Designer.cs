@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 450);
+            this.ClientSize = new System.Drawing.Size(340, 450);
             this.Controls.Add(this.addGrade);
             this.Controls.Add(this.btnAddCareer);
             this.Controls.Add(this.btnAddStudent);
