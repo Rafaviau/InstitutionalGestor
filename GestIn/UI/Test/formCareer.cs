@@ -24,8 +24,8 @@ namespace GestIn.UI.Test
 
         private void formCareer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide(); //redundante
-            this.Close();
+            //this.Hide(); //redundante
+            //this.Close();
         }
 
         private void formCarrera_Load(object sender, EventArgs e)

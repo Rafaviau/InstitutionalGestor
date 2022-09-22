@@ -30,8 +30,8 @@ namespace GestIn.UI.Test
         private void formSubject_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            //thisformCareer = new formCareer();
-            //thisformCareer.ShowDialog();
+            thisformCareer = new formCareer();
+            thisformCareer.ShowDialog();
             this.Close();
         }
 
@@ -41,6 +41,18 @@ namespace GestIn.UI.Test
             {
                 RefreshCbbCareers();
                 RefreshTableSubjects();
+            }
+        }
+
+        public void RefreshLableSubjectName(object subject)
+        {
+            try
+            {
+                this.lblShowSubjectName.Text = careerController.getSubject(subject).ToString();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
 
@@ -113,6 +125,7 @@ namespace GestIn.UI.Test
                 {
                     idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
                     selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
+                    RefreshLableSubjectName(selectedSubject);
                     return selectedSubject;
                 }
                 else
@@ -125,7 +138,7 @@ namespace GestIn.UI.Test
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show("Materia Seleccionada" + " " + SetGlobalSubjectium().ToString());
+            RefreshLableSubjectName(SetGlobalSubject());
             txtNombre.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
             txtAnioCarrera.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
             txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);

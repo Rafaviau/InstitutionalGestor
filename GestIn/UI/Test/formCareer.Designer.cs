@@ -109,6 +109,7 @@
             // 
             // cbbTurno
             // 
+            this.cbbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTurno.Enabled = false;
             this.cbbTurno.FormattingEnabled = true;
             this.cbbTurno.Items.AddRange(new object[] {

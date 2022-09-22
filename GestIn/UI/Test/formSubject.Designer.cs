@@ -57,6 +57,8 @@
             this.btnCronograma = new System.Windows.Forms.Button();
             this.btnCorrelativas = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.label123 = new System.Windows.Forms.Label();
+            this.lblShowSubjectName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
@@ -74,6 +76,7 @@
             // 
             // cbbCarreraSelector
             // 
+            this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCarreraSelector.FormattingEnabled = true;
             this.cbbCarreraSelector.Location = new System.Drawing.Point(472, 121);
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
@@ -271,7 +274,7 @@
             // 
             // btnDocentes
             // 
-            this.btnDocentes.Location = new System.Drawing.Point(827, 543);
+            this.btnDocentes.Location = new System.Drawing.Point(839, 587);
             this.btnDocentes.Name = "btnDocentes";
             this.btnDocentes.Size = new System.Drawing.Size(107, 51);
             this.btnDocentes.TabIndex = 33;
@@ -280,7 +283,7 @@
             // 
             // btnCronograma
             // 
-            this.btnCronograma.Location = new System.Drawing.Point(827, 629);
+            this.btnCronograma.Location = new System.Drawing.Point(839, 673);
             this.btnCronograma.Name = "btnCronograma";
             this.btnCronograma.Size = new System.Drawing.Size(107, 62);
             this.btnCronograma.TabIndex = 34;
@@ -289,7 +292,7 @@
             // 
             // btnCorrelativas
             // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(827, 460);
+            this.btnCorrelativas.Location = new System.Drawing.Point(839, 504);
             this.btnCorrelativas.Name = "btnCorrelativas";
             this.btnCorrelativas.Size = new System.Drawing.Size(107, 52);
             this.btnCorrelativas.TabIndex = 35;
@@ -299,7 +302,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(709, 381);
+            this.btnModificar.Location = new System.Drawing.Point(29, 381);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(94, 29);
             this.btnModificar.TabIndex = 36;
@@ -307,12 +310,33 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseClick);
             // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Location = new System.Drawing.Point(817, 416);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(155, 20);
+            this.label123.TabIndex = 37;
+            this.label123.Text = "Materia Seleccionada:";
+            // 
+            // lblShowSubjectName
+            // 
+            this.lblShowSubjectName.AutoSize = true;
+            this.lblShowSubjectName.BackColor = System.Drawing.SystemColors.Info;
+            this.lblShowSubjectName.Location = new System.Drawing.Point(823, 452);
+            this.lblShowSubjectName.Name = "lblShowSubjectName";
+            this.lblShowSubjectName.Size = new System.Drawing.Size(149, 20);
+            this.lblShowSubjectName.TabIndex = 38;
+            this.lblShowSubjectName.Text = "                                   ";
+            // 
             // formSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.lblShowSubjectName);
+            this.Controls.Add(this.label123);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCorrelativas);
             this.Controls.Add(this.btnCronograma);
@@ -377,5 +401,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private BindingSource subjectBindingSource;
+        private Label label123;
+        private Label lblShowSubjectName;
     }
 }

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace GestIn.Controllers
@@ -421,6 +422,22 @@ namespace GestIn.Controllers
             return objMateria;
         }
 
+        public List<Subject> GetSubjectsExceptSame(object objcareer, object objsubject)
+        {
+            List<Subject> Subjects = new List<Subject>();
+            Career carreraSelector = (Career)objcareer;
+            Subject subjectSelector = (Subject)objsubject;
+
+            foreach (Subject sub in getSubjectsFromCareer(carreraSelector))
+            {
+                if (subjectSelector.Id != sub.Id)
+                {
+                    Subjects.Add(sub);
+                }
+            }
+            return Subjects;
+        }
+
         public Subject getSpecificSubjectFromCareer(object careerMatter, int subjectID) //Pedir una materia especifica por int
         {
             Subject subject = null;
@@ -532,37 +549,63 @@ namespace GestIn.Controllers
             }
         }
 
-        public IEnumerable<Subject> getEnabledCorrelatives(object objcareer, object objsubject)
+
+
+        public List<Subject> GetCorrelativeSubjects(object objsubject)
         {
-            Career carreraSelector = (Career)objcareer;
-            Subject subjectSelector = (Subject)objsubject;
-
             List<Subject> correlativeSubjects = new List<Subject>();
-            List<Subject> allSubjects = new List<Subject>();
-
-
-            foreach (Subject sub in getSubjectsFromCareer(carreraSelector))
-            {
-                if (carreraSelector.Id != sub.Id)
-                {
-                    allSubjects.Add(sub);
-                    //MessageBox.Show(sub.TOSTRING());
-                }
-                else if (carreraSelector.Id == sub.Id)
-                {
-                    //MessageBox.Show(subjectSelector.Name + " == " + sub.Name); //algo raro esta pasando aca
-                }
-            }
-
-            foreach (Correlative cor in getCorrelativesFromSubject(subjectSelector))
+            Subject subjectSelector = (Subject)objsubject;
+            foreach (Correlative cor in getCorrelativesFromSubject(subjectSelector)) //Metodo
             {
                 correlativeSubjects.Add(cor.CorrelativeSubject);
                 //MessageBox.Show(cor.CorrelativeSubject.TOSTRING());
             }
+            return correlativeSubjects;
+        }
 
-            IEnumerable<Subject> enabledCorrelativesListSubjects = allSubjects.Except(correlativeSubjects);
-            //allSubjects.RemoveAll(i => EnabledCorrelativesListSubjects.Contains(i));
+        public List<Subject> getEnabledCorrelatives(object objcareer, object objsubject)
+        {
+            Career carreraSelector = (Career)objcareer;
+            Subject subjectSelector = (Subject)objsubject;
+            
+            List<Subject> allSubjects = GetSubjectsExceptSame(carreraSelector,subjectSelector);
+            List<Subject> correlativeSubjects = GetCorrelativeSubjects(subjectSelector);
+            List<Subject> enabledCorrelativesListSubjects = new List<Subject>();
+
+
+            foreach (Subject subject in allSubjects)
+            {
+                foreach ( Subject corsub in correlativeSubjects)
+                {
+                    if(correlativeSubjects.Any())
+                    {
+                        if (subject.Id != corsub.Id && !enabledCorrelativesListSubjects.Contains(subject))
+                        {
+                            enabledCorrelativesListSubjects.Add(subject);
+                        }
+                    }
+                    else
+                    {
+                        enabledCorrelativesListSubjects = allSubjects;
+                    }
+                }
+            }
+            /*
+            if (correlativeSubjects.Any())
+            {
+                enabledCorrelativesListSubjects = allSubjects.Where(f => correlativeSubjects.Any(t => t.Id != f.Id)).ToList();
+                //enabledCorrelativesListSubjects = allSubjects.Except(correlativeSubjects);
+            }
+            else
+            {
+                enabledCorrelativesListSubjects = allSubjects;
+            }
+            */
             return enabledCorrelativesListSubjects;
+
+            //IEnumerable<Subject> enabledCorrelativesListSubjects = allSubjects.Except(correlativeSubjects);
+            //allSubjects.RemoveAll(i => EnabledCorrelativesListSubjects.Contains(i));
+
         }
 
         public List<Correlative> getCorrelativesFromSubject(object subjectMatter) //pido las correlativas de una determinada materia

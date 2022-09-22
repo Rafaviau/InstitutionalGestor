@@ -89,16 +89,18 @@ namespace GestIn.UI.Test
                 status = true;
             }
             careerController.createCorrelative(receivedSubject, selectedSubject, status);
-            RefreshTableCorrelativas();
             RefreshComboboxCorrelativas();
+            RefreshTableCorrelativas();
+            
         }
 
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
             int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
             careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
-            RefreshTableCorrelativas();
             RefreshComboboxCorrelativas();
+            RefreshTableCorrelativas();
+            
         }
 
 

@@ -41,6 +41,7 @@ namespace GestIn.Model
                 //optionsBuilder.UseSqlServer("Server=tcp:servidor-itec.database.windows.net,1433;Initial Catalog=gestin;Persist Security Info=False;User ID=gestin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 optionsBuilder.UseSqlServer("Server=LAPTOP-E6PCVT2U\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
                 //optionsBuilder.UseSqlServer("Server=LAPTOP-MRUPP9SV\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("Server=DESKTOP-5KDFBNS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 
