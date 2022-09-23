@@ -310,6 +310,22 @@ namespace GestIn.Controllers
                 }
             }
         }
+        public List<Student> searchBoxStudentWithString(string search)
+        {
+            using (var db = new Context())
+            {
+                var list = db.Students.Where(x => x.User.Name.StartsWith(search)).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                return list;
+            }
+        }
+        public List<Student> searchBoxStudentWithInt(int search)
+        {
+            using (var db = new Context())
+            {
+                var list = db.Students.Where(x => x.User.Dni.ToString().StartsWith(search.ToString())).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                return list;
+            }
+        }
         #endregion
     }
 }

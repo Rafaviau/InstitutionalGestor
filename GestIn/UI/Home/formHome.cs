@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestIn.UI.Home.Students;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.Vista.Home
+namespace GestIn.UI.Home
 {
     public partial class formHome : Form
     {
@@ -45,6 +46,11 @@ namespace GestIn.Vista.Home
             panelContenedor.Tag = formHijo;
             formHijo.BringToFront();
             formHijo.Show();
+        }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new formAcademicRecord());
         }
     }
 }

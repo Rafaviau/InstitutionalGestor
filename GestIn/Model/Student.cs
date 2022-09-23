@@ -51,5 +51,10 @@ namespace GestIn.Model
         public virtual ICollection<Grade> Grades { get; set; }
         [InverseProperty("Student")]
         public virtual ICollection<SubjectEnrolment> SubjectEnrolments { get; set; }
+
+        public override string ToString()
+        {
+            return this.User.Name + " " + this.User.LastName + " "+ this.User.Dni;
+        }
     }
 }

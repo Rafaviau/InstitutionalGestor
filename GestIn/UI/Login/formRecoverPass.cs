@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.Controllers;
 
-namespace GestIn.Vista.Login
+namespace GestIn.UI.Login
 {
     public partial class formRecoverPass : Form
     {

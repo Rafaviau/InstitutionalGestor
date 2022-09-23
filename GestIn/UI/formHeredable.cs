@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.Vista
+namespace GestIn.UI
 {
     public partial class formHeredable : Form
     {

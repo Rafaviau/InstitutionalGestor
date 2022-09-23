@@ -2,6 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Components\a.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Components\AutoCompleteTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -21,6 +27,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Home\Grades\TempStudentCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Home\Students\FormAcademicRecord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Login\formWelcome.cs">

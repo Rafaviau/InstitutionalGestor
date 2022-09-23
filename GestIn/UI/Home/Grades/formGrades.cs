@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.Vista.Home.Grades
+namespace GestIn.UI.Home.Grades
 {
     public partial class formGrades : Form
     {

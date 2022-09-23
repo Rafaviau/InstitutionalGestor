@@ -1,4 +1,4 @@
-﻿namespace GestIn.Vista.Home
+﻿namespace GestIn.UI.Home
 {
     partial class formHome
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenuLateral = new System.Windows.Forms.Panel();
+            this.btnStudents = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelSeparador2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,19 +40,16 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelSeparador1 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.linkReportarError = new System.Windows.Forms.LinkLabel();
             this.panelMenuLateral.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelContenedor.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuLateral
             // 
             this.panelMenuLateral.AutoScroll = true;
             this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.panelMenuLateral.Controls.Add(this.btnStudents);
             this.panelMenuLateral.Controls.Add(this.btnCerrarSesion);
             this.panelMenuLateral.Controls.Add(this.panelSeparador2);
             this.panelMenuLateral.Controls.Add(this.panel1);
@@ -64,6 +62,27 @@
             this.panelMenuLateral.Name = "panelMenuLateral";
             this.panelMenuLateral.Size = new System.Drawing.Size(286, 748);
             this.panelMenuLateral.TabIndex = 5;
+            // 
+            // btnStudents
+            // 
+            this.btnStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnStudents.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStudents.FlatAppearance.BorderSize = 0;
+            this.btnStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudents.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStudents.ForeColor = System.Drawing.Color.White;
+            this.btnStudents.Image = global::GestIn.Properties.Resources.Carreras;
+            this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudents.Location = new System.Drawing.Point(0, 153);
+            this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnStudents.Name = "btnStudents";
+            this.btnStudents.Padding = new System.Windows.Forms.Padding(3, 7, 6, 7);
+            this.btnStudents.Size = new System.Drawing.Size(286, 60);
+            this.btnStudents.TabIndex = 9;
+            this.btnStudents.Text = "        Estudiantes";
+            this.btnStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudents.UseVisualStyleBackColor = false;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnCerrarSesion
             // 
@@ -195,40 +214,12 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.panelContenedor.Controls.Add(this.panel2);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(286, 0);
             this.panelContenedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(781, 748);
             this.panelContenedor.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.panel2.Controls.Add(this.linkReportarError);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 724);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(781, 24);
-            this.panel2.TabIndex = 11;
-            // 
-            // linkReportarError
-            // 
-            this.linkReportarError.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkReportarError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkReportarError.AutoSize = true;
-            this.linkReportarError.DisabledLinkColor = System.Drawing.Color.Black;
-            this.linkReportarError.ForeColor = System.Drawing.Color.Black;
-            this.linkReportarError.LinkColor = System.Drawing.Color.Black;
-            this.linkReportarError.Location = new System.Drawing.Point(666, -109);
-            this.linkReportarError.Name = "linkReportarError";
-            this.linkReportarError.Size = new System.Drawing.Size(127, 20);
-            this.linkReportarError.TabIndex = 6;
-            this.linkReportarError.TabStop = true;
-            this.linkReportarError.Text = "Reportar un error!";
-            this.linkReportarError.VisitedLinkColor = System.Drawing.Color.Black;
             // 
             // formHome
             // 
@@ -247,9 +238,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelContenedor.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -266,7 +254,6 @@
         private Panel panelContenedor;
         private Button btnCerrarSesion;
         private Panel panelSeparador2;
-        private Panel panel2;
-        private LinkLabel linkReportarError;
+        private Button btnStudents;
     }
 }

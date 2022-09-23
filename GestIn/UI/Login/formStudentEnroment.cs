@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.Vista.Login
+namespace GestIn.UI.Login
 {
     public partial class formStudentEnroment : Form
     {

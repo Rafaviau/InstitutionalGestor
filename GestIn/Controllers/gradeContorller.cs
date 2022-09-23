@@ -1,4 +1,5 @@
 ﻿using GestIn.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -51,6 +52,16 @@ namespace GestIn.Controllers
                     throw; // MANEAJAR EXCEPEPTION INDEFINIDA
             }
             return false;
+        }
+        public List<Grade> getStudentGrades(int dni) {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Grades.Where(x => x.Student.User.Dni == dni).Include(x => x.Subject).ToList();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
         }
     }
 }

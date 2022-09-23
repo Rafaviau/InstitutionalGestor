@@ -1,4 +1,4 @@
-﻿namespace GestIn.Vista.Home.Grades
+﻿namespace GestIn.UI.Home.Grades
 {
     partial class formGrades
     {

@@ -1,6 +1,8 @@
 ﻿using GestIn.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +47,17 @@ namespace GestIn.Controllers
             }
             catch { }
             return false;
+        }
+        public List<CareerEnrolment> searchCareerEnrolment(int dni)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.CareerEnrolments.Where(x => x.Student.User.Dni == dni).Include(x => x.Career).ToList();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
         }
     }
 }

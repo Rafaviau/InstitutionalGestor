@@ -26,5 +26,10 @@ namespace GestIn.Model
         [ForeignKey("StudentId")]
         [InverseProperty("CareerEnrolments")]
         public virtual Student Student { get; set; } = null!;
+
+        public override string ToString()
+        {
+            return Career.Name;
+        }
     }
 }
