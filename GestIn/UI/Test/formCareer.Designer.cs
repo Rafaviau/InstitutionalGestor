@@ -41,17 +41,16 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnFormMateria = new System.Windows.Forms.Button();
             this.dataGridViewCarreras = new System.Windows.Forms.DataGridView();
-            this.careerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
-            this.lblqcyo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.lblcarreraaqui = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resolutionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.turnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.careerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
+            this.lblqcyo = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.lblcarreraaqui = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCarreras)).BeginInit();
@@ -110,6 +109,7 @@
             // 
             // cbbTurno
             // 
+            this.cbbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTurno.Enabled = false;
             this.cbbTurno.FormattingEnabled = true;
             this.cbbTurno.Items.AddRange(new object[] {
@@ -132,7 +132,8 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(1025, 386);
+            this.btnInsert.Enabled = false;
+            this.btnInsert.Location = new System.Drawing.Point(1025, 354);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(94, 29);
             this.btnInsert.TabIndex = 8;
@@ -142,7 +143,8 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(1174, 386);
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Location = new System.Drawing.Point(1157, 354);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 29);
             this.btnUpdate.TabIndex = 9;
@@ -177,6 +179,7 @@
             this.dataGridViewCarreras.DataSource = this.careerBindingSource;
             this.dataGridViewCarreras.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewCarreras.Name = "dataGridViewCarreras";
+            this.dataGridViewCarreras.ReadOnly = true;
             this.dataGridViewCarreras.RowHeadersWidth = 51;
             this.dataGridViewCarreras.RowTemplate.Height = 29;
             this.dataGridViewCarreras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -184,6 +187,46 @@
             this.dataGridViewCarreras.TabIndex = 14;
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // resolutionDataGridViewTextBoxColumn
+            // 
+            this.resolutionDataGridViewTextBoxColumn.DataPropertyName = "Resolution";
+            this.resolutionDataGridViewTextBoxColumn.HeaderText = "Resolution";
+            this.resolutionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.resolutionDataGridViewTextBoxColumn.Name = "resolutionDataGridViewTextBoxColumn";
+            this.resolutionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // degreeDataGridViewTextBoxColumn
+            // 
+            this.degreeDataGridViewTextBoxColumn.DataPropertyName = "Degree";
+            this.degreeDataGridViewTextBoxColumn.HeaderText = "Degree";
+            this.degreeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.degreeDataGridViewTextBoxColumn.Name = "degreeDataGridViewTextBoxColumn";
+            this.degreeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // turnDataGridViewTextBoxColumn
+            // 
+            this.turnDataGridViewTextBoxColumn.DataPropertyName = "Turn";
+            this.turnDataGridViewTextBoxColumn.HeaderText = "Turn";
+            this.turnDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.turnDataGridViewTextBoxColumn.Name = "turnDataGridViewTextBoxColumn";
+            this.turnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // careerBindingSource
             // 
@@ -198,20 +241,11 @@
             this.lblqcyo.TabIndex = 15;
             this.lblqcyo.Text = "Carrera seleccionada";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1025, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 29);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Nueva carrera";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(12, 489);
+            this.btnModificar.Location = new System.Drawing.Point(1011, 445);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(94, 29);
+            this.btnModificar.Size = new System.Drawing.Size(257, 29);
             this.btnModificar.TabIndex = 17;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -226,41 +260,6 @@
             this.lblcarreraaqui.TabIndex = 18;
             this.lblcarreraaqui.Text = "Carrera Aqui";
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            // 
-            // resolutionDataGridViewTextBoxColumn
-            // 
-            this.resolutionDataGridViewTextBoxColumn.DataPropertyName = "Resolution";
-            this.resolutionDataGridViewTextBoxColumn.HeaderText = "Resolution";
-            this.resolutionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.resolutionDataGridViewTextBoxColumn.Name = "resolutionDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // degreeDataGridViewTextBoxColumn
-            // 
-            this.degreeDataGridViewTextBoxColumn.DataPropertyName = "Degree";
-            this.degreeDataGridViewTextBoxColumn.HeaderText = "Degree";
-            this.degreeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.degreeDataGridViewTextBoxColumn.Name = "degreeDataGridViewTextBoxColumn";
-            // 
-            // turnDataGridViewTextBoxColumn
-            // 
-            this.turnDataGridViewTextBoxColumn.DataPropertyName = "Turn";
-            this.turnDataGridViewTextBoxColumn.HeaderText = "Turn";
-            this.turnDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.turnDataGridViewTextBoxColumn.Name = "turnDataGridViewTextBoxColumn";
-            // 
             // formCareer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -269,7 +268,6 @@
             this.ClientSize = new System.Drawing.Size(1324, 664);
             this.Controls.Add(this.lblcarreraaqui);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblqcyo);
             this.Controls.Add(this.dataGridViewCarreras);
             this.Controls.Add(this.btnFormMateria);
@@ -285,6 +283,7 @@
             this.Controls.Add(this.txtNumResolucion);
             this.Name = "formCareer";
             this.Text = "FormCarrera";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formCareer_FormClosed);
             this.Load += new System.EventHandler(this.formCarrera_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).EndInit();
@@ -311,7 +310,6 @@
         private BindingSource BindingSourceCarreras;
         private BindingSource careerBindingSource;
         private Label lblqcyo;
-        private Button button1;
         private Button btnModificar;
         private Label lblcarreraaqui;
         private DataGridViewTextBoxColumn Id;

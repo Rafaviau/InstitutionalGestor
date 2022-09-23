@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewCorrelativas = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorrelativeSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.correlativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +45,6 @@
             this.lblmateriaName = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorrelativeSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMateriaCorrelativas)).BeginInit();
@@ -68,8 +68,33 @@
             this.dataGridViewCorrelativas.ReadOnly = true;
             this.dataGridViewCorrelativas.RowHeadersWidth = 51;
             this.dataGridViewCorrelativas.RowTemplate.Height = 29;
+            this.dataGridViewCorrelativas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCorrelativas.Size = new System.Drawing.Size(481, 200);
             this.dataGridViewCorrelativas.TabIndex = 31;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // CorrelativeSubject
+            // 
+            this.CorrelativeSubject.DataPropertyName = "CorrelativeSubject";
+            this.CorrelativeSubject.HeaderText = "CorrelativeSubject";
+            this.CorrelativeSubject.MinimumWidth = 6;
+            this.CorrelativeSubject.Name = "CorrelativeSubject";
+            this.CorrelativeSubject.ReadOnly = true;
+            // 
+            // correlativeFinalDataGridViewCheckBoxColumn
+            // 
+            this.correlativeFinalDataGridViewCheckBoxColumn.DataPropertyName = "CorrelativeFinal";
+            this.correlativeFinalDataGridViewCheckBoxColumn.HeaderText = "CorrelativeFinal";
+            this.correlativeFinalDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.correlativeFinalDataGridViewCheckBoxColumn.Name = "correlativeFinalDataGridViewCheckBoxColumn";
+            this.correlativeFinalDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // correlativeBindingSource
             // 
@@ -158,30 +183,6 @@
             this.label3.TabIndex = 50;
             this.label3.Text = "Estado";
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // CorrelativeSubject
-            // 
-            this.CorrelativeSubject.DataPropertyName = "CorrelativeSubject";
-            this.CorrelativeSubject.HeaderText = "CorrelativeSubject";
-            this.CorrelativeSubject.MinimumWidth = 6;
-            this.CorrelativeSubject.Name = "CorrelativeSubject";
-            this.CorrelativeSubject.ReadOnly = true;
-            // 
-            // correlativeFinalDataGridViewCheckBoxColumn
-            // 
-            this.correlativeFinalDataGridViewCheckBoxColumn.DataPropertyName = "CorrelativeFinal";
-            this.correlativeFinalDataGridViewCheckBoxColumn.HeaderText = "CorrelativeFinal";
-            this.correlativeFinalDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.correlativeFinalDataGridViewCheckBoxColumn.Name = "correlativeFinalDataGridViewCheckBoxColumn";
-            this.correlativeFinalDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
             // formSubjectCorrelatives
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -200,6 +201,7 @@
             this.Controls.Add(this.dataGridViewCorrelativas);
             this.Name = "formSubjectCorrelatives";
             this.Text = "formSubjectCorrelatives";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSubjectCorrelatives_FormClosed);
             this.Load += new System.EventHandler(this.formSubjectCorrelatives_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).EndInit();

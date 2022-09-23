@@ -40,6 +40,8 @@ namespace GestIn.Model
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 //optionsBuilder.UseSqlServer("Server=tcp:servidor-itec.database.windows.net,1433;Initial Catalog=gestin;Persist Security Info=False;User ID=gestin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 optionsBuilder.UseSqlServer("Server=LAPTOP-E6PCVT2U\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("Server=LAPTOP-MRUPP9SV\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("Server=DESKTOP-5KDFBNS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 

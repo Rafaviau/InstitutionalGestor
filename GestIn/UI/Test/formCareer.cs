@@ -22,6 +22,12 @@ namespace GestIn.UI.Test
             InitializeComponent();
         }
 
+        private void formCareer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //this.Hide(); //redundante
+            //this.Close();
+        }
+
         private void formCarrera_Load(object sender, EventArgs e)
         {
             RefreshTableCarrera();
@@ -54,6 +60,8 @@ namespace GestIn.UI.Test
             txtNombre.Enabled = false;
             txtTitulo.Enabled = false;
             cbbTurno.Enabled = false;
+            btnInsert.Enabled = false;
+            btnUpdate.Enabled = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -73,9 +81,14 @@ namespace GestIn.UI.Test
 
         private void btnFormMateria_Click(object sender, EventArgs e)
         {
-            formSubject formMateria = new formSubject();
-            formMateria.ShowDialog();
-            
+            try
+            {
+                this.Hide();
+                formSubject formMateria = new formSubject(this);
+                formMateria.ShowDialog();
+                this.Close();
+            }
+            catch { }
         }
         
         private void btnTesteo_Click(object sender, EventArgs e)
@@ -114,6 +127,8 @@ namespace GestIn.UI.Test
             txtNombre.Enabled = true;
             txtTitulo.Enabled = true;
             cbbTurno.Enabled = true;
+            btnInsert.Enabled = true;
+            btnUpdate.Enabled = true;
         }
     }
 }
