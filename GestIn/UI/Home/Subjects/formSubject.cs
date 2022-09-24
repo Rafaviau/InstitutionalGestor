@@ -14,11 +14,11 @@ namespace GestIn.UI.Home.Subjects
 {
     public partial class formSubject : Form
     {
-        formCareer thisformCareer;
+        formCareer formCareer;
         careerController careerController;
         public formSubject(formCareer receivedformCareer)
         {
-            thisformCareer = receivedformCareer;
+            formCareer = receivedformCareer;
             careerController = careerController.GetInstance();
             InitializeComponent();
         }
@@ -30,9 +30,7 @@ namespace GestIn.UI.Home.Subjects
 
         private void formSubject_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
-            thisformCareer = new formCareer();
-            thisformCareer.ShowDialog();
+            formCareer.Visible = true;
             this.Close();
         }
 
@@ -62,6 +60,7 @@ namespace GestIn.UI.Home.Subjects
             bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
             bindingSourceCarreraMaterias.ResetBindings(false);
             dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
+            dataGridViewMaterias.CurrentCell.Selected = false; // para que el datagrid no comienze en la primera fila
             dataGridViewMaterias.ClearSelection();
         }
 
@@ -88,8 +87,10 @@ namespace GestIn.UI.Home.Subjects
             btnUpdate.Enabled = false;
             txtNombre.Enabled = false;
             cbbSubjectYear.Enabled = false;
+            cbbCarreraSelector.Enabled = true;
             txtCargaHorariaTotal.Enabled = false;
             lblPermission.Visible = true;
+            dataGridViewMaterias.Enabled = true;
         }
 
         public void ClearAll()
@@ -98,14 +99,14 @@ namespace GestIn.UI.Home.Subjects
             txtCargaHorariaTotal.Clear();
         }
 
-        private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
+        private void btnInsert_MouseClick(object sender, MouseEventArgs e)
         {
             careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
             RefreshTableSubjects();
             DisableUserInput();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (dataGridViewMaterias.CurrentRow.Cells[0].Value!=null)
             {
@@ -145,52 +146,51 @@ namespace GestIn.UI.Home.Subjects
             txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
         }
 
-        private void cbbCarreraSelector_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbCareerSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshTableSubjects();
         }
 
-        private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
+        private void btnCorrelatives_MouseClick(object sender, MouseEventArgs e)
         {
             try
             {
                 if(SetGlobalSubject()!=null)
                 {
-                    this.Hide();
+                    this.Visible = false;
                     formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
                     form.ShowDialog();
-                    this.Close();
                 }
                 
             }
             catch { MessageBox.Show("Error, ninguna materia seleccionada");  }
         }
 
-        private void btnDocentes_Click(object sender, EventArgs e)
+        private void btnTeachers_Click(object sender, EventArgs e)
         {
             try
             {
                 if (SetGlobalSubject() != null)
                 {
-                    this.Hide();
-                    SetGlobalSubject().ToString();
+                    this.Visible = false;
                     formSubjectTeachers form = new formSubjectTeachers(SetGlobalSubject(), this);
                     form.ShowDialog();
-                    this.Close();
                 }
 
             }
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
 
-        private void btnModificar_MouseClick(object sender, MouseEventArgs e)
+        private void btnModify_MouseClick(object sender, MouseEventArgs e)
         {
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
             txtNombre.Enabled = true;
             cbbSubjectYear.Enabled = true;
+            cbbCarreraSelector.Enabled = false;
             txtCargaHorariaTotal.Enabled = true;
             lblPermission.Visible = true;
+            dataGridViewMaterias.Enabled = false;
         }
 
         private void label123_Click(object sender, EventArgs e)

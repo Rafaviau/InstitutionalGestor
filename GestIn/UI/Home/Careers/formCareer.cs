@@ -24,8 +24,7 @@ namespace GestIn.UI.Home.Careers
 
         private void formCareer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //this.Hide(); //redundante
-            //this.Close();
+            this.Close();
         }
 
         private void formCarrera_Load(object sender, EventArgs e)
@@ -40,6 +39,7 @@ namespace GestIn.UI.Home.Careers
             dataGridViewCarreras.DataSource = null;
             if (careerController.loadCareers().Count > 0)
                 dataGridViewCarreras.DataSource = dataGridViewCarreras.DataSource = BindingSourceCarreras;
+            dataGridViewCarreras.CurrentCell.Selected = false;
         }
 
         public void RefreshLableCareerName(int careerID)
@@ -63,6 +63,7 @@ namespace GestIn.UI.Home.Careers
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
             lblPermission.Visible = false;
+            dataGridViewCarreras.Enabled = true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -91,11 +92,6 @@ namespace GestIn.UI.Home.Careers
             }
             catch { }
         }
-        
-        private void btnTesteo_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Testing Values Added");
-        }
 
         private void dataGridViewCarreras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -122,15 +118,29 @@ namespace GestIn.UI.Home.Careers
 
         private void btnModificar_MouseClick(object sender, MouseEventArgs e)
         {
-            btnInsert.Enabled = true;
-            btnUpdate.Enabled = true;
-            txtNumResolucion.Enabled = true;
-            txtNombre.Enabled = true;
-            txtTitulo.Enabled = true;
-            cbbTurno.Enabled = true;
-            btnInsert.Enabled = true;
-            btnUpdate.Enabled = true;
-            lblPermission.Visible = true;
+            if(dataGridViewCarreras.CurrentRow!=null)
+            {
+                btnInsert.Enabled = true;
+                btnUpdate.Enabled = true;
+                txtNumResolucion.Enabled = true;
+                txtNombre.Enabled = true;
+                txtTitulo.Enabled = true;
+                cbbTurno.Enabled = true;
+                btnInsert.Enabled = true;
+                btnUpdate.Enabled = true;
+                lblPermission.Visible = true;
+                dataGridViewCarreras.Enabled = false;
+            }
+        }
+
+        private void lblcarreraaqui_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

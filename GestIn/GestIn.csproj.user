@@ -32,6 +32,9 @@
     <Compile Update="UI\Home\Students\FormAcademicRecord.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Home\Subjects\formSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Login\formWelcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -48,9 +51,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Home\Subjects\formSubjectCorrelatives.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="UI\Home\Subjects\formSubject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Home\Subjects\formSubjectTeachers.cs">

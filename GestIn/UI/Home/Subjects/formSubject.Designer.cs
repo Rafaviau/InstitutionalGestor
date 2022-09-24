@@ -85,31 +85,31 @@
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
             this.cbbCarreraSelector.Size = new System.Drawing.Size(175, 28);
             this.cbbCarreraSelector.TabIndex = 28;
-            this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbbCarreraSelector_SelectedIndexChanged);
+            this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(541, 705);
+            this.btnUpdate.Location = new System.Drawing.Point(553, 689);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(88, 31);
+            this.btnUpdate.Size = new System.Drawing.Size(147, 31);
             this.btnUpdate.TabIndex = 26;
-            this.btnUpdate.Text = "Actualizar";
+            this.btnUpdate.Text = "Modificar Materia";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnInsert
             // 
             this.btnInsert.Enabled = false;
-            this.btnInsert.Location = new System.Drawing.Point(439, 705);
+            this.btnInsert.Location = new System.Drawing.Point(363, 689);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(86, 31);
+            this.btnInsert.Size = new System.Drawing.Size(139, 31);
             this.btnInsert.TabIndex = 25;
-            this.btnInsert.Text = "Guardar";
+            this.btnInsert.Text = "Crear Materia";
             this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnGuardar_MouseClick);
+            this.btnInsert.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnInsert_MouseClick);
             // 
             // txtCargaHorariaTotal
             // 
@@ -280,7 +280,7 @@
             this.btnDocentes.TabIndex = 33;
             this.btnDocentes.Text = "Cargar Docentes";
             this.btnDocentes.UseVisualStyleBackColor = true;
-            this.btnDocentes.Click += new System.EventHandler(this.btnDocentes_Click);
+            this.btnDocentes.Click += new System.EventHandler(this.btnTeachers_Click);
             // 
             // btnCorrelativas
             // 
@@ -290,7 +290,7 @@
             this.btnCorrelativas.TabIndex = 35;
             this.btnCorrelativas.Text = "Cargar Correlativas";
             this.btnCorrelativas.UseVisualStyleBackColor = true;
-            this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelativas_MouseClick);
+            this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelatives_MouseClick);
             // 
             // btnModificar
             // 
@@ -300,7 +300,7 @@
             this.btnModificar.TabIndex = 36;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModificar_MouseClick);
+            this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModify_MouseClick);
             // 
             // label123
             // 

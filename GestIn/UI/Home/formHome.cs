@@ -34,10 +34,12 @@ namespace GestIn.UI.Home
         {
             AbrirFormularioHijo(new formCareer());
         }
+
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
             {
-                formActivo.Close();
+                formActivo.Dispose();
+                //formActivo.Close(); no usar 
             }
             formActivo = formHijo;
             formHijo.TopLevel = false;
