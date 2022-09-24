@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.Controllers;
-using GestIn.UI.Test;
+using GestIn.UI.Home.Subjects;
 using GestIn.Model;
 
-namespace GestIn.UI.Test
+namespace GestIn.UI.Home.Careers
 {
     public partial class formCareer : Form
     {
@@ -62,6 +62,7 @@ namespace GestIn.UI.Test
             cbbTurno.Enabled = false;
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
+            lblPermission.Visible = false;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -76,6 +77,7 @@ namespace GestIn.UI.Test
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
             careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            RefreshTableCarrera();
             DisableUserInput();
         }
 
@@ -86,7 +88,6 @@ namespace GestIn.UI.Test
                 this.Hide();
                 formSubject formMateria = new formSubject(this);
                 formMateria.ShowDialog();
-                this.Close();
             }
             catch { }
         }
@@ -129,6 +130,7 @@ namespace GestIn.UI.Test
             cbbTurno.Enabled = true;
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
+            lblPermission.Visible = true;
         }
     }
 }

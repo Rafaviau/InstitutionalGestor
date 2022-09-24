@@ -68,7 +68,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public List<TeacherSubject> loadTeachers()
+        public List<TeacherSubject> loadTeachersSubjects() //Todos los cargos sin filtrar
         {
             using (var db = new Context())
             {
@@ -111,7 +111,6 @@ namespace GestIn.Controllers
                 nuevacarrera.Turn = turn;
                 nuevacarrera.CreatedAt = DateTime.Now;
                 nuevacarrera.LastModificationBy = "Preceptor cargando materias";
-                MessageBox.Show(nuevacarrera.TOSTRING());
                 using (var db = new Context())
                 {
                     db.Careers.Add(nuevacarrera);
@@ -325,7 +324,6 @@ namespace GestIn.Controllers
                     db.Subjects.Add(nuevaMateria);
                     db.SaveChanges();
                 }
-                MessageBox.Show("CREATED SUCCESSFULLY");
 
                 return nuevaMateria;
             }
@@ -351,7 +349,6 @@ namespace GestIn.Controllers
                     db.Subjects.Add(nuevaMateria);
                     db.SaveChanges();
                 }
-                MessageBox.Show("CREATED SUCCESSFULLY");
 
                 return nuevaMateria;
             }
@@ -382,7 +379,6 @@ namespace GestIn.Controllers
                         return true;
                     }
                 }
-                MessageBox.Show("MATERIA ACTUALIZADA");
             }
 
             catch { }
@@ -422,7 +418,7 @@ namespace GestIn.Controllers
             return objMateria;
         }
 
-        public List<Subject> GetSubjectsExceptSame(object objcareer, object objsubject)
+        public List<Subject> getSubjectsExceptSame(object objcareer, object objsubject)
         {
             List<Subject> Subjects = new List<Subject>();
             Career carreraSelector = (Career)objcareer;
@@ -486,7 +482,6 @@ namespace GestIn.Controllers
                     db.Correlatives.Add(newCorrelative);
                     db.SaveChanges();
                 }
-                MessageBox.Show("CORRELATIVE ADDED");
 
                 return newCorrelative;
             }
@@ -507,7 +502,6 @@ namespace GestIn.Controllers
                         db.SaveChanges();
                         return true;
                     }
-                    MessageBox.Show("CORRELATIVE REMOVED");
                 }
             }
             catch (SqlException exception) { throw exception; }
@@ -536,29 +530,20 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    foreach (Correlative cor in db.Correlatives.Where(x => x.Id == IDcorrelative).ToList())
-                    {
-                        if (cor.Id == IDcorrelative)
-                        {
-                            correlative = cor;
-                        }
-                    }
+                    var result = db.Correlatives.Where(x => x.Id == IDcorrelative).First();
                     return correlative;
                 }
                 catch (SqlException exception) { throw exception; }
             }
         }
 
-
-
-        public List<Subject> GetCorrelativeSubjects(object objsubject)
+        public List<Subject> getObjectSubjectsFromCorrelatives(object objsubject)
         {
             List<Subject> correlativeSubjects = new List<Subject>();
             Subject subjectSelector = (Subject)objsubject;
             foreach (Correlative cor in getCorrelativesFromSubject(subjectSelector)) //Metodo
             {
                 correlativeSubjects.Add(cor.CorrelativeSubject);
-                //MessageBox.Show(cor.CorrelativeSubject.TOSTRING());
             }
             return correlativeSubjects;
         }
@@ -567,44 +552,17 @@ namespace GestIn.Controllers
         {
             Career carreraSelector = (Career)objcareer;
             Subject subjectSelector = (Subject)objsubject;
-            
-            List<Subject> allSubjects = GetSubjectsExceptSame(carreraSelector,subjectSelector);
-            List<Subject> correlativeSubjects = GetCorrelativeSubjects(subjectSelector);
-            List<Subject> enabledCorrelativesListSubjects = new List<Subject>();
 
+            List<Subject> allSubjects = getSubjectsExceptSame(carreraSelector, subjectSelector);
+            List<Subject> correlativeSubjects = getObjectSubjectsFromCorrelatives(subjectSelector);
 
-            foreach (Subject subject in allSubjects)
-            {
-                foreach ( Subject corsub in correlativeSubjects)
-                {
-                    if(correlativeSubjects.Any())
-                    {
-                        if (subject.Id != corsub.Id && !enabledCorrelativesListSubjects.Contains(subject))
-                        {
-                            enabledCorrelativesListSubjects.Add(subject);
-                        }
-                    }
-                    else
-                    {
-                        enabledCorrelativesListSubjects = allSubjects;
-                    }
-                }
-            }
-            /*
+            allSubjects.RemoveAll(x => x.YearInCareer >= subjectSelector.YearInCareer);
+
             if (correlativeSubjects.Any())
             {
-                enabledCorrelativesListSubjects = allSubjects.Where(f => correlativeSubjects.Any(t => t.Id != f.Id)).ToList();
-                //enabledCorrelativesListSubjects = allSubjects.Except(correlativeSubjects);
+                allSubjects.RemoveAll(x => correlativeSubjects.Any(y => y.Id == x.Id));
             }
-            else
-            {
-                enabledCorrelativesListSubjects = allSubjects;
-            }
-            */
-            return enabledCorrelativesListSubjects;
-
-            //IEnumerable<Subject> enabledCorrelativesListSubjects = allSubjects.Except(correlativeSubjects);
-            //allSubjects.RemoveAll(i => EnabledCorrelativesListSubjects.Contains(i));
+            return allSubjects;
 
         }
 
@@ -612,6 +570,7 @@ namespace GestIn.Controllers
         {
             List<Correlative> specifiedListCorrelatives = new List<Correlative>();
             Subject existingsubject = getSubject((Subject)subjectMatter);
+
 
             using (var db = new Context())
             {
@@ -623,6 +582,98 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
             }
         }
+        #endregion
+
+
+        #region Teachers
+
+        public TeacherSubject assignTeacherCharge(object teacher, object subject)
+        {
+            TeacherSubject newCharge = new TeacherSubject();
+            Teacher selectedTeacher = (Teacher)teacher;
+            Subject selectedSubject = (Subject)subject;
+            try
+            {
+                newCharge.TeacherId = selectedTeacher.Id;
+                newCharge.SubjectId = selectedSubject.Id;
+                newCharge.CreatedAt = DateTime.Now;
+                newCharge.LastModificationBy = "Preceptor cargando docente";
+                using (var db = new Context())
+                {
+                    db.TeacherSubjects.Add(newCharge);
+                    db.SaveChanges();
+                }
+
+                return newCharge;
+            }
+            catch (SqlException exception) { throw exception; }
+        }
+
+        public bool removeTeacherCharge(object teacher)
+        {
+            TeacherSubject existingCharge = (TeacherSubject)teacher;
+            try
+            {
+                using (var db = new Context())
+                {
+                    var resultTeacher = findTeacherCharge(existingCharge);
+                    if (resultTeacher != null)
+                    {
+                        db.Remove(resultTeacher);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch (SqlException exception) { throw exception; }
+            return false;
+
+        }
+
+        public TeacherSubject findTeacherCharge(object teacherCharge)
+        {
+            TeacherSubject charge = (TeacherSubject)teacherCharge;
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.TeacherSubjects.Where(x => x.Id == charge.Id).First();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public TeacherSubject findTeacherCharge(int IDcharge)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.TeacherSubjects.Where(x => x.Id == IDcharge).First();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<TeacherSubject> getTeacherFromSubject(object subjectMatter) 
+        {
+            List<TeacherSubject> specifiedListCharges = new List<TeacherSubject>();
+            Subject existingsubject = getSubject((Subject)subjectMatter);
+
+
+            using (var db = new Context())
+            {
+                try
+                {
+                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).Include(x => x.Subject).Include(x => x.Subject).Include(x => x.Teacher).ToList();
+                    return specifiedListCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
         #endregion
 
     }

@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestIn.UI.Home.Careers;
 using GestIn.Controllers;
 
-namespace GestIn.UI.Test
+namespace GestIn.UI.Home.Subjects
 {
     public partial class formSubject : Form
     {
@@ -86,20 +87,20 @@ namespace GestIn.UI.Test
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
             txtNombre.Enabled = false;
-            txtAnioCarrera.Enabled = false;
+            cbbSubjectYear.Enabled = false;
             txtCargaHorariaTotal.Enabled = false;
+            lblPermission.Visible = true;
         }
 
         public void ClearAll()
         {
             txtNombre.Clear();
-            txtAnioCarrera.Clear();
             txtCargaHorariaTotal.Clear();
         }
 
         private void btnGuardar_MouseClick(object sender, MouseEventArgs e)
         {
-            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
             RefreshTableSubjects();
             DisableUserInput();
         }
@@ -109,7 +110,7 @@ namespace GestIn.UI.Test
             if (dataGridViewMaterias.CurrentRow.Cells[0].Value!=null)
             {
                 object selectedMateria = SetGlobalSubject();
-                careerController.updateSubject(selectedMateria, txtNombre.Text, Int32.Parse(txtAnioCarrera.Text), Int32.Parse(txtCargaHorariaTotal.Text));
+                careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
                 RefreshTableSubjects();
                 DisableUserInput();
             }
@@ -140,7 +141,7 @@ namespace GestIn.UI.Test
         {
             RefreshLableSubjectName(SetGlobalSubject());
             txtNombre.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
-            txtAnioCarrera.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
+            cbbSubjectYear.SelectedItem = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
             txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
         }
 
@@ -156,9 +157,8 @@ namespace GestIn.UI.Test
                 if(SetGlobalSubject()!=null)
                 {
                     this.Hide();
-                    SetGlobalSubject().ToString();
-                    formSubjectCorrelatives formMateria = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this, thisformCareer);
-                    formMateria.ShowDialog();
+                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
+                    form.ShowDialog();
                     this.Close();
                 }
                 
@@ -166,13 +166,36 @@ namespace GestIn.UI.Test
             catch { MessageBox.Show("Error, ninguna materia seleccionada");  }
         }
 
+        private void btnDocentes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SetGlobalSubject() != null)
+                {
+                    this.Hide();
+                    SetGlobalSubject().ToString();
+                    formSubjectTeachers form = new formSubjectTeachers(SetGlobalSubject(), this);
+                    form.ShowDialog();
+                    this.Close();
+                }
+
+            }
+            catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
+        }
+
         private void btnModificar_MouseClick(object sender, MouseEventArgs e)
         {
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
             txtNombre.Enabled = true;
-            txtAnioCarrera.Enabled = true;
+            cbbSubjectYear.Enabled = true;
             txtCargaHorariaTotal.Enabled = true;
+            lblPermission.Visible = true;
+        }
+
+        private void label123_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

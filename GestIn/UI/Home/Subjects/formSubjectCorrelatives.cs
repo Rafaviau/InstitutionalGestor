@@ -1,4 +1,5 @@
 ﻿using GestIn.Controllers;
+using GestIn.UI.Home.Subjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,19 +10,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.UI.Test
+namespace GestIn.UI.Home.Subjects
 {
     public partial class formSubjectCorrelatives : Form
     {
         formSubject parentFormSubject;
-        formCareer parentFormCareer;
         careerController careerController;
         object receivedCareer;
         object receivedSubject;
-        public formSubjectCorrelatives(object sentCareer,object sentSubject, formSubject receivedFormSubject, formCareer parentFormCareer)
+        public formSubjectCorrelatives(object sentCareer,object sentSubject, formSubject receivedFormSubject)
         {
             parentFormSubject = receivedFormSubject;
-            parentFormCareer = parentFormCareer;
             receivedCareer = sentCareer;
             receivedSubject = sentSubject;
             careerController = careerController.GetInstance();
@@ -30,9 +29,7 @@ namespace GestIn.UI.Test
 
         private void formSubjectCorrelatives_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
-            parentFormSubject = new formSubject(parentFormCareer);
-            parentFormSubject.ShowDialog();
+            parentFormSubject.Visible = true;
             this.Close();
         }
 
@@ -44,7 +41,7 @@ namespace GestIn.UI.Test
         }
 
 
-        public void RefreshComboboxCorrelativas() //en teoria recibo la lista de materias menos la misma
+        public void RefreshComboboxCorrelativas()
         {
             bindingSourceCorrelativasMenosMisma.DataSource = careerController.getEnabledCorrelatives(receivedCareer,receivedSubject); //Sobrecarga para no mostrar misma materia
             bindingSourceCorrelativasMenosMisma.ResetBindings(true);
@@ -80,15 +77,10 @@ namespace GestIn.UI.Test
             }
         }
 
-        private void btnCorrelativas_MouseClick(object sender, MouseEventArgs e)
+        private void btnAddCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
-            bool status = false;
-            if (chkEstado.Checked)
-            {
-                status = true;
-            }
-            careerController.createCorrelative(receivedSubject, selectedSubject, status);
+            careerController.createCorrelative(receivedSubject, selectedSubject, chkEstado.Checked);
             RefreshComboboxCorrelativas();
             RefreshTableCorrelativas();
             
@@ -96,13 +88,27 @@ namespace GestIn.UI.Test
 
         private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
         {
-            int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
-            careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
-            RefreshComboboxCorrelativas();
-            RefreshTableCorrelativas();
-            
+            try
+            {
+                if (dataGridViewCorrelativas.Rows.Count > 0)
+                {
+                    int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
+                    careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
+                    RefreshComboboxCorrelativas();
+                    RefreshTableCorrelativas();
+                }
+            }
+            catch { }
         }
 
+        private void formSubjectCorrelatives_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
 
+        }
+
+        private void formSubjectCorrelatives_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

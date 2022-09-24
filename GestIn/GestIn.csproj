@@ -18,15 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="UI\Test\Subject\formSubject.cs" />
-    <Compile Remove="UI\Test\Subject\formSubject.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="UI\Test\Subject\formSubject.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MailKit" Version="3.3.0" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
@@ -43,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UI\Test\Subject\" />
+    <Folder Include="UI\Test\" />
   </ItemGroup>
 
 </Project>

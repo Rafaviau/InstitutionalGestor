@@ -1,4 +1,4 @@
-﻿namespace GestIn.UI.Test
+﻿namespace GestIn.UI.Home.Subjects
 {
     partial class formSubjectCorrelatives
     {
@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewCorrelativas = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorrelativeSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.correlativeSubjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correlativeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.correlativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddCorrelativas = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMateriaCorrelativas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCorrelativasMenosMisma)).BeginInit();
@@ -57,12 +58,12 @@
             this.dataGridViewCorrelativas.AllowUserToDeleteRows = false;
             this.dataGridViewCorrelativas.AutoGenerateColumns = false;
             this.dataGridViewCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCorrelativas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.CorrelativeSubject,
-            this.correlativeFinalDataGridViewCheckBoxColumn});
-            this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource;
+            this.correlativeSubjectDataGridViewTextBoxColumn});
+            this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource1;
+            this.dataGridViewCorrelativas.GridColor = System.Drawing.Color.White;
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(102, 289);
             this.dataGridViewCorrelativas.Name = "dataGridViewCorrelativas";
             this.dataGridViewCorrelativas.ReadOnly = true;
@@ -72,21 +73,17 @@
             this.dataGridViewCorrelativas.Size = new System.Drawing.Size(481, 200);
             this.dataGridViewCorrelativas.TabIndex = 31;
             // 
-            // Id
+            // correlativeSubjectDataGridViewTextBoxColumn
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.correlativeSubjectDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeSubject";
+            this.correlativeSubjectDataGridViewTextBoxColumn.HeaderText = "CorrelativeSubject";
+            this.correlativeSubjectDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.correlativeSubjectDataGridViewTextBoxColumn.Name = "correlativeSubjectDataGridViewTextBoxColumn";
+            this.correlativeSubjectDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // CorrelativeSubject
+            // correlativeBindingSource1
             // 
-            this.CorrelativeSubject.DataPropertyName = "CorrelativeSubject";
-            this.CorrelativeSubject.HeaderText = "CorrelativeSubject";
-            this.CorrelativeSubject.MinimumWidth = 6;
-            this.CorrelativeSubject.Name = "CorrelativeSubject";
-            this.CorrelativeSubject.ReadOnly = true;
+            this.correlativeBindingSource1.DataSource = typeof(GestIn.Model.Correlative);
             // 
             // correlativeFinalDataGridViewCheckBoxColumn
             // 
@@ -94,15 +91,12 @@
             this.correlativeFinalDataGridViewCheckBoxColumn.HeaderText = "CorrelativeFinal";
             this.correlativeFinalDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.correlativeFinalDataGridViewCheckBoxColumn.Name = "correlativeFinalDataGridViewCheckBoxColumn";
-            this.correlativeFinalDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // correlativeBindingSource
-            // 
-            this.correlativeBindingSource.DataSource = typeof(GestIn.Model.Correlative);
+            this.correlativeFinalDataGridViewCheckBoxColumn.Width = 143;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(253, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(179, 20);
@@ -112,24 +106,30 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 19);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(287, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.Size = new System.Drawing.Size(127, 30);
             this.label2.TabIndex = 43;
             this.label2.Text = "Correlativas";
             // 
             // btnAddCorrelativas
             // 
+            this.btnAddCorrelativas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.btnAddCorrelativas.ForeColor = System.Drawing.Color.White;
             this.btnAddCorrelativas.Location = new System.Drawing.Point(407, 149);
             this.btnAddCorrelativas.Name = "btnAddCorrelativas";
             this.btnAddCorrelativas.Size = new System.Drawing.Size(158, 38);
             this.btnAddCorrelativas.TabIndex = 44;
             this.btnAddCorrelativas.Text = "Agregar Correlativa";
-            this.btnAddCorrelativas.UseVisualStyleBackColor = true;
-            this.btnAddCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelativas_MouseClick);
+            this.btnAddCorrelativas.UseVisualStyleBackColor = false;
+            this.btnAddCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnAddCorrelative_MouseClick);
             // 
             // cbbCorrelativas
             // 
+            this.cbbCorrelativas.BackColor = System.Drawing.Color.White;
+            this.cbbCorrelativas.ForeColor = System.Drawing.Color.Black;
             this.cbbCorrelativas.FormattingEnabled = true;
             this.cbbCorrelativas.Location = new System.Drawing.Point(102, 155);
             this.cbbCorrelativas.Name = "cbbCorrelativas";
@@ -138,17 +138,20 @@
             // 
             // btnRemoveCorrelative
             // 
+            this.btnRemoveCorrelative.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.btnRemoveCorrelative.ForeColor = System.Drawing.Color.White;
             this.btnRemoveCorrelative.Location = new System.Drawing.Point(407, 203);
             this.btnRemoveCorrelative.Name = "btnRemoveCorrelative";
             this.btnRemoveCorrelative.Size = new System.Drawing.Size(158, 37);
             this.btnRemoveCorrelative.TabIndex = 46;
             this.btnRemoveCorrelative.Text = "Remover Correlativa";
-            this.btnRemoveCorrelative.UseVisualStyleBackColor = true;
+            this.btnRemoveCorrelative.UseVisualStyleBackColor = false;
             this.btnRemoveCorrelative.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnRemoveCorrelative_MouseClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(207, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 20);
@@ -158,6 +161,7 @@
             // lblmateriaName
             // 
             this.lblmateriaName.AutoSize = true;
+            this.lblmateriaName.ForeColor = System.Drawing.Color.White;
             this.lblmateriaName.Location = new System.Drawing.Point(372, 88);
             this.lblmateriaName.Name = "lblmateriaName";
             this.lblmateriaName.Size = new System.Drawing.Size(91, 20);
@@ -167,6 +171,7 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
+            this.chkEstado.ForeColor = System.Drawing.Color.White;
             this.chkEstado.Location = new System.Drawing.Point(253, 207);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(62, 24);
@@ -177,6 +182,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(102, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
@@ -187,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(683, 526);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chkEstado);
@@ -199,11 +205,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridViewCorrelativas);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "formSubjectCorrelatives";
             this.Text = "formSubjectCorrelatives";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSubjectCorrelatives_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSubjectCorrelatives_FormClosed_1);
             this.Load += new System.EventHandler(this.formSubjectCorrelatives_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMateriaCorrelativas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCorrelativasMenosMisma)).EndInit();
@@ -226,8 +234,9 @@
         private CheckBox chkEstado;
         private Label label3;
         private BindingSource correlativeBindingSource;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn CorrelativeSubject;
         private DataGridViewCheckBoxColumn correlativeFinalDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn CorrelativeSubject;
+        private DataGridViewTextBoxColumn correlativeSubjectDataGridViewTextBoxColumn;
+        private BindingSource correlativeBindingSource1;
     }
 }

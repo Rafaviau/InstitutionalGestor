@@ -1,4 +1,5 @@
 ﻿using GestIn.UI.Home.Students;
+using GestIn.UI.Home.Careers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace GestIn.UI.Home
         }
         private void btnCarreras_Click(object sender, EventArgs e)
         {
-
+            AbrirFormularioHijo(new formCareer());
         }
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
