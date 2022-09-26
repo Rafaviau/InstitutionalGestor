@@ -17,13 +17,14 @@ namespace GestIn.UI.Home.Grades
         userController userController = userController.GetInstance();
         gradeContorller gradeController = gradeContorller.GetInstance();
         subjectEnrolmentController gradeEnrolmentController = subjectEnrolmentController.GetInstance();
-        public formGrades()
+        public formGrades(int dni)
         {
             InitializeComponent();
             foreach (object career in careerController.loadCareers()) {
                 cbCareer.Items.Add(career);
             }
             cbAccType.SelectedIndex = 0;
+            txtDni.Text = dni.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

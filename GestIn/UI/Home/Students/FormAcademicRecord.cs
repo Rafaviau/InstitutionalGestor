@@ -1,5 +1,6 @@
 ﻿using GestIn.Controllers;
 using GestIn.Model;
+using GestIn.UI.Home.Grades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,6 +146,12 @@ namespace GestIn.UI.Home.Students
             foreach (Grade item in list) {
                 AddSubjectRecord(item.Id, item.Subject.YearInCareer, item.Subject.Name,"4444" ,item.AccreditationType, item.Grade1, (DateTime)item.AccreditationDate, item.BookRecord);
             }
+        }
+
+        private void btnAddGrade_Click(object sender, EventArgs e)
+        {
+            formGrades formGrade = new formGrades(Int32.Parse(txtStudentDni.Text));
+            formGrade.ShowDialog();
         }
     }
 }

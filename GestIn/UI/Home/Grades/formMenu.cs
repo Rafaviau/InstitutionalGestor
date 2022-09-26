@@ -32,7 +32,7 @@ namespace GestIn.UI.Home.Grades
 
         private void addGrade_Click(object sender, EventArgs e)
         {
-            formGrades formGrade = new formGrades();
+            formGrades formGrade = new formGrades(0);
             formGrade.ShowDialog();
         }
     }
