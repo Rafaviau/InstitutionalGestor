@@ -31,7 +31,11 @@ namespace GestIn.Controllers
             generateCode();
             try
             {
-                Mail mail = new Mail("testsend1233@outlook.com", "Prueba123456", "smtp-mail.outlook.com", 587);
+                Mail mail = new Mail(
+                    "", //Agregar Email,
+                    "",//Agregar contraseña
+                    "smtp-mail.outlook.com",
+                    587);
 
                 InternetAddressList list = new InternetAddressList();
                 list.Add(InternetAddress.Parse(RecipientMail));
@@ -48,7 +52,11 @@ namespace GestIn.Controllers
 
             try
             {
-                Mail mail = new Mail("testsend1233@outlook.com", "Prueba123456", "smtp-mail.outlook.com", 587);
+                Mail mail = new Mail(
+                    "", //Agregar Email,
+                    "",//Agregar contraseña
+                    "smtp-mail.outlook.com",
+                    587);
 
                 InternetAddressList list = new InternetAddressList();
                 foreach (string email in listRecipientMail)
@@ -73,7 +81,8 @@ namespace GestIn.Controllers
         }
         public bool changePass(string email, string password)
         {
-            using (var db = new Context()) {
+            using (var db = new Context())
+            {
                 LoginInformation log = db.LoginInformations.Where(u => u.Email == email).FirstOrDefault();
                 log.Password = password;
                 db.SaveChanges();
