@@ -17,57 +17,77 @@ namespace GestIn.UI.Home.Grades
         userController userController = userController.GetInstance();
         gradeContorller gradeController = gradeContorller.GetInstance();
         subjectEnrolmentController gradeEnrolmentController = subjectEnrolmentController.GetInstance();
-        public formGrades(int dni)
+        careerEnrolmentController careerEnrolmentController = careerEnrolmentController.GetInstance();
+        public formGrades(string dni)
         {
             InitializeComponent();
-            foreach (object career in careerController.loadCareers()) {
-                cbCareer.Items.Add(career);
+            if (!dni.Equals(""))
+            {
+                cbCareer.DataSource = careerEnrolmentController.searchCareerEnrolmentReturnCareer(Int32.Parse(dni));
+                cbAccType.SelectedIndex = 0;
             }
-            cbAccType.SelectedIndex = 0;
-            txtDni.Text = dni.ToString();
+            else {
+                cbCareer.DataSource = careerController.loadCareers();
+                cbAccType.SelectedIndex = 0;
+            }
+            
+            txtDni.Text = dni;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 int studentId = userController.findStudent(Int32.Parse(txtDni.Text)).Id;
                 if (studentId != 0)
                 {
                     try
                     {
-                        bool added = gradeEnrolmentController.enrolToAprovedSubject(studentId, cbSubject.SelectedItem, Int32.Parse(txtEntomentYear.Text), ccbPresential.Checked);
-                        if (added)
+                        if (!txtEntomentYear.Text.Equals(""))
                         {
-                            if (!txtGrade.Text.Equals("") && !txtBookRecord.Text.Equals("") && !txtAcreditationDate.Equals(""))
+                            bool added = gradeEnrolmentController.enrolToAprovedSubject(studentId, cbSubject.SelectedItem, Int32.Parse(txtEntomentYear.Text), ccbPresential.Checked);
+                            if (added)
                             {
-                                gradeController.addGrade(
-                                    studentId,
-                                    cbSubject.SelectedItem,
-                                    Int32.Parse(txtGrade.Text),
-                                    txtBookRecord.Text,
-                                    DateTime.Parse(txtAcreditationDate.Text),
-                                    cbAccType.SelectedItem.ToString()
-                                    );
-                                clearCamps();
-                                MessageBox.Show("Agreggado correctamente");
+                                if (!txtGrade.Text.Equals("") && !txtBookRecord.Text.Equals("") && !txtAcreditationDate.Equals(""))
+                                {
+                                    gradeController.addGrade(
+                                        studentId,
+                                        cbSubject.SelectedItem,
+                                        Int32.Parse(txtGrade.Text),
+                                        txtBookRecord.Text,
+                                        DateTime.Parse(txtAcreditationDate.Text),
+                                        cbAccType.SelectedItem.ToString()
+                                        );
+                                    clearCamps();
+                                    MessageBox.Show("Agregado correctamente");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Para agregar una nota a un examen todos los campos deben estar completos");
+                                }
                             }
-                            else {
-                                MessageBox.Show("Para agregar una nota a un examen todos los campos deben estar completos");
+                            else
+                            {
+                                MessageBox.Show("No se pudo guardar la cursada, verifique los datos");
                             }
                         }
-                        else {
-                            MessageBox.Show("No se pudo guardar la cursada, verifique los datos");
+                        else
+                        {
+                            MessageBox.Show("Complete el año de acreditacion de cursada");
                         }
                     }
                     catch { }
                 }
-                else {
+                else
+                {
                     MessageBox.Show("El alumno no fue encontrado");
                 }
-            } catch {
+            }
+            catch
+            {
                 MessageBox.Show("No se pudo guardar");
             };
-            
+
         }
 
         private void cbCareer_SelectedValueChanged(object sender, EventArgs e)
@@ -80,13 +100,20 @@ namespace GestIn.UI.Home.Grades
                 cbSubject.Items.Add(subject);
             }
         }
-        void clearCamps() {
+        void clearCamps()
+        {
             txtEntomentYear.Text = "";
             ccbPresential.Checked = true;
             cbAccType.SelectedIndex = 0;
             txtGrade.Text = "";
             txtBookRecord.Text = "";
             txtAcreditationDate.Text = "";
+        }
+
+        private void btnSearchStudent_Click(object sender, EventArgs e)
+        {
+            cbCareer.DataSource = careerEnrolmentController.searchCareerEnrolmentReturnCareer(Int32.Parse(txtDni.Text));
+            cbAccType.SelectedIndex = 0;
         }
     }
 }

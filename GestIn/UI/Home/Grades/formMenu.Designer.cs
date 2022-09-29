@@ -61,7 +61,6 @@
             this.addGrade.TabIndex = 2;
             this.addGrade.Text = "Agregar una nota";
             this.addGrade.UseVisualStyleBackColor = true;
-            this.addGrade.Click += new System.EventHandler(this.addGrade_Click);
             // 
             // formMenu
             // 

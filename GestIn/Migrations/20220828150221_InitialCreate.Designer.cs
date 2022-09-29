@@ -164,7 +164,7 @@ namespace GestIn.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ExtraordinaryTenured")
+                    b.Property<int?>("Titular")
                         .HasColumnType("int");
 
                     b.Property<int?>("FirstVowel")
@@ -189,7 +189,7 @@ namespace GestIn.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ExtraordinaryTenured");
+                    b.HasIndex("Titular");
 
                     b.HasIndex("FirstVowel");
 
@@ -769,9 +769,9 @@ namespace GestIn.Migrations
 
             modelBuilder.Entity("GestIn.Model.Exam", b =>
                 {
-                    b.HasOne("GestIn.Model.Teacher", "ExtraordinaryTenuredNavigation")
-                        .WithMany("ExamExtraordinaryTenuredNavigations")
-                        .HasForeignKey("ExtraordinaryTenured")
+                    b.HasOne("GestIn.Model.Teacher", "TitularNavigation")
+                        .WithMany("ExamTitularNavigations")
+                        .HasForeignKey("Titular")
                         .HasConstraintName("FK_EXAMENES_DOCENTES3");
 
                     b.HasOne("GestIn.Model.Teacher", "FirstVowelNavigation")
@@ -789,7 +789,7 @@ namespace GestIn.Migrations
                         .HasForeignKey("ThirdVowel")
                         .HasConstraintName("FK_EXAMENES_DOCENTES2");
 
-                    b.Navigation("ExtraordinaryTenuredNavigation");
+                    b.Navigation("TitularNavigation");
 
                     b.Navigation("FirstVowelNavigation");
 
@@ -963,7 +963,7 @@ namespace GestIn.Migrations
 
             modelBuilder.Entity("GestIn.Model.Teacher", b =>
                 {
-                    b.Navigation("ExamExtraordinaryTenuredNavigations");
+                    b.Navigation("ExamTitularNavigations");
 
                     b.Navigation("ExamFirstVowelNavigations");
 

@@ -150,7 +150,18 @@ namespace GestIn.UI.Home.Students
 
         private void btnAddGrade_Click(object sender, EventArgs e)
         {
-            formGrades formGrade = new formGrades(Int32.Parse(txtStudentDni.Text));
+            formGrades formGrade = new formGrades(txtStudentDni.Text);
+            formGrade.ShowDialog();
+        }
+
+        private void btnGrade_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreateStudent_Click(object sender, EventArgs e)
+        {
+            TempStudentCreate formGrade = new TempStudentCreate();
             formGrade.ShowDialog();
         }
     }

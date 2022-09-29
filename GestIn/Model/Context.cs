@@ -38,7 +38,7 @@ namespace GestIn.Model
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer(LocalInformation.getConnectionString());
+                optionsBuilder.UseSqlServer("Server=LAPTOP-E6PCVT2U\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 
@@ -76,9 +76,9 @@ namespace GestIn.Model
 
             modelBuilder.Entity<Exam>(entity =>
             {
-                entity.HasOne(d => d.ExtraordinaryTenuredNavigation)
-                    .WithMany(p => p.ExamExtraordinaryTenuredNavigations)
-                    .HasForeignKey(d => d.ExtraordinaryTenured)
+                entity.HasOne(d => d.TitularNavigation)
+                    .WithMany(p => p.ExamTitularNavigations)
+                    .HasForeignKey(d => d.Titular)
                     .HasConstraintName("FK_EXAMENES_DOCENTES3");
 
                 entity.HasOne(d => d.FirstVowelNavigation)

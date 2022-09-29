@@ -346,7 +346,7 @@ namespace GestIn.Migrations
                     FirstVowel = table.Column<int>(type: "int", nullable: true),
                     SecondVowel = table.Column<int>(type: "int", nullable: true),
                     ThirdVowel = table.Column<int>(type: "int", nullable: true),
-                    ExtraordinaryTenured = table.Column<int>(type: "int", nullable: true),
+                    Titular = table.Column<int>(type: "int", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -372,7 +372,7 @@ namespace GestIn.Migrations
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_EXAMENES_DOCENTES3",
-                        column: x => x.ExtraordinaryTenured,
+                        column: x => x.Titular,
                         principalTable: "Teacher",
                         principalColumn: "Id");
                 });
@@ -455,9 +455,9 @@ namespace GestIn.Migrations
                 column: "SubjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Exam_ExtraordinaryTenured",
+                name: "IX_Exam_Titular",
                 table: "Exam",
-                column: "ExtraordinaryTenured");
+                column: "Titular");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exam_FirstVowel",
