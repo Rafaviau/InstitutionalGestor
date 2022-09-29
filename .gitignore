@@ -351,3 +351,4 @@ MigrationBackup/
 
 #Database context
 GestIn/Model/Context.cs
+GestIn/Model/LocalInformation.cs
