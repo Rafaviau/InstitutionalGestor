@@ -34,20 +34,10 @@ namespace GestIn.UI.Home.Subjects
 
         private void formSubjectTeachers_Load(object sender, EventArgs e)
         {
+            RefreshTableTeachersSubject();
             RefreshLableSubjectName();
         }
 
-        public void RefreshComboboxTeachers()
-        {
-            /*
-            //TeacherController  || UserController
-            bindingSourceTeachers.DataSource = userController.loadTeachers();
-            bindingSourceTeachers.ResetBindings(true);
-            cbbTeacher.DataSource = bindingSourceTeachers;
-            cbbTeacher.DisplayMember = "NAME";
-            cbbTeacher.ValueMember = "ID";
-            */
-        }
 
         public void RefreshTableTeachersSubject()
         {
@@ -75,10 +65,25 @@ namespace GestIn.UI.Home.Subjects
             }
         }
 
+        public void RefreshLableTeacherName()
+        {
+            try
+            {
+                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
+                {
+                    object teacher = dataGridViewTeachers.CurrentRow.Cells[1].Value;
+                    lblteachername.Text = teacher.ToString();
+                }
+                
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
         private void btnAddDocente_Click(object sender, EventArgs e)
         {
-            object selectedTeacher = cbbTeacher.SelectedItem;
-            careerController.assignTeacherCharge(receivedSubject, selectedTeacher);
             RefreshTableTeachersSubject();
         }
 
@@ -86,14 +91,92 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                if (dataGridViewTeachers.Rows.Count > 0)
+                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.removeTeacherCharge(selectedTeacherID);
+
+                    careerController.removeTeacherCharge(selectedTeacherID, receivedSubject);
                     RefreshTableTeachersSubject();
                 }
             }
             catch { }
+        }
+
+        private void loadSearchResults()
+        {
+            int Integer = 0;
+            bool checkState = Int32.TryParse(txtSearchbar.Text, out Integer);
+            if(checkState)
+            {
+                ListboxSearchResults.DataSource = userController.searchBoxTeacherWithInt(Int32.Parse(txtSearchbar.Text));
+            }
+            else
+            {
+                ListboxSearchResults.DataSource = userController.searchBoxTeacherWithString(txtSearchbar.Text);
+            }
+        }
+
+        private void txtSearchbar_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSearchbar.Text.Length == 0)
+            {
+                ListboxSearchResults.Visible = false;
+            }
+            else
+            {
+                ListboxSearchResults.Visible = true;
+                loadSearchResults();
+            }
+        }
+
+        private void txtSearchbar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Down)
+            {
+                ListboxSearchResults.Focus();
+            }
+        }
+
+        private string checkCondition()
+        {
+            if (chkCondition.Checked)
+            {
+                return "Suplente";
+            }
+            else
+            {
+                return "Titular";
+            }
+        }
+
+        private void ListboxSearchResults_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up && ListboxSearchResults.SelectedIndex <= 0)
+            {
+                ListboxSearchResults.ClearSelected();
+                txtSearchbar.Focus();
+            }
+            if (e.KeyCode == Keys.Enter && ListboxSearchResults.SelectedIndex >= 0)
+            {
+                object selectedTeacher = ListboxSearchResults.SelectedItem;
+                careerController.assignTeacherCharge(selectedTeacher, receivedSubject, checkCondition());
+            }
+        }
+
+        private void ListboxSearchResults_DoubleClick(object sender, EventArgs e)
+        {
+            int index = ListboxSearchResults.SelectedIndex;
+            if( index!= null || index<0)
+            {
+                object selectedTeacher = ListboxSearchResults.SelectedItem;
+                careerController.assignTeacherCharge(selectedTeacher, receivedSubject, checkCondition());
+                RefreshTableTeachersSubject();
+            }
+        }
+
+        private void dataGridViewTeachers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RefreshLableTeacherName();
         }
     }
 }

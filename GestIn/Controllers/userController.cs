@@ -26,6 +26,56 @@ namespace GestIn.Controllers
             return Instance;
         }
 
+        #region Docentes
+
+        public List<Teacher> loadTeachers() 
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Teachers.ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public Teacher findTeacher(int dni) //deprecated
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var teacher = db.Teachers.Where(x => x.User.Dni == dni).Include(x => x.User).Include(x => x.LoginInformation).First();
+                    return teacher;
+                }
+                catch { }
+                return null;
+
+            }
+        }
+
+        public List<Teacher> searchBoxTeacherWithString(string search)
+        {
+            using (var db = new Context())
+            {
+                var list = db.Teachers.Where(x => x.User.Name.StartsWith(search)).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                return list;
+            }
+        }
+
+        public List<Teacher> searchBoxTeacherWithInt(int search)
+        {
+            using (var db = new Context())
+            {
+                var list = db.Teachers.Where(x => x.User.Dni.ToString().StartsWith(search.ToString())).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                return list;
+            }
+        }
+
+        #endregion
+
         #region login
         public bool verifyLogin(string email, string pass) {
             using (var db = new Context())
@@ -38,6 +88,7 @@ namespace GestIn.Controllers
             return false;
         }
         #endregion
+
         #region Alumnos
         User createUser(int Dni, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)

@@ -81,9 +81,9 @@
             // 
             this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCarreraSelector.FormattingEnabled = true;
-            this.cbbCarreraSelector.Location = new System.Drawing.Point(794, 74);
+            this.cbbCarreraSelector.Location = new System.Drawing.Point(584, 74);
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
-            this.cbbCarreraSelector.Size = new System.Drawing.Size(175, 28);
+            this.cbbCarreraSelector.Size = new System.Drawing.Size(385, 28);
             this.cbbCarreraSelector.TabIndex = 28;
             this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
             // 

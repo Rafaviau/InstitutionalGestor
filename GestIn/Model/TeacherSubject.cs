@@ -29,5 +29,15 @@ namespace GestIn.Model
         [ForeignKey("TeacherId")]
         [InverseProperty("TeacherSubjects")]
         public virtual Teacher? Teacher { get; set; }
+
+        public string TOSTRING()
+        {
+            return this.Id.ToString() + " "
+                + this.TeacherId.ToString() + " "
+                + this.Condition.ToString() + " "
+                + this.SubjectId.ToString();
+        }
+
+       
     }
 }

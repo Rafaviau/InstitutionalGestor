@@ -27,7 +27,7 @@ namespace GestIn.UI.Home.Grades
         private void btnAddCareer_Click(object sender, EventArgs e)
         {
             formCareer thisformCareer = new formCareer();
-            thisformCareer.ShowDialog();
+            thisformCareer.Show();
         }
 
         private void addGrade_Click(object sender, EventArgs e)
