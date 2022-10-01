@@ -40,13 +40,16 @@
             this.bindingSourceTeachersSubject = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceTeachers = new System.Windows.Forms.BindingSource(this.components);
             this.txtSearchbar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblteachername = new System.Windows.Forms.Label();
             this.ListboxSearchResults = new System.Windows.Forms.ListBox();
-            this.chkCondition = new System.Windows.Forms.CheckBox();
+            this.cmbCondition = new System.Windows.Forms.ComboBox();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
@@ -76,9 +79,9 @@
             // 
             // btnRemoveDocente
             // 
-            this.btnRemoveDocente.Location = new System.Drawing.Point(844, 522);
+            this.btnRemoveDocente.Location = new System.Drawing.Point(721, 248);
             this.btnRemoveDocente.Name = "btnRemoveDocente";
-            this.btnRemoveDocente.Size = new System.Drawing.Size(158, 37);
+            this.btnRemoveDocente.Size = new System.Drawing.Size(148, 37);
             this.btnRemoveDocente.TabIndex = 55;
             this.btnRemoveDocente.Text = "Remover Docente";
             this.btnRemoveDocente.UseVisualStyleBackColor = true;
@@ -99,7 +102,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(202, 344);
+            this.label7.Location = new System.Drawing.Point(167, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 20);
             this.label7.TabIndex = 51;
@@ -115,13 +118,14 @@
             this.dataGridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.teacherDataGridViewTextBoxColumn});
+            this.teacherDataGridViewTextBoxColumn,
+            this.Condition});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
-            this.dataGridViewTeachers.Location = new System.Drawing.Point(202, 382);
+            this.dataGridViewTeachers.Location = new System.Drawing.Point(167, 364);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.RowHeadersWidth = 51;
             this.dataGridViewTeachers.RowTemplate.Height = 29;
-            this.dataGridViewTeachers.Size = new System.Drawing.Size(595, 233);
+            this.dataGridViewTeachers.Size = new System.Drawing.Size(730, 233);
             this.dataGridViewTeachers.TabIndex = 58;
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
             // 
@@ -135,27 +139,28 @@
             // 
             // txtSearchbar
             // 
-            this.txtSearchbar.Location = new System.Drawing.Point(359, 134);
+            this.txtSearchbar.Location = new System.Drawing.Point(167, 112);
             this.txtSearchbar.Name = "txtSearchbar";
             this.txtSearchbar.Size = new System.Drawing.Size(307, 27);
             this.txtSearchbar.TabIndex = 59;
             this.txtSearchbar.TextChanged += new System.EventHandler(this.txtSearchbar_TextChanged);
             this.txtSearchbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchbar_KeyDown);
             // 
-            // button1
+            // btnModificar
             // 
-            this.button1.Location = new System.Drawing.Point(703, 621);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 38);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(803, 603);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(94, 38);
+            this.btnModificar.TabIndex = 60;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(844, 412);
+            this.label3.Location = new System.Drawing.Point(568, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 61;
@@ -164,8 +169,9 @@
             // lblteachername
             // 
             this.lblteachername.AutoSize = true;
+            this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
-            this.lblteachername.Location = new System.Drawing.Point(855, 449);
+            this.lblteachername.Location = new System.Drawing.Point(756, 119);
             this.lblteachername.Name = "lblteachername";
             this.lblteachername.Size = new System.Drawing.Size(125, 20);
             this.lblteachername.TabIndex = 62;
@@ -175,23 +181,46 @@
             // 
             this.ListboxSearchResults.FormattingEnabled = true;
             this.ListboxSearchResults.ItemHeight = 20;
-            this.ListboxSearchResults.Location = new System.Drawing.Point(359, 183);
+            this.ListboxSearchResults.Location = new System.Drawing.Point(167, 161);
             this.ListboxSearchResults.Name = "ListboxSearchResults";
             this.ListboxSearchResults.Size = new System.Drawing.Size(307, 124);
             this.ListboxSearchResults.TabIndex = 63;
             this.ListboxSearchResults.DoubleClick += new System.EventHandler(this.ListboxSearchResults_DoubleClick);
             this.ListboxSearchResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListboxSearchResults_KeyDown);
             // 
-            // chkCondition
+            // cmbCondition
             // 
-            this.chkCondition.AutoSize = true;
-            this.chkCondition.ForeColor = System.Drawing.Color.White;
-            this.chkCondition.Location = new System.Drawing.Point(690, 137);
-            this.chkCondition.Name = "chkCondition";
-            this.chkCondition.Size = new System.Drawing.Size(96, 24);
-            this.chkCondition.TabIndex = 64;
-            this.chkCondition.Text = "Suplente?";
-            this.chkCondition.UseVisualStyleBackColor = true;
+            this.cmbCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCondition.Enabled = false;
+            this.cmbCondition.FormattingEnabled = true;
+            this.cmbCondition.Items.AddRange(new object[] {
+            "Titular",
+            "Suplente",
+            "Provisional"});
+            this.cmbCondition.Location = new System.Drawing.Point(756, 161);
+            this.cmbCondition.Name = "cmbCondition";
+            this.cmbCondition.Size = new System.Drawing.Size(125, 28);
+            this.cmbCondition.TabIndex = 64;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(546, 248);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(134, 37);
+            this.btnInsert.TabIndex = 65;
+            this.btnInsert.Text = "Agregar Docente";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(568, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Condicion:";
             // 
             // Id
             // 
@@ -207,17 +236,26 @@
             this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
             // 
+            // Condition
+            // 
+            this.Condition.DataPropertyName = "Condition";
+            this.Condition.HeaderText = "Condition";
+            this.Condition.MinimumWidth = 6;
+            this.Condition.Name = "Condition";
+            // 
             // formSubjectTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1021, 680);
-            this.Controls.Add(this.chkCondition);
+            this.ClientSize = new System.Drawing.Size(1236, 680);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.cmbCondition);
             this.Controls.Add(this.ListboxSearchResults);
             this.Controls.Add(this.lblteachername);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtSearchbar);
             this.Controls.Add(this.dataGridViewTeachers);
             this.Controls.Add(this.lblmateriaName);
@@ -251,13 +289,16 @@
         private BindingSource bindingSourceTeachersSubject;
         private BindingSource bindingSourceTeachers;
         private TextBox txtSearchbar;
-        private Button button1;
+        private Button btnModificar;
         private Label label3;
         private Label lblteachername;
         private ListBox ListboxSearchResults;
-        private CheckBox chkCondition;
         private BindingSource teacherSubjectBindingSource;
+        private ComboBox cmbCondition;
+        private Button btnInsert;
+        private Label label4;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn teacherDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Condition;
     }
 }

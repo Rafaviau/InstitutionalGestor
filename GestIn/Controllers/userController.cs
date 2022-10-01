@@ -56,6 +56,11 @@ namespace GestIn.Controllers
             }
         }
 
+        public Teacher getTeacher(object teacher) //deprecated
+        {
+            return (Teacher)teacher;
+        }
+
         public List<Teacher> searchBoxTeacherWithString(string search)
         {
             using (var db = new Context())

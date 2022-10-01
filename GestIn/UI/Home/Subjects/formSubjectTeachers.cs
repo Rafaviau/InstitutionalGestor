@@ -36,6 +36,7 @@ namespace GestIn.UI.Home.Subjects
         {
             RefreshTableTeachersSubject();
             RefreshLableSubjectName();
+            dataGridViewTeachers.Enabled = false;
         }
 
 
@@ -43,7 +44,7 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                bindingSourceTeachersSubject.DataSource = careerController.getTeacherFromSubject(receivedSubject);
+                bindingSourceTeachersSubject.DataSource = careerController.getTeachersFromSubject(receivedSubject);
                 bindingSourceTeachersSubject.ResetBindings(true);
                 dataGridViewTeachers.DataSource = bindingSourceTeachersSubject;
             }
@@ -82,6 +83,18 @@ namespace GestIn.UI.Home.Subjects
             }
         }
 
+        public void RefreshLableTeacherName(string teachername)
+        {
+            try
+            {
+                lblteachername.Text = teachername;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
         private void btnAddDocente_Click(object sender, EventArgs e)
         {
             RefreshTableTeachersSubject();
@@ -94,9 +107,9 @@ namespace GestIn.UI.Home.Subjects
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-
                     careerController.removeTeacherCharge(selectedTeacherID, receivedSubject);
                     RefreshTableTeachersSubject();
+                    btnRemoveDocente.Enabled = false;
                 }
             }
             catch { }
@@ -137,18 +150,6 @@ namespace GestIn.UI.Home.Subjects
             }
         }
 
-        private string checkCondition()
-        {
-            if (chkCondition.Checked)
-            {
-                return "Suplente";
-            }
-            else
-            {
-                return "Titular";
-            }
-        }
-
         private void ListboxSearchResults_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up && ListboxSearchResults.SelectedIndex <= 0)
@@ -158,8 +159,12 @@ namespace GestIn.UI.Home.Subjects
             }
             if (e.KeyCode == Keys.Enter && ListboxSearchResults.SelectedIndex >= 0)
             {
-                object selectedTeacher = ListboxSearchResults.SelectedItem;
-                careerController.assignTeacherCharge(selectedTeacher, receivedSubject, checkCondition());
+                //object selectedTeacher = ListboxSearchResults.SelectedItem;
+                //careerController.assignTeacherCharge(selectedTeacher, receivedSubject, cmbCondition.SelectedText);
+                cmbCondition.Enabled = true;
+                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
+                btnInsert.Enabled = true;
+                cmbCondition.Focus();
             }
         }
 
@@ -168,15 +173,34 @@ namespace GestIn.UI.Home.Subjects
             int index = ListboxSearchResults.SelectedIndex;
             if( index!= null || index<0)
             {
+                cmbCondition.Enabled = true;
+                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
+                btnInsert.Enabled = true;
+                cmbCondition.Focus();
+                /*
                 object selectedTeacher = ListboxSearchResults.SelectedItem;
-                careerController.assignTeacherCharge(selectedTeacher, receivedSubject, checkCondition());
+                careerController.assignTeacherCharge(selectedTeacher, receivedSubject, cmbCondition.SelectedText);
                 RefreshTableTeachersSubject();
+                */
             }
         }
 
         private void dataGridViewTeachers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RefreshLableTeacherName();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem));
+            btnInsert.Enabled = false;
+            RefreshTableTeachersSubject();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            btnRemoveDocente.Enabled = true;
+            dataGridViewTeachers.Enabled = true;
         }
     }
 }
