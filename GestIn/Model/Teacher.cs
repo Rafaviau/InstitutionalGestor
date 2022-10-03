@@ -11,7 +11,7 @@ namespace GestIn.Model
     {
         public Teacher()
         {
-            ExamExtraordinaryTenuredNavigations = new HashSet<Exam>();
+            ExamTitularNavigations = new HashSet<Exam>();
             ExamFirstVowelNavigations = new HashSet<Exam>();
             ExamSecondVowelNavigations = new HashSet<Exam>();
             ExamThirdVowelNavigations = new HashSet<Exam>();
@@ -36,8 +36,8 @@ namespace GestIn.Model
         [ForeignKey("UserId")]
         [InverseProperty("Teachers")]
         public virtual User User { get; set; } = null!;
-        [InverseProperty("ExtraordinaryTenuredNavigation")]
-        public virtual ICollection<Exam> ExamExtraordinaryTenuredNavigations { get; set; }
+        [InverseProperty("TitularNavigation")]
+        public virtual ICollection<Exam> ExamTitularNavigations { get; set; }
         [InverseProperty("FirstVowelNavigation")]
         public virtual ICollection<Exam> ExamFirstVowelNavigations { get; set; }
         [InverseProperty("SecondVowelNavigation")]

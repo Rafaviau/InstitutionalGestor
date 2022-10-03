@@ -29,11 +29,5 @@ namespace GestIn.UI.Home.Grades
             formCareer thisformCareer = new formCareer();
             thisformCareer.Show();
         }
-
-        private void addGrade_Click(object sender, EventArgs e)
-        {
-            formGrades formGrade = new formGrades(0);
-            formGrade.ShowDialog();
-        }
     }
 }

@@ -16,16 +16,18 @@ namespace GestIn.Model
         public int? FirstVowel { get; set; }
         public int? SecondVowel { get; set; }
         public int? ThirdVowel { get; set; }
-        public int? ExtraordinaryTenured { get; set; }
+        public int? Titular { get; set; }
+        public string? Place { get; set; }
+        public DateTime Date { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
 
-        [ForeignKey("ExtraordinaryTenured")]
-        [InverseProperty("ExamExtraordinaryTenuredNavigations")]
-        public virtual Teacher? ExtraordinaryTenuredNavigation { get; set; }
+        [ForeignKey("Titular")]
+        [InverseProperty("ExamTitularNavigations")]
+        public virtual Teacher? TitularNavigation { get; set; }
         [ForeignKey("FirstVowel")]
         [InverseProperty("ExamFirstVowelNavigations")]
         public virtual Teacher? FirstVowelNavigation { get; set; }

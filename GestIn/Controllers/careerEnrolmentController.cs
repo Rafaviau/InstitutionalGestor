@@ -59,5 +59,18 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
             }
         }
+        
+        public List<Career> searchCareerEnrolmentReturnCareer(int dni)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.CareerEnrolments.Where(x => x.Student.User.Dni == dni).Include(x => x.Career).Select(x => x.Career).ToList();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+        
     }
 }

@@ -50,6 +50,7 @@
             this.txtEntomentYear = new System.Windows.Forms.TextBox();
             this.cbAccType = new System.Windows.Forms.ComboBox();
             this.lblAcreditationType = new System.Windows.Forms.Label();
+            this.btnSearchStudent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -255,11 +256,22 @@
             this.lblAcreditationType.TabIndex = 17;
             this.lblAcreditationType.Text = "Tipo de acreditacion";
             // 
+            // btnSearchStudent
+            // 
+            this.btnSearchStudent.Location = new System.Drawing.Point(175, 94);
+            this.btnSearchStudent.Name = "btnSearchStudent";
+            this.btnSearchStudent.Size = new System.Drawing.Size(94, 29);
+            this.btnSearchStudent.TabIndex = 18;
+            this.btnSearchStudent.Text = "Buscar";
+            this.btnSearchStudent.UseVisualStyleBackColor = true;
+            this.btnSearchStudent.Click += new System.EventHandler(this.btnSearchStudent_Click);
+            // 
             // formGrades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 404);
+            this.Controls.Add(this.btnSearchStudent);
             this.Controls.Add(this.lblAcreditationType);
             this.Controls.Add(this.cbAccType);
             this.Controls.Add(this.txtEntomentYear);
@@ -313,5 +325,6 @@
         private TextBox txtEntomentYear;
         private ComboBox cbAccType;
         private Label lblAcreditationType;
+        private Button btnSearchStudent;
     }
 }

@@ -370,7 +370,7 @@ namespace GestIn.Controllers
         {
             using (var db = new Context())
             {
-                var list = db.Students.Where(x => x.User.Name.StartsWith(search)).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                var list = db.Students.Where(x => (x.User.Name.StartsWith(search) || x.User.LastName.StartsWith(search))).Include(x => x.LoginInformation).Include(x => x.User).ToList();
                 return list;
             }
         }
