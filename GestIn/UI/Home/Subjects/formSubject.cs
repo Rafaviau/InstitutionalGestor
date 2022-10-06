@@ -159,7 +159,7 @@ namespace GestIn.UI.Home.Subjects
                 {
                     this.Visible = false;
                     formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
-                    form.ShowDialog();
+                    form.Show();
                 }
                 
             }
@@ -174,7 +174,7 @@ namespace GestIn.UI.Home.Subjects
                 {
                     this.Visible = false;
                     formSubjectTeachers form = new formSubjectTeachers(SetGlobalSubject(), this);
-                    form.ShowDialog();
+                    form.Show();
                 }
 
             }

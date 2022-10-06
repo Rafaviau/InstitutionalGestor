@@ -88,7 +88,7 @@ namespace GestIn.UI.Home.Careers
             {
                 this.Hide();
                 formSubject formMateria = new formSubject(this);
-                formMateria.ShowDialog();
+                formMateria.Show();
             }
             catch { }
         }

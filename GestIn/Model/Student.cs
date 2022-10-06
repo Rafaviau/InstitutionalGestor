@@ -54,7 +54,7 @@ namespace GestIn.Model
 
         public override string ToString()
         {
-            return this.User.Name + " " + this.User.LastName + " "+ this.User.Dni;
+            return this.User.LastName + " " + this.User.Name + " " + this.User.Dni;
         }
     }
 }

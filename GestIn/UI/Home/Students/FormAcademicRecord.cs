@@ -26,7 +26,7 @@ namespace GestIn.UI.Home.Students
 
         public void setStudent(Student student)
         {
-            txtStudent.Text = student.User.Name + " " + student.User.LastName;
+            txtStudent.Text =  student.User.LastName + " " + student.User.Name;
             txtStudentDni.Text = student.User.Dni.ToString();
             txtStudentPhoneNumber.Text = student.User.PhoneNumbre;
             txtStudentEmail.Text = student.LoginInformation.Email;
@@ -104,7 +104,6 @@ namespace GestIn.UI.Home.Students
         {
             if (e.KeyCode == Keys.Up && lbSearch.SelectedIndex <= 0)
             {
-
                 lbSearch.ClearSelected();
                 searchBox.Focus();
             }

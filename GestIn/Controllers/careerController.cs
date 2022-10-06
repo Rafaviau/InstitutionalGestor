@@ -587,36 +587,44 @@ namespace GestIn.Controllers
 
         #region Teachers
 
-        public TeacherSubject assignTeacherCharge(object teacher, object subject)
+        public void assignTeacherCharge(object teacher, object subject, string condition)
         {
-            TeacherSubject newCharge = new TeacherSubject();
+            TeacherSubject newCharge = new TeacherSubject();//MessageBox.Show(newCharge.TOSTRING());
             Teacher selectedTeacher = (Teacher)teacher;
+            //MessageBox.Show(selectedTeacher.TOSTRING());
             Subject selectedSubject = (Subject)subject;
-            try
-            {
-                newCharge.TeacherId = selectedTeacher.Id;
-                newCharge.SubjectId = selectedSubject.Id;
-                newCharge.CreatedAt = DateTime.Now;
-                newCharge.LastModificationBy = "Preceptor cargando docente";
-                using (var db = new Context())
-                {
-                    db.TeacherSubjects.Add(newCharge);
-                    db.SaveChanges();
-                }
 
-                return newCharge;
+            newCharge.TeacherId = selectedTeacher.Id;
+            newCharge.SubjectId = selectedSubject.Id;
+            newCharge.DateSince = DateTime.Now;
+            //newCharge.DateUntil = 
+            newCharge.Condition = condition;
+            newCharge.CreatedAt = DateTime.Now;
+            newCharge.LastModificationBy = "Preceptor cargando docente";
+
+            if (checkChargeRepetition(newCharge, selectedSubject, condition))
+            {
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        db.TeacherSubjects.Add(newCharge);
+                        db.SaveChanges();
+                    }
+                }
+                catch (SqlException exception) { throw exception; }
             }
-            catch (SqlException exception) { throw exception; }
         }
 
-        public bool removeTeacherCharge(object teacher)
+        public bool removeTeacherCharge(int teacherID, object subject)
         {
-            TeacherSubject existingCharge = (TeacherSubject)teacher;
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            Subject existingSubject = (Subject)subject;
             try
             {
                 using (var db = new Context())
                 {
-                    var resultTeacher = findTeacherCharge(existingCharge);
+                    var resultTeacher = findTeacherCharge(existingCharge,existingSubject);
                     if (resultTeacher != null)
                     {
                         db.Remove(resultTeacher);
@@ -629,6 +637,29 @@ namespace GestIn.Controllers
             return false;
 
         }
+
+        public bool checkChargeRepetition(TeacherSubject charge, Subject subject, string Condition)
+        {
+            bool state = false;
+            if(Condition.Equals("Titular"))
+            {
+                if (findTeacherCharge(charge, subject) == null)
+                {
+                    state = true;
+                }
+                else if (getExistingTitularTeacherFromSubject(subject) == true)  //si ya existe un docente y es titular
+                {
+                    MessageBox.Show("Error, existe un docente Titular");
+                }
+                else if (getExistingTeacherConditionFromSubject(subject) == true)  //si ya existe un docente
+                {
+                    MessageBox.Show("Error, un docente no puede tener el mismo cargo otra vez");
+                }
+            }
+            return state;
+        }
+
+        
 
         public TeacherSubject findTeacherCharge(object teacherCharge)
         {
@@ -657,18 +688,84 @@ namespace GestIn.Controllers
             }
         }
 
-        public List<TeacherSubject> getTeacherFromSubject(object subjectMatter) 
+        public TeacherSubject findTeacherCharge(object teacherCharge, object subjectMatter)
         {
-            List<TeacherSubject> specifiedListCharges = new List<TeacherSubject>();
-            Subject existingsubject = getSubject((Subject)subjectMatter);
-
-
+            TeacherSubject charge = (TeacherSubject)teacherCharge;
+            Subject subject = (Subject)subjectMatter;
+            TeacherSubject existingCharge = new TeacherSubject();
+            existingCharge = null;
             using (var db = new Context())
             {
                 try
                 {
-                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).Include(x => x.Subject).Include(x => x.Subject).Include(x => x.Teacher).ToList();
+                    foreach(var item in db.TeacherSubjects)
+                    {
+                        if (subject.Id == item.SubjectId && charge.TeacherId == item.TeacherId)
+                        {
+                            existingCharge = item;
+                        }
+                    }
+                    return existingCharge;
+                    //var result = db.TeacherSubjects.Where(x => x.SubjectId == subject.Id).First();
+                    //return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<TeacherSubject> getTeachersFromSubject(object subjectMatter) //docentes que tienen algun cargo en la materia
+        {
+            List<TeacherSubject> specifiedListCharges = new List<TeacherSubject>();
+            Subject existingsubject = getSubject((Subject)subjectMatter);
+            using (var db = new Context())
+            {
+                try
+                {
+                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
                     return specifiedListCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public bool getExistingTitularTeacherFromSubject(object subjectMatter) //docentes que tienen algun cargo en la materia
+        {
+            bool state = false;
+            Subject existingsubject = getSubject((Subject)subjectMatter);
+            using (var db = new Context())
+            {
+                try
+                {
+                    foreach (var item in db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).ToList())
+                    {
+                        if (item.Condition.Equals("Titular"))
+                        {
+                            MessageBox.Show("Nombre del docente titular:" + " " + item.Teacher.User.Name);
+                            state = true;
+                        }
+
+                    } return state;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public bool getExistingTeacherConditionFromSubject(object subjectMatter) 
+        {
+            bool state = false;
+            Subject existingsubject = getSubject((Subject)subjectMatter);
+            using (var db = new Context())
+            {
+                try
+                {
+                    foreach (var item in db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).ToList())
+                    {
+                        if (item.Condition.Equals("Suplente") || item.Condition.Equals("Provisional"))
+                        {
+                            state = true;
+                        }
+                    }
+                    return state;
                 }
                 catch (SqlException exception) { throw exception; }
             }
