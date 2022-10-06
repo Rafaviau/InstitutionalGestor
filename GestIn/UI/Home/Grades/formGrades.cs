@@ -1,10 +1,12 @@
 ﻿using GestIn.Controllers;
+using GestIn.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,7 +32,8 @@ namespace GestIn.UI.Home.Grades
                 cbCareer.DataSource = careerController.loadCareers();
                 cbAccType.SelectedIndex = 0;
             }
-            
+            cbCareerEnrol.DataSource = careerController.loadCareers();
+            cbAccType.SelectedIndex = 0;
             txtDni.Text = dni;
         }
 
@@ -48,6 +51,7 @@ namespace GestIn.UI.Home.Grades
                             bool added = gradeEnrolmentController.enrolToAprovedSubject(studentId, cbSubject.SelectedItem, Int32.Parse(txtEntomentYear.Text), ccbPresential.Checked);
                             if (added)
                             {
+                                MessageBox.Show("Cursada agregada");
                                 if (!txtGrade.Text.Equals("") && !txtBookRecord.Text.Equals("") && !txtAcreditationDate.Equals(""))
                                 {
                                     gradeController.addGrade(
@@ -60,10 +64,6 @@ namespace GestIn.UI.Home.Grades
                                         );
                                     clearCamps();
                                     MessageBox.Show("Agregado correctamente");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Para agregar una nota a un examen todos los campos deben estar completos");
                                 }
                             }
                             else
@@ -112,8 +112,32 @@ namespace GestIn.UI.Home.Grades
 
         private void btnSearchStudent_Click(object sender, EventArgs e)
         {
+            cbSubject.Items.Clear();
             cbCareer.DataSource = careerEnrolmentController.searchCareerEnrolmentReturnCareer(Int32.Parse(txtDni.Text));
             cbAccType.SelectedIndex = 0;
+        }
+
+        private void btnSaveEnrol_Click(object sender, EventArgs e)
+        {
+            if (tbCarrearEnrolYear.Text == "") { MessageBox.Show("Agregue un año de inscripcion"); }
+            else
+            {
+                if(careerEnrolmentController.enrolStudentWithDni(Int32.Parse(txtDni.Text), cbCareerEnrol.SelectedItem, Int32.Parse(tbCarrearEnrolYear.Text)))
+                {
+                    MessageBox.Show("Agregado Correctamete");
+                    cbCareer.DataSource = careerEnrolmentController.searchCareerEnrolmentReturnCareer(Int32.Parse(txtDni.Text));
+                    cbAccType.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void cbAccType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbAccType.SelectedItem.Equals("Libre"))
+            {
+                ccbPresential.Checked = false;
+                txtEntomentYear.Text = txtAcreditationDate.Text;
+            }
         }
     }
 }

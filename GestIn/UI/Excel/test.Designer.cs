@@ -32,6 +32,7 @@
             this.btnLoadSubjects = new System.Windows.Forms.Button();
             this.btnLoadStudents = new System.Windows.Forms.Button();
             this.btnLoadCareerEnrolment = new System.Windows.Forms.Button();
+            this.btnUpdatePhone = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoadCareer
@@ -74,11 +75,22 @@
             this.btnLoadCareerEnrolment.UseVisualStyleBackColor = true;
             this.btnLoadCareerEnrolment.Click += new System.EventHandler(this.btnLoadCareerEnrolment_Click);
             // 
+            // btnUpdatePhone
+            // 
+            this.btnUpdatePhone.Location = new System.Drawing.Point(51, 256);
+            this.btnUpdatePhone.Name = "btnUpdatePhone";
+            this.btnUpdatePhone.Size = new System.Drawing.Size(185, 29);
+            this.btnUpdatePhone.TabIndex = 4;
+            this.btnUpdatePhone.Text = "Actualizar telefonos";
+            this.btnUpdatePhone.UseVisualStyleBackColor = true;
+            this.btnUpdatePhone.Click += new System.EventHandler(this.btnUpdatePhone_Click);
+            // 
             // test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.btnUpdatePhone);
             this.Controls.Add(this.btnLoadCareerEnrolment);
             this.Controls.Add(this.btnLoadStudents);
             this.Controls.Add(this.btnLoadSubjects);
@@ -95,5 +107,6 @@
         private Button btnLoadSubjects;
         private Button btnLoadStudents;
         private Button btnLoadCareerEnrolment;
+        private Button btnUpdatePhone;
     }
 }

@@ -13,6 +13,7 @@ namespace GestIn.Controllers
     {
         #region Atributos
         private static careerEnrolmentController? Instance;
+        userController cntUser = userController.GetInstance();
         #endregion
 
 
@@ -44,6 +45,32 @@ namespace GestIn.Controllers
                     db.SaveChanges();
                     return true;
                 }
+            }
+            catch { }
+            return false;
+        }
+        public bool enrolStudentWithDni(int dni, object career, int year)
+        {
+            Career car = (Career)career;
+            try
+            {
+                var student = cntUser.findStudent(dni);
+                if(student != null)
+                {
+                    CareerEnrolment enrol = new CareerEnrolment();
+                    enrol.StudentId = student.Id;
+                    enrol.CareerId = car.Id;
+                    enrol.YearOfRegistration = year;
+                    enrol.CreatedAt = DateTime.Now;
+                    enrol.LastModificationBy = "Preceptor";
+                    using (var db = new Context())
+                    {
+                        db.CareerEnrolments.Add(enrol);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+               
             }
             catch { }
             return false;

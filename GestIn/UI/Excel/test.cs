@@ -158,5 +158,40 @@ namespace GestIn
                 }
             }
         }
+        void updateStudentPhone()
+        {
+            int CareerId = 0;
+            foreach (string career in careers)
+            {
+                int row = 3;
+                if (career == "paleontologos")
+                {
+                    row = 2;
+                }
+
+                CareerId++;
+                s2.SelectWorksheet(career);
+                while (!string.IsNullOrEmpty(s2.GetCellValueAsString(row, 1)))
+                {
+                    string Dni = s2.GetCellValueAsString(row, 3);
+                    string phone = s2.GetCellValueAsString(row, 5);
+
+                    if (!Dni.ToString().Equals(""))
+                    {
+                        int _dni = Int32.Parse(Regex.Replace(Dni, "[@,\\.\";'\\\\]", string.Empty));
+                        try
+                        {
+                            cntUser.updateStudentPhone(_dni, phone);
+                        }
+                        catch (Exception ex) { }
+                    }
+                    row++;
+                }
+            }
+        }
+        private void btnUpdatePhone_Click(object sender, EventArgs e)
+        {
+            updateStudentPhone();
+        }
     }
 }

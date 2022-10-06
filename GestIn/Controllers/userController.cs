@@ -39,7 +39,20 @@ namespace GestIn.Controllers
         }
         #endregion
         #region Alumnos
-        User createUser(int Dni, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
+        public User findUser(int dni)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Students.Where(x => x.User.Dni == dni).Select(x => x.User).First();
+                }
+                catch { }
+                return null;
+
+            }
+        }
+        User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)
         {
             try {
@@ -76,7 +89,7 @@ namespace GestIn.Controllers
             return null;
         }
 
-        User createUser(int Dni, string name, string lastname,DateTime dateOfBirth,string phone)
+        User createUser(int Dni, string name, string lastname,DateTime? dateOfBirth,string phone)
         {
             Student search = findStudent(Dni);
             if (search != null) { return search.User; }
@@ -88,6 +101,38 @@ namespace GestIn.Controllers
                 user.LastName = lastname;
                 user.DateOfBirth = dateOfBirth;
                 user.PhoneNumbre = phone;
+                user.CreatedAt = DateTime.Now;
+                user.LastModificationBy = "Preceptor cargando notas";
+
+                using (var db = new Context())
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+
+                return user;
+            }
+            catch (SqlException exception)
+            {
+                if (exception.Number == 2601)
+                {
+                    // MANEJAR ERROR DE DNI DUPLICADO
+                    return null;
+                }
+                else
+                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+        }
+        User createUser(int Dni, string name, string lastname)
+        {
+            Student search = findStudent(Dni);
+            if (search != null) { return search.User; }
+            try
+            {
+                User user = new User();
+                user.Dni = Dni;
+                user.Name = name;
+                user.LastName = lastname;
                 user.CreatedAt = DateTime.Now;
                 user.LastModificationBy = "Preceptor cargando notas";
 
@@ -170,7 +215,7 @@ namespace GestIn.Controllers
             }
             return null;
         }
-        bool createStudent(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
+        bool createStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours,LoginInformation log, User user) {
             try
             {
@@ -235,7 +280,7 @@ namespace GestIn.Controllers
             return false;
 
         }
-        public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime dateOfBirth, string placeOfBirth,
+        public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
         {
             User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
@@ -253,9 +298,22 @@ namespace GestIn.Controllers
             //borrar todo
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime dateOfBirth, string phone)
+        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string phone)
         {
             User user = createUser(Dni, name, lastname,dateOfBirth,phone);
+            if (user != null)
+            {
+                LoginInformation log = createLoginInformation(mail, Dni);
+                if (log != null)
+                {
+                    return (createStudent(Dni, mail, name, lastname, log, user));
+                }
+            }
+            return false;
+        }
+        public bool enrolStudent(int Dni, string mail, string name, string lastname)
+        {
+            User user = createUser(Dni, name, lastname);
             if (user != null)
             {
                 LoginInformation log = createLoginInformation(mail, Dni);
@@ -324,6 +382,19 @@ namespace GestIn.Controllers
             {
                 var list = db.Students.Where(x => x.User.Dni.ToString().StartsWith(search.ToString())).Include(x => x.LoginInformation).Include(x => x.User).ToList();
                 return list;
+            }
+        }
+        public void updateStudentPhone(int dni, string phone) {
+            using (var db = new Context())
+            {
+                var result = findUser(dni);
+                if (result != null)
+                {
+                    result.PhoneNumbre = phone;
+                    result.UpdatedAt = DateTime.Now;
+                    db.Update(result);
+                    db.SaveChanges();
+                }
             }
         }
         #endregion

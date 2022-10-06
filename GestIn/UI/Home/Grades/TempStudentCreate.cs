@@ -24,12 +24,17 @@ namespace GestIn.UI.Home.Grades
             if (txtDni.Equals("") || txtEmail.Equals("") || txtLastName.Equals("") || txtName.Equals("")) { MessageBox.Show("Complete todos los campos"); }
             else {
                 try {
-                userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text,DateTime.Parse(txtBirth.Text) ,txtPhone.Text);
+                    DateTime? _date = null;
+                    if(!txtBirth.Text.Equals(""))
+                    {
+                        _date = DateTime.Parse(txtBirth.Text);
+                    }
+                userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text, _date, txtPhone.Text);
                 MessageBox.Show("Guardado correctamente");
                 CleanText();
                 } 
-                catch {
-                MessageBox.Show("No se pudo guardar la informacion");
+                catch (Exception ex){
+                    MessageBox.Show(ex.Message);
                     }
             }
 
@@ -70,8 +75,8 @@ namespace GestIn.UI.Home.Grades
             txtEmail.Text = "";
             txtLastName.Text = "";
             txtName.Text = "";
-
-
+            txtBirth.Text = "";
+            txtPhone.Text = "";
         }
 
         private void btnStopEditing_Click(object sender, EventArgs e)

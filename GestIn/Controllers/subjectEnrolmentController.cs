@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestIn.Controllers
 {
@@ -40,6 +41,20 @@ namespace GestIn.Controllers
             } catch { }
             return false;
         }
-        
+        public int getAcreditationDate(int dni)
+        {
+            using (var db = new Context())
+            {
+                return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Select(x => x.Year).First(); ;
+            }
+        }
+        public List<SubjectEnrolment> getEnrolments(int dni)
+        {
+            using (var db = new Context())
+            {
+                return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Include(x => x.Subject).ToList(); ;
+            }
+        }
+
     }
 }

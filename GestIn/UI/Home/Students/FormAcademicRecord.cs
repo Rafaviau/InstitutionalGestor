@@ -17,6 +17,7 @@ namespace GestIn.UI.Home.Students
     {
         userController cntUser = userController.GetInstance();
         careerEnrolmentController cntCareerEnrolment = careerEnrolmentController.GetInstance();
+        subjectEnrolmentController cntSubjectEnrolment = subjectEnrolmentController.GetInstance();
         gradeContorller cntGrades = gradeContorller.GetInstance();
         public formAcademicRecord()
         {
@@ -42,16 +43,16 @@ namespace GestIn.UI.Home.Students
             cbPhotos.Checked = student.Photo4x4;
 
         }
-        public void AddSubjectRecord(int id, int yearInCarrer, string subject, string enrolmentAprovalYear, string acreditationType, int grade, DateTime approvalDate, string bookRecord)
+        public void AddSubjectRecord(int id, int yearInCarrer, string subject, string enrolmentAprovalYear, string acreditationType, DateTime approvalDate,int grade,  string bookRecord)
         {
-            dgvSubjectsRecord.Rows.Add(id, yearInCarrer, subject, enrolmentAprovalYear, acreditationType, grade, approvalDate, bookRecord);
+            dgvSubjectsRecord.Rows.Add(id, yearInCarrer, subject, enrolmentAprovalYear, acreditationType, approvalDate, grade, bookRecord);
         }
 
-        public void AddSubjectRecord(int id, int yearInCarrer, string subject)
+        public void AddSubjectRecord(int id, int yearInCarrer, string subject,int enrolmentAprovalYear)
         {
-            dgvSubjectsRecord.Rows.Add(id, yearInCarrer, subject);
+            dgvSubjectsRecord.Rows.Add(id, yearInCarrer, subject, enrolmentAprovalYear);
         }
-
+        
         private void FormAcademicRecord_Load(object sender, EventArgs e)
         {
 
@@ -114,6 +115,7 @@ namespace GestIn.UI.Home.Students
                 setStudent(student);
                 getStudentCareerInfo(student.User.Dni);
                 getStudentGrades(student.User.Dni);
+                lbSearch.Visible = false;
             }
         }
 
@@ -143,8 +145,13 @@ namespace GestIn.UI.Home.Students
         void getStudentGrades(int dni)
         {
             var list = cntGrades.getStudentGrades(dni);
+            var list2 = cntSubjectEnrolment.getEnrolments(dni);
             foreach (Grade item in list) {
-                AddSubjectRecord(item.Id, item.Subject.YearInCareer, item.Subject.Name,"4444" ,item.AccreditationType, item.Grade1, (DateTime)item.AccreditationDate, item.BookRecord);
+                AddSubjectRecord(item.Id, item.Subject.YearInCareer, item.Subject.Name, cntSubjectEnrolment.getAcreditationDate(Int32.Parse(txtStudentDni.Text)).ToString(), item.AccreditationType, (DateTime)item.AccreditationDate,item.Grade1, item.BookRecord);
+            }
+            foreach (SubjectEnrolment item in list2)
+            {
+                AddSubjectRecord(item.Id, item.Subject.YearInCareer, item.Subject.Name,item.Year);
             }
         }
 
@@ -163,6 +170,12 @@ namespace GestIn.UI.Home.Students
         {
             TempStudentCreate formGrade = new TempStudentCreate();
             formGrade.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TempCareer formCareer = new TempCareer();
+            formCareer.ShowDialog();
         }
     }
 }
