@@ -107,7 +107,7 @@ namespace GestIn.UI.Home.Subjects
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.removeTeacherCharge(selectedTeacherID, receivedSubject);
+                    careerController.unassignTeacherCharge(selectedTeacherID, receivedSubject);
                     RefreshTableTeachersSubject();
                     btnRemoveDocente.Enabled = false;
                 }

@@ -602,10 +602,11 @@ namespace GestIn.Controllers
             newCharge.CreatedAt = DateTime.Now;
             newCharge.LastModificationBy = "Preceptor cargando docente";
 
-            if (checkChargeRepetition(newCharge, selectedSubject, condition))
+            if (!checkChargeRepetition(newCharge))
             {
                 try
                 {
+
                     using (var db = new Context())
                     {
                         db.TeacherSubjects.Add(newCharge);
@@ -616,7 +617,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool removeTeacherCharge(int teacherID, object subject)
+        public bool unassignTeacherCharge(int teacherID, object subject)
         {
             TeacherSubject existingCharge = findTeacherCharge(teacherID);
             Subject existingSubject = (Subject)subject;
@@ -627,6 +628,7 @@ namespace GestIn.Controllers
                     var resultTeacher = findTeacherCharge(existingCharge,existingSubject);
                     if (resultTeacher != null)
                     {
+
                         db.Remove(resultTeacher);
                         db.SaveChanges();
                         return true;
@@ -638,28 +640,143 @@ namespace GestIn.Controllers
 
         }
 
-        public bool checkChargeRepetition(TeacherSubject charge, Subject subject, string Condition)
+        public bool checkChargeRepetition(TeacherSubject charge) //false no existe repeticion
         {
-            bool state = false;
-            if(Condition.Equals("Titular"))
+            //no puede existir un mismo docente titular Y provisional en la materia
+            bool repetition = false;
+            Subject subject = findSubject(charge.SubjectId);
+            if (!charge.Condition.Equals("Suplente"))
             {
-                if (findTeacherCharge(charge, subject) == null)
+                if(CheckEitherTitularProvisionalTypes(charge, subject)) //si ya existe un docente y es titular o provisional
                 {
-                    state = true;
-                }
-                else if (getExistingTitularTeacherFromSubject(subject) == true)  //si ya existe un docente y es titular
-                {
-                    MessageBox.Show("Error, existe un docente Titular");
-                }
-                else if (getExistingTeacherConditionFromSubject(subject) == true)  //si ya existe un docente
-                {
-                    MessageBox.Show("Error, un docente no puede tener el mismo cargo otra vez");
+                    MessageBox.Show("Error, ya existe un docente " + " " + "{" + charge.Condition + "}");
+                    repetition = true;
                 }
             }
-            return state;
+            else if(CheckTeacherSubstitute(charge, subject))
+            {
+                MessageBox.Show("Error, un substituto no puede ser substituto de si mismo");
+                repetition = true; // si es el mismo que quiere ser substituto
+            }
+            return repetition;
         }
 
-        
+        public bool CheckEitherTitularProvisionalTypes(TeacherSubject chargeMatter, Subject subjectMatter) 
+        {
+            bool repetition = false;
+            //Provisional o titular docente
+            List<TeacherSubject> listCharges = getTeachersFromSubject(subjectMatter);
+
+            foreach (TeacherSubject existingCharge in listCharges)
+            {
+                if (CheckExistingConflictingTeacherINChargeTypes(chargeMatter, existingCharge))
+                {
+                    repetition = true;
+                }
+            }
+            return repetition;
+        }
+
+        public bool CheckExistingConflictingTeacherINChargeTypes(TeacherSubject thischarge, TeacherSubject existingCharge)
+        {
+            bool repetition = false; 
+            Teacher currentChargeTeacher = findTeacherViaID(thischarge.TeacherId);
+            Teacher existingChargeTeacher = findTeacherViaID(existingCharge.TeacherId);
+            //Provisional o titular docente
+            if (currentChargeTeacher.User.Id == existingChargeTeacher.User.Id)
+            {
+                if (thischarge.Condition.Equals("Provisional") == existingCharge.Condition.Equals("Provisional"))
+                {
+                    repetition = true;
+                }
+                else if (thischarge.Condition.Equals("Titular") == existingCharge.Condition.Equals("Titular"))
+                {
+                    repetition = true;
+                }
+            }
+            return repetition;
+        }
+
+        public bool CheckTeacherSubstitute(TeacherSubject chargeMatter, Subject subjectMatter) //Substituto
+        {
+            bool existance = false;
+            List<TeacherSubject> listCharges = getTeachersFromSubject(subjectMatter);
+
+            foreach (TeacherSubject existingCharge in listCharges)
+            {
+                if(CheckIfSameTeacherIsSubstitute(chargeMatter, existingCharge))
+                {
+                    existance = true;
+                }
+            }
+            return existance;
+        }
+
+        public bool CheckIfSameTeacherIsSubstitute(TeacherSubject thischarge, TeacherSubject existingCharge) //Substituto
+        {
+            bool repetition = false;
+            Teacher currentChargeTeacher = findTeacherViaID(thischarge.TeacherId);
+            Teacher existingChargeTeacher = findTeacherViaID(existingCharge.TeacherId);
+            if (currentChargeTeacher.User.Id == existingChargeTeacher.User.Id)
+            {
+                if (thischarge.Condition.Equals("Substitute") == existingCharge.Condition.Equals("Substitute"))
+                {
+                    repetition = true;
+                }
+            }
+            return repetition;
+        }
+
+        public Teacher findTeacherViaID(int? id) //deprecated
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var teacher = db.Teachers.Where(x => x.Id == id).Include(x => x.User).Include(x => x.LoginInformation).First();
+                    return teacher;
+                }
+                catch (SqlException exception) { throw exception; };
+
+            }
+        }
+
+        /*
+        public bool getExistingTeacherArchetypeFromTeacherSubject(object chargeMatter, object subjectMatter) //metodo que verifica si existe un docente titular o provisional
+        {
+            bool existencia = false;
+            TeacherSubject thisCharge = (TeacherSubject)chargeMatter;
+            TeacherSubject repeatedCharge = null;
+            Subject existingsubject = getSubject((Subject)subjectMatter);
+            List<TeacherSubject> listCharges = getTeachersFromSubject(existingsubject);
+            foreach (TeacherSubject chargeOccupied in listCharges)
+            {
+                if (chargeOccupied == thisCharge)
+                {
+                    if (chargeOccupied.Condition.Equals("Titular") || chargeOccupied.Condition.Equals("Provisional"))
+                    {
+                        repeatedCharge = chargeOccupied;
+                        if (listCharges.Contains(repeatedCharge))
+                        {
+                            existencia = true;
+                        }
+                        else existencia = false;
+                    }
+                }
+
+                else if (chargeOccupied != thisCharge)
+                {
+                    if (chargeOccupied.Condition.Equals("Titular") || chargeOccupied.Condition.Equals("Provisional"))
+                    {
+                        existencia = true;
+                    }
+                }
+            }
+            return existencia;
+        }
+
+        */
+
 
         public TeacherSubject findTeacherCharge(object teacherCharge)
         {
@@ -728,48 +845,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool getExistingTitularTeacherFromSubject(object subjectMatter) //docentes que tienen algun cargo en la materia
-        {
-            bool state = false;
-            Subject existingsubject = getSubject((Subject)subjectMatter);
-            using (var db = new Context())
-            {
-                try
-                {
-                    foreach (var item in db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).ToList())
-                    {
-                        if (item.Condition.Equals("Titular"))
-                        {
-                            MessageBox.Show("Nombre del docente titular:" + " " + item.Teacher.User.Name);
-                            state = true;
-                        }
-
-                    } return state;
-                }
-                catch (SqlException exception) { throw exception; }
-            }
-        }
-
-        public bool getExistingTeacherConditionFromSubject(object subjectMatter) 
-        {
-            bool state = false;
-            Subject existingsubject = getSubject((Subject)subjectMatter);
-            using (var db = new Context())
-            {
-                try
-                {
-                    foreach (var item in db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).ToList())
-                    {
-                        if (item.Condition.Equals("Suplente") || item.Condition.Equals("Provisional"))
-                        {
-                            state = true;
-                        }
-                    }
-                    return state;
-                }
-                catch (SqlException exception) { throw exception; }
-            }
-        }
+        
 
         #endregion
 

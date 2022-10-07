@@ -50,11 +50,12 @@ namespace GestIn.Controllers
                     var teacher = db.Teachers.Where(x => x.User.Dni == dni).Include(x => x.User).Include(x => x.LoginInformation).First();
                     return teacher;
                 }
-                catch { }
-                return null;
+                catch (SqlException exception) { throw exception; }
 
             }
         }
+
+        
 
         public Teacher getTeacher(object teacher) //deprecated
         {
