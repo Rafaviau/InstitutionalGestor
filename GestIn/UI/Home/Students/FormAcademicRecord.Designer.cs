@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSubjectsRecord = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearInCarrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,10 +40,6 @@
             this.approvalDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookRecord = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblDni = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.txtStudent = new System.Windows.Forms.TextBox();
-            this.txtStudentDni = new System.Windows.Forms.TextBox();
             this.cbbCarrer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCarrerResolution = new System.Windows.Forms.Label();
@@ -50,19 +48,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtStudentEmail = new System.Windows.Forms.TextBox();
-            this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.flpPersonalData = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblStudent = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBirthDate = new System.Windows.Forms.TextBox();
-            this.txtPlaceOfBirth = new System.Windows.Forms.Label();
-            this.txtBirthPlace = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtEmergencyContact = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtGender = new System.Windows.Forms.TextBox();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.lblPersonalData = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,19 +62,40 @@
             this.btnCreateStudent = new System.Windows.Forms.Button();
             this.panelLeftMenu = new System.Windows.Forms.Panel();
             this.panelStudentInfoRead = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStudent = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtStudentDni = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtStudentEmail = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBirthDate = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBirthPlace = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtEmergencyContact = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtGender = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAddGrade = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsRecord)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.flpPersonalData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelLeftMenu.SuspendLayout();
             this.panelStudentInfoRead.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvSubjectsRecord
@@ -97,11 +103,20 @@
             this.dgvSubjectsRecord.AllowUserToAddRows = false;
             this.dgvSubjectsRecord.AllowUserToDeleteRows = false;
             this.dgvSubjectsRecord.AllowUserToResizeRows = false;
-            this.dgvSubjectsRecord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSubjectsRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubjectsRecord.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.dgvSubjectsRecord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSubjectsRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSubjectsRecord.ColumnHeadersHeight = 29;
             this.dgvSubjectsRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -112,19 +127,23 @@
             this.approvalDate,
             this.grade,
             this.bookRecord});
+            this.dgvSubjectsRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSubjectsRecord.EnableHeadersVisualStyles = false;
             this.dgvSubjectsRecord.GridColor = System.Drawing.Color.White;
-            this.dgvSubjectsRecord.Location = new System.Drawing.Point(23, 7);
-            this.dgvSubjectsRecord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvSubjectsRecord.Location = new System.Drawing.Point(0, 0);
+            this.dgvSubjectsRecord.Margin = new System.Windows.Forms.Padding(0);
             this.dgvSubjectsRecord.Name = "dgvSubjectsRecord";
             this.dgvSubjectsRecord.RowHeadersWidth = 51;
             this.dgvSubjectsRecord.RowTemplate.Height = 24;
             this.dgvSubjectsRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubjectsRecord.Size = new System.Drawing.Size(1065, 621);
+            this.dgvSubjectsRecord.Size = new System.Drawing.Size(1043, 648);
             this.dgvSubjectsRecord.TabIndex = 0;
             this.dgvSubjectsRecord.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubjectsRecord_CellContentDoubleClick);
             // 
             // id
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
             this.id.HeaderText = "Código";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -146,8 +165,8 @@
             // 
             // enrolmentAprovalYear
             // 
-            dataGridViewCellStyle1.NullValue = "Sin cursar";
-            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.NullValue = "Sin cursar";
+            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle3;
             this.enrolmentAprovalYear.HeaderText = "Cursada arpobada en";
             this.enrolmentAprovalYear.MinimumWidth = 6;
             this.enrolmentAprovalYear.Name = "enrolmentAprovalYear";
@@ -181,52 +200,6 @@
             this.bookRecord.Name = "bookRecord";
             this.bookRecord.ReadOnly = true;
             // 
-            // lblDni
-            // 
-            this.lblDni.AutoSize = true;
-            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDni.ForeColor = System.Drawing.Color.White;
-            this.lblDni.Location = new System.Drawing.Point(3, 73);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(29, 13);
-            this.lblDni.TabIndex = 5;
-            this.lblDni.Text = "Dni :";
-            // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(38, 73);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(55, 13);
-            this.lblPhoneNumber.TabIndex = 9;
-            this.lblPhoneNumber.Text = "Teléfono :";
-            // 
-            // txtStudent
-            // 
-            this.txtStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudent.ForeColor = System.Drawing.Color.White;
-            this.txtStudent.Location = new System.Drawing.Point(3, 45);
-            this.txtStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStudent.Name = "txtStudent";
-            this.txtStudent.ReadOnly = true;
-            this.txtStudent.Size = new System.Drawing.Size(194, 26);
-            this.txtStudent.TabIndex = 10;
-            // 
-            // txtStudentDni
-            // 
-            this.txtStudentDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentDni.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudentDni.ForeColor = System.Drawing.Color.White;
-            this.txtStudentDni.Location = new System.Drawing.Point(3, 2);
-            this.txtStudentDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStudentDni.Name = "txtStudentDni";
-            this.txtStudentDni.ReadOnly = true;
-            this.txtStudentDni.Size = new System.Drawing.Size(197, 26);
-            this.txtStudentDni.TabIndex = 11;
-            // 
             // cbbCarrer
             // 
             this.cbbCarrer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -236,11 +209,11 @@
             this.cbbCarrer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbCarrer.ForeColor = System.Drawing.Color.White;
             this.cbbCarrer.FormattingEnabled = true;
-            this.cbbCarrer.Location = new System.Drawing.Point(30, 10);
+            this.cbbCarrer.Location = new System.Drawing.Point(0, 10);
             this.cbbCarrer.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCarrer.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbbCarrer.Name = "cbbCarrer";
-            this.cbbCarrer.Size = new System.Drawing.Size(595, 25);
+            this.cbbCarrer.Size = new System.Drawing.Size(568, 25);
             this.cbbCarrer.Sorted = true;
             this.cbbCarrer.TabIndex = 14;
             // 
@@ -303,7 +276,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(23, 652);
+            this.groupBox1.Location = new System.Drawing.Point(23, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -338,169 +311,6 @@
             this.button2.Text = "Asistencia a práctica";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // txtStudentEmail
-            // 
-            this.txtStudentEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudentEmail.ForeColor = System.Drawing.Color.White;
-            this.txtStudentEmail.Location = new System.Drawing.Point(3, 131);
-            this.txtStudentEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStudentEmail.Name = "txtStudentEmail";
-            this.txtStudentEmail.ReadOnly = true;
-            this.txtStudentEmail.Size = new System.Drawing.Size(221, 26);
-            this.txtStudentEmail.TabIndex = 21;
-            // 
-            // txtStudentPhoneNumber
-            // 
-            this.txtStudentPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudentPhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(3, 88);
-            this.txtStudentPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
-            this.txtStudentPhoneNumber.ReadOnly = true;
-            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(221, 26);
-            this.txtStudentPhoneNumber.TabIndex = 23;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.ForeColor = System.Drawing.Color.White;
-            this.lblEmail.Location = new System.Drawing.Point(3, 116);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(93, 13);
-            this.lblEmail.TabIndex = 22;
-            this.lblEmail.Text = "Correo electrónico";
-            // 
-            // flpPersonalData
-            // 
-            this.flpPersonalData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.flpPersonalData.Controls.Add(this.txtStudentDni);
-            this.flpPersonalData.Controls.Add(this.lblStudent);
-            this.flpPersonalData.Controls.Add(this.txtStudent);
-            this.flpPersonalData.Controls.Add(this.lblDni);
-            this.flpPersonalData.Controls.Add(this.lblPhoneNumber);
-            this.flpPersonalData.Controls.Add(this.txtStudentPhoneNumber);
-            this.flpPersonalData.Controls.Add(this.lblEmail);
-            this.flpPersonalData.Controls.Add(this.txtStudentEmail);
-            this.flpPersonalData.Controls.Add(this.label3);
-            this.flpPersonalData.Controls.Add(this.txtBirthDate);
-            this.flpPersonalData.Controls.Add(this.txtPlaceOfBirth);
-            this.flpPersonalData.Controls.Add(this.txtBirthPlace);
-            this.flpPersonalData.Controls.Add(this.label4);
-            this.flpPersonalData.Controls.Add(this.txtEmergencyContact);
-            this.flpPersonalData.Controls.Add(this.label5);
-            this.flpPersonalData.Controls.Add(this.txtGender);
-            this.flpPersonalData.Location = new System.Drawing.Point(-237, 69);
-            this.flpPersonalData.Margin = new System.Windows.Forms.Padding(4);
-            this.flpPersonalData.Name = "flpPersonalData";
-            this.flpPersonalData.Size = new System.Drawing.Size(228, 465);
-            this.flpPersonalData.TabIndex = 25;
-            // 
-            // lblStudent
-            // 
-            this.lblStudent.AutoSize = true;
-            this.lblStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblStudent.ForeColor = System.Drawing.Color.White;
-            this.lblStudent.Location = new System.Drawing.Point(3, 30);
-            this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(90, 13);
-            this.lblStudent.TabIndex = 26;
-            this.lblStudent.Text = "Apellido y nombre";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 15);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Fecha de nacimiento :";
-            // 
-            // txtBirthDate
-            // 
-            this.txtBirthDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtBirthDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBirthDate.ForeColor = System.Drawing.Color.White;
-            this.txtBirthDate.Location = new System.Drawing.Point(3, 176);
-            this.txtBirthDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBirthDate.Name = "txtBirthDate";
-            this.txtBirthDate.ReadOnly = true;
-            this.txtBirthDate.Size = new System.Drawing.Size(222, 26);
-            this.txtBirthDate.TabIndex = 27;
-            // 
-            // txtPlaceOfBirth
-            // 
-            this.txtPlaceOfBirth.AutoSize = true;
-            this.txtPlaceOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPlaceOfBirth.ForeColor = System.Drawing.Color.White;
-            this.txtPlaceOfBirth.Location = new System.Drawing.Point(3, 204);
-            this.txtPlaceOfBirth.Name = "txtPlaceOfBirth";
-            this.txtPlaceOfBirth.Size = new System.Drawing.Size(109, 13);
-            this.txtPlaceOfBirth.TabIndex = 33;
-            this.txtPlaceOfBirth.Text = "Lugar de nacimiento :";
-            // 
-            // txtBirthPlace
-            // 
-            this.txtBirthPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtBirthPlace.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBirthPlace.ForeColor = System.Drawing.Color.White;
-            this.txtBirthPlace.Location = new System.Drawing.Point(3, 219);
-            this.txtBirthPlace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBirthPlace.Name = "txtBirthPlace";
-            this.txtBirthPlace.ReadOnly = true;
-            this.txtBirthPlace.Size = new System.Drawing.Size(222, 26);
-            this.txtBirthPlace.TabIndex = 32;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 247);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 13);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Teléfono  de emergencia :";
-            // 
-            // txtEmergencyContact
-            // 
-            this.txtEmergencyContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtEmergencyContact.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmergencyContact.ForeColor = System.Drawing.Color.White;
-            this.txtEmergencyContact.Location = new System.Drawing.Point(3, 262);
-            this.txtEmergencyContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEmergencyContact.Name = "txtEmergencyContact";
-            this.txtEmergencyContact.ReadOnly = true;
-            this.txtEmergencyContact.Size = new System.Drawing.Size(221, 26);
-            this.txtEmergencyContact.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 290);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Género :";
-            // 
-            // txtGender
-            // 
-            this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtGender.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtGender.ForeColor = System.Drawing.Color.White;
-            this.txtGender.Location = new System.Drawing.Point(3, 305);
-            this.txtGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(221, 26);
-            this.txtGender.TabIndex = 35;
-            // 
             // searchBox
             // 
             this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
@@ -521,7 +331,7 @@
             this.lblPersonalData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPersonalData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPersonalData.ForeColor = System.Drawing.Color.White;
-            this.lblPersonalData.Location = new System.Drawing.Point(13, 9);
+            this.lblPersonalData.Location = new System.Drawing.Point(56, 13);
             this.lblPersonalData.Name = "lblPersonalData";
             this.lblPersonalData.Size = new System.Drawing.Size(136, 22);
             this.lblPersonalData.TabIndex = 27;
@@ -664,10 +474,10 @@
             this.btnCreateStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnCreateStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateStudent.Location = new System.Drawing.Point(110, 9);
+            this.btnCreateStudent.Location = new System.Drawing.Point(110, 10);
             this.btnCreateStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateStudent.Name = "btnCreateStudent";
-            this.btnCreateStudent.Size = new System.Drawing.Size(111, 23);
+            this.btnCreateStudent.Size = new System.Drawing.Size(111, 26);
             this.btnCreateStudent.TabIndex = 35;
             this.btnCreateStudent.Text = "Crear estudiante";
             this.btnCreateStudent.UseVisualStyleBackColor = false;
@@ -682,12 +492,13 @@
             this.panelLeftMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftMenu.Location = new System.Drawing.Point(0, 0);
             this.panelLeftMenu.Name = "panelLeftMenu";
-            this.panelLeftMenu.Size = new System.Drawing.Size(255, 767);
+            this.panelLeftMenu.Size = new System.Drawing.Size(282, 767);
             this.panelLeftMenu.TabIndex = 36;
             // 
             // panelStudentInfoRead
             // 
             this.panelStudentInfoRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panelStudentInfoRead.Controls.Add(this.flowLayoutPanel1);
             this.panelStudentInfoRead.Controls.Add(this.panel1);
             this.panelStudentInfoRead.Controls.Add(this.lblPersonalData);
             this.panelStudentInfoRead.Controls.Add(this.label1);
@@ -695,6 +506,221 @@
             this.panelStudentInfoRead.Name = "panelStudentInfoRead";
             this.panelStudentInfoRead.Size = new System.Drawing.Size(255, 693);
             this.panelStudentInfoRead.TabIndex = 20;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.txtStudent);
+            this.flowLayoutPanel1.Controls.Add(this.label7);
+            this.flowLayoutPanel1.Controls.Add(this.txtStudentDni);
+            this.flowLayoutPanel1.Controls.Add(this.label8);
+            this.flowLayoutPanel1.Controls.Add(this.txtStudentPhoneNumber);
+            this.flowLayoutPanel1.Controls.Add(this.label9);
+            this.flowLayoutPanel1.Controls.Add(this.txtStudentEmail);
+            this.flowLayoutPanel1.Controls.Add(this.label10);
+            this.flowLayoutPanel1.Controls.Add(this.txtBirthDate);
+            this.flowLayoutPanel1.Controls.Add(this.label11);
+            this.flowLayoutPanel1.Controls.Add(this.txtBirthPlace);
+            this.flowLayoutPanel1.Controls.Add(this.label12);
+            this.flowLayoutPanel1.Controls.Add(this.txtEmergencyContact);
+            this.flowLayoutPanel1.Controls.Add(this.label13);
+            this.flowLayoutPanel1.Controls.Add(this.txtGender);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 55);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(228, 457);
+            this.flowLayoutPanel1.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 13);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Apellido y nombre";
+            // 
+            // txtStudent
+            // 
+            this.txtStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtStudent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudent.ForeColor = System.Drawing.Color.White;
+            this.txtStudent.Location = new System.Drawing.Point(3, 15);
+            this.txtStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStudent.Name = "txtStudent";
+            this.txtStudent.ReadOnly = true;
+            this.txtStudent.Size = new System.Drawing.Size(222, 26);
+            this.txtStudent.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 53);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Dni :";
+            // 
+            // txtStudentDni
+            // 
+            this.txtStudentDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtStudentDni.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudentDni.ForeColor = System.Drawing.Color.White;
+            this.txtStudentDni.Location = new System.Drawing.Point(3, 68);
+            this.txtStudentDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStudentDni.Name = "txtStudentDni";
+            this.txtStudentDni.ReadOnly = true;
+            this.txtStudentDni.Size = new System.Drawing.Size(222, 26);
+            this.txtStudentDni.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(3, 106);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Teléfono :";
+            // 
+            // txtStudentPhoneNumber
+            // 
+            this.txtStudentPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtStudentPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudentPhoneNumber.ForeColor = System.Drawing.Color.White;
+            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(3, 121);
+            this.txtStudentPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
+            this.txtStudentPhoneNumber.ReadOnly = true;
+            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(221, 26);
+            this.txtStudentPhoneNumber.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(3, 159);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Correo electrónico";
+            // 
+            // txtStudentEmail
+            // 
+            this.txtStudentEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtStudentEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudentEmail.ForeColor = System.Drawing.Color.White;
+            this.txtStudentEmail.Location = new System.Drawing.Point(3, 174);
+            this.txtStudentEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStudentEmail.Name = "txtStudentEmail";
+            this.txtStudentEmail.ReadOnly = true;
+            this.txtStudentEmail.Size = new System.Drawing.Size(221, 26);
+            this.txtStudentEmail.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(3, 212);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 15);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Fecha de nacimiento :";
+            // 
+            // txtBirthDate
+            // 
+            this.txtBirthDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtBirthDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBirthDate.ForeColor = System.Drawing.Color.White;
+            this.txtBirthDate.Location = new System.Drawing.Point(3, 229);
+            this.txtBirthDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBirthDate.Name = "txtBirthDate";
+            this.txtBirthDate.ReadOnly = true;
+            this.txtBirthDate.Size = new System.Drawing.Size(222, 26);
+            this.txtBirthDate.TabIndex = 27;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(3, 267);
+            this.label11.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(109, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Lugar de nacimiento :";
+            // 
+            // txtBirthPlace
+            // 
+            this.txtBirthPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtBirthPlace.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBirthPlace.ForeColor = System.Drawing.Color.White;
+            this.txtBirthPlace.Location = new System.Drawing.Point(3, 282);
+            this.txtBirthPlace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBirthPlace.Name = "txtBirthPlace";
+            this.txtBirthPlace.ReadOnly = true;
+            this.txtBirthPlace.Size = new System.Drawing.Size(222, 26);
+            this.txtBirthPlace.TabIndex = 32;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(3, 320);
+            this.label12.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(131, 13);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Teléfono  de emergencia :";
+            // 
+            // txtEmergencyContact
+            // 
+            this.txtEmergencyContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtEmergencyContact.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmergencyContact.ForeColor = System.Drawing.Color.White;
+            this.txtEmergencyContact.Location = new System.Drawing.Point(3, 335);
+            this.txtEmergencyContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEmergencyContact.Name = "txtEmergencyContact";
+            this.txtEmergencyContact.ReadOnly = true;
+            this.txtEmergencyContact.Size = new System.Drawing.Size(221, 26);
+            this.txtEmergencyContact.TabIndex = 33;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(3, 373);
+            this.label13.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "Género :";
+            // 
+            // txtGender
+            // 
+            this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtGender.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtGender.ForeColor = System.Drawing.Color.White;
+            this.txtGender.Location = new System.Drawing.Point(3, 388);
+            this.txtGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGender.Name = "txtGender";
+            this.txtGender.ReadOnly = true;
+            this.txtGender.Size = new System.Drawing.Size(221, 26);
+            this.txtGender.TabIndex = 35;
             // 
             // panel2
             // 
@@ -704,9 +730,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lblCarrerResolution);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(255, 0);
+            this.panel2.Location = new System.Drawing.Point(282, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1100, 40);
+            this.panel2.Size = new System.Drawing.Size(1073, 40);
             this.panel2.TabIndex = 37;
             // 
             // panel4
@@ -715,7 +741,7 @@
             this.panel4.Controls.Add(this.btnCreateStudent);
             this.panel4.Controls.Add(this.btnAddGrade);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(663, 0);
+            this.panel4.Location = new System.Drawing.Point(636, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(437, 40);
@@ -727,10 +753,10 @@
             this.btnAddGrade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnAddGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddGrade.Location = new System.Drawing.Point(4, 10);
+            this.btnAddGrade.Location = new System.Drawing.Point(4, 11);
             this.btnAddGrade.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddGrade.Name = "btnAddGrade";
-            this.btnAddGrade.Size = new System.Drawing.Size(98, 23);
+            this.btnAddGrade.Size = new System.Drawing.Size(98, 26);
             this.btnAddGrade.TabIndex = 34;
             this.btnAddGrade.Text = "Agregar nota";
             this.btnAddGrade.UseVisualStyleBackColor = false;
@@ -739,14 +765,38 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.panel3.Controls.Add(this.flpPersonalData);
-            this.panel3.Controls.Add(this.dgvSubjectsRecord);
-            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(255, 40);
+            this.panel3.Location = new System.Drawing.Point(282, 40);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1100, 727);
+            this.panel3.Size = new System.Drawing.Size(1073, 727);
             this.panel3.TabIndex = 36;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvSubjectsRecord, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1073, 648);
+            this.tableLayoutPanel1.TabIndex = 21;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel5.Controls.Add(this.groupBox1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 648);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1073, 79);
+            this.panel5.TabIndex = 20;
             // 
             // formAcademicRecord
             // 
@@ -763,18 +813,20 @@
             this.Load += new System.EventHandler(this.FormAcademicRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsRecord)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.flpPersonalData.ResumeLayout(false);
-            this.flpPersonalData.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelLeftMenu.ResumeLayout(false);
             this.panelLeftMenu.PerformLayout();
             this.panelStudentInfoRead.ResumeLayout(false);
             this.panelStudentInfoRead.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -782,42 +834,17 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSubjectsRecord;
-        private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.TextBox txtStudent;
-        private System.Windows.Forms.TextBox txtStudentDni;
         private System.Windows.Forms.ComboBox cbbCarrer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCarrerResolution;
         private System.Windows.Forms.Button btnEmitRegularStudentCertificate;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearInCarrer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enrolmentAprovalYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcreditationType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn approvalDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookRecord;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtStudentEmail;
-        private System.Windows.Forms.TextBox txtStudentPhoneNumber;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.FlowLayoutPanel flpPersonalData;
-        private System.Windows.Forms.Label lblStudent;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Label lblPersonalData;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBirthDate;
-        private System.Windows.Forms.Label txtPlaceOfBirth;
-        private System.Windows.Forms.TextBox txtBirthPlace;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtEmergencyContact;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtGender;
         private ListBox lbSearch;
         private Panel panel1;
         private CheckBox cbPhotos;
@@ -833,5 +860,32 @@
         private Button btnAddGrade;
         private Panel panel4;
         private Panel panelStudentInfoRead;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label6;
+        private TextBox txtStudent;
+        private Label label7;
+        private TextBox txtStudentDni;
+        private Label label8;
+        private TextBox txtStudentPhoneNumber;
+        private Label label9;
+        private TextBox txtStudentEmail;
+        private Label label10;
+        private TextBox txtBirthDate;
+        private Label label11;
+        private TextBox txtBirthPlace;
+        private Label label12;
+        private TextBox txtEmergencyContact;
+        private Label label13;
+        private TextBox txtGender;
+        private Panel panel5;
+        private TableLayoutPanel tableLayoutPanel1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn yearInCarrer;
+        private DataGridViewTextBoxColumn subject;
+        private DataGridViewTextBoxColumn enrolmentAprovalYear;
+        private DataGridViewTextBoxColumn AcreditationType;
+        private DataGridViewTextBoxColumn approvalDate;
+        private DataGridViewTextBoxColumn grade;
+        private DataGridViewTextBoxColumn bookRecord;
     }
 }
