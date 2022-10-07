@@ -74,6 +74,7 @@ namespace GestIn.UI.Home.Students
             else
             {
                 lbSearch.Visible = true;
+                lbSearch.BringToFront();
                 loadLbSeach();
             }
 
@@ -139,7 +140,8 @@ namespace GestIn.UI.Home.Students
             {
                 cbbCarrer.Items.Add(item);
             }
-            cbbCarrer.SelectedIndex = 0;
+            if (ListCareer.Count > 0) {cbbCarrer.SelectedIndex = 0; }
+            
         }
         void getStudentGrades(int dni)
         {
@@ -175,6 +177,11 @@ namespace GestIn.UI.Home.Students
         {
             TempCareer formCareer = new TempCareer();
             formCareer.ShowDialog();
+        }
+
+        private void dgvSubjectsRecord_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show(e.RowIndex.ToString());
         }
     }
 }
