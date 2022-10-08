@@ -63,5 +63,35 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
             }
         }
+        public Grade findGrade(int id) {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Grades.Where(x => x.Id == id).First();
+                }
+                catch { }
+                return null;
+
+            }
+        }
+        public bool updateGrade(int gradeId,string grade,string bookrecord,string accDate, string accType)
+        {
+            using (var db = new Context())
+            {
+                var result = findGrade(gradeId);
+                if (result != null)
+                {
+                    result.Grade1 = Int32.Parse(grade);
+                    result.BookRecord = bookrecord;
+                    result.AccreditationDate = DateTime.Parse(accDate);
+                    result.AccreditationType = accType;
+                    result.UpdatedAt = DateTime.Now;
+                    db.Update(result);
+                    db.SaveChanges();
+                }
+            }
+            return true;
+        }
     }
 }

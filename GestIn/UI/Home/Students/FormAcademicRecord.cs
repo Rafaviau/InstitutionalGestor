@@ -19,6 +19,7 @@ namespace GestIn.UI.Home.Students
         careerEnrolmentController cntCareerEnrolment = careerEnrolmentController.GetInstance();
         subjectEnrolmentController cntSubjectEnrolment = subjectEnrolmentController.GetInstance();
         gradeContorller cntGrades = gradeContorller.GetInstance();
+        careerController cntCareer = careerController.GetInstance();
         public formAcademicRecord()
         {
             InitializeComponent();
@@ -26,11 +27,12 @@ namespace GestIn.UI.Home.Students
 
         public void setStudent(Student student)
         {
+            lblStudentId.Text = student.Id.ToString();
             txtStudent.Text =  student.User.LastName + " " + student.User.Name;
             txtStudentDni.Text = student.User.Dni.ToString();
             txtStudentPhoneNumber.Text = student.User.PhoneNumbre;
             txtStudentEmail.Text = student.LoginInformation.Email;
-            txtBirthDate.Text = student.User.DateOfBirth.ToString();
+            txtBirthDate.Text = Convert.ToDateTime(student.User.DateOfBirth.ToString()).ToString("dd-MM-yyyy").ToString();
             txtBirthPlace.Text = student.User.PlaceOfBirth;
             txtEmergencyContact.Text = student.User.EmergencyPhoneNumber;
             txtGender.Text = student.User.Gender;
@@ -43,14 +45,16 @@ namespace GestIn.UI.Home.Students
             cbPhotos.Checked = student.Photo4x4;
 
         }
-        public void AddSubjectRecord(int id, int yearInCarrer, string subject, string enrolmentAprovalYear, string acreditationType, DateTime approvalDate,int grade,  string bookRecord)
+        public void AddSubjectRecord( int idGrade,int yearInCarrer, Subject subject, string enrolmentAprovalYear, string acreditationType, string approvalDate,int grade,  string bookRecord,int idEnrolment)
         {
-            dgvSubjectsRecord.Rows.Add(id, yearInCarrer, subject, enrolmentAprovalYear, acreditationType, approvalDate, grade, bookRecord);
+            dgvSubjectsRecord.Rows.Add( idGrade,yearInCarrer, subject, enrolmentAprovalYear, acreditationType, approvalDate, grade, bookRecord,idEnrolment);
         }
 
-        public void AddSubjectRecord(int id, int yearInCarrer, string subject,int enrolmentAprovalYear)
+        public void AddSubjectRecord(int idEnrolment, int yearInCarrer, Subject subject,int enrolmentAprovalYear, bool acreditationType)
         {
-            dgvSubjectsRecord.Rows.Add(id, yearInCarrer, subject, enrolmentAprovalYear);
+            string acctype = "Presencial";
+            if (!acreditationType) { acctype = "Libre"; }
+            dgvSubjectsRecord.Rows.Add(null,yearInCarrer, subject, enrolmentAprovalYear, acctype, null,null,null,idEnrolment);
         }
         
         private void FormAcademicRecord_Load(object sender, EventArgs e)
@@ -79,7 +83,7 @@ namespace GestIn.UI.Home.Students
             }
 
         }
-        void loadLbSeach()
+        private void loadLbSeach()
         {
             int Out = 0;
             bool checkInt = Int32.TryParse(searchBox.Text, out Out);
@@ -132,7 +136,7 @@ namespace GestIn.UI.Home.Students
             }
             lbSearch.Visible = false;
         }
-        void getStudentCareerInfo(int dni)
+        private void getStudentCareerInfo(int dni)
         {
             cbbCarrer.Items.Clear();
             var ListCareer = cntCareerEnrolment.searchCareerEnrolment(dni);
@@ -143,16 +147,18 @@ namespace GestIn.UI.Home.Students
             if (ListCareer.Count > 0) {cbbCarrer.SelectedIndex = 0; }
             
         }
-        void getStudentGrades(int dni)
+        private void getStudentGrades(int dni)
         {
             var list = cntGrades.getStudentGrades(dni);
             var list2 = cntSubjectEnrolment.getEnrolments(dni);
+            list2.RemoveAll(x => list.Any(y => y.Subject.Name == x.Subject.Name));
             foreach (Grade item in list) {
-                AddSubjectRecord(item.Id, item.Subject.YearInCareer, item.Subject.Name, cntSubjectEnrolment.getAcreditationDate(Int32.Parse(txtStudentDni.Text)).ToString(), item.AccreditationType, (DateTime)item.AccreditationDate,item.Grade1, item.BookRecord);
+                var subjectTaken =  cntSubjectEnrolment.getEnrolment(Int32.Parse(txtStudentDni.Text), item.Subject);
+                AddSubjectRecord( item.Id,item.Subject.YearInCareer, item.Subject, subjectTaken.Year.ToString(), item.AccreditationType, item.AccreditationDate.Value.ToString("dd/MM/yyyy"), item.Grade1, item.BookRecord, subjectTaken.Id);
             }
             foreach (SubjectEnrolment item in list2)
             {
-                AddSubjectRecord(item.Id, item.Subject.YearInCareer, item.Subject.Name,item.Year);
+                AddSubjectRecord( item.Id,item.Subject.YearInCareer, item.Subject,item.Year,item.Presential);
             }
         }
 
@@ -160,6 +166,13 @@ namespace GestIn.UI.Home.Students
         {
             formGrades formGrade = new formGrades(txtStudentDni.Text);
             formGrade.ShowDialog();
+            //--------------------------------cambiar---------------------------------//
+            if (!txtStudentDni.Text.Equals("")){
+                dgvSubjectsRecord.Rows.Clear();
+                getStudentGrades(Int32.Parse(txtStudentDni.Text));
+            }
+            
+            //-----------------------------------------------------------------------//
         }
 
         private void btnGrade_Click(object sender, EventArgs e)
@@ -179,9 +192,41 @@ namespace GestIn.UI.Home.Students
             formCareer.ShowDialog();
         }
 
-        private void dgvSubjectsRecord_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSubjectsRecord_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show(e.RowIndex.ToString());
+            if (dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value == null)
+            {
+                var subject = (Subject)dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[2].Value;
+                formEditGrade formEditGrade_ = new formEditGrade(
+                    Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()),
+                    txtStudent.Text,
+                    subject.Name,
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[3].Value.ToString(),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString().Equals("Presencial"),
+                    Int32.Parse(lblStudentId.Text),
+                    subject
+                    );
+                formEditGrade_.ShowDialog();
+            }
+            else {
+                formEditGrade formEditGrade_ = new formEditGrade(
+                    Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value.ToString()),
+                    Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()),
+                    txtStudent.Text, 
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[2].Value.ToString(),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[3].Value.ToString(),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString().Equals("Presencial"),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[6].Value.ToString(),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[7].Value.ToString(),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[5].Value.ToString(),
+                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString()
+                );
+                formEditGrade_.ShowDialog();
+            }
+            //--------------------------------cambiar---------------------------------//
+            dgvSubjectsRecord.Rows.Clear();
+            getStudentGrades(Int32.Parse(txtStudentDni.Text));
+            //-----------------------------------------------------------------------//
         }
     }
 }

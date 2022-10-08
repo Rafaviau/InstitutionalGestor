@@ -411,6 +411,18 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
             }
         }
+        public Subject findSubject(string subjectName, int careerId)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Subjects.Where(x => (x.Name == subjectName && x.CareerId == careerId)).First();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
 
         public Subject getSubject(object materiaSelector)
         {

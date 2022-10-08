@@ -30,9 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSubjectsRecord = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearInCarrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enrolmentAprovalYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +39,7 @@
             this.approvalDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookRecord = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EnrolmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbCarrer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCarrerResolution = new System.Windows.Forms.Label();
@@ -62,6 +62,8 @@
             this.btnCreateStudent = new System.Windows.Forms.Button();
             this.panelLeftMenu = new System.Windows.Forms.Panel();
             this.panelStudentInfoRead = new System.Windows.Forms.Panel();
+            this.lblStudentId = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtStudent = new System.Windows.Forms.TextBox();
@@ -117,37 +119,37 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSubjectsRecord.ColumnHeadersHeight = 29;
+            this.dgvSubjectsRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubjectsRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
+            this.IdGrade,
             this.yearInCarrer,
             this.subject,
             this.enrolmentAprovalYear,
             this.AcreditationType,
             this.approvalDate,
             this.grade,
-            this.bookRecord});
+            this.bookRecord,
+            this.EnrolmentId});
             this.dgvSubjectsRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubjectsRecord.EnableHeadersVisualStyles = false;
             this.dgvSubjectsRecord.GridColor = System.Drawing.Color.White;
             this.dgvSubjectsRecord.Location = new System.Drawing.Point(0, 0);
             this.dgvSubjectsRecord.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvSubjectsRecord.MultiSelect = false;
             this.dgvSubjectsRecord.Name = "dgvSubjectsRecord";
+            this.dgvSubjectsRecord.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSubjectsRecord.RowHeadersWidth = 51;
             this.dgvSubjectsRecord.RowTemplate.Height = 24;
             this.dgvSubjectsRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSubjectsRecord.Size = new System.Drawing.Size(1043, 648);
+            this.dgvSubjectsRecord.Size = new System.Drawing.Size(1023, 648);
             this.dgvSubjectsRecord.TabIndex = 0;
-            this.dgvSubjectsRecord.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubjectsRecord_CellContentDoubleClick);
+            this.dgvSubjectsRecord.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSubjectsRecord_MouseDoubleClick);
             // 
-            // id
+            // IdGrade
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.HeaderText = "Código";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
+            this.IdGrade.HeaderText = "IdCalificacion";
+            this.IdGrade.Name = "IdGrade";
+            this.IdGrade.Visible = false;
             // 
             // yearInCarrer
             // 
@@ -155,6 +157,7 @@
             this.yearInCarrer.MinimumWidth = 6;
             this.yearInCarrer.Name = "yearInCarrer";
             this.yearInCarrer.ReadOnly = true;
+            this.yearInCarrer.Visible = false;
             // 
             // subject
             // 
@@ -165,9 +168,9 @@
             // 
             // enrolmentAprovalYear
             // 
-            dataGridViewCellStyle3.NullValue = "Sin cursar";
-            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle3;
-            this.enrolmentAprovalYear.HeaderText = "Cursada arpobada en";
+            dataGridViewCellStyle2.NullValue = "Sin cursar";
+            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle2;
+            this.enrolmentAprovalYear.HeaderText = "Año de cursada aprobada";
             this.enrolmentAprovalYear.MinimumWidth = 6;
             this.enrolmentAprovalYear.Name = "enrolmentAprovalYear";
             this.enrolmentAprovalYear.ReadOnly = true;
@@ -200,16 +203,23 @@
             this.bookRecord.Name = "bookRecord";
             this.bookRecord.ReadOnly = true;
             // 
+            // EnrolmentId
+            // 
+            this.EnrolmentId.HeaderText = "Id cursada";
+            this.EnrolmentId.Name = "EnrolmentId";
+            this.EnrolmentId.Visible = false;
+            // 
             // cbbCarrer
             // 
             this.cbbCarrer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbCarrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.cbbCarrer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCarrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbCarrer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbCarrer.ForeColor = System.Drawing.Color.White;
             this.cbbCarrer.FormattingEnabled = true;
-            this.cbbCarrer.Location = new System.Drawing.Point(0, 10);
+            this.cbbCarrer.Location = new System.Drawing.Point(4, 10);
             this.cbbCarrer.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCarrer.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbbCarrer.Name = "cbbCarrer";
@@ -245,7 +255,7 @@
             // 
             this.btnEmitRegularStudentCertificate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnEmitRegularStudentCertificate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmitRegularStudentCertificate.ForeColor = System.Drawing.Color.Black;
+            this.btnEmitRegularStudentCertificate.ForeColor = System.Drawing.Color.White;
             this.btnEmitRegularStudentCertificate.Location = new System.Drawing.Point(7, 22);
             this.btnEmitRegularStudentCertificate.Margin = new System.Windows.Forms.Padding(0);
             this.btnEmitRegularStudentCertificate.Name = "btnEmitRegularStudentCertificate";
@@ -258,7 +268,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(127, 22);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
@@ -289,7 +299,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(396, 22);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
@@ -302,7 +312,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(248, 22);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
@@ -319,6 +329,7 @@
             this.searchBox.Location = new System.Drawing.Point(12, 11);
             this.searchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBox.Name = "searchBox";
+            this.searchBox.PlaceholderText = "  Buscar estudiante";
             this.searchBox.Size = new System.Drawing.Size(228, 26);
             this.searchBox.TabIndex = 1;
             this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -474,7 +485,8 @@
             this.btnCreateStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnCreateStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateStudent.Location = new System.Drawing.Point(110, 10);
+            this.btnCreateStudent.ForeColor = System.Drawing.Color.White;
+            this.btnCreateStudent.Location = new System.Drawing.Point(296, 7);
             this.btnCreateStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateStudent.Name = "btnCreateStudent";
             this.btnCreateStudent.Size = new System.Drawing.Size(111, 26);
@@ -498,6 +510,8 @@
             // panelStudentInfoRead
             // 
             this.panelStudentInfoRead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panelStudentInfoRead.Controls.Add(this.lblStudentId);
+            this.panelStudentInfoRead.Controls.Add(this.label3);
             this.panelStudentInfoRead.Controls.Add(this.flowLayoutPanel1);
             this.panelStudentInfoRead.Controls.Add(this.panel1);
             this.panelStudentInfoRead.Controls.Add(this.lblPersonalData);
@@ -506,6 +520,28 @@
             this.panelStudentInfoRead.Name = "panelStudentInfoRead";
             this.panelStudentInfoRead.Size = new System.Drawing.Size(255, 693);
             this.panelStudentInfoRead.TabIndex = 20;
+            // 
+            // lblStudentId
+            // 
+            this.lblStudentId.AutoSize = true;
+            this.lblStudentId.ForeColor = System.Drawing.Color.White;
+            this.lblStudentId.Location = new System.Drawing.Point(87, 37);
+            this.lblStudentId.Name = "lblStudentId";
+            this.lblStudentId.Size = new System.Drawing.Size(78, 15);
+            this.lblStudentId.TabIndex = 36;
+            this.lblStudentId.Text = "--StudentId--";
+            this.lblStudentId.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(20, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 15);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Student Id";
+            this.label3.Visible = false;
             // 
             // flowLayoutPanel1
             // 
@@ -753,7 +789,8 @@
             this.btnAddGrade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnAddGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddGrade.Location = new System.Drawing.Point(4, 11);
+            this.btnAddGrade.ForeColor = System.Drawing.Color.White;
+            this.btnAddGrade.Location = new System.Drawing.Point(190, 7);
             this.btnAddGrade.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddGrade.Name = "btnAddGrade";
             this.btnAddGrade.Size = new System.Drawing.Size(98, 26);
@@ -776,9 +813,10 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.dgvSubjectsRecord, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -879,7 +917,7 @@
         private TextBox txtGender;
         private Panel panel5;
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn IdGrade;
         private DataGridViewTextBoxColumn yearInCarrer;
         private DataGridViewTextBoxColumn subject;
         private DataGridViewTextBoxColumn enrolmentAprovalYear;
@@ -887,5 +925,8 @@
         private DataGridViewTextBoxColumn approvalDate;
         private DataGridViewTextBoxColumn grade;
         private DataGridViewTextBoxColumn bookRecord;
+        private DataGridViewTextBoxColumn EnrolmentId;
+        private Label lblStudentId;
+        private Label label3;
     }
 }

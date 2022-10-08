@@ -41,11 +41,11 @@ namespace GestIn.Controllers
             } catch { }
             return false;
         }
-        public int getAcreditationDate(int dni)
+        public SubjectEnrolment getEnrolment(int dni, object subject)
         {
             using (var db = new Context())
             {
-                return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Select(x => x.Year).First(); ;
+                return db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.Subject == subject && x.Approved == true)).First(); ;
             }
         }
         public List<SubjectEnrolment> getEnrolments(int dni)
@@ -55,6 +55,36 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Include(x => x.Subject).ToList(); ;
             }
         }
+        
+        public SubjectEnrolment findEnrolment(int id)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.SubjectEnrolments.Where(x => x.Id == id).First();
+                }
+                catch { }
+                return null;
 
+            }
+        }
+        
+        public bool updateEnrolment(int enrolmentId, string Year, bool Presential)
+        {
+            using (var db = new Context())
+            {
+                SubjectEnrolment result = findEnrolment(enrolmentId);
+                if (result != null)
+                {
+                    result.Year = Int32.Parse(Year);
+                    result.Presential = Presential;
+                    result.UpdatedAt = DateTime.Now;
+                    db.Update(result);
+                    db.SaveChanges();
+                }
+            }
+            return true;
+        }
     }
 }
