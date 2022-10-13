@@ -357,27 +357,27 @@ namespace GestIn.Controllers
         public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string phone)
         {
             User user = createUser(Dni, name, lastname,dateOfBirth,phone);
-            if (user != null)
-            {
-                LoginInformation log = createLoginInformation(mail, Dni);
-                if (log != null)
+                if (user != null)
                 {
-                    return (createStudent(Dni, mail, name, lastname, log, user));
-                }
+                    LoginInformation log = createLoginInformation(mail, Dni);
+                    if (log != null)
+                    {
+                        return (createStudent(Dni, mail, name, lastname, log, user));
+                    }
             }
             return false;
         }
         public bool enrolStudent(int Dni, string mail, string name, string lastname)
         {
-            User user = createUser(Dni, name, lastname);
-            if (user != null)
-            {
-                LoginInformation log = createLoginInformation(mail, Dni);
-                if (log != null)
+                User user = createUser(Dni, name, lastname);
+                if (user != null)
                 {
-                    return (createStudent(Dni, mail, name, lastname, log, user));
+                    LoginInformation log = createLoginInformation(mail, Dni);
+                    if (log != null)
+                    {
+                        return (createStudent(Dni, mail, name, lastname, log, user));
+                    }
                 }
-            }
             return false;
         }
         public Student findStudent(int dni) {

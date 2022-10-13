@@ -29,9 +29,16 @@ namespace GestIn.UI.Home.Grades
                     {
                         _date = DateTime.Parse(txtBirth.Text);
                     }
-                userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text, _date, txtPhone.Text);
-                MessageBox.Show("Guardado correctamente");
-                CleanText();
+                    if(userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text, _date, txtPhone.Text))
+                    {
+                        MessageBox.Show("Guardado correctamente");
+                        CleanText();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo cargar. Verifique que el alumno no este cargado");
+                    }
+                
                 } 
                 catch (Exception ex){
                     MessageBox.Show(ex.Message);

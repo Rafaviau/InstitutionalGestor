@@ -38,8 +38,10 @@ namespace GestIn.UI.Home.Careers
             BindingSourceCarreras.ResetBindings(false);
             dataGridViewCarreras.DataSource = null;
             if (careerController.loadCareers().Count > 0)
+            {
                 dataGridViewCarreras.DataSource = dataGridViewCarreras.DataSource = BindingSourceCarreras;
-            dataGridViewCarreras.CurrentCell.Selected = false;
+                dataGridViewCarreras.CurrentCell.Selected = false;
+            }
         }
 
         public void RefreshLableCareerName(int careerID)

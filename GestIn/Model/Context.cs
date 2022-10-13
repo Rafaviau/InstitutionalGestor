@@ -37,7 +37,7 @@ namespace GestIn.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-CKP73PI\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=DbGestin;User id =SA;Password=G@ldaf0*+;");
             }
         }
 
@@ -144,6 +144,7 @@ namespace GestIn.Model
 
             modelBuilder.Entity<Student>(entity =>
             {
+                entity.HasIndex(d => d.UserId).IsUnique();
                 entity.HasOne(d => d.LoginInformation)
                     .WithMany(p => p.Students)
                     .HasForeignKey(d => d.LoginInformationId)
