@@ -29,17 +29,18 @@ namespace GestIn.UI.Home
         {
             //Abrir hijo
             //AbrirFormularioHijo(new formMateria());
+            ChangeButtonColor(sender);
         }
         private void btnCarreras_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new formCareer());
+            ChangeButtonColor(sender);
         }
 
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
             {
                 formActivo.Dispose();
-                //formActivo.Close(); no usar 
             }
             formActivo = formHijo;
             formHijo.TopLevel = false;
@@ -53,7 +54,16 @@ namespace GestIn.UI.Home
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
+            ChangeButtonColor(sender);
             AbrirFormularioHijo(new formAcademicRecord());
+        }
+        private void ChangeButtonColor(object sender)
+        {
+            btnCarreras.BackColor = Color.FromArgb(47, 49, 54);
+            btnInicio.BackColor = Color.FromArgb(47, 49, 54);
+            btnStudents.BackColor = Color.FromArgb(47, 49, 54);
+            Button b = (Button)sender;
+            b.BackColor = Color.FromArgb(114, 137, 218);
         }
     }
 }
