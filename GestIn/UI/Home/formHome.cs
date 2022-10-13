@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestIn.UI.Home.Exams;
 
 namespace GestIn.UI.Home
 {
@@ -64,6 +65,12 @@ namespace GestIn.UI.Home
             btnStudents.BackColor = Color.FromArgb(47, 49, 54);
             Button b = (Button)sender;
             b.BackColor = Color.FromArgb(114, 137, 218);
+        }
+
+        private void btnExams_Click(object sender, EventArgs e)
+        {
+            ChangeButtonColor(sender);
+            AbrirFormularioHijo(new FormExams());
         }
     }
 }
