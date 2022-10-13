@@ -299,7 +299,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public IEnumerable<Subject> loadSubject(object objectCareer) //Rafa
+        public List<Subject> loadSubject(object objectCareer) //Rafa
         {
             Career car = (Career)objectCareer;
             using (var db = new Context())
@@ -424,7 +424,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public Subject getSubject(object materiaSelector)
+        public Subject getSubject(object materiaSelector) //??????????????????????????????????
         {
             Subject objMateria = (Subject)materiaSelector;
             return objMateria;

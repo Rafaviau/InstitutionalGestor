@@ -1,5 +1,4 @@
 ﻿using GestIn.Controllers;
-using GestIn.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +14,7 @@ namespace GestIn.UI.Home.Grades
 {
     public partial class formGrades : Form
     {
-        careerController careerController = Controllers.careerController.GetInstance();
+        careerController careerController = careerController.GetInstance();
         userController userController = userController.GetInstance();
         gradeContorller gradeController = gradeContorller.GetInstance();
         subjectEnrolmentController gradeEnrolmentController = subjectEnrolmentController.GetInstance();
@@ -25,6 +24,7 @@ namespace GestIn.UI.Home.Grades
             InitializeComponent();
             if (!dni.Equals(""))
             {
+                txtDni.Text = dni;
                 cbCareer.DataSource = careerEnrolmentController.searchCareerEnrolmentReturnCareer(Int32.Parse(dni));
                 cbAccType.SelectedIndex = 0;
             }
@@ -34,7 +34,7 @@ namespace GestIn.UI.Home.Grades
             }
             cbCareerEnrol.DataSource = careerController.loadCareers();
             cbAccType.SelectedIndex = 0;
-            txtDni.Text = dni;
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -63,8 +63,9 @@ namespace GestIn.UI.Home.Grades
                                         cbAccType.SelectedItem.ToString()
                                         );
                                     clearCamps();
-                                    MessageBox.Show("Agregado correctamente");
+                                    MessageBox.Show("Calificacion agregada correctamente");
                                 }
+                                cbSubject.Items.Remove(cbSubject.SelectedItem);
                             }
                             else
                             {
@@ -93,7 +94,7 @@ namespace GestIn.UI.Home.Grades
         private void cbCareer_SelectedValueChanged(object sender, EventArgs e)
         {
             cbSubject.Items.Clear();
-            IEnumerable<object> list = careerController.loadSubject(cbCareer.SelectedItem);
+            var list = getavailableSubjects(Int32.Parse(txtDni.Text),cbCareer.SelectedItem);
             foreach (object subject in list)
             {
 
@@ -138,6 +139,13 @@ namespace GestIn.UI.Home.Grades
                 ccbPresential.Checked = false;
                 txtEntomentYear.Text = txtAcreditationDate.Text;
             }
+        }
+        private dynamic getavailableSubjects(int dni, object career)
+        {
+            var list = careerController.loadSubject(career);
+            var list2 = gradeEnrolmentController.getEnrolments(dni);
+            list.RemoveAll(y => list2.Any(x => y.Name == x.Subject.Name));
+            return list;
         }
     }
 }

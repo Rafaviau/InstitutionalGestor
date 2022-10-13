@@ -223,10 +223,37 @@ namespace GestIn.UI.Home.Students
                 );
                 formEditGrade_.ShowDialog();
             }
-            //--------------------------------cambiar---------------------------------//
+            //--------------------------------cambiar para no renderizar todo denuevo---------------------------------//
             dgvSubjectsRecord.Rows.Clear();
             getStudentGrades(Int32.Parse(txtStudentDni.Text));
             //-----------------------------------------------------------------------//
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(!(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value == null))
+                {
+                    if (
+                        cntGrades.deleteGrade(Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value.ToString())) &&
+                        cntSubjectEnrolment.deleteEnrolment(Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()))
+                        )
+                    {
+                        dgvSubjectsRecord.Rows.RemoveAt(dgvSubjectsRecord.CurrentCell.RowIndex);
+                    }
+                }
+                else
+                {
+                    if(cntSubjectEnrolment.deleteEnrolment(Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString())))
+                    {
+                        dgvSubjectsRecord.Rows.RemoveAt(dgvSubjectsRecord.CurrentCell.RowIndex);
+                    }
+                }
+            }
+            catch (Exception ex){ }
+
+            
         }
     }
 }

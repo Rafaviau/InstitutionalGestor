@@ -31,6 +31,7 @@ namespace GestIn.UI.Home.Grades
 
             studentId_ = studentId;
             subjectObj = subject;
+            cbAccType.SelectedIndex = 0;
         }
         public formEditGrade(int gradeId,int enrolId, string studentName, string subjectName,string acreditationYear,bool acreditationType, string grade,string bookRecord,string AcreditationDate,string AccType)
         {
@@ -73,29 +74,30 @@ namespace GestIn.UI.Home.Grades
         private async void btnSave_ClickAsync(object sender, EventArgs e)
         {
             int i = 0;
+            int count = ExamFormCompletition();
             if (txtEntomentYear.Text.Equals(""))
             {
-                MessageBox.Show("El año de acreditacion no puede estar vacio");
+                showError("El año de acreditacion no puede estar vacio");
             }
-            else {
-                cntSubEnrol.updateEnrolment(enrolid, txtEntomentYear.Text, ccbPresential.Checked);
-                i++;
+            else if (count < 3 && count > 0) {
+                showError("Complete todos los campos de examen");
             }
-            int count = ExamFormCompletition();
-            if (count < 4 && count > 0) { MessageBox.Show("Complete todos los campos de examen"); }
-            else if (count==4 && gradeid < 0) {
-                cntGrade.addGrade(studentId_, subjectObj, Int32.Parse(txtGrade.Text), txtBookRecord.Text, DateTime.Parse(txtAcreditationDate.Text), cbAccType.Text);
-                i++;
+            else if(count == 0){
+                if(cntSubEnrol.updateEnrolment(enrolid, txtEntomentYear.Text, ccbPresential.Checked))
+                showDoneImgAsync();
             }
-            else if (count == 4 && gradeid > 0)
+            else if(txtGrade.Text.Equals("") || Int32.Parse(txtGrade.Text) > 10 || Int32.Parse(txtGrade.Text) < 0) {
+                showError("La nota ingresada no es valida"); 
+            }
+            else if (count==3 && gradeid < 0) 
             {
-                cntGrade.updateGrade(gradeid, txtGrade.Text, txtBookRecord.Text,txtAcreditationDate.Text, cbAccType.Text);
-                i++;
+                if(cntGrade.addGrade(studentId_, subjectObj, Int32.Parse(txtGrade.Text), txtBookRecord.Text, DateTime.Parse(txtAcreditationDate.Text), cbAccType.Text))
+                showDoneImgAsync();
             }
-            if (i > 0) {
-                pbDone.Visible = true;
-                await Task.Delay(750);
-                this.Close();
+            else if (count == 3 && gradeid > 0)
+            {
+                if(cntGrade.updateGrade(gradeid, txtGrade.Text, txtBookRecord.Text,txtAcreditationDate.Text, cbAccType.Text))
+                showDoneImgAsync();
             }
         }
         private int ExamFormCompletition() {
@@ -103,8 +105,18 @@ namespace GestIn.UI.Home.Grades
             if (!txtGrade.Text.Equals("")) { i++; }
             if (!txtBookRecord.Text.Equals("")) { i++; }
             if (!txtAcreditationDate.Text.Equals("")) { i++; }
-            if (cbAccType.SelectedIndex>=0) { i++; }
             return i;
+        }
+        private async Task showDoneImgAsync()
+        {
+            pbDone.Visible = true;
+            await Task.Delay(750);
+            this.Close();
+        }
+        private void showError(string error)
+        {
+            lblError.Text = "         " + error;
+            lblError.Visible = true;
         }
     }
 }

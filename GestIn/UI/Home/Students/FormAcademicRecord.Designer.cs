@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSubjectsRecord = new System.Windows.Forms.DataGridView();
             this.IdGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearInCarrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +87,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsRecord)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -109,16 +110,16 @@
             this.dgvSubjectsRecord.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.dgvSubjectsRecord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubjectsRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSubjectsRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubjectsRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdGrade,
@@ -168,8 +169,8 @@
             // 
             // enrolmentAprovalYear
             // 
-            dataGridViewCellStyle2.NullValue = "Sin cursar";
-            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.NullValue = "Sin cursar";
+            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle6;
             this.enrolmentAprovalYear.HeaderText = "Año de cursada aprobada";
             this.enrolmentAprovalYear.MinimumWidth = 6;
             this.enrolmentAprovalYear.Name = "enrolmentAprovalYear";
@@ -829,12 +830,28 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel5.Controls.Add(this.btnDelete);
             this.panel5.Controls.Add(this.groupBox1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 648);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1073, 79);
             this.panel5.TabIndex = 20;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::GestIn.Properties.Resources.deleteIcon;
+            this.btnDelete.Location = new System.Drawing.Point(974, 3);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(49, 37);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // formAcademicRecord
             // 
@@ -928,5 +945,6 @@
         private DataGridViewTextBoxColumn EnrolmentId;
         private Label lblStudentId;
         private Label label3;
+        private Button btnDelete;
     }
 }

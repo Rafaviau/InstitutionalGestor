@@ -77,21 +77,44 @@ namespace GestIn.Controllers
         }
         public bool updateGrade(int gradeId,string grade,string bookrecord,string accDate, string accType)
         {
-            using (var db = new Context())
+            try
             {
-                var result = findGrade(gradeId);
-                if (result != null)
+                using (var db = new Context())
                 {
-                    result.Grade1 = Int32.Parse(grade);
-                    result.BookRecord = bookrecord;
-                    result.AccreditationDate = DateTime.Parse(accDate);
-                    result.AccreditationType = accType;
-                    result.UpdatedAt = DateTime.Now;
-                    db.Update(result);
+                    var result = findGrade(gradeId);
+                    if (result != null)
+                    {
+                        result.Grade1 = Int32.Parse(grade);
+                        result.BookRecord = bookrecord;
+                        result.AccreditationDate = DateTime.Parse(accDate);
+                        result.AccreditationType = accType;
+                        result.UpdatedAt = DateTime.Now;
+                        db.Update(result);
+                        db.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                return false;
+            }
+        }
+        public bool deleteGrade(int gradeId)
+        {
+            try
+            {
+                using (var db = new Context())
+                {
+                    db.Grades.Remove(new Grade() { Id = gradeId });
                     db.SaveChanges();
                 }
+                return true;
             }
-            return true;
+            catch {
+                return false;
+            }
         }
     }
 }

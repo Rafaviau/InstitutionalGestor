@@ -55,7 +55,14 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Include(x => x.Subject).ToList(); ;
             }
         }
-        
+        public List<Subject> getEnrolmentsSubjects(int dni)
+        {
+            using (var db = new Context())
+            {
+                return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Select(x => x.Subject).ToList(); ;
+            }
+        }
+
         public SubjectEnrolment findEnrolment(int id)
         {
             using (var db = new Context())
@@ -85,6 +92,22 @@ namespace GestIn.Controllers
                 }
             }
             return true;
+        }
+        public bool deleteEnrolment(int enrolId)
+        {
+            try
+            {
+                using (var db = new Context())
+                {
+                    db.SubjectEnrolments.Remove(new SubjectEnrolment() { Id = enrolId });
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

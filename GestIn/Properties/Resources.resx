@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Email" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loadingGif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loadingGif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StudentIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StudentIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,8 +139,8 @@
   <data name="Done" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Done.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="deleteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loadingGif1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loadingGif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,13 +160,13 @@
   <data name="Home2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Home2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Email" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StudentIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StudentIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="deleteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

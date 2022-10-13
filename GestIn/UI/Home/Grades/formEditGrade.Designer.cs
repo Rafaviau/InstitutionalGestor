@@ -52,6 +52,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbDone = new System.Windows.Forms.PictureBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -324,6 +325,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel2.Controls.Add(this.lblError);
             this.panel2.Controls.Add(this.pbDone);
             this.panel2.Controls.Add(this.cbAccType);
             this.panel2.Controls.Add(this.btnSave);
@@ -360,6 +362,20 @@
             this.pbDone.TabIndex = 53;
             this.pbDone.TabStop = false;
             this.pbDone.Visible = false;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblError.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblError.Image = global::GestIn.Properties.Resources.Error;
+            this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblError.Location = new System.Drawing.Point(96, 373);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(80, 17);
+            this.lblError.TabIndex = 54;
+            this.lblError.Text = "          --Error--";
+            this.lblError.Visible = false;
             // 
             // formEditGrade
             // 
@@ -408,5 +424,6 @@
         private Button btnSave;
         private Panel panel2;
         private PictureBox pbDone;
+        private Label lblError;
     }
 }
