@@ -17,13 +17,9 @@ namespace GestIn.UI.Home.Exams
             InitializeComponent();
         }
 
-        private void EnableControls()
-        {
-
-        }
         private void btnNewExam_Click(object sender, EventArgs e)
         {
-
+            gbNewExam.Enabled = true;
         }
     }
 }
