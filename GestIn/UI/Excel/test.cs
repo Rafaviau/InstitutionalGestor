@@ -21,7 +21,7 @@ namespace GestIn
             careers = s2.GetWorksheetNames();
         }
         List<Dictionary<string,string>> NotLoaded = new List<Dictionary<string,string>>();
-        SLDocument s1 = new SLDocument("C:\\Users\\14-3Año\\Desktop\\CARRERAS.xlsx");
+        SLDocument s1 = new SLDocument("C:\\Users\\14-3Año\\Desktop\\matricula.xlsx");
         SLDocument s2 = new SLDocument("C:\\Users\\14-3Año\\Desktop\\matricula.xlsx");
 
         careerController cntCareer = careerController.GetInstance();
@@ -124,14 +124,13 @@ namespace GestIn
         private void btnLoadCareerEnrolment_Click(object sender, EventArgs e)
         {
             Dictionary<string, int> careerIds = new Dictionary<string, int>();
-
             careerIds.Add("Higiene y Seguridad",10);
             careerIds.Add("Enfermería",3);
             careerIds.Add("Gastronomía",5);
             careerIds.Add("Turismo",2);
             careerIds.Add("AT",7);
             careerIds.Add("Agroalimentos",6);
-            careerIds.Add("Analista Programador",9);
+            careerIds.Add("Analistas Progr",9);
             careerIds.Add("Paleontologos",8);
 
             foreach (string career in careers)
@@ -154,7 +153,7 @@ namespace GestIn
                         cntCareerEnrol.enrolStudent(userId, careerId, yearOfRegistration);
                         row++;
                     }
-                    catch { }
+                    catch (Exception ex){ MessageBox.Show(ex.Message); }
                 }
             }
         }

@@ -46,7 +46,9 @@ namespace GestIn.Controllers
                     return true;
                 }
             }
-            catch { }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
             return false;
         }
         public bool enrolStudentWithDni(int dni, object career, int year)
