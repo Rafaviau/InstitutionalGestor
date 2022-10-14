@@ -37,8 +37,8 @@ namespace GestIn.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer(LocalInformation.getConnectionString());
-                optionsBuilder.UseSqlServer("Server=PC15\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("Server=DESKTOP-CKP73PI\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-5KDFBNS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 
