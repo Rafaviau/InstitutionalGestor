@@ -50,6 +50,7 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
@@ -119,7 +120,8 @@
             this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.teacherDataGridViewTextBoxColumn,
-            this.Condition});
+            this.Condition,
+            this.Active});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
             this.dataGridViewTeachers.Location = new System.Drawing.Point(167, 364);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
@@ -243,6 +245,13 @@
             this.Condition.MinimumWidth = 6;
             this.Condition.Name = "Condition";
             // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            // 
             // formSubjectTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -300,5 +309,6 @@
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn teacherDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
+        private DataGridViewCheckBoxColumn Active;
     }
 }

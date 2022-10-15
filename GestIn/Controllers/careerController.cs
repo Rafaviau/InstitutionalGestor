@@ -616,9 +616,8 @@ namespace GestIn.Controllers
             newCharge.CreatedAt = DateTime.Now;
             newCharge.LastModificationBy = "Preceptor cargando docente";
 
-            if (checkChargeRepetition(newCharge, selectedSubject))
+            if (!getAllActiveCharges(selectedSubject).Any() && !newCharge.Condition.Equals("Suplente"))
             {
-                checkActiveCharge(newCharge,selectedSubject);
                 try
                 {
                     using (var db = new Context())
@@ -626,8 +625,41 @@ namespace GestIn.Controllers
                         db.TeacherSubjects.Add(newCharge);
                         db.SaveChanges();
                     }
+                } catch (SqlException exception) { throw exception; }
+            }
+            else if(newCharge.Condition.Equals("Suplente"))
+            {
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        db.TeacherSubjects.Add(newCharge);
+                        db.SaveChanges();
+                    }
+                } catch (SqlException exception) { throw exception; }
+            }
+            else
+            {
+                List<TeacherSubject> activeteachers = new List<TeacherSubject>();
+                activeteachers = ActiveTeachers(newCharge);
+                foreach(TeacherSubject activeteacher in activeteachers)
+                {
+                    if(activeteacher.TeacherId != newCharge.TeacherId)
+                    {
+                        try
+                        {
+                            changeActiveCharge(newCharge);
+                            using (var db = new Context())
+                            {
+                                db.TeacherSubjects.Add(newCharge);
+                                db.SaveChanges();
+                            }
+                        }
+                        catch (SqlException exception) { throw exception; }
+                    }
                 }
-                catch (SqlException exception) { throw exception; }
+                
+                
             }
         }
 
@@ -652,48 +684,33 @@ namespace GestIn.Controllers
             return false;
         }
 
-        public bool checkChargeRepetition(TeacherSubject charge, Subject subject)
+        public List<TeacherSubject> ActiveTeachers(TeacherSubject charge)
         {
-            bool state = false;
-            if(charge.Condition.Equals("Titular"))
+            using (var db = new Context())
             {
-                if (findTeacherCharge(charge, subject) == null)
+                try
                 {
-                    state = true;
+                    var result = db.TeacherSubjects.Where(x => x.Active == true).ToList();
+                    return result;
                 }
-                else if (getExistingTitularTeacherFromSubject(subject) == true)  //si ya existe un docente y es titular
-                {
-                    MessageBox.Show("Error, existe un docente Titular");
-                }
-                else if (getExistingTeacherConditionFromSubject(subject) == true)  //si ya existe un docente
-                {
-                    MessageBox.Show("Error, un docente no puede tener el mismo cargo otra vez");
-                }
+                catch (SqlException exception) { throw exception; }
             }
-            return state;
         }
 
-        public void checkActiveCharge(TeacherSubject charge, Subject subject)
+        public void changeActiveCharge(Subject subject)
         {
             TeacherSubject possibleActive = null;
 
-            if (charge.Condition.Equals("Titular"))
+            if (getCurrentActiveTitularCharge(subject) != null)
             {
-                if(getCurrentActiveTitularCharge(subject)!= null)
-                {
-                    possibleActive = getCurrentActiveTitularCharge(subject);
-                    removeActiveCharge(possibleActive);
-                }
+                possibleActive = getCurrentActiveTitularCharge(subject);
+                removeActiveCharge(possibleActive);
             }
+        }
 
-            else if (charge.Condition.Equals("Provisional"))
-            {
-                if (getCurrentProvisionalCharge(subject)!=null)
-                {
-                    possibleActive = getCurrentActiveTitularCharge(subject);
-                    removeActiveCharge(possibleActive);
-                }
-            }
+        public void changeActiveCharge(TeacherSubject charge)
+        {
+            removeActiveCharge(charge);
         }
 
         public TeacherSubject findTeacherCharge(object teacherCharge)
@@ -762,36 +779,33 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool getExistingTitularTeacherFromSubject(Subject subjectMatter) //docentes que tienen algun cargo en la materia
+        public TeacherSubject getCurrentActiveCharge(Subject subjectMatter) //uno para titular
         {
-            bool state = false;
+            TeacherSubject possibleActive = null;
             List<TeacherSubject> listCharges = new List<TeacherSubject>();
             listCharges = getTeachersFromSubject(subjectMatter);
 
             foreach (var item in listCharges)
             {
-                if (item.Condition.Equals("Titular"))
+                if (item.Active == true)
                 {
-                    MessageBox.Show("Nombre del docente titular:" + " " + item.Teacher.User.Name);
-                    state = true;
-                }
-            } return state;
-        }
-
-        public bool getExistingTeacherConditionFromSubject(Subject subjectMatter) 
-        {
-            bool state = false;
-            List<TeacherSubject> listCharges = new List<TeacherSubject>();
-            listCharges = getTeachersFromSubject(subjectMatter);
-
-            foreach (var item in listCharges)
-            {
-                if (item.Condition.Equals("Suplente") || item.Condition.Equals("Provisional"))
-                {
-                    state = true;
+                    possibleActive = item;
                 }
             }
-            return state;
+            return possibleActive;
+        }
+        public List<TeacherSubject> getAllActiveCharges(Subject subjectMatter) //uno para titular
+        {
+            List<TeacherSubject> listActiveCharges = new List<TeacherSubject>();  
+            using (var db = new Context())
+            {
+                try
+                {
+                    listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == subjectMatter.Id).Where(x => x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    return listActiveCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
         }
 
         public TeacherSubject getCurrentActiveTitularCharge(Subject subjectMatter) //uno para titular
@@ -810,7 +824,7 @@ namespace GestIn.Controllers
             return possibleActive;
         }
 
-        public TeacherSubject getCurrentProvisionalCharge(Subject subjectMatter) //uno para provisional
+        public TeacherSubject getCurrentActiveProvisionalCharge(Subject subjectMatter) //uno para provisional
         {
             TeacherSubject possibleActive = null;
             List<TeacherSubject> listCharges = new List<TeacherSubject>();
