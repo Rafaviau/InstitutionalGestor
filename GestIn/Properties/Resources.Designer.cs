@@ -59,6 +59,7 @@ namespace GestIn.Properties {
                 resourceCulture = value;
             }
         }
+
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -66,6 +67,17 @@ namespace GestIn.Properties {
         internal static System.Drawing.Bitmap Carreras {
             get {
                 object obj = ResourceManager.GetObject("Carreras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TickIcon
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("TickIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

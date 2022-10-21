@@ -22,6 +22,10 @@ namespace GestIn.UI.Home.Exams
         {
             InitializeComponent();
             cbbCarrer.DataSource = careerController.loadCareers();
+            loadExams();
+        }
+        private void loadExams()
+        {
             foreach (Exam e in examCnt.loadExams()) {
                 addExam(e);
             }
@@ -39,10 +43,11 @@ namespace GestIn.UI.Home.Exams
         private void btnNewExam_Click(object sender, EventArgs e)
         {
             lblMode.Text = "Crear nuevo examen";
-            btnSave.BackColor = Color.FromArgb(114, 137, 218);
             changeButtonsState();
             changeShowLabelState();
             changeNewExamState();
+            btnSave.Visible = true;
+            btnSaveUpdate.Visible = false;
         }
         private void changeNewExamState() {
             if(gbNewExam.BackColor == Color.FromArgb(54, 57, 63)) gbNewExam.BackColor = Color.FromArgb(84, 87, 93);
@@ -56,7 +61,6 @@ namespace GestIn.UI.Home.Exams
             txtPlace.Visible = !txtPlace.Visible;
             dtDate.Visible = !dtDate.Visible;
             dtTime.Visible = !dtTime.Visible;
-            btnSave.Visible = !btnSave.Visible;
             btnCancel.Enabled = !btnCancel.Visible;
             lblMode.Visible = !lblMode.Visible;
             btnCancel.Visible = !btnCancel.Visible;
@@ -101,7 +105,7 @@ namespace GestIn.UI.Home.Exams
         private void btnSave_Click(object sender, EventArgs e)
         {
             var state = verifyNewExamInfo();
-            if (!state.Item1) showError(state.Item2);
+            if (!state.Item1) showError(state.Item2, state.Item1);
             else {
                 DateTime examDateTime = DateTime.Parse(dtDate.Value.ToString("yyyy-MM-dd") +" "+ dtTime.Value.ToString("HH:mm:00"));
                 if (examCnt.createExam(
@@ -112,7 +116,16 @@ namespace GestIn.UI.Home.Exams
                     teacherSelection(cbb3Vowel),
                     examDateTime,
                     txtPlace.Text
-                    )) MessageBox.Show("Cargado");
+                    )) 
+                {
+                    showError("Actualizado correctamente", true);
+                    dgvExams.Rows.Clear();
+                    loadExams();
+
+                    clearExamForm();
+                    changeStates();
+                    btnSave.Visible = false;
+                }
             }
         }
 
@@ -130,10 +143,18 @@ namespace GestIn.UI.Home.Exams
             if (comboBox.SelectedItem != null)return comboBox.SelectedItem;
             else return null;
         }
-        private async Task showError(string msg)
+        private async Task showError(string msg,bool success)
         {
-            lblError.ForeColor = Color.IndianRed;
-            lblError.Image = (Image)Resources.ResourceManager.GetObject("Error.png");
+            if (!success)
+            {
+                lblError.ForeColor = Color.IndianRed;
+                lblError.Image = Resources.Error;
+            }
+            else
+            {
+                lblError.ForeColor = Color.FromArgb(75, 181, 67);
+                lblError.Image = Resources.TickIcon;
+            }
             lblError.Text = "         " + msg;
             lblError.Visible = true;
             await Task.Delay(2000);
@@ -149,21 +170,90 @@ namespace GestIn.UI.Home.Exams
         {
             changeStates();
             changeButtonsState();
-            btnSave.BackColor = Color.FromArgb(114, 137, 218);
             clearExamForm();
+            btnSave.Visible = false;
+            btnSaveUpdate.Visible = false;
         }
 
         private void btnUpdateExam_Click(object sender, EventArgs e)
         {
             lblMode.Text = "Actualizar examen existente";
-            btnSave.BackColor = Color.FromArgb(236, 232, 26);
             changeButtonsState();
             changeStates();
+            loadEditExam();
+            btnSaveUpdate.Visible = true;
+            btnSave.Visible = false;
         }
         private void changeStates() {
             changeShowLabelState();
             changeNewExamState();
         }
+        private void addExamInfoToLbl(int examCode) {
+            var exam = examCnt.findExam(examCode);
+            lblShowCareer.Text = exam.IdSubjectNavigation.Career.Name;
+            lblShowDate.Text = exam.Date.ToString("yyyy/MM/dd");
+            lblShowTime.Text = exam.Date.ToString("HH:mm");
+            lblShowPlace.Text = exam.Place;
+            lblShowSubject.Text = exam.IdSubjectNavigation.Name;
 
+            if(exam.FirstVowelNavigation != null) lblShowFirst.Text = exam.FirstVowelNavigation.User.Name + " " + exam.FirstVowelNavigation.User.Dni;
+            if (exam.SecondVowelNavigation != null)lblShowSec.Text = exam.SecondVowelNavigation.User.Name + " " + exam.SecondVowelNavigation.User.Dni;
+            if(exam.ThirdVowelNavigation != null)lblShowThird.Text = exam.ThirdVowelNavigation.User.Name + " " + exam.ThirdVowelNavigation.User.Dni;
+            if (exam.TitularNavigation != null)lblShowTit.Text = exam.TitularNavigation.User.Name + " " + exam.TitularNavigation.User.Dni;
+        }
+
+        private void dgvExams_SelectionChanged(object sender, EventArgs e)
+        {
+            addExamInfoToLbl(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString()));
+        }
+
+        private void btnSaveUpdate_Click(object sender, EventArgs e)
+        {
+            var state = verifyNewExamInfo();
+            if (!state.Item1) showError(state.Item2, state.Item1);
+            else
+            {
+                DateTime examDateTime = DateTime.Parse(dtDate.Value.ToString("yyyy-MM-dd") + " " + dtTime.Value.ToString("HH:mm:00"));
+                if (examCnt.updateExam(Int32.Parse(lblExamCode.Text),
+                    cbbSubject.SelectedItem,
+                    teacherSelection(cbbTitular),
+                    teacherSelection(cbb1Vowel),
+                    teacherSelection(cbb2Vowel),
+                    teacherSelection(cbb3Vowel),
+                    examDateTime,
+                    txtPlace.Text
+                    ))
+                {
+                    showError("Actualizado correctamente", true);
+                    dgvExams.Rows.Clear();
+                    loadExams();
+
+                    clearExamForm();
+                    changeStates();
+                    btnSaveUpdate.Visible = false;
+                }
+            }
+        }
+        private void loadEditExam()
+        {
+            lblExamCode.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            cbbCarrer.SelectedIndex = cbbCarrer.FindString(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[1].Value.ToString());
+            cbbSubject.SelectedIndex = cbbSubject.FindString(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[2].Value.ToString());
+            dtDate.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
+            dtTime.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
+
+            cbbTitular.SelectedIndex = cbbSubject.FindString("TEST");
+        }
+
+        private void btnDeleteExam_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure to delete this item ??", "Confirm Delete!!", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (examCnt.deleteExam(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString()))) {
+                    dgvExams.Rows.RemoveAt(dgvExams.CurrentCell.RowIndex);
+                }
+            }
+        }
     }
 }

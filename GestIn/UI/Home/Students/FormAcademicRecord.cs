@@ -235,13 +235,20 @@ namespace GestIn.UI.Home.Students
             {
                 if(!(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value == null))
                 {
-                    if (
+                    var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                                                         "Confirm Delete!!",
+                                                         MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        if (
                         cntGrades.deleteGrade(Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value.ToString())) &&
                         cntSubjectEnrolment.deleteEnrolment(Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()))
                         )
-                    {
-                        dgvSubjectsRecord.Rows.RemoveAt(dgvSubjectsRecord.CurrentCell.RowIndex);
+                        {
+                            dgvSubjectsRecord.Rows.RemoveAt(dgvSubjectsRecord.CurrentCell.RowIndex);
+                        }
                     }
+
                 }
                 else
                 {

@@ -8,7 +8,7 @@ namespace GestIn.Model
 {
     internal static class LocalInformation
     {
-        const string connectionString = "Server=PRECEPTORIA-01\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;";
+        const string connectionString = "Server=DESKTOP-CKP73PI\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;";
         public static string getConnectionString() {
             return connectionString;
         }

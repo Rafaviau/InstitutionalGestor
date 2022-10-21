@@ -37,7 +37,8 @@ namespace GestIn.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=DbGestin;User id =SA;Password=G@ldaf0*+;");
+                //optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=DbGestin;User id =SA;Password=G@ldaf0*+;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-CKP73PI\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 
