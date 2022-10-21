@@ -34,6 +34,8 @@
             this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enrollments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CareerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCarrer = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +49,16 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnUpdateExam = new System.Windows.Forms.Button();
             this.gbNewExam = new System.Windows.Forms.GroupBox();
+            this.lblShowThird = new System.Windows.Forms.Label();
+            this.lblShowFirst = new System.Windows.Forms.Label();
+            this.lblShowPlace = new System.Windows.Forms.Label();
+            this.lblShowSec = new System.Windows.Forms.Label();
+            this.lblShowTit = new System.Windows.Forms.Label();
+            this.lblShowTime = new System.Windows.Forms.Label();
+            this.lblShowDate = new System.Windows.Forms.Label();
+            this.lblShowSubject = new System.Windows.Forms.Label();
+            this.lblShowCareer = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.txtPlace = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,6 +71,7 @@
             this.cbbCarrer = new System.Windows.Forms.ComboBox();
             this.btnNewExam = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).BeginInit();
             this.gbNewExam.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,7 +86,9 @@
             this.carrer,
             this.subject,
             this.date,
-            this.enrollments});
+            this.enrollments,
+            this.SubjectId,
+            this.CareerId});
             this.dgvExams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvExams.Location = new System.Drawing.Point(5, 5);
             this.dgvExams.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -87,6 +102,7 @@
             // 
             // id
             // 
+            this.id.FillWeight = 3F;
             this.id.HeaderText = "Código";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -94,6 +110,7 @@
             // 
             // carrer
             // 
+            this.carrer.FillWeight = 10F;
             this.carrer.HeaderText = "Carrera";
             this.carrer.MinimumWidth = 6;
             this.carrer.Name = "carrer";
@@ -101,6 +118,7 @@
             // 
             // subject
             // 
+            this.subject.FillWeight = 10F;
             this.subject.HeaderText = "Materia";
             this.subject.MinimumWidth = 6;
             this.subject.Name = "subject";
@@ -108,51 +126,71 @@
             // 
             // date
             // 
+            this.date.FillWeight = 4F;
             this.date.HeaderText = "Fecha";
-            this.date.MinimumWidth = 6;
+            this.date.MinimumWidth = 10;
             this.date.Name = "date";
             this.date.ReadOnly = true;
             // 
             // enrollments
             // 
+            this.enrollments.FillWeight = 3F;
             this.enrollments.HeaderText = "Inscriptos";
-            this.enrollments.MinimumWidth = 6;
+            this.enrollments.MinimumWidth = 100;
             this.enrollments.Name = "enrollments";
             this.enrollments.ReadOnly = true;
+            // 
+            // SubjectId
+            // 
+            this.SubjectId.FillWeight = 1F;
+            this.SubjectId.HeaderText = "SubectId";
+            this.SubjectId.MinimumWidth = 6;
+            this.SubjectId.Name = "SubjectId";
+            this.SubjectId.ReadOnly = true;
+            this.SubjectId.Visible = false;
+            // 
+            // CareerId
+            // 
+            this.CareerId.FillWeight = 1F;
+            this.CareerId.HeaderText = "CarrerId";
+            this.CareerId.MinimumWidth = 6;
+            this.CareerId.Name = "CareerId";
+            this.CareerId.ReadOnly = true;
+            this.CareerId.Visible = false;
             // 
             // lblCarrer
             // 
             this.lblCarrer.AutoSize = true;
-            this.lblCarrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCarrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCarrer.ForeColor = System.Drawing.Color.White;
-            this.lblCarrer.Location = new System.Drawing.Point(25, 35);
+            this.lblCarrer.Location = new System.Drawing.Point(20, 52);
             this.lblCarrer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCarrer.Name = "lblCarrer";
-            this.lblCarrer.Size = new System.Drawing.Size(66, 20);
+            this.lblCarrer.Size = new System.Drawing.Size(79, 20);
             this.lblCarrer.TabIndex = 2;
-            this.lblCarrer.Text = "Carrera";
+            this.lblCarrer.Text = "Carrera:";
             // 
             // lblSubject
             // 
             this.lblSubject.AutoSize = true;
-            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblSubject.ForeColor = System.Drawing.Color.White;
-            this.lblSubject.Location = new System.Drawing.Point(20, 82);
+            this.lblSubject.Location = new System.Drawing.Point(13, 101);
             this.lblSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(70, 20);
+            this.lblSubject.Size = new System.Drawing.Size(78, 20);
             this.lblSubject.TabIndex = 4;
             this.lblSubject.Text = "Materia:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(25, 126);
+            this.label1.Location = new System.Drawing.Point(25, 145);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.Size = new System.Drawing.Size(66, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Fecha:";
             // 
@@ -171,17 +209,18 @@
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(292, 27);
             this.dtDate.TabIndex = 6;
+            this.dtDate.Visible = false;
             // 
             // lblTime
             // 
             this.lblTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(467, 146);
             this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(70, 20);
+            this.lblTime.Size = new System.Drawing.Size(78, 20);
             this.lblTime.TabIndex = 7;
             this.lblTime.Text = "Horario:";
             // 
@@ -189,12 +228,12 @@
             // 
             this.lblTenured.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTenured.AutoSize = true;
-            this.lblTenured.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTenured.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTenured.ForeColor = System.Drawing.Color.White;
-            this.lblTenured.Location = new System.Drawing.Point(787, 40);
+            this.lblTenured.Location = new System.Drawing.Point(777, 54);
             this.lblTenured.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTenured.Name = "lblTenured";
-            this.lblTenured.Size = new System.Drawing.Size(61, 20);
+            this.lblTenured.Size = new System.Drawing.Size(69, 20);
             this.lblTenured.TabIndex = 11;
             this.lblTenured.Text = "Titular:";
             // 
@@ -202,12 +241,12 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1156, 61);
+            this.label3.Location = new System.Drawing.Point(1145, 52);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 20);
+            this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 13;
             this.label3.Text = "1er vocal:";
             // 
@@ -215,12 +254,12 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(763, 101);
+            this.label4.Location = new System.Drawing.Point(753, 105);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(95, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "2do vocal:";
             // 
@@ -228,12 +267,12 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1156, 101);
+            this.label5.Location = new System.Drawing.Point(1145, 104);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 20);
+            this.label5.Size = new System.Drawing.Size(92, 20);
             this.label5.TabIndex = 17;
             this.label5.Text = "3er vocal:";
             // 
@@ -259,13 +298,14 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(1388, 147);
+            this.btnSave.Location = new System.Drawing.Point(1236, 146);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(135, 35);
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnUpdateExam
@@ -281,10 +321,21 @@
             this.btnUpdateExam.TabIndex = 22;
             this.btnUpdateExam.Text = "Modificar";
             this.btnUpdateExam.UseVisualStyleBackColor = false;
+            this.btnUpdateExam.Click += new System.EventHandler(this.btnUpdateExam_Click);
             // 
             // gbNewExam
             // 
             this.gbNewExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(87)))), ((int)(((byte)(93)))));
+            this.gbNewExam.Controls.Add(this.lblShowThird);
+            this.gbNewExam.Controls.Add(this.lblShowFirst);
+            this.gbNewExam.Controls.Add(this.lblShowPlace);
+            this.gbNewExam.Controls.Add(this.lblShowSec);
+            this.gbNewExam.Controls.Add(this.lblShowTit);
+            this.gbNewExam.Controls.Add(this.lblShowTime);
+            this.gbNewExam.Controls.Add(this.lblShowDate);
+            this.gbNewExam.Controls.Add(this.lblShowSubject);
+            this.gbNewExam.Controls.Add(this.lblShowCareer);
+            this.gbNewExam.Controls.Add(this.btnCancel);
             this.gbNewExam.Controls.Add(this.lblError);
             this.gbNewExam.Controls.Add(this.txtPlace);
             this.gbNewExam.Controls.Add(this.label2);
@@ -315,6 +366,141 @@
             this.gbNewExam.TabIndex = 23;
             this.gbNewExam.TabStop = false;
             // 
+            // lblShowThird
+            // 
+            this.lblShowThird.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowThird.AutoSize = true;
+            this.lblShowThird.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowThird.ForeColor = System.Drawing.Color.White;
+            this.lblShowThird.Location = new System.Drawing.Point(1236, 105);
+            this.lblShowThird.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowThird.Name = "lblShowThird";
+            this.lblShowThird.Size = new System.Drawing.Size(39, 20);
+            this.lblShowThird.TabIndex = 65;
+            this.lblShowThird.Text = "-----";
+            // 
+            // lblShowFirst
+            // 
+            this.lblShowFirst.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowFirst.AutoSize = true;
+            this.lblShowFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowFirst.ForeColor = System.Drawing.Color.White;
+            this.lblShowFirst.Location = new System.Drawing.Point(1236, 52);
+            this.lblShowFirst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowFirst.Name = "lblShowFirst";
+            this.lblShowFirst.Size = new System.Drawing.Size(39, 20);
+            this.lblShowFirst.TabIndex = 64;
+            this.lblShowFirst.Text = "-----";
+            // 
+            // lblShowPlace
+            // 
+            this.lblShowPlace.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowPlace.AutoSize = true;
+            this.lblShowPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowPlace.ForeColor = System.Drawing.Color.White;
+            this.lblShowPlace.Location = new System.Drawing.Point(847, 146);
+            this.lblShowPlace.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowPlace.Name = "lblShowPlace";
+            this.lblShowPlace.Size = new System.Drawing.Size(39, 20);
+            this.lblShowPlace.TabIndex = 63;
+            this.lblShowPlace.Text = "-----";
+            // 
+            // lblShowSec
+            // 
+            this.lblShowSec.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowSec.AutoSize = true;
+            this.lblShowSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowSec.ForeColor = System.Drawing.Color.White;
+            this.lblShowSec.Location = new System.Drawing.Point(847, 105);
+            this.lblShowSec.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowSec.Name = "lblShowSec";
+            this.lblShowSec.Size = new System.Drawing.Size(39, 20);
+            this.lblShowSec.TabIndex = 62;
+            this.lblShowSec.Text = "-----";
+            // 
+            // lblShowTit
+            // 
+            this.lblShowTit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowTit.AutoSize = true;
+            this.lblShowTit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowTit.ForeColor = System.Drawing.Color.White;
+            this.lblShowTit.Location = new System.Drawing.Point(847, 54);
+            this.lblShowTit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowTit.Name = "lblShowTit";
+            this.lblShowTit.Size = new System.Drawing.Size(39, 20);
+            this.lblShowTit.TabIndex = 61;
+            this.lblShowTit.Text = "-----";
+            // 
+            // lblShowTime
+            // 
+            this.lblShowTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowTime.AutoSize = true;
+            this.lblShowTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowTime.ForeColor = System.Drawing.Color.White;
+            this.lblShowTime.Location = new System.Drawing.Point(600, 145);
+            this.lblShowTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowTime.Name = "lblShowTime";
+            this.lblShowTime.Size = new System.Drawing.Size(39, 20);
+            this.lblShowTime.TabIndex = 60;
+            this.lblShowTime.Text = "-----";
+            // 
+            // lblShowDate
+            // 
+            this.lblShowDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowDate.AutoSize = true;
+            this.lblShowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowDate.ForeColor = System.Drawing.Color.White;
+            this.lblShowDate.Location = new System.Drawing.Point(107, 145);
+            this.lblShowDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowDate.Name = "lblShowDate";
+            this.lblShowDate.Size = new System.Drawing.Size(39, 20);
+            this.lblShowDate.TabIndex = 59;
+            this.lblShowDate.Text = "-----";
+            // 
+            // lblShowSubject
+            // 
+            this.lblShowSubject.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowSubject.AutoSize = true;
+            this.lblShowSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowSubject.ForeColor = System.Drawing.Color.White;
+            this.lblShowSubject.Location = new System.Drawing.Point(107, 101);
+            this.lblShowSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowSubject.Name = "lblShowSubject";
+            this.lblShowSubject.Size = new System.Drawing.Size(39, 20);
+            this.lblShowSubject.TabIndex = 58;
+            this.lblShowSubject.Text = "-----";
+            // 
+            // lblShowCareer
+            // 
+            this.lblShowCareer.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblShowCareer.AutoSize = true;
+            this.lblShowCareer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShowCareer.ForeColor = System.Drawing.Color.White;
+            this.lblShowCareer.Location = new System.Drawing.Point(107, 52);
+            this.lblShowCareer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShowCareer.Name = "lblShowCareer";
+            this.lblShowCareer.Size = new System.Drawing.Size(39, 20);
+            this.lblShowCareer.TabIndex = 57;
+            this.lblShowCareer.Text = "-----";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancel.Enabled = false;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(1385, 146);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(135, 35);
+            this.btnCancel.TabIndex = 56;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // lblError
             // 
             this.lblError.AutoSize = true;
@@ -340,17 +526,18 @@
             this.txtPlace.Name = "txtPlace";
             this.txtPlace.Size = new System.Drawing.Size(285, 30);
             this.txtPlace.TabIndex = 29;
+            this.txtPlace.Visible = false;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(787, 145);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 28;
             this.label2.Text = "Lugar:";
             // 
@@ -365,6 +552,7 @@
             this.dtTime.ShowUpDown = true;
             this.dtTime.Size = new System.Drawing.Size(95, 27);
             this.dtTime.TabIndex = 27;
+            this.dtTime.Visible = false;
             // 
             // cbb3Vowel
             // 
@@ -376,13 +564,14 @@
             this.cbb3Vowel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb3Vowel.ForeColor = System.Drawing.Color.White;
             this.cbb3Vowel.FormattingEnabled = true;
-            this.cbb3Vowel.Location = new System.Drawing.Point(1236, 96);
+            this.cbb3Vowel.Location = new System.Drawing.Point(1236, 102);
             this.cbb3Vowel.Margin = new System.Windows.Forms.Padding(5);
             this.cbb3Vowel.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbb3Vowel.Name = "cbb3Vowel";
             this.cbb3Vowel.Size = new System.Drawing.Size(285, 28);
             this.cbb3Vowel.Sorted = true;
             this.cbb3Vowel.TabIndex = 26;
+            this.cbb3Vowel.Visible = false;
             // 
             // cbb1Vowel
             // 
@@ -394,13 +583,14 @@
             this.cbb1Vowel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb1Vowel.ForeColor = System.Drawing.Color.White;
             this.cbb1Vowel.FormattingEnabled = true;
-            this.cbb1Vowel.Location = new System.Drawing.Point(1236, 54);
+            this.cbb1Vowel.Location = new System.Drawing.Point(1236, 49);
             this.cbb1Vowel.Margin = new System.Windows.Forms.Padding(5);
             this.cbb1Vowel.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbb1Vowel.Name = "cbb1Vowel";
             this.cbb1Vowel.Size = new System.Drawing.Size(285, 28);
             this.cbb1Vowel.Sorted = true;
             this.cbb1Vowel.TabIndex = 25;
+            this.cbb1Vowel.Visible = false;
             // 
             // cbb2Vowel
             // 
@@ -412,13 +602,14 @@
             this.cbb2Vowel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb2Vowel.ForeColor = System.Drawing.Color.White;
             this.cbb2Vowel.FormattingEnabled = true;
-            this.cbb2Vowel.Location = new System.Drawing.Point(847, 96);
+            this.cbb2Vowel.Location = new System.Drawing.Point(847, 101);
             this.cbb2Vowel.Margin = new System.Windows.Forms.Padding(5);
             this.cbb2Vowel.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbb2Vowel.Name = "cbb2Vowel";
             this.cbb2Vowel.Size = new System.Drawing.Size(285, 28);
             this.cbb2Vowel.Sorted = true;
             this.cbb2Vowel.TabIndex = 24;
+            this.cbb2Vowel.Visible = false;
             // 
             // cbbTitular
             // 
@@ -430,13 +621,14 @@
             this.cbbTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbTitular.ForeColor = System.Drawing.Color.White;
             this.cbbTitular.FormattingEnabled = true;
-            this.cbbTitular.Location = new System.Drawing.Point(847, 58);
+            this.cbbTitular.Location = new System.Drawing.Point(847, 49);
             this.cbbTitular.Margin = new System.Windows.Forms.Padding(5);
             this.cbbTitular.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbbTitular.Name = "cbbTitular";
             this.cbbTitular.Size = new System.Drawing.Size(285, 28);
             this.cbbTitular.Sorted = true;
             this.cbbTitular.TabIndex = 23;
+            this.cbbTitular.Visible = false;
             // 
             // cbbSubject
             // 
@@ -455,6 +647,7 @@
             this.cbbSubject.Size = new System.Drawing.Size(547, 28);
             this.cbbSubject.Sorted = true;
             this.cbbSubject.TabIndex = 22;
+            this.cbbSubject.Visible = false;
             // 
             // cbbCarrer
             // 
@@ -473,6 +666,7 @@
             this.cbbCarrer.Size = new System.Drawing.Size(547, 28);
             this.cbbCarrer.Sorted = true;
             this.cbbCarrer.TabIndex = 21;
+            this.cbbCarrer.Visible = false;
             this.cbbCarrer.SelectedValueChanged += new System.EventHandler(this.cbbCarrer_SelectedValueChanged);
             // 
             // btnNewExam
@@ -493,6 +687,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.lblMode);
             this.panel1.Controls.Add(this.btnNewExam);
             this.panel1.Controls.Add(this.btnDeleteExam);
             this.panel1.Controls.Add(this.btnUpdateExam);
@@ -501,6 +696,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1535, 43);
             this.panel1.TabIndex = 26;
+            // 
+            // lblMode
+            // 
+            this.lblMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMode.AutoSize = true;
+            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMode.ForeColor = System.Drawing.Color.White;
+            this.lblMode.Location = new System.Drawing.Point(1247, 7);
+            this.lblMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(115, 29);
+            this.lblMode.TabIndex = 26;
+            this.lblMode.Text = "--Mode--";
+            this.lblMode.Visible = false;
             // 
             // FormExams
             // 
@@ -520,6 +729,7 @@
             this.gbNewExam.ResumeLayout(false);
             this.gbNewExam.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -539,11 +749,6 @@
         private System.Windows.Forms.Button btnDeleteExam;
         private System.Windows.Forms.Button btnUpdateExam;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn carrer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn enrollments;
         private System.Windows.Forms.GroupBox gbNewExam;
         private System.Windows.Forms.Button btnNewExam;
         private Panel panel1;
@@ -557,5 +762,23 @@
         private Label label2;
         private TextBox txtPlace;
         private Label lblError;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn carrer;
+        private DataGridViewTextBoxColumn subject;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn enrollments;
+        private DataGridViewTextBoxColumn SubjectId;
+        private DataGridViewTextBoxColumn CareerId;
+        private Label lblMode;
+        private Button btnCancel;
+        private Label lblShowThird;
+        private Label lblShowFirst;
+        private Label lblShowPlace;
+        private Label lblShowSec;
+        private Label lblShowTit;
+        private Label lblShowTime;
+        private Label lblShowDate;
+        private Label lblShowSubject;
+        private Label lblShowCareer;
     }
 }

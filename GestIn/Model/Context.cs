@@ -75,15 +75,18 @@ namespace GestIn.Model
 
             modelBuilder.Entity<Exam>(entity =>
             {
-                entity.HasOne(d => d.TitularNavigation)
-                    .WithMany(p => p.ExamTitularNavigations)
-                    .HasForeignKey(d => d.Titular)
-                    .HasConstraintName("FK_EXAMENES_DOCENTES3");
+                entity.Property(e => e.Date).HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
 
                 entity.HasOne(d => d.FirstVowelNavigation)
                     .WithMany(p => p.ExamFirstVowelNavigations)
                     .HasForeignKey(d => d.FirstVowel)
                     .HasConstraintName("FK_EXAMENES_DOCENTES");
+
+                entity.HasOne(d => d.IdSubjectNavigation)
+                    .WithMany(p => p.Exams)
+                    .HasForeignKey(d => d.IdSubject)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Exam_Subject");
 
                 entity.HasOne(d => d.SecondVowelNavigation)
                     .WithMany(p => p.ExamSecondVowelNavigations)
@@ -94,6 +97,11 @@ namespace GestIn.Model
                     .WithMany(p => p.ExamThirdVowelNavigations)
                     .HasForeignKey(d => d.ThirdVowel)
                     .HasConstraintName("FK_EXAMENES_DOCENTES2");
+
+                entity.HasOne(d => d.TitularNavigation)
+                    .WithMany(p => p.ExamTitularNavigations)
+                    .HasForeignKey(d => d.Titular)
+                    .HasConstraintName("FK_EXAMENES_DOCENTES3");
             });
 
             modelBuilder.Entity<ExamEnrolment>(entity =>

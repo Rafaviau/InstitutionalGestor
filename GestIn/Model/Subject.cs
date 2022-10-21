@@ -37,6 +37,8 @@ namespace GestIn.Model
         public virtual ICollection<Correlative> CorrelativeCorrelativeSubjects { get; set; }
         [InverseProperty("Subject")]
         public virtual ICollection<Correlative> CorrelativeSubjects { get; set; }
+        [InverseProperty("IdSubjectNavigation")]
+        public virtual ICollection<Exam> Exams { get; set; }
         [InverseProperty("Subject")]
         public virtual ICollection<Grade> Grades { get; set; }
         [InverseProperty("Subject")]

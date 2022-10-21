@@ -12,7 +12,7 @@ namespace GestIn.Model
     {
         [Key]
         public int Id { get; set; }
-        public int Subject { get; set; }
+        public int IdSubject { get; set; }
         public int? FirstVowel { get; set; }
         public int? SecondVowel { get; set; }
         public int? ThirdVowel { get; set; }
@@ -25,17 +25,20 @@ namespace GestIn.Model
         [StringLength(50)]
         public string LastModificationBy { get; set; } = null!;
 
-        [ForeignKey("Titular")]
-        [InverseProperty("ExamTitularNavigations")]
-        public virtual Teacher? TitularNavigation { get; set; }
         [ForeignKey("FirstVowel")]
         [InverseProperty("ExamFirstVowelNavigations")]
         public virtual Teacher? FirstVowelNavigation { get; set; }
+        [ForeignKey("IdSubject")]
+        [InverseProperty("Exams")]
+        public virtual Subject IdSubjectNavigation { get; set; } = null!;
         [ForeignKey("SecondVowel")]
         [InverseProperty("ExamSecondVowelNavigations")]
         public virtual Teacher? SecondVowelNavigation { get; set; }
         [ForeignKey("ThirdVowel")]
         [InverseProperty("ExamThirdVowelNavigations")]
         public virtual Teacher? ThirdVowelNavigation { get; set; }
+        [ForeignKey("Titular")]
+        [InverseProperty("ExamTitularNavigations")]
+        public virtual Teacher? TitularNavigation { get; set; }
     }
 }

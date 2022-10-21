@@ -1,4 +1,5 @@
 ﻿using GestIn.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -33,7 +34,7 @@ namespace GestIn.Controllers
             try
             {
                 Exam exam = new Exam();
-                exam.Subject = sub.Id;
+                exam.IdSubject = sub.Id;
                 exam.Date = datetime;
                 if(tit != null)exam.Titular = tit.Id;
                 if (firstVow != null) exam.FirstVowel = firstVow.Id;
@@ -55,6 +56,18 @@ namespace GestIn.Controllers
                 MessageBox.Show(exception.Message);
             }
             return false;
+        }
+        public List<Exam> loadExams()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Exams.Include(x => x.IdSubjectNavigation).Include(x => x.IdSubjectNavigation.Career).ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
         }
     }
 }

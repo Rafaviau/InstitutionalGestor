@@ -1,4 +1,5 @@
 ﻿using GestIn.Controllers;
+using GestIn.Model;
 using GestIn.Properties;
 using System;
 using System.Collections.Generic;
@@ -21,38 +22,66 @@ namespace GestIn.UI.Home.Exams
         {
             InitializeComponent();
             cbbCarrer.DataSource = careerController.loadCareers();
+            foreach (Exam e in examCnt.loadExams()) {
+                addExam(e);
+            }
         }
-
+        private void addExam(int cod, string career, string subject, DateTime date)
+        {
+            int StudentsEnroled = 0;
+            dgvExams.Rows.Add(cod,career,subject,date, StudentsEnroled);
+        }
+        private void addExam(Exam ex)
+        {
+            int StudentsEnroled = 0;
+            dgvExams.Rows.Add(ex.Id, ex.IdSubjectNavigation.Career.Name, ex.IdSubjectNavigation.Name, ex.Date, StudentsEnroled);
+        }
         private void btnNewExam_Click(object sender, EventArgs e)
         {
-            if (cbbTitular.Enabled == true) disableNewExam();
-            else enableNewExam();
+            lblMode.Text = "Crear nuevo examen";
+            btnSave.BackColor = Color.FromArgb(114, 137, 218);
+            changeButtonsState();
+            changeShowLabelState();
+            changeNewExamState();
         }
-        private void enableNewExam() {
-            gbNewExam.BackColor = Color.FromArgb(54, 57, 63);
-            cbbCarrer.Enabled = true;
-            cbbSubject.Enabled = true;
-            cbb1Vowel.Enabled = true;
-            cbb2Vowel.Enabled = true;
-            cbb3Vowel.Enabled = true;
-            cbbTitular.Enabled = true;
-            txtPlace.Enabled = true;
-            dtDate.Enabled = true;
-            dtTime.Enabled = true;
-            btnSave.Enabled = true;
+        private void changeNewExamState() {
+            if(gbNewExam.BackColor == Color.FromArgb(54, 57, 63)) gbNewExam.BackColor = Color.FromArgb(84, 87, 93);
+            else gbNewExam.BackColor = Color.FromArgb(54, 57, 63);
+            cbbCarrer.Visible = !cbbCarrer.Visible;
+            cbbSubject.Visible = !cbbSubject.Visible;
+            cbb1Vowel.Visible = !cbb1Vowel.Visible;
+            cbb2Vowel.Visible = !cbb2Vowel.Visible;
+            cbb3Vowel.Visible = !cbb3Vowel.Visible;
+            cbbTitular.Visible = !cbbTitular.Visible;
+            txtPlace.Visible = !txtPlace.Visible;
+            dtDate.Visible = !dtDate.Visible;
+            dtTime.Visible = !dtTime.Visible;
+            btnSave.Visible = !btnSave.Visible;
+            btnCancel.Enabled = !btnCancel.Visible;
+            lblMode.Visible = !lblMode.Visible;
+            btnCancel.Visible = !btnCancel.Visible;
         }
-        private void disableNewExam() {
-            gbNewExam.BackColor = Color.FromArgb(84, 87, 93);
-            cbbCarrer.Enabled = false;
-            cbbSubject.Enabled = false;
-            cbb1Vowel.Enabled = false;
-            cbb2Vowel.Enabled = false;
-            cbb3Vowel.Enabled = false;
-            cbbTitular.Enabled = false;
-            txtPlace.Enabled = false;
-            dtDate.Enabled = false;
-            dtTime.Enabled = false;
-            btnSave.Enabled = false;
+        private void changeShowLabelState()
+        {
+            lblShowCareer.Visible = !lblShowCareer.Visible;
+            lblShowDate.Visible = !lblShowDate.Visible;
+            lblShowFirst.Visible = !lblShowFirst.Visible;
+            lblShowPlace.Visible = !lblShowPlace.Visible;
+            lblShowSec.Visible = !lblShowSec.Visible;
+            lblShowSubject.Visible = !lblShowSubject.Visible;
+            lblShowThird.Visible = !lblShowThird.Visible;
+            lblShowTime.Visible = !lblShowTime.Visible;
+            lblShowTit.Visible = !lblShowTit.Visible;
+        }
+        private void clearExamForm() {
+            cbbCarrer.SelectedIndex = 1;
+            cbbSubject.SelectedIndex = 1;
+            //cbb1Vowel.SelectedIndex = 1;
+            //cbb2Vowel.SelectedIndex = 1;
+            //cbb3Vowel.SelectedIndex = 1;
+            //cbbTitular.SelectedIndex = 1;
+            txtPlace.Text = "";
+
         }
         private (bool,string) verifyNewExamInfo() {
             string msg = "Cargado";
@@ -110,5 +139,31 @@ namespace GestIn.UI.Home.Exams
             await Task.Delay(2000);
             lblError.Visible = false;
         }
+        private void changeButtonsState() {
+            btnNewExam.Visible = !btnNewExam.Visible;
+            btnUpdateExam.Visible = !btnUpdateExam.Visible;
+            btnDeleteExam.Visible = !btnDeleteExam.Visible;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            changeStates();
+            changeButtonsState();
+            btnSave.BackColor = Color.FromArgb(114, 137, 218);
+            clearExamForm();
+        }
+
+        private void btnUpdateExam_Click(object sender, EventArgs e)
+        {
+            lblMode.Text = "Actualizar examen existente";
+            btnSave.BackColor = Color.FromArgb(236, 232, 26);
+            changeButtonsState();
+            changeStates();
+        }
+        private void changeStates() {
+            changeShowLabelState();
+            changeNewExamState();
+        }
+
     }
 }
