@@ -24,7 +24,7 @@ namespace GestIn.UI.Home.Careers
 
         private void formCareer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
+
         }
 
         private void formCarrera_Load(object sender, EventArgs e)

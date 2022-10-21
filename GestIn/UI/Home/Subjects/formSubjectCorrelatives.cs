@@ -27,10 +27,9 @@ namespace GestIn.UI.Home.Subjects
             InitializeComponent();
         }
 
-        private void formSubjectCorrelatives_FormClosed(object sender, FormClosedEventArgs e)
+        private void formSubjectCorrelatives_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parentFormSubject.Visible = true;
-            this.Close();
+            parentFormSubject.Show();
         }
 
         private void formSubjectCorrelatives_Load(object sender, EventArgs e)
@@ -110,5 +109,7 @@ namespace GestIn.UI.Home.Subjects
         {
 
         }
+
+        
     }
 }

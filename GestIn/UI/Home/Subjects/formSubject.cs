@@ -28,10 +28,9 @@ namespace GestIn.UI.Home.Subjects
             NullCheckCarreras();
         }
 
-        private void formSubject_FormClosed(object sender, FormClosedEventArgs e)
+        private void formSubject_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formCareer.Visible = true;
-            this.Close();
+            formCareer.Show();
         }
 
         public void NullCheckCarreras() //Para que no me paresca errores
@@ -57,11 +56,20 @@ namespace GestIn.UI.Home.Subjects
 
         public void RefreshTableSubjects()
         {
-            bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
-            bindingSourceCarreraMaterias.ResetBindings(false);
-            dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
-            dataGridViewMaterias.CurrentCell.Selected = false; // para que el datagrid no comienze en la primera fila
-            dataGridViewMaterias.ClearSelection();
+            if(cbbCarreraSelector.SelectedItem!=null)
+            {
+                try
+                {
+                    bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
+                    bindingSourceCarreraMaterias.ResetBindings(false);
+                    dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
+                    RefreshLableSubjectName(SetGlobalSubject());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         public void RefreshCbbCareers()
@@ -193,9 +201,6 @@ namespace GestIn.UI.Home.Subjects
             dataGridViewMaterias.Enabled = false;
         }
 
-        private void label123_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

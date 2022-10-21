@@ -208,6 +208,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "formSubjectCorrelatives";
             this.Text = "formSubjectCorrelatives";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubjectCorrelatives_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSubjectCorrelatives_FormClosed_1);
             this.Load += new System.EventHandler(this.formSubjectCorrelatives_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).EndInit();

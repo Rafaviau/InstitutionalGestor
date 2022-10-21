@@ -311,7 +311,6 @@
             this.label123.Size = new System.Drawing.Size(155, 20);
             this.label123.TabIndex = 37;
             this.label123.Text = "Materia Seleccionada:";
-            this.label123.Click += new System.EventHandler(this.label123_Click);
             // 
             // lblShowSubjectName
             // 
@@ -373,7 +372,7 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "formSubject";
             this.Text = "formSubject";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSubject_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubject_FormClosing);
             this.Load += new System.EventHandler(this.formSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).EndInit();

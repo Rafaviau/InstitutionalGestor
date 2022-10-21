@@ -286,6 +286,7 @@ namespace GestIn.Controllers
 
         public List<Subject> getSubjectsFromCareer(object career) //pido las materias de una determinada carrera
         {
+
             List<Subject> specifiedListSubjects = new List<Subject>();
             Career carreraSelector = (Career)career;
 
@@ -600,7 +601,7 @@ namespace GestIn.Controllers
 
         #region Teachers
 
-        public void assignTeacherCharge(object teacher, object subject, string condition)
+        public void assignTeacherCharge(object teacher, object subject, string condition, string datesince)
         {
             TeacherSubject newCharge = new TeacherSubject();//MessageBox.Show(newCharge.TOSTRING());
             Teacher selectedTeacher = (Teacher)teacher;
@@ -609,9 +610,8 @@ namespace GestIn.Controllers
 
             newCharge.TeacherId = selectedTeacher.Id;
             newCharge.SubjectId = selectedSubject.Id;
-            newCharge.DateSince = DateTime.Now;
+            newCharge.DateSince = DateTime.Parse(datesince);
             newCharge.Active = true;
-            //newCharge.DateUntil = 
             newCharge.Condition = condition;
             newCharge.CreatedAt = DateTime.Now;
             newCharge.LastModificationBy = "Preceptor cargando docente";
@@ -641,50 +641,120 @@ namespace GestIn.Controllers
             else
             {
                 List<TeacherSubject> activeteachers = new List<TeacherSubject>();
-                activeteachers = ActiveTeachers(newCharge);
+                activeteachers = ActiveTeachers();
                 foreach(TeacherSubject activeteacher in activeteachers)
                 {
                     if(activeteacher.TeacherId != newCharge.TeacherId)
                     {
                         try
                         {
-                            changeActiveCharge(newCharge);
                             using (var db = new Context())
                             {
                                 db.TeacherSubjects.Add(newCharge);
                                 db.SaveChanges();
+                                removeActiveCharge(newCharge);
                             }
                         }
                         catch (SqlException exception) { throw exception; }
                     }
                 }
-                
-                
+            }
+        }
+        
+        public void assignActiveCharge(int teacherID, object subject)
+        {
+            Subject existingSubject = (Subject)subject;
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            if(existingCharge.Condition.Equals("Suplente"))
+            {
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        existingCharge.Active = true;
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+            else
+            {
+                List<TeacherSubject> activeteachers = new List<TeacherSubject>();
+                activeteachers = getAllActiveCharges(existingSubject);
+                if (activeteachers.Any())
+                {
+                    foreach (TeacherSubject activeteacher in activeteachers)
+                    {
+                        if (activeteacher.Condition == existingCharge.Condition)
+                        {
+                            try
+                            {
+                                using (var db = new Context())
+                                {
+                                    existingCharge.Active = true;
+                                    db.Update(existingCharge);
+                                    db.SaveChanges();
+                                    removeActiveCharge(activeteacher);
+                                }
+                            }
+                            catch (SqlException exception) { throw exception; }
+                        }
+                        else if(activeteacher.Condition != existingCharge.Condition)
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        using (var db = new Context())
+                        {
+                            existingCharge.Active = true;
+                            db.Update(existingCharge);
+                            db.SaveChanges();
+                        }
+                    }
+                    catch (SqlException exception) { throw exception; }
+                }
+            }
+        }
+        public void removeActiveCharge(TeacherSubject currentActive)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    currentActive.Active = false;
+                    db.Update(currentActive);
+                    db.SaveChanges();
+                }
+                catch (SqlException exception) { throw exception; }
             }
         }
 
-        public bool removeTeacherCharge(int teacherID, object subject) //preguntar sobre activo
+        public void removeActiveCharge(int teacherID, object subject, string dateuntil)
         {
             TeacherSubject existingCharge = findTeacherCharge(teacherID);
             Subject existingSubject = (Subject)subject;
+            existingCharge.DateUntil = DateTime.Parse(dateuntil);
             try
             {
                 using (var db = new Context())
                 {
-                    var resultTeacher = findTeacherCharge(existingCharge,existingSubject);
-                    if (resultTeacher != null)
-                    {
-                        db.Remove(resultTeacher);
-                        db.SaveChanges();
-                        return true;
-                    }
+                    existingCharge.Active = false;
+                    db.Update(existingCharge);
+                    db.SaveChanges();
                 }
             }
             catch (SqlException exception) { throw exception; }
-            return false;
+
+
         }
 
-        public List<TeacherSubject> ActiveTeachers(TeacherSubject charge)
+        public List<TeacherSubject> ActiveTeachers()
         {
             using (var db = new Context())
             {
@@ -695,22 +765,6 @@ namespace GestIn.Controllers
                 }
                 catch (SqlException exception) { throw exception; }
             }
-        }
-
-        public void changeActiveCharge(Subject subject)
-        {
-            TeacherSubject possibleActive = null;
-
-            if (getCurrentActiveTitularCharge(subject) != null)
-            {
-                possibleActive = getCurrentActiveTitularCharge(subject);
-                removeActiveCharge(possibleActive);
-            }
-        }
-
-        public void changeActiveCharge(TeacherSubject charge)
-        {
-            removeActiveCharge(charge);
         }
 
         public TeacherSubject findTeacherCharge(object teacherCharge)
@@ -794,7 +848,7 @@ namespace GestIn.Controllers
             }
             return possibleActive;
         }
-        public List<TeacherSubject> getAllActiveCharges(Subject subjectMatter) //uno para titular
+        public List<TeacherSubject> getAllActiveCharges(Subject subjectMatter)
         {
             List<TeacherSubject> listActiveCharges = new List<TeacherSubject>();  
             using (var db = new Context())
@@ -808,51 +862,31 @@ namespace GestIn.Controllers
             }
         }
 
-        public TeacherSubject getCurrentActiveTitularCharge(Subject subjectMatter) //uno para titular
+        /*
+        public bool removeTeacherCharge(int teacherID, object subject) //preguntar sobre activo
         {
-            TeacherSubject possibleActive = null;
-            List<TeacherSubject> listCharges = new List<TeacherSubject>();
-            listCharges = getTeachersFromSubject(subjectMatter);
-                
-            foreach (var item in listCharges)
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            Subject existingSubject = (Subject)subject;
+            try
             {
-                if (item.Condition.Equals("Titular") && item.Active == true)
+                using (var db = new Context())
                 {
-                    possibleActive = item;
+                    var resultTeacher = findTeacherCharge(existingCharge,existingSubject);
+                    if (resultTeacher != null)
+                    {
+                        changeActiveCharge(resultTeacher);
+                        //db.Remove(resultTeacher);
+                        //db.SaveChanges();
+                        return true;
+                    }
                 }
             }
-            return possibleActive;
+            catch (SqlException exception) { throw exception; } //deprecated
+            return false;
         }
+        */
 
-        public TeacherSubject getCurrentActiveProvisionalCharge(Subject subjectMatter) //uno para provisional
-        {
-            TeacherSubject possibleActive = null;
-            List<TeacherSubject> listCharges = new List<TeacherSubject>();
-            listCharges = getTeachersFromSubject(subjectMatter);
 
-            foreach (var item in listCharges)
-            {
-                if (item.Condition.Equals("Provisional") && item.Active == true)
-                {
-                    possibleActive = item;
-                }
-            }
-            return possibleActive;
-        }
-
-        public void removeActiveCharge(TeacherSubject currentActive)
-        {
-            using (var db = new Context())
-            {
-                try
-                {
-                    currentActive.Active = false;
-                    db.Update(currentActive);
-                    db.SaveChanges();
-                }
-                catch (SqlException exception) { throw exception; }
-            }
-        }
         #endregion
     }
 }
