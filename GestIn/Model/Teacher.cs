@@ -23,6 +23,7 @@ namespace GestIn.Model
         [StringLength(50)]
         public string? Cuil { get; set; }
         public int UserId { get; set; }
+        //public string Titulo { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

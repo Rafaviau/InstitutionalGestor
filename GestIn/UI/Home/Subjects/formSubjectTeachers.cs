@@ -96,40 +96,34 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
-                {
-                    int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem), txtFechaInicio.Text);
-                    RefreshTableTeachersSubject();
-                }
+                careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem), txtFechaInicio.Text, txtFechaCese.Text);
+                RefreshTableTeachersSubject();
             }
             catch { }
         }
 
-        private void btnAddActive_Click(object sender, EventArgs e)
+        private void btnModifyUntil_Click(object sender, EventArgs e)
         {
             try
             {
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.assignActiveCharge(selectedTeacherID,receivedSubject);
+                    careerController.changeChargeDateUntil(selectedTeacherID, txtFechaCese.Text);
                     RefreshTableTeachersSubject();
                 }
             }
             catch { }
         }
 
-        private void btnRemoveDocente_Click(object sender, EventArgs e)
+        private void btnDeactivate_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
-                    
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.removeActiveCharge(selectedTeacherID, receivedSubject, txtFechaCese.Text);
+                    careerController.deactivateCharge(selectedTeacherID, txtFechaCese.Text);
                     RefreshTableTeachersSubject();
                 }
             }
@@ -210,5 +204,7 @@ namespace GestIn.UI.Home.Subjects
         {
             RefreshLableTeacherName();
         }
+
+        
     }
 }

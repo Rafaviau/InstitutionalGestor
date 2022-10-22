@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.lblmateriaName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRemoveActive = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
@@ -52,11 +51,12 @@
             this.cmbCondition = new System.Windows.Forms.ComboBox();
             this.btnInsert = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAddActive = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtFechaInicio = new System.Windows.Forms.TextBox();
             this.txtFechaCese = new System.Windows.Forms.TextBox();
+            this.btnModifyUntil = new System.Windows.Forms.Button();
+            this.btnDeactivate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
@@ -83,16 +83,6 @@
             this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 56;
             this.label1.Text = "Materia Seleccionada: ";
-            // 
-            // btnRemoveActive
-            // 
-            this.btnRemoveActive.Location = new System.Drawing.Point(965, 277);
-            this.btnRemoveActive.Name = "btnRemoveActive";
-            this.btnRemoveActive.Size = new System.Drawing.Size(125, 55);
-            this.btnRemoveActive.TabIndex = 55;
-            this.btnRemoveActive.Text = "Desactivar Docente";
-            this.btnRemoveActive.UseVisualStyleBackColor = true;
-            this.btnRemoveActive.Click += new System.EventHandler(this.btnRemoveDocente_Click);
             // 
             // label2
             // 
@@ -210,7 +200,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(770, 86);
+            this.label3.Location = new System.Drawing.Point(512, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 61;
@@ -221,7 +211,7 @@
             this.lblteachername.AutoSize = true;
             this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
-            this.lblteachername.Location = new System.Drawing.Point(785, 115);
+            this.lblteachername.Location = new System.Drawing.Point(687, 159);
             this.lblteachername.Name = "lblteachername";
             this.lblteachername.Size = new System.Drawing.Size(125, 20);
             this.lblteachername.TabIndex = 62;
@@ -247,16 +237,16 @@
             "Titular",
             "Suplente",
             "Provisional"});
-            this.cmbCondition.Location = new System.Drawing.Point(636, 160);
+            this.cmbCondition.Location = new System.Drawing.Point(687, 202);
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(125, 28);
             this.cmbCondition.TabIndex = 64;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(627, 277);
+            this.btnInsert.Location = new System.Drawing.Point(529, 331);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(134, 55);
+            this.btnInsert.Size = new System.Drawing.Size(148, 34);
             this.btnInsert.TabIndex = 65;
             this.btnInsert.Text = "Activar Docente";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -266,27 +256,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(512, 164);
+            this.label4.Location = new System.Drawing.Point(563, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 66;
             this.label4.Text = "Condicion:";
             // 
-            // btnAddActive
-            // 
-            this.btnAddActive.Location = new System.Drawing.Point(1076, 12);
-            this.btnAddActive.Name = "btnAddActive";
-            this.btnAddActive.Size = new System.Drawing.Size(148, 37);
-            this.btnAddActive.TabIndex = 67;
-            this.btnAddActive.Text = "Agregar Activo";
-            this.btnAddActive.UseVisualStyleBackColor = true;
-            this.btnAddActive.Click += new System.EventHandler(this.btnAddActive_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(512, 208);
+            this.label5.Location = new System.Drawing.Point(914, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 68;
@@ -296,7 +276,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(857, 168);
+            this.label6.Location = new System.Drawing.Point(914, 187);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
@@ -304,29 +284,50 @@
             // 
             // txtFechaInicio
             // 
-            this.txtFechaInicio.Location = new System.Drawing.Point(636, 205);
+            this.txtFechaInicio.Location = new System.Drawing.Point(1038, 141);
             this.txtFechaInicio.Name = "txtFechaInicio";
             this.txtFechaInicio.Size = new System.Drawing.Size(125, 27);
             this.txtFechaInicio.TabIndex = 70;
             // 
             // txtFechaCese
             // 
-            this.txtFechaCese.Location = new System.Drawing.Point(962, 161);
+            this.txtFechaCese.Location = new System.Drawing.Point(1038, 184);
             this.txtFechaCese.Name = "txtFechaCese";
             this.txtFechaCese.Size = new System.Drawing.Size(125, 27);
             this.txtFechaCese.TabIndex = 71;
+            // 
+            // btnModifyUntil
+            // 
+            this.btnModifyUntil.Location = new System.Drawing.Point(1022, 334);
+            this.btnModifyUntil.Name = "btnModifyUntil";
+            this.btnModifyUntil.Size = new System.Drawing.Size(144, 31);
+            this.btnModifyUntil.TabIndex = 72;
+            this.btnModifyUntil.Text = "Modificar Cese";
+            this.btnModifyUntil.UseVisualStyleBackColor = true;
+            this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyUntil_Click);
+            // 
+            // btnDeactivate
+            // 
+            this.btnDeactivate.Location = new System.Drawing.Point(687, 331);
+            this.btnDeactivate.Name = "btnDeactivate";
+            this.btnDeactivate.Size = new System.Drawing.Size(155, 34);
+            this.btnDeactivate.TabIndex = 73;
+            this.btnDeactivate.Text = "Desactivar Docente";
+            this.btnDeactivate.UseVisualStyleBackColor = true;
+            this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
             // 
             // formSubjectTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1236, 680);
+            this.ClientSize = new System.Drawing.Size(1241, 699);
+            this.Controls.Add(this.btnDeactivate);
+            this.Controls.Add(this.btnModifyUntil);
             this.Controls.Add(this.txtFechaCese);
             this.Controls.Add(this.txtFechaInicio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnAddActive);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.cmbCondition);
@@ -337,7 +338,6 @@
             this.Controls.Add(this.dataGridViewTeachers);
             this.Controls.Add(this.lblmateriaName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnRemoveActive);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Name = "formSubjectTeachers";
@@ -358,7 +358,6 @@
 
         private Label lblmateriaName;
         private Label label1;
-        private Button btnRemoveActive;
         private Label label2;
         private Label label7;
         private DataGridView dataGridViewTeachers;
@@ -373,7 +372,6 @@
         private ComboBox cmbCondition;
         private Button btnInsert;
         private Label label4;
-        private Button btnAddActive;
         private Label label5;
         private Label label6;
         private TextBox txtFechaInicio;
@@ -384,5 +382,7 @@
         private DataGridViewCheckBoxColumn Active;
         private DataGridViewTextBoxColumn DateSince;
         private DataGridViewTextBoxColumn DateUntil;
+        private Button btnModifyUntil;
+        private Button btnDeactivate;
     }
 }
