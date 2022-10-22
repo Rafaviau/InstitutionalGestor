@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenuLateral = new System.Windows.Forms.Panel();
+            this.btnExams = new System.Windows.Forms.Button();
             this.btnStudents = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelSeparador2 = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelSeparador1 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnExams = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,6 +64,27 @@
             this.panelMenuLateral.Name = "panelMenuLateral";
             this.panelMenuLateral.Size = new System.Drawing.Size(286, 748);
             this.panelMenuLateral.TabIndex = 5;
+            // 
+            // btnExams
+            // 
+            this.btnExams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnExams.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnExams.FlatAppearance.BorderSize = 0;
+            this.btnExams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExams.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExams.ForeColor = System.Drawing.Color.White;
+            this.btnExams.Image = global::GestIn.Properties.Resources.ExamIcon;
+            this.btnExams.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExams.Location = new System.Drawing.Point(0, 213);
+            this.btnExams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExams.Name = "btnExams";
+            this.btnExams.Padding = new System.Windows.Forms.Padding(3, 7, 6, 7);
+            this.btnExams.Size = new System.Drawing.Size(286, 60);
+            this.btnExams.TabIndex = 10;
+            this.btnExams.Text = "        Examenes";
+            this.btnExams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExams.UseVisualStyleBackColor = false;
+            this.btnExams.Click += new System.EventHandler(this.btnExams_Click);
             // 
             // btnStudents
             // 
@@ -222,27 +243,6 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(781, 748);
             this.panelContenedor.TabIndex = 6;
-            // 
-            // btnExams
-            // 
-            this.btnExams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.btnExams.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExams.FlatAppearance.BorderSize = 0;
-            this.btnExams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExams.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnExams.ForeColor = System.Drawing.Color.White;
-            this.btnExams.Image = global::GestIn.Properties.Resources.StudentIcon;
-            this.btnExams.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExams.Location = new System.Drawing.Point(0, 213);
-            this.btnExams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnExams.Name = "btnExams";
-            this.btnExams.Padding = new System.Windows.Forms.Padding(3, 7, 6, 7);
-            this.btnExams.Size = new System.Drawing.Size(286, 60);
-            this.btnExams.TabIndex = 10;
-            this.btnExams.Text = "        Examenes";
-            this.btnExams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExams.UseVisualStyleBackColor = false;
-            this.btnExams.Click += new System.EventHandler(this.btnExams_Click);
             // 
             // formHome
             // 

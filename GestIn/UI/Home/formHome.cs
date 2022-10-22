@@ -63,6 +63,7 @@ namespace GestIn.UI.Home
             btnCarreras.BackColor = Color.FromArgb(47, 49, 54);
             btnInicio.BackColor = Color.FromArgb(47, 49, 54);
             btnStudents.BackColor = Color.FromArgb(47, 49, 54);
+            btnExams.BackColor = Color.FromArgb(47, 49, 54);
             Button b = (Button)sender;
             b.BackColor = Color.FromArgb(114, 137, 218);
         }

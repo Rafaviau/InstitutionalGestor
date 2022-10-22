@@ -73,6 +73,37 @@ namespace GestIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoadingGif
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("LoadingGif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap BigErrorIcon
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("BigErrorIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExamIcon
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("ExamIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TickIcon
         {
             get

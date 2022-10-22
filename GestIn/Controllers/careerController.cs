@@ -54,7 +54,18 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
             }
         }
-
+        public List<Subject> loadSubjectsFromCareer(int careerId)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Subjects.Where(x => x.Career.Id == careerId).ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
         public List<Correlative> loadCorrelatives()
         {
             using (var db = new Context())

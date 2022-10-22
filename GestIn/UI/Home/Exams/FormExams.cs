@@ -124,6 +124,7 @@ namespace GestIn.UI.Home.Exams
 
                     clearExamForm();
                     changeStates();
+                    changeButtonsState();
                     btnSave.Visible = false;
                 }
             }
@@ -230,6 +231,7 @@ namespace GestIn.UI.Home.Exams
 
                     clearExamForm();
                     changeStates();
+                    changeButtonsState();
                     btnSaveUpdate.Visible = false;
                 }
             }
@@ -247,13 +249,25 @@ namespace GestIn.UI.Home.Exams
 
         private void btnDeleteExam_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??", "Confirm Delete!!", MessageBoxButtons.YesNo);
+            var confirmResult = MessageBox.Show("¿Esta seguro que desa eliminar este examen?", "Confirmar", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
                 if (examCnt.deleteExam(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString()))) {
                     dgvExams.Rows.RemoveAt(dgvExams.CurrentCell.RowIndex);
                 }
             }
+        }
+
+        private void btnOptions_Click(object sender, EventArgs e)
+        {
+            panelOptions.Visible = !panelOptions.Visible;
+        }
+
+        private void btnGenerateExams_Click(object sender, EventArgs e)
+        {
+            FormGenerateMultipleExams formGenerate = new FormGenerateMultipleExams();
+            formGenerate.ShowDialog();
+            panelOptions.Visible = !panelOptions.Visible;
         }
     }
 }

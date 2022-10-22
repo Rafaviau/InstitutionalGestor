@@ -12,6 +12,7 @@ namespace GestIn.Controllers
     internal class examController
     {
         #region Singletone
+        careerController cntCareer = careerController.GetInstance();
         private static examController? Instance;
         private examController() { }
 
@@ -63,7 +64,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    var result = db.Exams.Include(x => x.IdSubjectNavigation).Include(x => x.IdSubjectNavigation.Career).ToList();
+                    var result = db.Exams.Where(x => x.Date >= DateTime.Today).Include(x => x.IdSubjectNavigation).Include(x => x.IdSubjectNavigation.Career).ToList();
                     return result;
                 }
                 catch (SqlException exception) { throw exception; }
@@ -137,6 +138,20 @@ namespace GestIn.Controllers
             {
                 return false;
             }
+        }
+        public bool generateAllExamsFromCareer(object career,DateTime datetime)
+        {
+            try {
+                Career car = (Career)career;
+                List<Subject> subjects = cntCareer.loadSubjectsFromCareer(car.Id);
+                foreach (Subject s in subjects) {
+                    createExam(s, null, null, null, null, datetime, "");
+                }
+                return true;
+            } catch {
+                return false;
+            }
+
         }
     }
 }
