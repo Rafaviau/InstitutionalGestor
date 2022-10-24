@@ -24,6 +24,7 @@ namespace GestIn.Controllers
             }
             return Instance;
         }
+
         #endregion
         public bool createExam(object subject, object? tituar, object? firstVowel, object? secondVowel, object? thirdVowel, DateTime datetime, string place)
         {
@@ -152,6 +153,29 @@ namespace GestIn.Controllers
                 return false;
             }
 
+        }
+        public (List<Exam>, string) loadStudentExam(int studentDni)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var enrolment = db.SubjectEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Approved == true)).ToList();
+                    if (enrolment != null) { 
+                        var result = db.Exams.Where(
+                            x => (x.Date >= DateTime.Today && x.IdSubject ==  enrolment.SubjectId))
+                            .Include(x => x.IdSubjectNavigation)
+                            .Include(x => x.IdSubjectNavigation.Career)
+                         .ToList();
+                    return (result,null);
+                    }
+                    return (null, "El estudiante no esta en condiciones en ninguna cursada");
+                }
+                catch (SqlException exception) {
+                    return (null, exception.Message);
+                }
+            }
+            
         }
     }
 }

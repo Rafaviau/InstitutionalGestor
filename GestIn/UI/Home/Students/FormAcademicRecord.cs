@@ -81,7 +81,6 @@ namespace GestIn.UI.Home.Students
                 lbSearch.BringToFront();
                 loadLbSeach();
             }
-
         }
         private void loadLbSeach()
         {
@@ -261,6 +260,11 @@ namespace GestIn.UI.Home.Students
             catch (Exception ex){ }
 
             
+        }
+
+        private void lbSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

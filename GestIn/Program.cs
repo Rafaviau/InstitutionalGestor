@@ -1,4 +1,5 @@
 using GestIn.UI.Home;
+using GestIn.UI.Home.ExamEnrolment;
 using GestIn.UI.Home.Grades;
 using GestIn.UI.Home.Students;
 using GestIn.UI.Login;
@@ -16,7 +17,7 @@ namespace GestIn
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new test());
-            Application.Run(new formHome());
+            Application.Run(new formExamEnrolmentAdmin());
         }
     }
 }

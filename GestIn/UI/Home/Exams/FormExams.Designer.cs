@@ -218,7 +218,7 @@
             this.dtDate.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(292, 27);
-            this.dtDate.TabIndex = 6;
+            this.dtDate.TabIndex = 3;
             this.dtDate.Visible = false;
             // 
             // lblTime
@@ -312,7 +312,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(135, 35);
-            this.btnSave.TabIndex = 20;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Crear";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Visible = false;
@@ -417,7 +417,7 @@
             this.btnSaveUpdate.Margin = new System.Windows.Forms.Padding(5);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(135, 35);
-            this.btnSaveUpdate.TabIndex = 66;
+            this.btnSaveUpdate.TabIndex = 10;
             this.btnSaveUpdate.Text = "Actualizar";
             this.btnSaveUpdate.UseVisualStyleBackColor = false;
             this.btnSaveUpdate.Visible = false;
@@ -552,7 +552,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(135, 35);
-            this.btnCancel.TabIndex = 56;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
@@ -581,7 +581,7 @@
             this.txtPlace.Location = new System.Drawing.Point(847, 141);
             this.txtPlace.Name = "txtPlace";
             this.txtPlace.Size = new System.Drawing.Size(285, 30);
-            this.txtPlace.TabIndex = 29;
+            this.txtPlace.TabIndex = 7;
             this.txtPlace.Visible = false;
             // 
             // label2
@@ -606,7 +606,7 @@
             this.dtTime.Name = "dtTime";
             this.dtTime.ShowUpDown = true;
             this.dtTime.Size = new System.Drawing.Size(95, 27);
-            this.dtTime.TabIndex = 27;
+            this.dtTime.TabIndex = 4;
             this.dtTime.Visible = false;
             // 
             // cbb3Vowel
@@ -624,7 +624,7 @@
             this.cbb3Vowel.Name = "cbb3Vowel";
             this.cbb3Vowel.Size = new System.Drawing.Size(285, 28);
             this.cbb3Vowel.Sorted = true;
-            this.cbb3Vowel.TabIndex = 26;
+            this.cbb3Vowel.TabIndex = 9;
             this.cbb3Vowel.Visible = false;
             // 
             // cbb1Vowel
@@ -642,7 +642,7 @@
             this.cbb1Vowel.Name = "cbb1Vowel";
             this.cbb1Vowel.Size = new System.Drawing.Size(285, 28);
             this.cbb1Vowel.Sorted = true;
-            this.cbb1Vowel.TabIndex = 25;
+            this.cbb1Vowel.TabIndex = 8;
             this.cbb1Vowel.Visible = false;
             // 
             // cbb2Vowel
@@ -660,7 +660,7 @@
             this.cbb2Vowel.Name = "cbb2Vowel";
             this.cbb2Vowel.Size = new System.Drawing.Size(285, 28);
             this.cbb2Vowel.Sorted = true;
-            this.cbb2Vowel.TabIndex = 24;
+            this.cbb2Vowel.TabIndex = 6;
             this.cbb2Vowel.Visible = false;
             // 
             // cbbTitular
@@ -678,7 +678,7 @@
             this.cbbTitular.Name = "cbbTitular";
             this.cbbTitular.Size = new System.Drawing.Size(285, 28);
             this.cbbTitular.Sorted = true;
-            this.cbbTitular.TabIndex = 23;
+            this.cbbTitular.TabIndex = 5;
             this.cbbTitular.Visible = false;
             // 
             // cbbSubject
@@ -696,7 +696,7 @@
             this.cbbSubject.Name = "cbbSubject";
             this.cbbSubject.Size = new System.Drawing.Size(547, 28);
             this.cbbSubject.Sorted = true;
-            this.cbbSubject.TabIndex = 22;
+            this.cbbSubject.TabIndex = 2;
             this.cbbSubject.Visible = false;
             // 
             // cbbCarrer
@@ -714,7 +714,7 @@
             this.cbbCarrer.Name = "cbbCarrer";
             this.cbbCarrer.Size = new System.Drawing.Size(547, 28);
             this.cbbCarrer.Sorted = true;
-            this.cbbCarrer.TabIndex = 21;
+            this.cbbCarrer.TabIndex = 1;
             this.cbbCarrer.Visible = false;
             this.cbbCarrer.SelectedValueChanged += new System.EventHandler(this.cbbCarrer_SelectedValueChanged);
             // 
