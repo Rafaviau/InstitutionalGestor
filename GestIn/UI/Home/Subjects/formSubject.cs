@@ -14,11 +14,9 @@ namespace GestIn.UI.Home.Subjects
 {
     public partial class formSubject : Form
     {
-        formCareer formCareer;
         careerController careerController;
-        public formSubject(formCareer receivedformCareer)
+        public formSubject()
         {
-            formCareer = receivedformCareer;
             careerController = careerController.GetInstance();
             InitializeComponent();
         }
@@ -26,11 +24,6 @@ namespace GestIn.UI.Home.Subjects
         private void formSubject_Load(object sender, EventArgs e)
         {
             NullCheckCarreras();
-        }
-
-        private void formSubject_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            formCareer.Show();
         }
 
         public void NullCheckCarreras() //Para que no me paresca errores
@@ -56,7 +49,7 @@ namespace GestIn.UI.Home.Subjects
 
         public void RefreshTableSubjects()
         {
-            if(cbbCarreraSelector.SelectedItem!=null)
+            if(cbbCarreraSelector.SelectedItem!= null && careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem).Count>0)
             {
                 try
                 {
@@ -88,6 +81,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show(exc.Message);
             }
+            
         }
         public void DisableUserInput()
         {
@@ -131,7 +125,7 @@ namespace GestIn.UI.Home.Subjects
             object selectedSubject;
             try
             {
-                if(dataGridViewMaterias.SelectedRows != null)
+                if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem!=null)
                 {
                     idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
                     selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);

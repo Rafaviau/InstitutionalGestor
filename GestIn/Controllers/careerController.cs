@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Wordprocessing;
 using GestIn.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -163,7 +164,7 @@ namespace GestIn.Controllers
         }
 
 
-        public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn)
+        public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn, bool careerState)
         {
             try
             {
@@ -176,6 +177,7 @@ namespace GestIn.Controllers
                         updatedCareer.Name = name;
                         updatedCareer.Degree = degree;
                         updatedCareer.Turn = turn;
+                        updatedCareer.Active = careerState;
                         updatedCareer.LastModificationBy = "Alguien actualizo la carrera";
                         updatedCareer.UpdatedAt = DateTime.Now;
                         db.Update(updatedCareer);
@@ -432,6 +434,12 @@ namespace GestIn.Controllers
             return objMateria;
         }
 
+        public int getSubjectID(object materiaSelector) //??????????????????????????????????
+        {
+            int id = ((Subject)materiaSelector).Id;
+            return id;
+        }
+
         public List<Subject> getSubjectsExceptSame(object objcareer, object objsubject)
         {
             List<Subject> Subjects = new List<Subject>();
@@ -601,16 +609,15 @@ namespace GestIn.Controllers
 
         #region Teachers
 
-        public void assignTeacherCharge(object teacher, object subject, string condition, string datesince, string dateuntil)
+        public void assignTeacherCharge(object teacher, object subject, string condition)
         {
             TeacherSubject newCharge = new TeacherSubject();
             Teacher selectedTeacher = (Teacher)teacher;
             Subject selectedSubject = (Subject)subject;
-
             newCharge.TeacherId = selectedTeacher.Id;
             newCharge.SubjectId = selectedSubject.Id;
-            newCharge.DateSince = DateTime.Parse(datesince);
-            newCharge.DateUntil = DateTime.Parse(dateuntil);
+            newCharge.DateSince = null;
+            newCharge.DateUntil = null;
             newCharge.Active = true;
             newCharge.Condition = condition;
             newCharge.CreatedAt = DateTime.Now;
@@ -670,11 +677,10 @@ namespace GestIn.Controllers
             }
         }
 
-
-
-        public void changeChargeDateUntil(int teacherID, string dateuntil)
+        public void changeChargeDates(int teacherID, string datesince, string dateuntil)
         {
             TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            existingCharge.DateSince = DateTime.Parse(datesince);
             existingCharge.DateUntil = DateTime.Parse(dateuntil);
             try
             {

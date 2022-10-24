@@ -200,7 +200,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(512, 159);
+            this.label3.Location = new System.Drawing.Point(522, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 61;
@@ -211,7 +211,7 @@
             this.lblteachername.AutoSize = true;
             this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
-            this.lblteachername.Location = new System.Drawing.Point(687, 159);
+            this.lblteachername.Location = new System.Drawing.Point(697, 143);
             this.lblteachername.Name = "lblteachername";
             this.lblteachername.Size = new System.Drawing.Size(125, 20);
             this.lblteachername.TabIndex = 62;
@@ -237,7 +237,7 @@
             "Titular",
             "Suplente",
             "Provisional"});
-            this.cmbCondition.Location = new System.Drawing.Point(687, 202);
+            this.cmbCondition.Location = new System.Drawing.Point(697, 186);
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(125, 28);
             this.cmbCondition.TabIndex = 64;
@@ -256,7 +256,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(563, 206);
+            this.label4.Location = new System.Drawing.Point(573, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 66;
@@ -266,7 +266,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(914, 148);
+            this.label5.Location = new System.Drawing.Point(900, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 68;
@@ -276,7 +276,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(914, 187);
+            this.label6.Location = new System.Drawing.Point(900, 186);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
@@ -284,25 +284,25 @@
             // 
             // txtFechaInicio
             // 
-            this.txtFechaInicio.Location = new System.Drawing.Point(1038, 141);
+            this.txtFechaInicio.Location = new System.Drawing.Point(1024, 140);
             this.txtFechaInicio.Name = "txtFechaInicio";
             this.txtFechaInicio.Size = new System.Drawing.Size(125, 27);
             this.txtFechaInicio.TabIndex = 70;
             // 
             // txtFechaCese
             // 
-            this.txtFechaCese.Location = new System.Drawing.Point(1038, 184);
+            this.txtFechaCese.Location = new System.Drawing.Point(1024, 183);
             this.txtFechaCese.Name = "txtFechaCese";
             this.txtFechaCese.Size = new System.Drawing.Size(125, 27);
             this.txtFechaCese.TabIndex = 71;
             // 
             // btnModifyUntil
             // 
-            this.btnModifyUntil.Location = new System.Drawing.Point(1022, 334);
+            this.btnModifyUntil.Location = new System.Drawing.Point(975, 333);
             this.btnModifyUntil.Name = "btnModifyUntil";
             this.btnModifyUntil.Size = new System.Drawing.Size(144, 31);
             this.btnModifyUntil.TabIndex = 72;
-            this.btnModifyUntil.Text = "Modificar Cese";
+            this.btnModifyUntil.Text = "Modificar Fechas";
             this.btnModifyUntil.UseVisualStyleBackColor = true;
             this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyUntil_Click);
             // 

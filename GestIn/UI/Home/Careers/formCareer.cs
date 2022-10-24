@@ -22,14 +22,17 @@ namespace GestIn.UI.Home.Careers
             InitializeComponent();
         }
 
-        private void formCareer_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         private void formCarrera_Load(object sender, EventArgs e)
         {
-            RefreshTableCarrera();
+            NullCheckCarreras();
+        }
+
+        public void NullCheckCarreras()
+        {
+            if (careerController.loadCareers().Count != 0)
+            {
+                RefreshTableCarrera();
+            }
         }
 
         public void RefreshTableCarrera()
@@ -77,20 +80,9 @@ namespace GestIn.UI.Home.Careers
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text, this.chkActivo.Checked);
             RefreshTableCarrera();
             DisableUserInput();
-        }
-
-        private void btnFormMateria_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Hide();
-                formSubject formMateria = new formSubject(this);
-                formMateria.Show();
-            }
-            catch { }
         }
 
         private void dataGridViewCarreras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -126,6 +118,7 @@ namespace GestIn.UI.Home.Careers
                 txtNombre.Enabled = true;
                 txtTitulo.Enabled = true;
                 cbbTurno.Enabled = true;
+                chkActivo.Enabled = true;
                 btnInsert.Enabled = true;
                 btnUpdate.Enabled = true;
                 lblPermission.Visible = true;
@@ -142,5 +135,23 @@ namespace GestIn.UI.Home.Careers
         {
 
         }
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        /*
+        private void btnFormMateria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                formSubject formMateria = new formSubject(this);
+                formMateria.Show();
+            }
+            catch { }
+        }
+        */
     }
 }

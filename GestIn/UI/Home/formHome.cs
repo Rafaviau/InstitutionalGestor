@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestIn.UI.Home.Subjects;
 
 namespace GestIn.UI.Home
 {
@@ -34,6 +35,15 @@ namespace GestIn.UI.Home
         {
             AbrirFormularioHijo(new formCareer());
         }
+        private void btnSubjects_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new formSubject());
+        }
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new formAcademicRecord());
+        }
+
 
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
@@ -49,11 +59,6 @@ namespace GestIn.UI.Home
             panelContenedor.Tag = formHijo;
             formHijo.BringToFront();
             formHijo.Show();
-        }
-
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
-            AbrirFormularioHijo(new formAcademicRecord());
         }
     }
 }

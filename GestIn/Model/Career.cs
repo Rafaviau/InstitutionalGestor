@@ -26,7 +26,7 @@ namespace GestIn.Model
         public string Degree { get; set; } = null!;
         [StringLength(50)]
         public string? Turn { get; set; }
-        //public bool Active { get; set; }
+        public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }

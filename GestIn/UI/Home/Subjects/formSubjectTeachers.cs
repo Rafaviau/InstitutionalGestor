@@ -96,7 +96,7 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem), txtFechaInicio.Text, txtFechaCese.Text);
+                careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem));
                 RefreshTableTeachersSubject();
             }
             catch { }
@@ -109,7 +109,7 @@ namespace GestIn.UI.Home.Subjects
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.changeChargeDateUntil(selectedTeacherID, txtFechaCese.Text);
+                    careerController.changeChargeDates(selectedTeacherID, txtFechaInicio.Text, txtFechaCese.Text);
                     RefreshTableTeachersSubject();
                 }
             }

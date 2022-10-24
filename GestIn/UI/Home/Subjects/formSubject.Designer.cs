@@ -71,7 +71,7 @@
             // 
             this.lblCarrera.AutoSize = true;
             this.lblCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblCarrera.Location = new System.Drawing.Point(195, 85);
+            this.lblCarrera.Location = new System.Drawing.Point(478, 60);
             this.lblCarrera.Name = "lblCarrera";
             this.lblCarrera.Size = new System.Drawing.Size(138, 20);
             this.lblCarrera.TabIndex = 29;
@@ -81,28 +81,28 @@
             // 
             this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCarreraSelector.FormattingEnabled = true;
-            this.cbbCarreraSelector.Location = new System.Drawing.Point(584, 74);
+            this.cbbCarreraSelector.Location = new System.Drawing.Point(652, 49);
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
-            this.cbbCarreraSelector.Size = new System.Drawing.Size(385, 28);
+            this.cbbCarreraSelector.Size = new System.Drawing.Size(686, 28);
             this.cbbCarreraSelector.TabIndex = 28;
             this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(553, 689);
+            this.btnUpdate.Location = new System.Drawing.Point(245, 355);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(147, 31);
             this.btnUpdate.TabIndex = 26;
-            this.btnUpdate.Text = "Modificar Materia";
+            this.btnUpdate.Text = "Actualizar Materia";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnInsert
             // 
             this.btnInsert.Enabled = false;
-            this.btnInsert.Location = new System.Drawing.Point(363, 689);
+            this.btnInsert.Location = new System.Drawing.Point(55, 355);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(139, 31);
@@ -114,7 +114,7 @@
             // txtCargaHorariaTotal
             // 
             this.txtCargaHorariaTotal.Enabled = false;
-            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(525, 626);
+            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(217, 283);
             this.txtCargaHorariaTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCargaHorariaTotal.Name = "txtCargaHorariaTotal";
             this.txtCargaHorariaTotal.Size = new System.Drawing.Size(175, 27);
@@ -123,7 +123,7 @@
             // txtNombre
             // 
             this.txtNombre.Enabled = false;
-            this.txtNombre.Location = new System.Drawing.Point(525, 544);
+            this.txtNombre.Location = new System.Drawing.Point(217, 202);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(175, 27);
@@ -133,7 +133,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(363, 633);
+            this.label5.Location = new System.Drawing.Point(55, 290);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 20);
             this.label5.TabIndex = 21;
@@ -143,7 +143,7 @@
             // 
             this.lblAnioCarrera.AutoSize = true;
             this.lblAnioCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblAnioCarrera.Location = new System.Drawing.Point(363, 592);
+            this.lblAnioCarrera.Location = new System.Drawing.Point(55, 250);
             this.lblAnioCarrera.Name = "lblAnioCarrera";
             this.lblAnioCarrera.Size = new System.Drawing.Size(36, 20);
             this.lblAnioCarrera.TabIndex = 20;
@@ -153,7 +153,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(363, 551);
+            this.lblNombre.Location = new System.Drawing.Point(55, 209);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(64, 20);
             this.lblNombre.TabIndex = 19;
@@ -175,13 +175,13 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.dataGridViewMaterias.DataSource = this.subjectBindingSource1;
-            this.dataGridViewMaterias.Location = new System.Drawing.Point(195, 108);
+            this.dataGridViewMaterias.Location = new System.Drawing.Point(478, 83);
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
             this.dataGridViewMaterias.RowHeadersWidth = 51;
             this.dataGridViewMaterias.RowTemplate.Height = 29;
             this.dataGridViewMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterias.Size = new System.Drawing.Size(774, 319);
+            this.dataGridViewMaterias.Size = new System.Drawing.Size(860, 662);
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             // 
@@ -266,7 +266,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(525, 9);
+            this.lblTitle.Location = new System.Drawing.Point(171, 79);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(118, 41);
             this.lblTitle.TabIndex = 31;
@@ -274,7 +274,7 @@
             // 
             // btnDocentes
             // 
-            this.btnDocentes.Location = new System.Drawing.Point(749, 610);
+            this.btnDocentes.Location = new System.Drawing.Point(234, 458);
             this.btnDocentes.Name = "btnDocentes";
             this.btnDocentes.Size = new System.Drawing.Size(107, 58);
             this.btnDocentes.TabIndex = 33;
@@ -284,7 +284,7 @@
             // 
             // btnCorrelativas
             // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(749, 502);
+            this.btnCorrelativas.Location = new System.Drawing.Point(76, 458);
             this.btnCorrelativas.Name = "btnCorrelativas";
             this.btnCorrelativas.Size = new System.Drawing.Size(107, 58);
             this.btnCorrelativas.TabIndex = 35;
@@ -294,11 +294,11 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(195, 433);
+            this.btnModificar.Location = new System.Drawing.Point(478, 751);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(94, 29);
+            this.btnModificar.Size = new System.Drawing.Size(170, 29);
             this.btnModificar.TabIndex = 36;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "Permitir Modificacion";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModify_MouseClick);
             // 
@@ -306,7 +306,7 @@
             // 
             this.label123.AutoSize = true;
             this.label123.ForeColor = System.Drawing.Color.White;
-            this.label123.Location = new System.Drawing.Point(363, 510);
+            this.label123.Location = new System.Drawing.Point(55, 168);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(155, 20);
             this.label123.TabIndex = 37;
@@ -315,7 +315,7 @@
             // lblShowSubjectName
             // 
             this.lblShowSubjectName.BackColor = System.Drawing.SystemColors.Info;
-            this.lblShowSubjectName.Location = new System.Drawing.Point(525, 506);
+            this.lblShowSubjectName.Location = new System.Drawing.Point(217, 164);
             this.lblShowSubjectName.Name = "lblShowSubjectName";
             this.lblShowSubjectName.Size = new System.Drawing.Size(175, 24);
             this.lblShowSubjectName.TabIndex = 38;
@@ -330,7 +330,7 @@
             "2",
             "3",
             "4"});
-            this.cbbSubjectYear.Location = new System.Drawing.Point(525, 584);
+            this.cbbSubjectYear.Location = new System.Drawing.Point(217, 242);
             this.cbbSubjectYear.Name = "cbbSubjectYear";
             this.cbbSubjectYear.Size = new System.Drawing.Size(175, 28);
             this.cbbSubjectYear.TabIndex = 39;
@@ -339,7 +339,7 @@
             // 
             this.lblPermission.AutoSize = true;
             this.lblPermission.ForeColor = System.Drawing.Color.White;
-            this.lblPermission.Location = new System.Drawing.Point(806, 437);
+            this.lblPermission.Location = new System.Drawing.Point(1175, 755);
             this.lblPermission.Name = "lblPermission";
             this.lblPermission.Size = new System.Drawing.Size(163, 20);
             this.lblPermission.TabIndex = 40;
@@ -350,8 +350,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1240, 791);
+            this.ClientSize = new System.Drawing.Size(1350, 826);
             this.Controls.Add(this.lblPermission);
             this.Controls.Add(this.cbbSubjectYear);
             this.Controls.Add(this.lblShowSubjectName);
@@ -372,7 +373,6 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "formSubject";
             this.Text = "formSubject";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubject_FormClosing);
             this.Load += new System.EventHandler(this.formSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).EndInit();
