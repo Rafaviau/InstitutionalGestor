@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewCorrelativas = new System.Windows.Forms.DataGridView();
-            this.correlativeSubjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.correlativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.correlativeFinalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -45,6 +44,9 @@
             this.lblmateriaName = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correlativeSubjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorrelativeFinal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.correlativeBindingSource)).BeginInit();
@@ -58,10 +60,12 @@
             this.dataGridViewCorrelativas.AllowUserToDeleteRows = false;
             this.dataGridViewCorrelativas.AutoGenerateColumns = false;
             this.dataGridViewCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewCorrelativas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.dataGridViewCorrelativas.BackgroundColor = System.Drawing.Color.Black;
             this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.correlativeSubjectDataGridViewTextBoxColumn});
+            this.Id,
+            this.correlativeSubjectDataGridViewTextBoxColumn,
+            this.CorrelativeFinal});
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource1;
             this.dataGridViewCorrelativas.GridColor = System.Drawing.Color.White;
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(102, 289);
@@ -72,14 +76,6 @@
             this.dataGridViewCorrelativas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCorrelativas.Size = new System.Drawing.Size(481, 200);
             this.dataGridViewCorrelativas.TabIndex = 31;
-            // 
-            // correlativeSubjectDataGridViewTextBoxColumn
-            // 
-            this.correlativeSubjectDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeSubject";
-            this.correlativeSubjectDataGridViewTextBoxColumn.HeaderText = "CorrelativeSubject";
-            this.correlativeSubjectDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.correlativeSubjectDataGridViewTextBoxColumn.Name = "correlativeSubjectDataGridViewTextBoxColumn";
-            this.correlativeSubjectDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // correlativeBindingSource1
             // 
@@ -146,7 +142,7 @@
             this.btnRemoveCorrelative.TabIndex = 46;
             this.btnRemoveCorrelative.Text = "Remover Correlativa";
             this.btnRemoveCorrelative.UseVisualStyleBackColor = false;
-            this.btnRemoveCorrelative.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnRemoveCorrelative_MouseClick);
+            this.btnRemoveCorrelative.Click += new System.EventHandler(this.btnRemoveCorrelative_Click);
             // 
             // label1
             // 
@@ -188,6 +184,31 @@
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 50;
             this.label3.Text = "Estado";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // correlativeSubjectDataGridViewTextBoxColumn
+            // 
+            this.correlativeSubjectDataGridViewTextBoxColumn.DataPropertyName = "CorrelativeSubject";
+            this.correlativeSubjectDataGridViewTextBoxColumn.HeaderText = "Materia Correlativa";
+            this.correlativeSubjectDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.correlativeSubjectDataGridViewTextBoxColumn.Name = "correlativeSubjectDataGridViewTextBoxColumn";
+            this.correlativeSubjectDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CorrelativeFinal
+            // 
+            this.CorrelativeFinal.DataPropertyName = "CorrelativeFinal";
+            this.CorrelativeFinal.HeaderText = "Estado";
+            this.CorrelativeFinal.MinimumWidth = 6;
+            this.CorrelativeFinal.Name = "CorrelativeFinal";
+            this.CorrelativeFinal.ReadOnly = true;
             // 
             // formSubjectCorrelatives
             // 
@@ -237,7 +258,9 @@
         private BindingSource correlativeBindingSource;
         private DataGridViewCheckBoxColumn correlativeFinalDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn CorrelativeSubject;
-        private DataGridViewTextBoxColumn correlativeSubjectDataGridViewTextBoxColumn;
         private BindingSource correlativeBindingSource1;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn correlativeSubjectDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn CorrelativeFinal;
     }
 }

@@ -85,14 +85,14 @@ namespace GestIn.UI.Home.Subjects
             
         }
 
-        private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
+        private void btnRemoveCorrelative_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridViewCorrelativas.Rows.Count > 0)
-                {
-                    int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
-                    careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
+                if (dataGridViewCorrelativas.Rows.Count>0)
+                { 
+                    int selectedCorrelativeID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
+                    careerController.removeCorrelative(selectedCorrelativeID);
                     RefreshComboboxCorrelativas();
                     RefreshTableCorrelativas();
                 }

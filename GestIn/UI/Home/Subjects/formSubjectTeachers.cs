@@ -96,20 +96,34 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem));
-                RefreshTableTeachersSubject();
+                if(cmbCondition.GetItemText(cmbCondition.SelectedItem).Equals(""))
+                {
+                    MessageBox.Show("Error, agregar Condicion");
+                }
+                else
+                {
+                    careerController.assignTeacherCharge(ListboxSearchResults.SelectedItem, receivedSubject, cmbCondition.GetItemText(cmbCondition.SelectedItem));
+                    RefreshTableTeachersSubject();
+                }
             }
             catch { }
         }
 
         private void btnModifyUntil_Click(object sender, EventArgs e)
         {
+            string? fechaInicio = null;
+            string? fechaCese = null;
             try
             {
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
+                    if(!txtFechaInicio.Text.Equals("") || !txtFechaCese.Text.Equals(""))
+                    {
+                        fechaInicio = txtFechaInicio.Text;
+                        fechaCese = txtFechaCese.Text;
+                    }
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.changeChargeDates(selectedTeacherID, txtFechaInicio.Text, txtFechaCese.Text);
+                    careerController.changeChargeDates(selectedTeacherID, fechaInicio, fechaCese);
                     RefreshTableTeachersSubject();
                 }
             }
@@ -120,7 +134,11 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
+                if(txtFechaCese.Text.Equals(""))
+                {
+                    MessageBox.Show("Error agregar fecha de cese");
+                }
+                else if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
                     careerController.deactivateCharge(selectedTeacherID, txtFechaCese.Text);

@@ -103,9 +103,7 @@ namespace GestIn.UI.Home.Subjects
 
         private void btnInsert_MouseClick(object sender, MouseEventArgs e)
         {
-            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
-            RefreshTableSubjects();
-            DisableUserInput();
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -195,6 +193,11 @@ namespace GestIn.UI.Home.Subjects
             dataGridViewMaterias.Enabled = false;
         }
 
-        
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+            RefreshTableSubjects();
+            DisableUserInput();
+        }
     }
 }

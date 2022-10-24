@@ -510,24 +510,18 @@ namespace GestIn.Controllers
             catch (SqlException exception) { throw exception; }
         }
 
-        public bool removeCorrelative(object cmbcorrelative)
+        public void removeCorrelative(int id)
         {
-            Correlative existingCorrelative = (Correlative)cmbcorrelative;
+            Correlative existingCorrelative = findCorrelative(id);
             try
             {
                 using (var db = new Context())
                 {
-                    var resultCorrelative = findCorrelative(existingCorrelative);
-                    if (resultCorrelative != null)
-                    {
-                        db.Remove(resultCorrelative);
-                        db.SaveChanges();
-                        return true;
-                    }
+                    db.Remove(existingCorrelative);
+                    db.SaveChanges();
                 }
             }
             catch (SqlException exception) { throw exception; }
-            return false;
 
         }
 
@@ -547,13 +541,12 @@ namespace GestIn.Controllers
 
         public Correlative findCorrelative(int IDcorrelative)
         {
-            Correlative correlative = null;
             using (var db = new Context())
             {
                 try
                 {
                     var result = db.Correlatives.Where(x => x.Id == IDcorrelative).First();
-                    return correlative;
+                    return result;
                 }
                 catch (SqlException exception) { throw exception; }
             }
@@ -669,19 +662,25 @@ namespace GestIn.Controllers
             if(thisCharge.TeacherId == activeteacher.TeacherId)
             {
                 MessageBox.Show("Error, mismo docente en el cargo: " + " " + activeteacher.Condition);
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
-        public void changeChargeDates(int teacherID, string datesince, string dateuntil)
+        public void changeChargeDates(int teacherID, string? datesince, string? dateuntil)
         {
             TeacherSubject existingCharge = findTeacherCharge(teacherID);
-            existingCharge.DateSince = DateTime.Parse(datesince);
-            existingCharge.DateUntil = DateTime.Parse(dateuntil);
+            if(datesince!=null) //cambiar luego
+            {
+                existingCharge.DateSince = DateTime.Parse(datesince);
+            }
+            if(dateuntil!=null)
+            {
+                existingCharge.DateUntil = DateTime.Parse(dateuntil);
+            }
             try
             {
                 using (var db = new Context())
@@ -803,7 +802,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
                     return specifiedListCharges;
                 }
                 catch (SqlException exception) { throw exception; }

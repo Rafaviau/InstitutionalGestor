@@ -312,7 +312,7 @@
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(155, 34);
             this.btnDeactivate.TabIndex = 73;
-            this.btnDeactivate.Text = "Desactivar Docente";
+            this.btnDeactivate.Text = "Desactivar Suplente";
             this.btnDeactivate.UseVisualStyleBackColor = true;
             this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
             // 

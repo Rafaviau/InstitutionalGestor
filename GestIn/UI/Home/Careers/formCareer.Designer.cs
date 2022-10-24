@@ -301,11 +301,11 @@
             this.chkActivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.chkActivo.Enabled = false;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(172, 371);
+            this.chkActivo.Location = new System.Drawing.Point(184, 368);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(73, 24);
+            this.chkActivo.Size = new System.Drawing.Size(72, 24);
             this.chkActivo.TabIndex = 21;
-            this.chkActivo.Text = "Activo";
+            this.chkActivo.Text = "Activa";
             this.chkActivo.UseVisualStyleBackColor = false;
             // 
             // formCareer

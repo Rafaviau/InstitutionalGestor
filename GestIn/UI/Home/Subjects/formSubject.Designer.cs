@@ -84,17 +84,17 @@
             this.cbbCarreraSelector.Location = new System.Drawing.Point(652, 49);
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
             this.cbbCarreraSelector.Size = new System.Drawing.Size(686, 28);
-            this.cbbCarreraSelector.TabIndex = 28;
+            this.cbbCarreraSelector.TabIndex = 0;
             this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(245, 355);
+            this.btnUpdate.Location = new System.Drawing.Point(251, 328);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(147, 31);
-            this.btnUpdate.TabIndex = 26;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Actualizar Materia";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -102,38 +102,39 @@
             // btnInsert
             // 
             this.btnInsert.Enabled = false;
-            this.btnInsert.Location = new System.Drawing.Point(55, 355);
+            this.btnInsert.Location = new System.Drawing.Point(61, 328);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(139, 31);
-            this.btnInsert.TabIndex = 25;
+            this.btnInsert.TabIndex = 4;
             this.btnInsert.Text = "Crear Materia";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             this.btnInsert.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnInsert_MouseClick);
             // 
             // txtCargaHorariaTotal
             // 
             this.txtCargaHorariaTotal.Enabled = false;
-            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(217, 283);
+            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(223, 256);
             this.txtCargaHorariaTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCargaHorariaTotal.Name = "txtCargaHorariaTotal";
             this.txtCargaHorariaTotal.Size = new System.Drawing.Size(175, 27);
-            this.txtCargaHorariaTotal.TabIndex = 24;
+            this.txtCargaHorariaTotal.TabIndex = 3;
             // 
             // txtNombre
             // 
             this.txtNombre.Enabled = false;
-            this.txtNombre.Location = new System.Drawing.Point(217, 202);
+            this.txtNombre.Location = new System.Drawing.Point(223, 175);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(175, 27);
-            this.txtNombre.TabIndex = 22;
+            this.txtNombre.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(55, 290);
+            this.label5.Location = new System.Drawing.Point(61, 263);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 20);
             this.label5.TabIndex = 21;
@@ -143,7 +144,7 @@
             // 
             this.lblAnioCarrera.AutoSize = true;
             this.lblAnioCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblAnioCarrera.Location = new System.Drawing.Point(55, 250);
+            this.lblAnioCarrera.Location = new System.Drawing.Point(61, 223);
             this.lblAnioCarrera.Name = "lblAnioCarrera";
             this.lblAnioCarrera.Size = new System.Drawing.Size(36, 20);
             this.lblAnioCarrera.TabIndex = 20;
@@ -153,7 +154,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(55, 209);
+            this.lblNombre.Location = new System.Drawing.Point(61, 182);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(64, 20);
             this.lblNombre.TabIndex = 19;
@@ -176,8 +177,10 @@
             this.dataGridViewTextBoxColumn14});
             this.dataGridViewMaterias.DataSource = this.subjectBindingSource1;
             this.dataGridViewMaterias.Location = new System.Drawing.Point(478, 83);
+            this.dataGridViewMaterias.MultiSelect = false;
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
+            this.dataGridViewMaterias.RowHeadersVisible = false;
             this.dataGridViewMaterias.RowHeadersWidth = 51;
             this.dataGridViewMaterias.RowTemplate.Height = 29;
             this.dataGridViewMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -192,6 +195,7 @@
             this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -200,11 +204,12 @@
             this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
             // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -212,7 +217,7 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
-            this.dataGridViewTextBoxColumn13.HeaderText = "YearInCareer";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
             this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -220,7 +225,7 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
-            this.dataGridViewTextBoxColumn14.HeaderText = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
             this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -274,20 +279,20 @@
             // 
             // btnDocentes
             // 
-            this.btnDocentes.Location = new System.Drawing.Point(234, 458);
+            this.btnDocentes.Location = new System.Drawing.Point(254, 540);
             this.btnDocentes.Name = "btnDocentes";
             this.btnDocentes.Size = new System.Drawing.Size(107, 58);
-            this.btnDocentes.TabIndex = 33;
+            this.btnDocentes.TabIndex = 6;
             this.btnDocentes.Text = "Cargar Docentes";
             this.btnDocentes.UseVisualStyleBackColor = true;
             this.btnDocentes.Click += new System.EventHandler(this.btnTeachers_Click);
             // 
             // btnCorrelativas
             // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(76, 458);
+            this.btnCorrelativas.Location = new System.Drawing.Point(98, 540);
             this.btnCorrelativas.Name = "btnCorrelativas";
             this.btnCorrelativas.Size = new System.Drawing.Size(107, 58);
-            this.btnCorrelativas.TabIndex = 35;
+            this.btnCorrelativas.TabIndex = 6;
             this.btnCorrelativas.Text = "Cargar Correlativas";
             this.btnCorrelativas.UseVisualStyleBackColor = true;
             this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelatives_MouseClick);
@@ -306,7 +311,7 @@
             // 
             this.label123.AutoSize = true;
             this.label123.ForeColor = System.Drawing.Color.White;
-            this.label123.Location = new System.Drawing.Point(55, 168);
+            this.label123.Location = new System.Drawing.Point(50, 502);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(155, 20);
             this.label123.TabIndex = 37;
@@ -315,9 +320,9 @@
             // lblShowSubjectName
             // 
             this.lblShowSubjectName.BackColor = System.Drawing.SystemColors.Info;
-            this.lblShowSubjectName.Location = new System.Drawing.Point(217, 164);
+            this.lblShowSubjectName.Location = new System.Drawing.Point(228, 490);
             this.lblShowSubjectName.Name = "lblShowSubjectName";
-            this.lblShowSubjectName.Size = new System.Drawing.Size(175, 24);
+            this.lblShowSubjectName.Size = new System.Drawing.Size(170, 32);
             this.lblShowSubjectName.TabIndex = 38;
             this.lblShowSubjectName.Text = "                                   ";
             // 
@@ -330,10 +335,10 @@
             "2",
             "3",
             "4"});
-            this.cbbSubjectYear.Location = new System.Drawing.Point(217, 242);
+            this.cbbSubjectYear.Location = new System.Drawing.Point(223, 215);
             this.cbbSubjectYear.Name = "cbbSubjectYear";
             this.cbbSubjectYear.Size = new System.Drawing.Size(175, 28);
-            this.cbbSubjectYear.TabIndex = 39;
+            this.cbbSubjectYear.TabIndex = 2;
             // 
             // lblPermission
             // 
@@ -420,12 +425,12 @@
         private Label label123;
         private Label lblShowSubjectName;
         private ComboBox cbbSubjectYear;
+        private BindingSource subjectBindingSource1;
+        private Label lblPermission;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private BindingSource subjectBindingSource1;
-        private Label lblPermission;
     }
 }
