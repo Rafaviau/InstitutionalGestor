@@ -107,11 +107,11 @@ namespace GestIn.Controllers
                     {
                         exam.IdSubjectNavigation = sub;
                         exam.Date = datetime;
-                        if (tit != null) exam.Titular = tit.Id;
-                        if (firstVow != null) exam.FirstVowel = firstVow.Id;
-                        if (secondVow != null) exam.SecondVowel = secondVow.Id;
-                        if (thirdVow != null) exam.ThirdVowel = thirdVow.Id;
-                        if (place != null) exam.Place = place;
+                        exam.Titular = tit?.Id;
+                        exam.FirstVowel = firstVow?.Id;
+                        exam.SecondVowel = secondVow?.Id;
+                        exam.ThirdVowel = thirdVow?.Id;
+                        exam.Place = place;
 
                         exam.LastModificationBy = "Preceptor cargando notas";
                         exam.UpdatedAt = DateTime.Now;
@@ -154,16 +154,16 @@ namespace GestIn.Controllers
             }
 
         }
-        public (List<Exam>, string) loadStudentExam(int studentDni)
+        public (List<Exam>?, string) loadStudentExam(int studentDni)
         {
             using (var db = new Context())
             {
                 try
                 {
-                    var enrolment = db.SubjectEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Approved == true)).ToList();
+                    var enrolment = db.SubjectEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Approved == true)).Select(x => x.SubjectId).ToList();
                     if (enrolment != null) { 
                         var result = db.Exams.Where(
-                            x => (x.Date >= DateTime.Today && x.IdSubject ==  enrolment.SubjectId))
+                            x => (x.Date >= DateTime.Today && enrolment.Contains(x.IdSubject)))
                             .Include(x => x.IdSubjectNavigation)
                             .Include(x => x.IdSubjectNavigation.Career)
                          .ToList();
