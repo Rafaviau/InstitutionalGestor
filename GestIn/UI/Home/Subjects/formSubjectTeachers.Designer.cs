@@ -34,12 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateSince = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherSubjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceTeachersSubject = new System.Windows.Forms.BindingSource(this.components);
@@ -53,10 +47,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtFechaInicio = new System.Windows.Forms.TextBox();
-            this.txtFechaCese = new System.Windows.Forms.TextBox();
             this.btnModifyUntil = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
+            this.dateTimePickerSince = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerUntil = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateSince = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
@@ -124,60 +125,13 @@
             this.dataGridViewTeachers.Location = new System.Drawing.Point(112, 371);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
+            this.dataGridViewTeachers.RowHeadersVisible = false;
             this.dataGridViewTeachers.RowHeadersWidth = 51;
             this.dataGridViewTeachers.RowTemplate.Height = 29;
             this.dataGridViewTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTeachers.Size = new System.Drawing.Size(1054, 276);
             this.dataGridViewTeachers.TabIndex = 58;
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // teacherDataGridViewTextBoxColumn
-            // 
-            this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
-            this.teacherDataGridViewTextBoxColumn.HeaderText = "Teacher";
-            this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
-            this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Condition
-            // 
-            this.Condition.DataPropertyName = "Condition";
-            this.Condition.HeaderText = "Condition";
-            this.Condition.MinimumWidth = 6;
-            this.Condition.Name = "Condition";
-            this.Condition.ReadOnly = true;
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Active";
-            this.Active.MinimumWidth = 6;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            // 
-            // DateSince
-            // 
-            this.DateSince.DataPropertyName = "DateSince";
-            this.DateSince.HeaderText = "DateSince";
-            this.DateSince.MinimumWidth = 6;
-            this.DateSince.Name = "DateSince";
-            this.DateSince.ReadOnly = true;
-            // 
-            // DateUntil
-            // 
-            this.DateUntil.DataPropertyName = "DateUntil";
-            this.DateUntil.HeaderText = "DateUntil";
-            this.DateUntil.MinimumWidth = 6;
-            this.DateUntil.Name = "DateUntil";
-            this.DateUntil.ReadOnly = true;
             // 
             // teacherSubjectBindingSource
             // 
@@ -200,7 +154,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(522, 143);
+            this.label3.Location = new System.Drawing.Point(517, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 61;
@@ -211,7 +165,7 @@
             this.lblteachername.AutoSize = true;
             this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
-            this.lblteachername.Location = new System.Drawing.Point(697, 143);
+            this.lblteachername.Location = new System.Drawing.Point(692, 180);
             this.lblteachername.Name = "lblteachername";
             this.lblteachername.Size = new System.Drawing.Size(125, 20);
             this.lblteachername.TabIndex = 62;
@@ -237,7 +191,7 @@
             "Titular",
             "Suplente",
             "Provisional"});
-            this.cmbCondition.Location = new System.Drawing.Point(697, 186);
+            this.cmbCondition.Location = new System.Drawing.Point(692, 223);
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(125, 28);
             this.cmbCondition.TabIndex = 64;
@@ -256,7 +210,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(573, 190);
+            this.label4.Location = new System.Drawing.Point(568, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 66;
@@ -266,45 +220,33 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(900, 147);
+            this.label5.Location = new System.Drawing.Point(906, 184);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 68;
             this.label5.Text = "Fecha Inicio: ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(900, 186);
+            this.label6.Location = new System.Drawing.Point(906, 223);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
             this.label6.Text = "Fecha Cese:";
-            // 
-            // txtFechaInicio
-            // 
-            this.txtFechaInicio.Location = new System.Drawing.Point(1024, 140);
-            this.txtFechaInicio.Name = "txtFechaInicio";
-            this.txtFechaInicio.Size = new System.Drawing.Size(125, 27);
-            this.txtFechaInicio.TabIndex = 70;
-            // 
-            // txtFechaCese
-            // 
-            this.txtFechaCese.Location = new System.Drawing.Point(1024, 183);
-            this.txtFechaCese.Name = "txtFechaCese";
-            this.txtFechaCese.Size = new System.Drawing.Size(125, 27);
-            this.txtFechaCese.TabIndex = 71;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnModifyUntil
             // 
-            this.btnModifyUntil.Location = new System.Drawing.Point(975, 333);
+            this.btnModifyUntil.Location = new System.Drawing.Point(1011, 334);
             this.btnModifyUntil.Name = "btnModifyUntil";
             this.btnModifyUntil.Size = new System.Drawing.Size(144, 31);
             this.btnModifyUntil.TabIndex = 72;
             this.btnModifyUntil.Text = "Modificar Fechas";
             this.btnModifyUntil.UseVisualStyleBackColor = true;
-            this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyUntil_Click);
+            this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyDates_Click);
             // 
             // btnDeactivate
             // 
@@ -316,16 +258,96 @@
             this.btnDeactivate.UseVisualStyleBackColor = true;
             this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
             // 
+            // dateTimePickerSince
+            // 
+            this.dateTimePickerSince.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerSince.Location = new System.Drawing.Point(1030, 179);
+            this.dateTimePickerSince.Name = "dateTimePickerSince";
+            this.dateTimePickerSince.Size = new System.Drawing.Size(125, 27);
+            this.dateTimePickerSince.TabIndex = 74;
+            this.dateTimePickerSince.Value = new System.DateTime(2022, 10, 27, 18, 45, 8, 0);
+            // 
+            // dateTimePickerUntil
+            // 
+            this.dateTimePickerUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerUntil.Location = new System.Drawing.Point(1030, 224);
+            this.dateTimePickerUntil.Name = "dateTimePickerUntil";
+            this.dateTimePickerUntil.Size = new System.Drawing.Size(125, 27);
+            this.dateTimePickerUntil.TabIndex = 75;
+            this.dateTimePickerUntil.Value = new System.DateTime(2022, 10, 27, 18, 45, 8, 0);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(112, 89);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(231, 20);
+            this.label8.TabIndex = 76;
+            this.label8.Text = "Ingrese el nombre de un docente:";
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 28;
+            // 
+            // teacherDataGridViewTextBoxColumn
+            // 
+            this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
+            this.teacherDataGridViewTextBoxColumn.HeaderText = "Docente";
+            this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
+            this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Condition
+            // 
+            this.Condition.DataPropertyName = "Condition";
+            this.Condition.HeaderText = "Condición";
+            this.Condition.MinimumWidth = 6;
+            this.Condition.Name = "Condition";
+            this.Condition.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Activo";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            // 
+            // DateSince
+            // 
+            this.DateSince.DataPropertyName = "DateSince";
+            this.DateSince.HeaderText = "Fecha Desde";
+            this.DateSince.MinimumWidth = 6;
+            this.DateSince.Name = "DateSince";
+            this.DateSince.ReadOnly = true;
+            // 
+            // DateUntil
+            // 
+            this.DateUntil.DataPropertyName = "DateUntil";
+            this.DateUntil.HeaderText = "Fecha Hasta";
+            this.DateUntil.MinimumWidth = 6;
+            this.DateUntil.Name = "DateUntil";
+            this.DateUntil.ReadOnly = true;
+            // 
             // formSubjectTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1241, 699);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dateTimePickerUntil);
+            this.Controls.Add(this.dateTimePickerSince);
             this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.btnModifyUntil);
-            this.Controls.Add(this.txtFechaCese);
-            this.Controls.Add(this.txtFechaInicio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -374,15 +396,16 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox txtFechaInicio;
-        private TextBox txtFechaCese;
+        private Button btnModifyUntil;
+        private Button btnDeactivate;
+        private DateTimePicker dateTimePickerSince;
+        private DateTimePicker dateTimePickerUntil;
+        private Label label8;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn teacherDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
         private DataGridViewCheckBoxColumn Active;
         private DataGridViewTextBoxColumn DateSince;
         private DataGridViewTextBoxColumn DateUntil;
-        private Button btnModifyUntil;
-        private Button btnDeactivate;
     }
 }

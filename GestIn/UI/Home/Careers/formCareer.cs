@@ -65,6 +65,7 @@ namespace GestIn.UI.Home.Careers
             cbbTurno.Enabled = false;
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
+            chkActivo.Enabled = false;
             lblPermission.Visible = false;
             dataGridViewCarreras.Enabled = true;
         }
@@ -76,7 +77,7 @@ namespace GestIn.UI.Home.Careers
             DisableUserInput();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
@@ -108,12 +109,10 @@ namespace GestIn.UI.Home.Careers
             RefreshLableCareerName(id);
         }
 
-        private void btnModificar_MouseClick(object sender, MouseEventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(dataGridViewCarreras.CurrentRow!=null)
+            if (dataGridViewCarreras.CurrentRow != null)
             {
-                btnInsert.Enabled = true;
-                btnUpdate.Enabled = true;
                 txtNumResolucion.Enabled = true;
                 txtNombre.Enabled = true;
                 txtTitulo.Enabled = true;
@@ -125,33 +124,5 @@ namespace GestIn.UI.Home.Careers
                 dataGridViewCarreras.Enabled = false;
             }
         }
-
-        private void lblcarreraaqui_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnModificar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        /*
-        private void btnFormMateria_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Hide();
-                formSubject formMateria = new formSubject(this);
-                formMateria.Show();
-            }
-            catch { }
-        }
-        */
     }
 }

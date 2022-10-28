@@ -296,7 +296,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Include(x => x.Career).ToList();
+                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
                     return specifiedListSubjects;
                 }
                 catch (SqlException exception) { throw exception; }
@@ -563,7 +563,7 @@ namespace GestIn.Controllers
             return correlativeSubjects;
         }
 
-        public List<Subject> getEnabledCorrelatives(object objcareer, object objsubject)
+        public List<Subject> getEnabledCorrelatives(object objcareer, object objsubject, bool especial)
         {
             Career carreraSelector = (Career)objcareer;
             Subject subjectSelector = (Subject)objsubject;
@@ -571,7 +571,14 @@ namespace GestIn.Controllers
             List<Subject> allSubjects = getSubjectsExceptSame(carreraSelector, subjectSelector);
             List<Subject> correlativeSubjects = getObjectSubjectsFromCorrelatives(subjectSelector);
 
-            allSubjects.RemoveAll(x => x.YearInCareer >= subjectSelector.YearInCareer);
+            if(especial)
+            {
+                allSubjects.RemoveAll(x => x.YearInCareer > subjectSelector.YearInCareer);
+            }
+            else
+            {
+                allSubjects.RemoveAll(x => x.YearInCareer >= subjectSelector.YearInCareer);
+            }
 
             if (correlativeSubjects.Any())
             {
@@ -585,8 +592,6 @@ namespace GestIn.Controllers
         {
             List<Correlative> specifiedListCorrelatives = new List<Correlative>();
             Subject existingsubject = getSubject((Subject)subjectMatter);
-
-
             using (var db = new Context())
             {
                 try
@@ -670,32 +675,39 @@ namespace GestIn.Controllers
             }
         }
 
-        public void changeChargeDates(int teacherID, string? datesince, string? dateuntil)
+        public void changeChargeDates(int teacherID, DateTime datesince, DateTime dateuntil)
         {
             TeacherSubject existingCharge = findTeacherCharge(teacherID);
-            if(datesince!=null) //cambiar luego
+            if(verifyDateValidity(datesince, dateuntil))
             {
-                existingCharge.DateSince = DateTime.Parse(datesince);
-            }
-            if(dateuntil!=null)
-            {
-                existingCharge.DateUntil = DateTime.Parse(dateuntil);
-            }
-            try
-            {
-                using (var db = new Context())
+                existingCharge.DateSince = datesince;
+                existingCharge.DateUntil = dateuntil;
+                try
                 {
-                    db.Update(existingCharge);
-                    db.SaveChanges();
+                    using (var db = new Context())
+                    {
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
                 }
+                catch (SqlException exception) { throw exception; }
             }
-            catch (SqlException exception) { throw exception; }
+            else { MessageBox.Show("La fecha de Cese debe ser posterior a la fecha de Inicio");  }
         }
 
-        public void deactivateCharge(int teacherID, string dateuntil)
+        public bool verifyDateValidity(DateTime datesince, DateTime dateuntil)
+        {
+            bool state = true;
+            if (dateuntil <= datesince)
+            {
+                state = false;
+            }
+            return state;
+        }
+
+        public void deactivateCharge(int teacherID)
         {
             TeacherSubject existingCharge = findTeacherCharge(teacherID);
-            existingCharge.DateUntil = DateTime.Parse(dateuntil);
             if(existingCharge.Condition.Equals("Suplente"))
             {
                 try

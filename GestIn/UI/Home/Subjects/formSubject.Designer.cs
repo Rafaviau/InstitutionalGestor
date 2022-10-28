@@ -39,11 +39,6 @@
             this.lblAnioCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +55,11 @@
             this.lblShowSubjectName = new System.Windows.Forms.Label();
             this.cbbSubjectYear = new System.Windows.Forms.ComboBox();
             this.lblPermission = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
@@ -71,7 +71,7 @@
             // 
             this.lblCarrera.AutoSize = true;
             this.lblCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblCarrera.Location = new System.Drawing.Point(478, 60);
+            this.lblCarrera.Location = new System.Drawing.Point(478, 57);
             this.lblCarrera.Name = "lblCarrera";
             this.lblCarrera.Size = new System.Drawing.Size(138, 20);
             this.lblCarrera.TabIndex = 29;
@@ -81,19 +81,19 @@
             // 
             this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCarreraSelector.FormattingEnabled = true;
-            this.cbbCarreraSelector.Location = new System.Drawing.Point(652, 49);
+            this.cbbCarreraSelector.Location = new System.Drawing.Point(637, 49);
             this.cbbCarreraSelector.Name = "cbbCarreraSelector";
-            this.cbbCarreraSelector.Size = new System.Drawing.Size(686, 28);
+            this.cbbCarreraSelector.Size = new System.Drawing.Size(701, 28);
             this.cbbCarreraSelector.TabIndex = 0;
             this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(251, 328);
+            this.btnUpdate.Location = new System.Drawing.Point(223, 330);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(147, 31);
+            this.btnUpdate.Size = new System.Drawing.Size(175, 31);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Actualizar Materia";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -102,15 +102,14 @@
             // btnInsert
             // 
             this.btnInsert.Enabled = false;
-            this.btnInsert.Location = new System.Drawing.Point(61, 328);
+            this.btnInsert.Location = new System.Drawing.Point(223, 291);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(139, 31);
+            this.btnInsert.Size = new System.Drawing.Size(175, 31);
             this.btnInsert.TabIndex = 4;
             this.btnInsert.Text = "Crear Materia";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            this.btnInsert.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnInsert_MouseClick);
             // 
             // txtCargaHorariaTotal
             // 
@@ -176,7 +175,7 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
             this.dataGridViewMaterias.DataSource = this.subjectBindingSource1;
-            this.dataGridViewMaterias.Location = new System.Drawing.Point(478, 83);
+            this.dataGridViewMaterias.Location = new System.Drawing.Point(478, 90);
             this.dataGridViewMaterias.MultiSelect = false;
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
@@ -184,51 +183,9 @@
             this.dataGridViewMaterias.RowHeadersWidth = 51;
             this.dataGridViewMaterias.RowTemplate.Height = 29;
             this.dataGridViewMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterias.Size = new System.Drawing.Size(860, 662);
+            this.dataGridViewMaterias.Size = new System.Drawing.Size(860, 605);
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "CareerId";
-            this.dataGridViewTextBoxColumn11.HeaderText = "CareerId";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // subjectBindingSource1
             // 
@@ -279,9 +236,9 @@
             // 
             // btnDocentes
             // 
-            this.btnDocentes.Location = new System.Drawing.Point(254, 540);
+            this.btnDocentes.Location = new System.Drawing.Point(637, 701);
             this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Size = new System.Drawing.Size(107, 58);
+            this.btnDocentes.Size = new System.Drawing.Size(147, 31);
             this.btnDocentes.TabIndex = 6;
             this.btnDocentes.Text = "Cargar Docentes";
             this.btnDocentes.UseVisualStyleBackColor = true;
@@ -289,29 +246,29 @@
             // 
             // btnCorrelativas
             // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(98, 540);
+            this.btnCorrelativas.Location = new System.Drawing.Point(478, 701);
             this.btnCorrelativas.Name = "btnCorrelativas";
-            this.btnCorrelativas.Size = new System.Drawing.Size(107, 58);
+            this.btnCorrelativas.Size = new System.Drawing.Size(153, 31);
             this.btnCorrelativas.TabIndex = 6;
             this.btnCorrelativas.Text = "Cargar Correlativas";
             this.btnCorrelativas.UseVisualStyleBackColor = true;
-            this.btnCorrelativas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnCorrelatives_MouseClick);
+            this.btnCorrelativas.Click += new System.EventHandler(this.btnCorrelativas_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(478, 751);
+            this.btnModificar.Location = new System.Drawing.Point(478, 755);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(170, 29);
             this.btnModificar.TabIndex = 36;
             this.btnModificar.Text = "Permitir Modificacion";
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnModify_MouseClick);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // label123
             // 
             this.label123.AutoSize = true;
             this.label123.ForeColor = System.Drawing.Color.White;
-            this.label123.Location = new System.Drawing.Point(50, 502);
+            this.label123.Location = new System.Drawing.Point(61, 469);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(155, 20);
             this.label123.TabIndex = 37;
@@ -319,10 +276,11 @@
             // 
             // lblShowSubjectName
             // 
-            this.lblShowSubjectName.BackColor = System.Drawing.SystemColors.Info;
-            this.lblShowSubjectName.Location = new System.Drawing.Point(228, 490);
+            this.lblShowSubjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.lblShowSubjectName.ForeColor = System.Drawing.Color.White;
+            this.lblShowSubjectName.Location = new System.Drawing.Point(61, 498);
             this.lblShowSubjectName.Name = "lblShowSubjectName";
-            this.lblShowSubjectName.Size = new System.Drawing.Size(170, 32);
+            this.lblShowSubjectName.Size = new System.Drawing.Size(337, 32);
             this.lblShowSubjectName.TabIndex = 38;
             this.lblShowSubjectName.Text = "                                   ";
             // 
@@ -350,6 +308,51 @@
             this.lblPermission.TabIndex = 40;
             this.lblPermission.Text = "Modificacion Permitida";
             this.lblPermission.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 28;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "CareerId";
+            this.dataGridViewTextBoxColumn11.HeaderText = "CareerId";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // formSubject
             // 

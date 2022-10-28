@@ -55,6 +55,7 @@ namespace GestIn.UI.Home.Subjects
                 {
                     bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
                     bindingSourceCarreraMaterias.ResetBindings(false);
+                    //dataGridViewMaterias.Sort(dataGridViewMaterias.Columns[3], 0);
                     dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
                     RefreshLableSubjectName(SetGlobalSubject());
                 }
@@ -101,9 +102,11 @@ namespace GestIn.UI.Home.Subjects
             txtCargaHorariaTotal.Clear();
         }
 
-        private void btnInsert_MouseClick(object sender, MouseEventArgs e)
+        private void btnInsert_Click(object sender, EventArgs e)
         {
-            
+            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+            RefreshTableSubjects();
+            DisableUserInput();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -151,21 +154,6 @@ namespace GestIn.UI.Home.Subjects
             RefreshTableSubjects();
         }
 
-        private void btnCorrelatives_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                if(SetGlobalSubject()!=null)
-                {
-                    this.Visible = false;
-                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
-                    form.Show();
-                }
-                
-            }
-            catch { MessageBox.Show("Error, ninguna materia seleccionada");  }
-        }
-
         private void btnTeachers_Click(object sender, EventArgs e)
         {
             try
@@ -181,7 +169,7 @@ namespace GestIn.UI.Home.Subjects
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
 
-        private void btnModify_MouseClick(object sender, MouseEventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
@@ -193,11 +181,19 @@ namespace GestIn.UI.Home.Subjects
             dataGridViewMaterias.Enabled = false;
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnCorrelativas_Click(object sender, EventArgs e)
         {
-            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
-            RefreshTableSubjects();
-            DisableUserInput();
+            try
+            {
+                if (SetGlobalSubject() != null)
+                {
+                    this.Visible = false;
+                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
+                    form.Show();
+                }
+
+            }
+            catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
     }
 }

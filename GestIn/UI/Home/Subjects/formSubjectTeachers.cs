@@ -109,21 +109,14 @@ namespace GestIn.UI.Home.Subjects
             catch { }
         }
 
-        private void btnModifyUntil_Click(object sender, EventArgs e)
+        private void btnModifyDates_Click(object sender, EventArgs e)
         {
-            string? fechaInicio = null;
-            string? fechaCese = null;
             try
             {
                 if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
-                    if(!txtFechaInicio.Text.Equals("") || !txtFechaCese.Text.Equals(""))
-                    {
-                        fechaInicio = txtFechaInicio.Text;
-                        fechaCese = txtFechaCese.Text;
-                    }
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.changeChargeDates(selectedTeacherID, fechaInicio, fechaCese);
+                    careerController.changeChargeDates(selectedTeacherID, dateTimePickerSince.Value.Date, dateTimePickerUntil.Value.Date);
                     RefreshTableTeachersSubject();
                 }
             }
@@ -134,14 +127,10 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                if(txtFechaCese.Text.Equals(""))
-                {
-                    MessageBox.Show("Error agregar fecha de cese");
-                }
-                else if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
+                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.deactivateCharge(selectedTeacherID, txtFechaCese.Text);
+                    careerController.deactivateCharge(selectedTeacherID);
                     RefreshTableTeachersSubject();
                 }
             }
@@ -223,6 +212,24 @@ namespace GestIn.UI.Home.Subjects
             RefreshLableTeacherName();
         }
 
-        
+        private void txtFechaInicio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFechaCese_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

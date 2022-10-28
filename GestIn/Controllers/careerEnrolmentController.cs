@@ -13,6 +13,7 @@ namespace GestIn.Controllers
     {
         #region Atributos
         private static careerEnrolmentController? Instance;
+
         #endregion
 
 
