@@ -593,13 +593,24 @@ namespace GestIn.Controllers
         {
             List<Correlative> specifiedListCorrelatives = new List<Correlative>();
             Subject existingsubject = getSubject((Subject)subjectMatter);
-
-
             using (var db = new Context())
             {
                 try
                 {
                     specifiedListCorrelatives = db.Correlatives.Where(x => x.SubjectId == existingsubject.Id).Include(x => x.Subject).Include(x => x.CorrelativeSubject).ToList();
+                    return specifiedListCorrelatives;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+        public List<Correlative> getCorrelativesFromSubject(int IdSubject) //pido las correlativas de una determinada materia
+        {
+            List<Correlative> specifiedListCorrelatives = new List<Correlative>();
+            using (var db = new Context())
+            {
+                try
+                {
+                    specifiedListCorrelatives = db.Correlatives.Where(x => x.SubjectId == IdSubject).Include(x => x.Subject).Include(x => x.CorrelativeSubject).ToList();
                     return specifiedListCorrelatives;
                 }
                 catch (SqlException exception) { throw exception; }

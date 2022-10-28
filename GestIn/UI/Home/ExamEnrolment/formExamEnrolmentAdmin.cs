@@ -16,12 +16,18 @@ namespace GestIn.UI.Home.ExamEnrolment
     {
         userController cntUser = userController.GetInstance();
         examController examCnt = examController.GetInstance();
+        examEnrolmentController examEnrolCnt = examEnrolmentController.GetInstance();
+        int selectedStudentId = -1;
         public formExamEnrolmentAdmin()
         {
             InitializeComponent();
         }
-        private void loadExams(int studentDni)
+        private void loadExams(int studentDni, string studentName, int studentId)
         {
+            selectedStudentId = studentId;
+            lblDni.Text = studentDni.ToString();
+            lblStudent.Text = studentName;
+            dgvExams.Rows.Clear();
             var list = examCnt.loadStudentExam(studentDni);
             if (list.Item1 == null) { MessageBox.Show(list.Item2); }
             else { 
@@ -35,7 +41,7 @@ namespace GestIn.UI.Home.ExamEnrolment
         private void addExam(Exam ex)
         {
             int StudentsEnroled = 0;
-            dgvExams.Rows.Add(ex.Id,ex.IdSubjectNavigation.Career.Id,ex.IdSubjectNavigation.Name, ex.IdSubjectNavigation.Career.Name, ex.IdSubjectNavigation.Name, ex.Date);
+            dgvExams.Rows.Add(ex.Id,ex.IdSubjectNavigation.Career.Id,ex.IdSubjectNavigation.Id, ex.IdSubjectNavigation.Career.Name, ex.IdSubjectNavigation.Name, ex.Date);
         }
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
@@ -79,8 +85,14 @@ namespace GestIn.UI.Home.ExamEnrolment
             if (e.KeyCode == Keys.Enter && lbSearch.SelectedIndex >= 0)
             {
                 Student student = (Student)lbSearch.SelectedItem;
-                loadExams(student.User.Dni);
+                loadExams(student.User.Dni,student.User.Name + " " + student.User.LastName,student.Id);
                 searchBox.Clear();
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (selectedStudentId != -1) {
+                var a = examEnrolCnt.verifyCorrelatives(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[2].Value.ToString()),selectedStudentId);
             }
         }
     }

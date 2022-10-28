@@ -116,5 +116,16 @@ namespace GestIn.Controllers
                 return false;
             }
         }
+        public int getLastGrade(Subject subject, int studentId)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Grades.Where(x => (x.SubjectId == subject.Id && x.StudentId == studentId )).OrderByDescending(x => x.Id).First().Grade1;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
     }
 }

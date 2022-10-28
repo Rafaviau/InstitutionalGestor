@@ -31,6 +31,11 @@
             this.searchBox = new System.Windows.Forms.TextBox();
             this.lbSearch = new System.Windows.Forms.ListBox();
             this.dgvExams = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblStudent = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.ExamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CareerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,10 +50,10 @@
             this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.searchBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchBox.ForeColor = System.Drawing.Color.White;
-            this.searchBox.Location = new System.Drawing.Point(126, 12);
+            this.searchBox.Location = new System.Drawing.Point(24, 12);
             this.searchBox.Name = "searchBox";
             this.searchBox.PlaceholderText = "  Buscar estudiante";
-            this.searchBox.Size = new System.Drawing.Size(628, 30);
+            this.searchBox.Size = new System.Drawing.Size(629, 30);
             this.searchBox.TabIndex = 33;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_KeyDown);
@@ -60,7 +65,7 @@
             this.lbSearch.ForeColor = System.Drawing.Color.White;
             this.lbSearch.FormattingEnabled = true;
             this.lbSearch.ItemHeight = 20;
-            this.lbSearch.Location = new System.Drawing.Point(126, 48);
+            this.lbSearch.Location = new System.Drawing.Point(24, 48);
             this.lbSearch.Name = "lbSearch";
             this.lbSearch.Size = new System.Drawing.Size(629, 124);
             this.lbSearch.TabIndex = 34;
@@ -90,29 +95,73 @@
             this.dgvExams.Name = "dgvExams";
             this.dgvExams.RowHeadersWidth = 51;
             this.dgvExams.RowTemplate.Height = 29;
-            this.dgvExams.Size = new System.Drawing.Size(825, 434);
+            this.dgvExams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvExams.Size = new System.Drawing.Size(1221, 531);
             this.dgvExams.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(906, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Estudiante:";
+            // 
+            // lblStudent
+            // 
+            this.lblStudent.AutoSize = true;
+            this.lblStudent.Location = new System.Drawing.Point(993, 12);
+            this.lblStudent.Name = "lblStudent";
+            this.lblStudent.Size = new System.Drawing.Size(63, 20);
+            this.lblStudent.TabIndex = 37;
+            this.lblStudent.Text = "---------";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(906, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 20);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Dni:";
+            // 
+            // lblDni
+            // 
+            this.lblDni.AutoSize = true;
+            this.lblDni.Location = new System.Drawing.Point(993, 34);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(63, 20);
+            this.lblDni.TabIndex = 39;
+            this.lblDni.Text = "---------";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(692, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 29);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Test correlatives";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ExamId
             // 
             this.ExamId.HeaderText = "ExamId";
             this.ExamId.MinimumWidth = 6;
             this.ExamId.Name = "ExamId";
-            this.ExamId.Visible = false;
             // 
             // CareerId
             // 
             this.CareerId.HeaderText = "CareerId";
             this.CareerId.MinimumWidth = 6;
             this.CareerId.Name = "CareerId";
-            this.CareerId.Visible = false;
             // 
             // SubjectId
             // 
             this.SubjectId.HeaderText = "SubjectId";
             this.SubjectId.MinimumWidth = 6;
             this.SubjectId.Name = "SubjectId";
-            this.SubjectId.Visible = false;
             // 
             // Career
             // 
@@ -140,7 +189,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 532);
+            this.ClientSize = new System.Drawing.Size(1274, 629);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblDni);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblStudent);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvExams);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.lbSearch);
@@ -157,6 +211,11 @@
         private TextBox searchBox;
         private ListBox lbSearch;
         private DataGridView dgvExams;
+        private Label label1;
+        private Label lblStudent;
+        private Label label3;
+        private Label lblDni;
+        private Button button1;
         private DataGridViewTextBoxColumn ExamId;
         private DataGridViewTextBoxColumn CareerId;
         private DataGridViewTextBoxColumn SubjectId;
