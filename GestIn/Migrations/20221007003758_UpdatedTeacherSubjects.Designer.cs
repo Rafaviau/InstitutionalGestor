@@ -4,6 +4,7 @@ using GestIn.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestIn.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221007003758_UpdatedTeacherSubjects")]
+    partial class UpdatedTeacherSubjects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,6 @@ namespace GestIn.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -166,17 +165,12 @@ namespace GestIn.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("FirstVowel")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdSubject")
                         .HasColumnType("int");
 
                     b.Property<string>("LastModificationBy")
@@ -188,6 +182,9 @@ namespace GestIn.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("SecondVowel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Subject")
                         .HasColumnType("int");
 
                     b.Property<int?>("ThirdVowel")
@@ -202,8 +199,6 @@ namespace GestIn.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("FirstVowel");
-
-                    b.HasIndex("IdSubject");
 
                     b.HasIndex("SecondVowel");
 
@@ -478,8 +473,7 @@ namespace GestIn.Migrations
 
                     b.HasIndex("LoginInformationId");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Student");
                 });
@@ -630,10 +624,6 @@ namespace GestIn.Migrations
                     b.Property<int>("LoginInformationId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Titulo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -657,9 +647,6 @@ namespace GestIn.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Condition")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -668,7 +655,7 @@ namespace GestIn.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateSince")
+                    b.Property<DateTime>("DateSince")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateUntil")
@@ -807,12 +794,6 @@ namespace GestIn.Migrations
                         .HasForeignKey("FirstVowel")
                         .HasConstraintName("FK_EXAMENES_DOCENTES");
 
-                    b.HasOne("GestIn.Model.Subject", "IdSubjectNavigation")
-                        .WithMany("Exams")
-                        .HasForeignKey("IdSubject")
-                        .IsRequired()
-                        .HasConstraintName("FK_Exam_Subject");
-
                     b.HasOne("GestIn.Model.Teacher", "SecondVowelNavigation")
                         .WithMany("ExamSecondVowelNavigations")
                         .HasForeignKey("SecondVowel")
@@ -829,8 +810,6 @@ namespace GestIn.Migrations
                         .HasConstraintName("FK_EXAMENES_DOCENTES3");
 
                     b.Navigation("FirstVowelNavigation");
-
-                    b.Navigation("IdSubjectNavigation");
 
                     b.Navigation("SecondVowelNavigation");
 
@@ -1002,8 +981,6 @@ namespace GestIn.Migrations
                     b.Navigation("CorrelativeCorrelativeSubjects");
 
                     b.Navigation("CorrelativeSubjects");
-
-                    b.Navigation("Exams");
 
                     b.Navigation("Grades");
 

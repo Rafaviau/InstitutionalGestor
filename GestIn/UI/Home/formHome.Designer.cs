@@ -31,6 +31,7 @@
             this.panelMenuLateral = new System.Windows.Forms.Panel();
             this.btnExams = new System.Windows.Forms.Button();
             this.btnStudents = new System.Windows.Forms.Button();
+            this.btnSubjects = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelSeparador2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,6 +53,7 @@
             this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.panelMenuLateral.Controls.Add(this.btnExams);
             this.panelMenuLateral.Controls.Add(this.btnStudents);
+            this.panelMenuLateral.Controls.Add(this.btnSubjects);
             this.panelMenuLateral.Controls.Add(this.btnCerrarSesion);
             this.panelMenuLateral.Controls.Add(this.panelSeparador2);
             this.panelMenuLateral.Controls.Add(this.panel1);
@@ -92,20 +94,41 @@
             this.btnStudents.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStudents.FlatAppearance.BorderSize = 0;
             this.btnStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudents.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnStudents.ForeColor = System.Drawing.Color.White;
             this.btnStudents.Image = global::GestIn.Properties.Resources.StudentIcon;
             this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudents.Location = new System.Drawing.Point(0, 153);
+            this.btnStudents.Location = new System.Drawing.Point(0, 213);
             this.btnStudents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Padding = new System.Windows.Forms.Padding(3, 7, 6, 7);
             this.btnStudents.Size = new System.Drawing.Size(286, 60);
-            this.btnStudents.TabIndex = 9;
+            this.btnStudents.TabIndex = 11;
             this.btnStudents.Text = "        Estudiantes";
             this.btnStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStudents.UseVisualStyleBackColor = false;
             this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
+            // 
+            // btnSubjects
+            // 
+            this.btnSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnSubjects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubjects.FlatAppearance.BorderSize = 0;
+            this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSubjects.ForeColor = System.Drawing.Color.White;
+            this.btnSubjects.Image = global::GestIn.Properties.Resources.Carreras;
+            this.btnSubjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubjects.Location = new System.Drawing.Point(0, 153);
+            this.btnSubjects.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSubjects.Name = "btnSubjects";
+            this.btnSubjects.Padding = new System.Windows.Forms.Padding(3, 7, 6, 7);
+            this.btnSubjects.Size = new System.Drawing.Size(286, 60);
+            this.btnSubjects.TabIndex = 10;
+            this.btnSubjects.Text = "        Materias";
+            this.btnSubjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubjects.UseVisualStyleBackColor = false;
+            this.btnSubjects.Click += new System.EventHandler(this.btnSubjects_Click);
             // 
             // btnCerrarSesion
             // 
@@ -113,7 +136,7 @@
             this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = global::GestIn.Properties.Resources.CerraSesion;
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,11 +175,11 @@
             // 
             this.lblCargo.AutoSize = true;
             this.lblCargo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCargo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCargo.ForeColor = System.Drawing.Color.White;
             this.lblCargo.Location = new System.Drawing.Point(65, 27);
             this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(69, 22);
+            this.lblCargo.Size = new System.Drawing.Size(61, 24);
             this.lblCargo.TabIndex = 7;
             this.lblCargo.Text = "Cargo";
             // 
@@ -164,11 +187,11 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(65, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(163, 22);
+            this.lblNombre.Size = new System.Drawing.Size(153, 24);
             this.lblNombre.TabIndex = 6;
             this.lblNombre.Text = "Nombre Apellido";
             // 
@@ -189,7 +212,7 @@
             this.btnCarreras.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCarreras.FlatAppearance.BorderSize = 0;
             this.btnCarreras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarreras.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCarreras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCarreras.ForeColor = System.Drawing.Color.White;
             this.btnCarreras.Image = global::GestIn.Properties.Resources.Carreras;
             this.btnCarreras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -210,7 +233,7 @@
             this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInicio.FlatAppearance.BorderSize = 0;
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Image = global::GestIn.Properties.Resources.Home2;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,5 +302,6 @@
         private Panel panelSeparador2;
         private Button btnStudents;
         private Button btnExams;
+        private Button btnSubjects;
     }
 }

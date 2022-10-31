@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.UI.Home.Exams;
+using GestIn.UI.Home.Subjects;
 
 namespace GestIn.UI.Home
 {
@@ -37,6 +38,15 @@ namespace GestIn.UI.Home
             AbrirFormularioHijo(new formCareer());
             ChangeButtonColor(sender);
         }
+        private void btnSubjects_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new formSubject());
+        }
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            ChangeButtonColor(sender);
+            AbrirFormularioHijo(new formAcademicRecord());
+        }
 
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
@@ -53,11 +63,7 @@ namespace GestIn.UI.Home
             formHijo.Show();
         }
 
-        private void btnStudents_Click(object sender, EventArgs e)
-        {
-            ChangeButtonColor(sender);
-            AbrirFormularioHijo(new formAcademicRecord());
-        }
+        
         private void ChangeButtonColor(object sender)
         {
             btnCarreras.BackColor = Color.FromArgb(47, 49, 54);

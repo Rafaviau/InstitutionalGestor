@@ -14,11 +14,9 @@ namespace GestIn.UI.Home.Subjects
 {
     public partial class formSubject : Form
     {
-        formCareer formCareer;
         careerController careerController;
-        public formSubject(formCareer receivedformCareer)
+        public formSubject()
         {
-            formCareer = receivedformCareer;
             careerController = careerController.GetInstance();
             InitializeComponent();
         }
@@ -26,12 +24,6 @@ namespace GestIn.UI.Home.Subjects
         private void formSubject_Load(object sender, EventArgs e)
         {
             NullCheckCarreras();
-        }
-
-        private void formSubject_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formCareer.Visible = true;
-            this.Close();
         }
 
         public void NullCheckCarreras() //Para que no me paresca errores
@@ -57,11 +49,21 @@ namespace GestIn.UI.Home.Subjects
 
         public void RefreshTableSubjects()
         {
-            bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
-            bindingSourceCarreraMaterias.ResetBindings(false);
-            dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
-            dataGridViewMaterias.CurrentCell.Selected = false; // para que el datagrid no comienze en la primera fila
-            dataGridViewMaterias.ClearSelection();
+            if(cbbCarreraSelector.SelectedItem!= null && careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem).Count>0)
+            {
+                try
+                {
+                    bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
+                    bindingSourceCarreraMaterias.ResetBindings(false);
+                    //dataGridViewMaterias.Sort(dataGridViewMaterias.Columns[3], 0);
+                    dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
+                    RefreshLableSubjectName(SetGlobalSubject());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         public void RefreshCbbCareers()
@@ -80,6 +82,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show(exc.Message);
             }
+            
         }
         public void DisableUserInput()
         {
@@ -99,7 +102,7 @@ namespace GestIn.UI.Home.Subjects
             txtCargaHorariaTotal.Clear();
         }
 
-        private void btnInsert_MouseClick(object sender, MouseEventArgs e)
+        private void btnInsert_Click(object sender, EventArgs e)
         {
             careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
             RefreshTableSubjects();
@@ -123,7 +126,7 @@ namespace GestIn.UI.Home.Subjects
             object selectedSubject;
             try
             {
-                if(dataGridViewMaterias.SelectedRows != null)
+                if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem!=null)
                 {
                     idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
                     selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
@@ -151,21 +154,6 @@ namespace GestIn.UI.Home.Subjects
             RefreshTableSubjects();
         }
 
-        private void btnCorrelatives_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                if(SetGlobalSubject()!=null)
-                {
-                    this.Visible = false;
-                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
-                    form.Show();
-                }
-                
-            }
-            catch { MessageBox.Show("Error, ninguna materia seleccionada");  }
-        }
-
         private void btnTeachers_Click(object sender, EventArgs e)
         {
             try
@@ -181,7 +169,7 @@ namespace GestIn.UI.Home.Subjects
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
 
-        private void btnModify_MouseClick(object sender, MouseEventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
@@ -193,9 +181,19 @@ namespace GestIn.UI.Home.Subjects
             dataGridViewMaterias.Enabled = false;
         }
 
-        private void label123_Click(object sender, EventArgs e)
+        private void btnCorrelativas_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (SetGlobalSubject() != null)
+                {
+                    this.Visible = false;
+                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
+                    form.Show();
+                }
 
+            }
+            catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
     }
 }
