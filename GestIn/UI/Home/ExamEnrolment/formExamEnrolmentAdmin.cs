@@ -28,7 +28,7 @@ namespace GestIn.UI.Home.ExamEnrolment
             lblDni.Text = studentDni.ToString();
             lblStudent.Text = studentName;
             dgvExams.Rows.Clear();
-            var list = examCnt.loadStudentExam(studentDni);
+            var list = examCnt.loadEnableEnrolmentExams(studentDni);
             if (list.Item1 == null) { MessageBox.Show(list.Item2); }
             else { 
                 foreach (Exam e in list.Item1)
@@ -89,10 +89,26 @@ namespace GestIn.UI.Home.ExamEnrolment
                 searchBox.Clear();
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnEnrol_Click(object sender, EventArgs e)
         {
-            if (selectedStudentId != -1) {
-                var a = examEnrolCnt.verifyCorrelatives(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[2].Value.ToString()),selectedStudentId);
+            var confirmResult = MessageBox.Show("¿Esta seguro que desea realizar la inscripcion?", "Confirmar", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                foreach (var item in dgvExams.SelectedRows) {
+                    int subjectId = Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentRow.Index].Cells[2].Value);
+                    int examId = Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentRow.Index].Cells[0].Value);
+                    if (!examEnrolCnt.verifyCorrelatives(subjectId, selectedStudentId).Item1)
+                    {
+                        var confirmInscription = MessageBox.Show("El estudiante no se encuentra en codicion de inscrbirse a este examen.¿Desea hacerlo igualmente?", "Confirmar", MessageBoxButtons.YesNo);
+                        if (confirmInscription == DialogResult.Yes)
+                        {
+                            examEnrolCnt.enrolStudentToExam(selectedStudentId, subjectId);
+                        }
+                    }
+                    else { examEnrolCnt.enrolStudentToExam(selectedStudentId, examId); }
+                }
+                
             }
         }
     }

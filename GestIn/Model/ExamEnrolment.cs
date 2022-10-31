@@ -6,10 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestIn.Model
 {
-    [Keyless]
+    
     [Table("ExamEnrolment")]
+    [Index("Id", Name = "IX_EXAMENESENROLMENT", IsUnique = true)]
     public partial class ExamEnrolment
     {
+        [Key]
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int ExamId { get; set; }

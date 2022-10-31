@@ -44,5 +44,22 @@ namespace GestIn.Controllers
                 catch { return (false,null); }
             }
         }
+        public string enrolStudentToExam(int studentId, int examId)
+        {
+            try {
+                ExamEnrolment exEnrol = new ExamEnrolment();
+                exEnrol.StudentId = studentId;
+                exEnrol.ExamId = examId;
+                exEnrol.CreatedAt = DateTime.Now;
+                exEnrol.LastModificationBy = "Preceptor cargando notas";
+                using (var db = new Context())
+                {
+                    db.ExamEnrolments.Add(exEnrol);
+                    db.SaveChanges();
+                }
+                return "Cargado correctamente";
+            }
+            catch { return ("Error, intentelo mas tarde"); }
+        }
     }
 }

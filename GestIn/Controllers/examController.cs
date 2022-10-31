@@ -38,10 +38,10 @@ namespace GestIn.Controllers
                 Exam exam = new Exam();
                 exam.IdSubject = sub.Id;
                 exam.Date = datetime;
-                if (tit != null) exam.Titular = tit.Id;
-                if (firstVow != null) exam.FirstVowel = firstVow.Id;
-                if (secondVow != null) exam.SecondVowel = secondVow.Id;
-                if (thirdVow != null) exam.ThirdVowel = thirdVow.Id;
+                exam.Titular = tit?.Id;
+                exam.FirstVowel = firstVow?.Id;
+                exam.SecondVowel = secondVow?.Id;
+                exam.ThirdVowel = thirdVow?.Id;
                 if (place != null) exam.Place = place;
 
                 exam.CreatedAt = DateTime.Now;
@@ -154,20 +154,21 @@ namespace GestIn.Controllers
             }
 
         }
-        public (List<Exam>?, string) loadStudentExam(int studentDni)
+        public (List<Exam>?, string) loadEnableEnrolmentExams(int studentDni)
         {
             using (var db = new Context())
             {
                 try
                 {
                     var enrolment = db.SubjectEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Approved == true)).Select(x => x.SubjectId).ToList();
+                    var aprovedExams = db.Grades.Where(x => x.Student.User.Dni == studentDni).Select(x => x.SubjectId).ToList();
                     if (enrolment != null) { 
                         var result = db.Exams.Where(
-                            x => (x.Date >= DateTime.Today && enrolment.Contains(x.IdSubject)))
+                            x => (x.Date >= DateTime.Today && enrolment.Contains(x.IdSubject) && !aprovedExams.Contains(x.IdSubject)))
                             .Include(x => x.IdSubjectNavigation)
                             .Include(x => x.IdSubjectNavigation.Career)
                          .ToList();
-                    return (result,null);
+                        return (result,null);
                     }
                     return (null, "El estudiante no esta en condiciones en ninguna cursada");
                 }

@@ -31,17 +31,17 @@
             this.searchBox = new System.Windows.Forms.TextBox();
             this.lbSearch = new System.Windows.Forms.ListBox();
             this.dgvExams = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblStudent = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblDni = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.ExamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CareerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Career = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblStudent = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.btnEnrol = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,8 +96,51 @@
             this.dgvExams.RowHeadersWidth = 51;
             this.dgvExams.RowTemplate.Height = 29;
             this.dgvExams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExams.Size = new System.Drawing.Size(1221, 531);
+            this.dgvExams.Size = new System.Drawing.Size(1221, 538);
             this.dgvExams.TabIndex = 35;
+            // 
+            // ExamId
+            // 
+            this.ExamId.HeaderText = "ExamId";
+            this.ExamId.MinimumWidth = 6;
+            this.ExamId.Name = "ExamId";
+            this.ExamId.Visible = false;
+            // 
+            // CareerId
+            // 
+            this.CareerId.HeaderText = "CareerId";
+            this.CareerId.MinimumWidth = 6;
+            this.CareerId.Name = "CareerId";
+            this.CareerId.Visible = false;
+            // 
+            // SubjectId
+            // 
+            this.SubjectId.HeaderText = "SubjectId";
+            this.SubjectId.MinimumWidth = 6;
+            this.SubjectId.Name = "SubjectId";
+            this.SubjectId.Visible = false;
+            // 
+            // Career
+            // 
+            this.Career.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Career.HeaderText = "Carrera";
+            this.Career.MinimumWidth = 6;
+            this.Career.Name = "Career";
+            // 
+            // Subject
+            // 
+            this.Subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Subject.HeaderText = "Materia";
+            this.Subject.MinimumWidth = 6;
+            this.Subject.Name = "Subject";
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date.FillWeight = 50F;
+            this.Date.HeaderText = "Fecha";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
             // 
             // label1
             // 
@@ -135,62 +178,22 @@
             this.lblDni.TabIndex = 39;
             this.lblDni.Text = "---------";
             // 
-            // button1
+            // btnEnrol
             // 
-            this.button1.Location = new System.Drawing.Point(692, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 29);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Test correlatives";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ExamId
-            // 
-            this.ExamId.HeaderText = "ExamId";
-            this.ExamId.MinimumWidth = 6;
-            this.ExamId.Name = "ExamId";
-            // 
-            // CareerId
-            // 
-            this.CareerId.HeaderText = "CareerId";
-            this.CareerId.MinimumWidth = 6;
-            this.CareerId.Name = "CareerId";
-            // 
-            // SubjectId
-            // 
-            this.SubjectId.HeaderText = "SubjectId";
-            this.SubjectId.MinimumWidth = 6;
-            this.SubjectId.Name = "SubjectId";
-            // 
-            // Career
-            // 
-            this.Career.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Career.HeaderText = "Carrera";
-            this.Career.MinimumWidth = 6;
-            this.Career.Name = "Career";
-            // 
-            // Subject
-            // 
-            this.Subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Subject.HeaderText = "Materia";
-            this.Subject.MinimumWidth = 6;
-            this.Subject.Name = "Subject";
-            // 
-            // Date
-            // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date.FillWeight = 50F;
-            this.Date.HeaderText = "Fecha";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
+            this.btnEnrol.Location = new System.Drawing.Point(1151, 606);
+            this.btnEnrol.Name = "btnEnrol";
+            this.btnEnrol.Size = new System.Drawing.Size(94, 29);
+            this.btnEnrol.TabIndex = 40;
+            this.btnEnrol.Text = "Inscribir";
+            this.btnEnrol.UseVisualStyleBackColor = true;
+            this.btnEnrol.Click += new System.EventHandler(this.btnEnrol_Click);
             // 
             // formExamEnrolmentAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 629);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1274, 636);
+            this.Controls.Add(this.btnEnrol);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblStudent);
@@ -215,12 +218,12 @@
         private Label lblStudent;
         private Label label3;
         private Label lblDni;
-        private Button button1;
         private DataGridViewTextBoxColumn ExamId;
         private DataGridViewTextBoxColumn CareerId;
         private DataGridViewTextBoxColumn SubjectId;
         private DataGridViewTextBoxColumn Career;
         private DataGridViewTextBoxColumn Subject;
         private DataGridViewTextBoxColumn Date;
+        private Button btnEnrol;
     }
 }
