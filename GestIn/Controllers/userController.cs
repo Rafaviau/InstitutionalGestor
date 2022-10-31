@@ -55,8 +55,6 @@ namespace GestIn.Controllers
             }
         }
 
-        
-
         public Teacher getTeacher(object teacher) //deprecated
         {
             return (Teacher)teacher;
