@@ -14,9 +14,8 @@ namespace GestIn.Controllers
     {
         static userController? Instance;
 
-        private userController()
-        {
-        }
+        private userController() { }
+
         public static userController GetInstance()
         {
             if (Instance == null)
@@ -25,60 +24,6 @@ namespace GestIn.Controllers
             }
             return Instance;
         }
-
-        #region Docentes
-
-        public List<Teacher> loadTeachers() 
-        {
-            using (var db = new Context())
-            {
-                try
-                {
-                    var result = db.Teachers.ToList();
-                    return result;
-                }
-                catch (SqlException exception) { throw exception; }
-            }
-        }
-
-        public Teacher findTeacher(int dni) //deprecated
-        {
-            using (var db = new Context())
-            {
-                try
-                {
-                    var teacher = db.Teachers.Where(x => x.User.Dni == dni).Include(x => x.User).Include(x => x.LoginInformation).First();
-                    return teacher;
-                }
-                catch (SqlException exception) { throw exception; }
-
-            }
-        }
-
-        public Teacher getTeacher(object teacher) //deprecated
-        {
-            return (Teacher)teacher;
-        }
-
-        public List<Teacher> searchBoxTeacherWithString(string search)
-        {
-            using (var db = new Context())
-            {
-                var list = db.Teachers.Where(x => x.User.Name.StartsWith(search)).Include(x => x.LoginInformation).Include(x => x.User).ToList();
-                return list;
-            }
-        }
-
-        public List<Teacher> searchBoxTeacherWithInt(int search)
-        {
-            using (var db = new Context())
-            {
-                var list = db.Teachers.Where(x => x.User.Dni.ToString().StartsWith(search.ToString())).Include(x => x.LoginInformation).Include(x => x.User).ToList();
-                return list;
-            }
-        }
-
-        #endregion
 
         #region login
         public bool verifyLogin(string email, string pass) {
@@ -93,7 +38,8 @@ namespace GestIn.Controllers
         }
         #endregion
 
-        #region Alumnos
+        #region User
+
         public User findUser(int dni)
         {
             using (var db = new Context())
@@ -110,7 +56,8 @@ namespace GestIn.Controllers
         User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)
         {
-            try {
+            try
+            {
                 User user = new User();
                 user.Dni = Dni;
                 user.Name = name;
@@ -144,7 +91,7 @@ namespace GestIn.Controllers
             return null;
         }
 
-        User createUser(int Dni, string name, string lastname,DateTime? dateOfBirth,string phone)
+        User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string phone)
         {
             Student search = findStudent(Dni);
             if (search != null) { return search.User; }
@@ -211,7 +158,8 @@ namespace GestIn.Controllers
             }
             return null;
         }
-        LoginInformation createLoginInformation(string email, string password, string name, string lastname) {
+        LoginInformation createLoginInformation(string email, string password, string name, string lastname)
+        {
             try
             {
                 LoginInformation log = new LoginInformation();
@@ -270,6 +218,11 @@ namespace GestIn.Controllers
             }
             return null;
         }
+
+        #endregion
+
+        #region Alumnos
+
         bool createStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours,LoginInformation log, User user) {
             try
@@ -452,6 +405,60 @@ namespace GestIn.Controllers
                 }
             }
         }
+        #endregion
+
+        #region Docentes
+
+        public List<Teacher> loadTeachers()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Teachers.ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public Teacher findTeacher(int dni) //deprecated
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var teacher = db.Teachers.Where(x => x.User.Dni == dni).Include(x => x.User).Include(x => x.LoginInformation).First();
+                    return teacher;
+                }
+                catch (SqlException exception) { throw exception; }
+
+            }
+        }
+
+        public Teacher getTeacher(object teacher) //deprecated
+        {
+            return (Teacher)teacher;
+        }
+
+        public List<Teacher> searchBoxTeacherWithString(string search)
+        {
+            using (var db = new Context())
+            {
+                var list = db.Teachers.Where(x => x.User.Name.StartsWith(search)).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                return list;
+            }
+        }
+
+        public List<Teacher> searchBoxTeacherWithInt(int search)
+        {
+            using (var db = new Context())
+            {
+                var list = db.Teachers.Where(x => x.User.Dni.ToString().StartsWith(search.ToString())).Include(x => x.LoginInformation).Include(x => x.User).ToList();
+                return list;
+            }
+        }
+
         #endregion
     }
 }
