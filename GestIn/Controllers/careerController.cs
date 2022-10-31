@@ -888,7 +888,7 @@ namespace GestIn.Controllers
             }
         }
 
-        /*
+        /* DEPRECATED METHODS
         
         public void deactivateCharge(int teacherID, object subject, string dateuntil)
         {

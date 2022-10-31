@@ -41,6 +41,12 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridViewCarreras = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resolutionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.careerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BindingSourceCarreras = new System.Windows.Forms.BindingSource(this.components);
             this.lblqcyo = new System.Windows.Forms.Label();
@@ -50,12 +56,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resolutionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCarreras)).BeginInit();
@@ -142,9 +142,9 @@
             // btnInsert
             // 
             this.btnInsert.Enabled = false;
-            this.btnInsert.Location = new System.Drawing.Point(35, 541);
+            this.btnInsert.Location = new System.Drawing.Point(57, 503);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(111, 29);
+            this.btnInsert.Size = new System.Drawing.Size(132, 29);
             this.btnInsert.TabIndex = 5;
             this.btnInsert.Text = "Crear Carrera";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -153,9 +153,9 @@
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(270, 541);
+            this.btnUpdate.Location = new System.Drawing.Point(270, 503);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(139, 29);
+            this.btnUpdate.Size = new System.Drawing.Size(137, 29);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Actualizar Carrera";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -190,87 +190,6 @@
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
             // 
-            // careerBindingSource
-            // 
-            this.careerBindingSource.DataSource = typeof(GestIn.Model.Career);
-            // 
-            // lblqcyo
-            // 
-            this.lblqcyo.AutoSize = true;
-            this.lblqcyo.ForeColor = System.Drawing.Color.White;
-            this.lblqcyo.Location = new System.Drawing.Point(35, 601);
-            this.lblqcyo.Name = "lblqcyo";
-            this.lblqcyo.Size = new System.Drawing.Size(147, 20);
-            this.lblqcyo.TabIndex = 15;
-            this.lblqcyo.Text = "Carrera seleccionada";
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(149, 439);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(165, 29);
-            this.btnModificar.TabIndex = 7;
-            this.btnModificar.Text = "Permitir Modificacion";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // lblcarreraaqui
-            // 
-            this.lblcarreraaqui.AutoSize = true;
-            this.lblcarreraaqui.ForeColor = System.Drawing.Color.White;
-            this.lblcarreraaqui.Location = new System.Drawing.Point(35, 631);
-            this.lblcarreraaqui.Name = "lblcarreraaqui";
-            this.lblcarreraaqui.Size = new System.Drawing.Size(41, 20);
-            this.lblcarreraaqui.TabIndex = 18;
-            this.lblcarreraaqui.Text = "        ";
-            // 
-            // lblPermission
-            // 
-            this.lblPermission.AutoSize = true;
-            this.lblPermission.ForeColor = System.Drawing.Color.White;
-            this.lblPermission.Location = new System.Drawing.Point(151, 480);
-            this.lblPermission.Name = "lblPermission";
-            this.lblPermission.Size = new System.Drawing.Size(163, 20);
-            this.lblPermission.TabIndex = 19;
-            this.lblPermission.Text = "Modificación Permitida";
-            this.lblPermission.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(172, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 41);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Carreras";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Enabled = false;
-            this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(184, 368);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(72, 24);
-            this.chkActivo.TabIndex = 4;
-            this.chkActivo.Text = "Activa";
-            this.chkActivo.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(427, 80);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(267, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Seleccione una carrera para actualizar: ";
-            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -280,7 +199,7 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
-            this.Id.Width = 28;
+            this.Id.Width = 125;
             // 
             // resolutionDataGridViewTextBoxColumn
             // 
@@ -321,6 +240,87 @@
             this.Active.MinimumWidth = 6;
             this.Active.Name = "Active";
             this.Active.ReadOnly = true;
+            // 
+            // careerBindingSource
+            // 
+            this.careerBindingSource.DataSource = typeof(GestIn.Model.Career);
+            // 
+            // lblqcyo
+            // 
+            this.lblqcyo.AutoSize = true;
+            this.lblqcyo.ForeColor = System.Drawing.Color.White;
+            this.lblqcyo.Location = new System.Drawing.Point(427, 693);
+            this.lblqcyo.Name = "lblqcyo";
+            this.lblqcyo.Size = new System.Drawing.Size(150, 20);
+            this.lblqcyo.TabIndex = 15;
+            this.lblqcyo.Text = "Carrera seleccionada:";
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(150, 418);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(165, 29);
+            this.btnModificar.TabIndex = 7;
+            this.btnModificar.Text = "Permitir Modificacion";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // lblcarreraaqui
+            // 
+            this.lblcarreraaqui.AutoSize = true;
+            this.lblcarreraaqui.ForeColor = System.Drawing.Color.White;
+            this.lblcarreraaqui.Location = new System.Drawing.Point(580, 693);
+            this.lblcarreraaqui.Name = "lblcarreraaqui";
+            this.lblcarreraaqui.Size = new System.Drawing.Size(41, 20);
+            this.lblcarreraaqui.TabIndex = 18;
+            this.lblcarreraaqui.Text = "        ";
+            // 
+            // lblPermission
+            // 
+            this.lblPermission.AutoSize = true;
+            this.lblPermission.ForeColor = System.Drawing.Color.White;
+            this.lblPermission.Location = new System.Drawing.Point(152, 459);
+            this.lblPermission.Name = "lblPermission";
+            this.lblPermission.Size = new System.Drawing.Size(163, 20);
+            this.lblPermission.TabIndex = 19;
+            this.lblPermission.Text = "Modificación Permitida";
+            this.lblPermission.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(172, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 41);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Carreras";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Enabled = false;
+            this.chkActivo.ForeColor = System.Drawing.Color.White;
+            this.chkActivo.Location = new System.Drawing.Point(184, 361);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(72, 24);
+            this.chkActivo.TabIndex = 4;
+            this.chkActivo.Text = "Activa";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(427, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(267, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Seleccione una carrera para actualizar: ";
             // 
             // formCareer
             // 

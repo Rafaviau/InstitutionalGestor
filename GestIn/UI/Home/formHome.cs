@@ -24,7 +24,7 @@ namespace GestIn.UI.Home
 
         private void formMenuInicio_FormClosing(object sender, FormClosingEventArgs e)
         {
-                Application.Exit(); 
+            Application.Exit(); 
         }
         
         private void btnInicio_Click(object sender, EventArgs e)
@@ -35,12 +35,18 @@ namespace GestIn.UI.Home
         }
         private void btnCarreras_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new formCareer());
             ChangeButtonColor(sender);
+            AbrirFormularioHijo(new formCareer());
         }
         private void btnSubjects_Click(object sender, EventArgs e)
         {
+            ChangeButtonColor(sender);
             AbrirFormularioHijo(new formSubject());
+        }
+        private void btnExams_Click(object sender, EventArgs e)
+        {
+            ChangeButtonColor(sender);
+            AbrirFormularioHijo(new FormExams());
         }
         private void btnStudents_Click(object sender, EventArgs e)
         {
@@ -62,22 +68,16 @@ namespace GestIn.UI.Home
             formHijo.BringToFront();
             formHijo.Show();
         }
-
         
         private void ChangeButtonColor(object sender)
         {
             btnCarreras.BackColor = Color.FromArgb(47, 49, 54);
+            btnSubjects.BackColor = Color.FromArgb(47, 49, 54);
             btnInicio.BackColor = Color.FromArgb(47, 49, 54);
             btnStudents.BackColor = Color.FromArgb(47, 49, 54);
             btnExams.BackColor = Color.FromArgb(47, 49, 54);
             Button b = (Button)sender;
             b.BackColor = Color.FromArgb(114, 137, 218);
-        }
-
-        private void btnExams_Click(object sender, EventArgs e)
-        {
-            ChangeButtonColor(sender);
-            AbrirFormularioHijo(new FormExams());
         }
     }
 }
