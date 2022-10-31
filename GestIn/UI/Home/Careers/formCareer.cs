@@ -22,14 +22,17 @@ namespace GestIn.UI.Home.Careers
             InitializeComponent();
         }
 
-        private void formCareer_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void formCarrera_Load(object sender, EventArgs e)
         {
-            RefreshTableCarrera();
+            NullCheckCarreras();
+        }
+
+        public void NullCheckCarreras()
+        {
+            if (careerController.loadCareers().Count != 0)
+            {
+                RefreshTableCarrera();
+            }
         }
 
         public void RefreshTableCarrera()
@@ -64,6 +67,7 @@ namespace GestIn.UI.Home.Careers
             cbbTurno.Enabled = false;
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
+            chkActivo.Enabled = false;
             lblPermission.Visible = false;
             dataGridViewCarreras.Enabled = true;
         }
@@ -75,24 +79,13 @@ namespace GestIn.UI.Home.Careers
             DisableUserInput();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text, this.chkActivo.Checked);
             RefreshTableCarrera();
             DisableUserInput();
-        }
-
-        private void btnFormMateria_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Hide();
-                formSubject formMateria = new formSubject(this);
-                formMateria.Show();
-            }
-            catch { }
         }
 
         private void dataGridViewCarreras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -118,31 +111,20 @@ namespace GestIn.UI.Home.Careers
             RefreshLableCareerName(id);
         }
 
-        private void btnModificar_MouseClick(object sender, MouseEventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(dataGridViewCarreras.CurrentRow!=null)
+            if (dataGridViewCarreras.CurrentRow != null)
             {
-                btnInsert.Enabled = true;
-                btnUpdate.Enabled = true;
                 txtNumResolucion.Enabled = true;
                 txtNombre.Enabled = true;
                 txtTitulo.Enabled = true;
                 cbbTurno.Enabled = true;
+                chkActivo.Enabled = true;
                 btnInsert.Enabled = true;
                 btnUpdate.Enabled = true;
                 lblPermission.Visible = true;
                 dataGridViewCarreras.Enabled = false;
             }
-        }
-
-        private void lblcarreraaqui_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

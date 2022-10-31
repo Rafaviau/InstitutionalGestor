@@ -17,7 +17,7 @@ namespace GestIn
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new test());
-            Application.Run(new formExamEnrolmentAdmin());
+            Application.Run(new formHome());
         }
     }
 }

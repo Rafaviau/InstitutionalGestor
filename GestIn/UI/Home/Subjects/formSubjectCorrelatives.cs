@@ -27,23 +27,26 @@ namespace GestIn.UI.Home.Subjects
             InitializeComponent();
         }
 
-        private void formSubjectCorrelatives_FormClosed(object sender, FormClosedEventArgs e)
+        private void formSubjectCorrelatives_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parentFormSubject.Visible = true;
-            this.Close();
+            parentFormSubject.Show();
         }
 
         private void formSubjectCorrelatives_Load(object sender, EventArgs e)
         {
             RefreshLableSubjectName();
-            RefreshComboboxCorrelativas();
             RefreshTableCorrelativas();
+            RefreshComboboxCorrelativas();
         }
 
+        private void checkBoxEspecial_CheckStateChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxCorrelativas();
+        }
 
         public void RefreshComboboxCorrelativas()
         {
-            bindingSourceCorrelativasMenosMisma.DataSource = careerController.getEnabledCorrelatives(receivedCareer,receivedSubject); //Sobrecarga para no mostrar misma materia
+            bindingSourceCorrelativasMenosMisma.DataSource = careerController.getEnabledCorrelatives(receivedCareer,receivedSubject,checkBoxEspecial.Checked);
             bindingSourceCorrelativasMenosMisma.ResetBindings(true);
             cbbCorrelativas.DataSource = bindingSourceCorrelativasMenosMisma;
             cbbCorrelativas.DisplayMember = "NAME";
@@ -57,7 +60,6 @@ namespace GestIn.UI.Home.Subjects
                 bindingSourceMateriaCorrelativas.DataSource = careerController.getCorrelativesFromSubject(receivedSubject); 
                 bindingSourceMateriaCorrelativas.ResetBindings(true);
                 dataGridViewCorrelativas.DataSource = bindingSourceMateriaCorrelativas;
-                //dataGridViewCorrelativas.Rows.Add("DDD", "ssss", true);
             }
             catch (Exception exc)
             {
@@ -77,23 +79,22 @@ namespace GestIn.UI.Home.Subjects
             }
         }
 
-        private void btnAddCorrelative_MouseClick(object sender, MouseEventArgs e)
+        private void btnAddCorrelativas_Click(object sender, EventArgs e)
         {
             object selectedSubject = cbbCorrelativas.SelectedItem;
             careerController.createCorrelative(receivedSubject, selectedSubject, chkEstado.Checked);
             RefreshComboboxCorrelativas();
             RefreshTableCorrelativas();
-            
         }
 
-        private void btnRemoveCorrelative_MouseClick(object sender, MouseEventArgs e)
+        private void btnRemoveCorrelative_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridViewCorrelativas.Rows.Count > 0)
-                {
-                    int selectedSubjectID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
-                    careerController.removeCorrelative(careerController.findCorrelative(selectedSubjectID));
+                if (dataGridViewCorrelativas.Rows.Count>0)
+                { 
+                    int selectedCorrelativeID = Convert.ToInt32(dataGridViewCorrelativas.CurrentRow.Cells[0].Value);
+                    careerController.removeCorrelative(selectedCorrelativeID);
                     RefreshComboboxCorrelativas();
                     RefreshTableCorrelativas();
                 }
@@ -101,14 +102,6 @@ namespace GestIn.UI.Home.Subjects
             catch { }
         }
 
-        private void formSubjectCorrelatives_FormClosed_1(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
-        private void formSubjectCorrelatives_Load_1(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

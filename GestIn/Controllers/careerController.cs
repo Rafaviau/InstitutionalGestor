@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Wordprocessing;
 using GestIn.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.AxHost;
 
 namespace GestIn.Controllers
 {
@@ -173,7 +175,7 @@ namespace GestIn.Controllers
         }
 
 
-        public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn)
+        public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn, bool careerState)
         {
             try
             {
@@ -186,6 +188,7 @@ namespace GestIn.Controllers
                         updatedCareer.Name = name;
                         updatedCareer.Degree = degree;
                         updatedCareer.Turn = turn;
+                        updatedCareer.Active = careerState;
                         updatedCareer.LastModificationBy = "Alguien actualizo la carrera";
                         updatedCareer.UpdatedAt = DateTime.Now;
                         db.Update(updatedCareer);
@@ -296,6 +299,7 @@ namespace GestIn.Controllers
 
         public List<Subject> getSubjectsFromCareer(object career) //pido las materias de una determinada carrera
         {
+
             List<Subject> specifiedListSubjects = new List<Subject>();
             Career carreraSelector = (Career)career;
 
@@ -303,7 +307,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Include(x => x.Career).ToList();
+                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
                     return specifiedListSubjects;
                 }
                 catch (SqlException exception) { throw exception; }
@@ -441,6 +445,12 @@ namespace GestIn.Controllers
             return objMateria;
         }
 
+        public int getSubjectID(object materiaSelector) //??????????????????????????????????
+        {
+            int id = ((Subject)materiaSelector).Id;
+            return id;
+        }
+
         public List<Subject> getSubjectsExceptSame(object objcareer, object objsubject)
         {
             List<Subject> Subjects = new List<Subject>();
@@ -511,24 +521,18 @@ namespace GestIn.Controllers
             catch (SqlException exception) { throw exception; }
         }
 
-        public bool removeCorrelative(object cmbcorrelative)
+        public void removeCorrelative(int id)
         {
-            Correlative existingCorrelative = (Correlative)cmbcorrelative;
+            Correlative existingCorrelative = findCorrelative(id);
             try
             {
                 using (var db = new Context())
                 {
-                    var resultCorrelative = findCorrelative(existingCorrelative);
-                    if (resultCorrelative != null)
-                    {
-                        db.Remove(resultCorrelative);
-                        db.SaveChanges();
-                        return true;
-                    }
+                    db.Remove(existingCorrelative);
+                    db.SaveChanges();
                 }
             }
             catch (SqlException exception) { throw exception; }
-            return false;
 
         }
 
@@ -548,13 +552,12 @@ namespace GestIn.Controllers
 
         public Correlative findCorrelative(int IDcorrelative)
         {
-            Correlative correlative = null;
             using (var db = new Context())
             {
                 try
                 {
                     var result = db.Correlatives.Where(x => x.Id == IDcorrelative).First();
-                    return correlative;
+                    return result;
                 }
                 catch (SqlException exception) { throw exception; }
             }
@@ -571,7 +574,7 @@ namespace GestIn.Controllers
             return correlativeSubjects;
         }
 
-        public List<Subject> getEnabledCorrelatives(object objcareer, object objsubject)
+        public List<Subject> getEnabledCorrelatives(object objcareer, object objsubject, bool especial)
         {
             Career carreraSelector = (Career)objcareer;
             Subject subjectSelector = (Subject)objsubject;
@@ -579,7 +582,14 @@ namespace GestIn.Controllers
             List<Subject> allSubjects = getSubjectsExceptSame(carreraSelector, subjectSelector);
             List<Subject> correlativeSubjects = getObjectSubjectsFromCorrelatives(subjectSelector);
 
-            allSubjects.RemoveAll(x => x.YearInCareer >= subjectSelector.YearInCareer);
+            if(especial)
+            {
+                allSubjects.RemoveAll(x => x.YearInCareer > subjectSelector.YearInCareer);
+            }
+            else
+            {
+                allSubjects.RemoveAll(x => x.YearInCareer >= subjectSelector.YearInCareer);
+            }
 
             if (correlativeSubjects.Any())
             {
@@ -623,20 +633,19 @@ namespace GestIn.Controllers
 
         public void assignTeacherCharge(object teacher, object subject, string condition)
         {
-            TeacherSubject newCharge = new TeacherSubject();//MessageBox.Show(newCharge.TOSTRING());
+            TeacherSubject newCharge = new TeacherSubject();
             Teacher selectedTeacher = (Teacher)teacher;
-            //MessageBox.Show(selectedTeacher.TOSTRING());
             Subject selectedSubject = (Subject)subject;
-
             newCharge.TeacherId = selectedTeacher.Id;
             newCharge.SubjectId = selectedSubject.Id;
-            newCharge.DateSince = DateTime.Now;
-            //newCharge.DateUntil = 
+            newCharge.DateSince = null;
+            newCharge.DateUntil = null;
+            newCharge.Active = true;
             newCharge.Condition = condition;
             newCharge.CreatedAt = DateTime.Now;
             newCharge.LastModificationBy = "Preceptor cargando docente";
 
-            if (checkChargeRepetition(newCharge, selectedSubject, condition))
+            if (!getAllActiveCharges(selectedSubject).Any() && !newCharge.Condition.Equals("Suplente"))
             {
                 try
                 {
@@ -645,55 +654,130 @@ namespace GestIn.Controllers
                         db.TeacherSubjects.Add(newCharge);
                         db.SaveChanges();
                     }
+                } catch (SqlException exception) { throw exception; }
+            }
+            else if(newCharge.Condition.Equals("Suplente") 
+                && getAllNonSubstituteActiveCharges(selectedSubject).Any())
+            {
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        db.TeacherSubjects.Add(newCharge);
+                        db.SaveChanges();
+                    }
+                } catch (SqlException exception) { throw exception; }
+            }
+            else if(!newCharge.Condition.Equals("Suplente") 
+                && !checkIfSameTeacherInSameCharge(newCharge, selectedSubject))
+            {
+                TeacherSubject activeteacher = getActiveNonSubstitute(selectedSubject);
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        db.TeacherSubjects.Add(newCharge);
+                        db.SaveChanges();
+                        deactivateCharge(activeteacher);
+                    }
                 }
                 catch (SqlException exception) { throw exception; }
             }
         }
 
-        public bool removeTeacherCharge(int teacherID, object subject)
+        public bool checkIfSameTeacherInSameCharge(TeacherSubject thisCharge,Subject subject)
         {
-            TeacherSubject existingCharge = findTeacherCharge(teacherID);
-            Subject existingSubject = (Subject)subject;
-            try
+            TeacherSubject activeteacher = getActiveNonSubstitute(subject);
+            if(thisCharge.TeacherId == activeteacher.TeacherId)
             {
-                using (var db = new Context())
-                {
-                    var resultTeacher = findTeacherCharge(existingCharge,existingSubject);
-                    if (resultTeacher != null)
-                    {
-                        db.Remove(resultTeacher);
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
+                MessageBox.Show("Error, mismo docente en el cargo: " + " " + activeteacher.Condition);
+                return true;
             }
-            catch (SqlException exception) { throw exception; }
-            return false;
-
+            else
+            {
+                return false;
+            }
         }
 
-        public bool checkChargeRepetition(TeacherSubject charge, Subject subject, string Condition)
+        public void changeChargeDates(int teacherID, DateTime datesince, DateTime dateuntil)
         {
-            bool state = false;
-            if(Condition.Equals("Titular"))
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            if(verifyDateValidity(datesince, dateuntil))
             {
-                if (findTeacherCharge(charge, subject) == null)
+                existingCharge.DateSince = datesince;
+                existingCharge.DateUntil = dateuntil;
+                try
                 {
-                    state = true;
+                    using (var db = new Context())
+                    {
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
                 }
-                else if (getExistingTitularTeacherFromSubject(subject) == true)  //si ya existe un docente y es titular
-                {
-                    MessageBox.Show("Error, existe un docente Titular");
-                }
-                else if (getExistingTeacherConditionFromSubject(subject) == true)  //si ya existe un docente
-                {
-                    MessageBox.Show("Error, un docente no puede tener el mismo cargo otra vez");
-                }
+                catch (SqlException exception) { throw exception; }
+            }
+            else { MessageBox.Show("La fecha de Cese debe ser posterior a la fecha de Inicio");  }
+        }
+
+        public bool verifyDateValidity(DateTime datesince, DateTime dateuntil)
+        {
+            bool state = true;
+            if (dateuntil <= datesince)
+            {
+                state = false;
             }
             return state;
         }
 
-        
+        public void deactivateCharge(int teacherID)
+        {
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            if(existingCharge.Condition.Equals("Suplente"))
+            {
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        existingCharge.Active = false;
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+            else
+            {
+                MessageBox.Show("Error, solamente se puede desactivar a suplentes");
+            }
+            
+        }
+
+        public void deactivateCharge(TeacherSubject currentActive)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    currentActive.Active = false;
+                    db.Update(currentActive);
+                    db.SaveChanges();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<TeacherSubject> ActiveTeachers()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.TeacherSubjects.Where(x => x.Active == true).ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
 
         public TeacherSubject findTeacherCharge(object teacherCharge)
         {
@@ -726,8 +810,7 @@ namespace GestIn.Controllers
         {
             TeacherSubject charge = (TeacherSubject)teacherCharge;
             Subject subject = (Subject)subjectMatter;
-            TeacherSubject existingCharge = new TeacherSubject();
-            existingCharge = null;
+            TeacherSubject existingCharge = null;
             using (var db = new Context())
             {
                 try
@@ -755,58 +838,189 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    specifiedListCharges = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
                     return specifiedListCharges;
                 }
                 catch (SqlException exception) { throw exception; }
             }
         }
 
-        public bool getExistingTitularTeacherFromSubject(object subjectMatter) //docentes que tienen algun cargo en la materia
+        public TeacherSubject getActiveNonSubstitute(Subject existingsubject)
         {
-            bool state = false;
-            Subject existingsubject = getSubject((Subject)subjectMatter);
+            TeacherSubject teacherSubject = null;
+
             using (var db = new Context())
             {
                 try
                 {
-                    foreach (var item in db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).ToList())
-                    {
-                        if (item.Condition.Equals("Titular"))
-                        {
-                            MessageBox.Show("Nombre del docente titular:" + " " + item.Teacher.User.Name);
-                            state = true;
-                        }
-
-                    } return state;
+                    teacherSubject = db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id && !x.Condition.Equals("Suplente") && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).First();
+                    return teacherSubject;
                 }
                 catch (SqlException exception) { throw exception; }
             }
         }
 
-        public bool getExistingTeacherConditionFromSubject(object subjectMatter) 
+        public List<TeacherSubject> getAllActiveCharges(Subject subjectMatter)
         {
-            bool state = false;
-            Subject existingsubject = getSubject((Subject)subjectMatter);
+            List<TeacherSubject> listActiveCharges = new List<TeacherSubject>();  
             using (var db = new Context())
             {
                 try
                 {
-                    foreach (var item in db.TeacherSubjects.Where(x => x.SubjectId == existingsubject.Id).ToList())
+                    listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == subjectMatter.Id && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    return listActiveCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<TeacherSubject> getAllNonSubstituteActiveCharges(Subject subjectMatter)
+        {
+            List<TeacherSubject> listActiveCharges = new List<TeacherSubject>();
+            using (var db = new Context())
+            {
+                try
+                {
+                    listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == subjectMatter.Id && !x.Condition.Equals("Suplente") && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    return listActiveCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        /* DEPRECATED METHODS
+        
+        public void deactivateCharge(int teacherID, object subject, string dateuntil)
+        {
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            Subject existingSubject = (Subject)subject;
+            existingCharge.DateUntil = DateTime.Parse(dateuntil);
+            try
+            {
+                using (var db = new Context())
+                {
+                    existingCharge.Active = false;
+                    db.Update(existingCharge);
+                    db.SaveChanges();
+                }
+            }
+            catch (SqlException exception) { throw exception; }
+        }
+
+
+        public bool removeTeacherCharge(int teacherID, object subject) //preguntar sobre activo
+        {
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            Subject existingSubject = (Subject)subject;
+            try
+            {
+                using (var db = new Context())
+                {
+                    var resultTeacher = findTeacherCharge(existingCharge,existingSubject);
+                    if (resultTeacher != null)
                     {
-                        if (item.Condition.Equals("Suplente") || item.Condition.Equals("Provisional"))
+                        changeActiveCharge(resultTeacher);
+                        //db.Remove(resultTeacher);
+                        //db.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch (SqlException exception) { throw exception; } //deprecated
+            return false;
+        }
+
+        public void assignActiveCharge() //else
+        {
+            else 
+            {
+                List<TeacherSubject> activeteachers = new List<TeacherSubject>();
+                activeteachers = ActiveTeachers();
+                foreach(TeacherSubject activeteacher in activeteachers)
+                {
+                    if(activeteacher.TeacherId != newCharge.TeacherId)
+                    {
+                        try
                         {
-                            state = true;
+                            using (var db = new Context())
+                            {
+                                db.TeacherSubjects.Add(newCharge);
+                                db.SaveChanges();
+                                deactivateCharge(newCharge);
+                            }
+                        }
+                        catch (SqlException exception) { throw exception; }
+                    }
+                }
+            }
+        }
+
+        public void assignActiveCharge(int teacherID, object subject)
+        {
+            Subject existingSubject = (Subject)subject;
+            TeacherSubject existingCharge = findTeacherCharge(teacherID);
+            if(existingCharge.Condition.Equals("Suplente"))
+            {
+                try
+                {
+                    using (var db = new Context())
+                    {
+                        existingCharge.Active = true;
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+            else
+            {
+                List<TeacherSubject> activeteachers = new List<TeacherSubject>();
+                activeteachers = getAllActiveCharges(existingSubject);
+                if (activeteachers.Any())
+                {
+                    foreach (TeacherSubject activeteacher in activeteachers)
+                    {
+                        if (activeteacher.Condition == existingCharge.Condition)
+                        {
+                            try
+                            {
+                                using (var db = new Context())
+                                {
+                                    existingCharge.Active = true;
+                                    db.Update(existingCharge);
+                                    db.SaveChanges();
+                                    removeActiveCharge(activeteacher);
+                                }
+                            }
+                            catch (SqlException exception) { throw exception; }
+                        }
+                        else if(activeteacher.Condition != existingCharge.Condition)
+                        {
+
                         }
                     }
-                    return state;
                 }
-                catch (SqlException exception) { throw exception; }
+                else
+                {
+                    try
+                    {
+                        using (var db = new Context())
+                        {
+                            existingCharge.Active = true;
+                            db.Update(existingCharge);
+                            db.SaveChanges();
+                        }
+                    }
+                    catch (SqlException exception) { throw exception; }
+                }
             }
         }
+        */
+
+
+
 
         #endregion
-
     }
 }
 
