@@ -166,10 +166,10 @@
   <data name="Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LoadingGif1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoadingGif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BigErrorIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BigErrorIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CloudError" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CloudError.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.Controllers;
+using GestIn.Properties;
+using GestIn.UI.Commons;
 
 namespace GestIn.UI.Login
 {
@@ -94,7 +96,7 @@ namespace GestIn.UI.Login
             else
             {
                 cntMail.changePass(txtEmail.Text, System.Web.Helpers.Crypto.HashPassword(txtNewPass.Text));
-                formWelcome formBienvenido = new formWelcome("¡Contraseña cambiada con exito!");
+                formShowInfo formBienvenido = new formShowInfo("¡Contraseña cambiada con exito!", Resources.Done);
                 formBienvenido.ShowDialog();
                 this.Close();
             }

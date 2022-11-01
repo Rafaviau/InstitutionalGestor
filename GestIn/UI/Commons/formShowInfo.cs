@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestIn.UI.Login
+namespace GestIn.UI.Commons
 {
-    public partial class formWelcome : Form
+    public partial class formShowInfo : Form
     {
-        public formWelcome(string texto)
+        public formShowInfo(string texto, Image img)
         {
             InitializeComponent();
             lblText.Text = texto;
+            pictureBox1.Image = img;
         }
 
         private void btnOk_Click(object sender, EventArgs e)

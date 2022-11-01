@@ -1,5 +1,7 @@
 ﻿using GestIn.Controllers;
 using GestIn.Model;
+using GestIn.Properties;
+using GestIn.UI.Commons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +32,12 @@ namespace GestIn.UI.Home.ExamEnrolment
             dgvExams.Rows.Clear();
             var list = examCnt.loadEnableEnrolmentExams(studentDni);
             if (list.Item1 == null) { MessageBox.Show(list.Item2); }
-            else { 
+            else if (list.Item1.Count == 0) {
+                formShowInfo forminfo = new formShowInfo("No hay examenes disponibles para este estudiante", Resources.CloudError);
+                forminfo.ShowDialog();
+            }
+            else
+            {
                 foreach (Exam e in list.Item1)
                 {
                     addExam(e);
@@ -38,6 +45,7 @@ namespace GestIn.UI.Home.ExamEnrolment
             }
 
         }
+        private void addEmptyRowWithMessage() { }
         private void addExam(Exam ex)
         {
             int StudentsEnroled = 0;
@@ -95,18 +103,25 @@ namespace GestIn.UI.Home.ExamEnrolment
             var confirmResult = MessageBox.Show("¿Esta seguro que desea realizar la inscripcion?", "Confirmar", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                foreach (var item in dgvExams.SelectedRows) {
-                    int subjectId = Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentRow.Index].Cells[2].Value);
-                    int examId = Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentRow.Index].Cells[0].Value);
+                foreach (DataGridViewRow item in dgvExams.SelectedRows) {
+                    int subjectId = Convert.ToInt32(item.Cells[2].Value);
+                    int examId = Convert.ToInt32(item.Cells[0].Value);
                     if (!examEnrolCnt.verifyCorrelatives(subjectId, selectedStudentId).Item1)
                     {
                         var confirmInscription = MessageBox.Show("El estudiante no se encuentra en codicion de inscrbirse a este examen.¿Desea hacerlo igualmente?", "Confirmar", MessageBoxButtons.YesNo);
                         if (confirmInscription == DialogResult.Yes)
                         {
-                            examEnrolCnt.enrolStudentToExam(selectedStudentId, subjectId);
+                            if (examEnrolCnt.enrolStudentToExam(selectedStudentId, subjectId)) { 
+                                dgvExams.Rows.Remove(item);
+                            }
                         }
                     }
-                    else { examEnrolCnt.enrolStudentToExam(selectedStudentId, examId); }
+                    else { 
+                        if(examEnrolCnt.enrolStudentToExam(selectedStudentId, examId))
+                        {
+                            dgvExams.Rows.Remove(item);
+                        } 
+                    }
                 }
                 
             }

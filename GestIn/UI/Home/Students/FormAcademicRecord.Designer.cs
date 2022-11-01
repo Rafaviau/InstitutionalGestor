@@ -139,6 +139,7 @@
             this.dgvSubjectsRecord.MultiSelect = false;
             this.dgvSubjectsRecord.Name = "dgvSubjectsRecord";
             this.dgvSubjectsRecord.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvSubjectsRecord.RowHeadersVisible = false;
             this.dgvSubjectsRecord.RowHeadersWidth = 51;
             this.dgvSubjectsRecord.RowTemplate.Height = 24;
             this.dgvSubjectsRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -223,7 +224,7 @@
             this.cbbCarrer.ForeColor = System.Drawing.Color.White;
             this.cbbCarrer.FormattingEnabled = true;
             this.cbbCarrer.Location = new System.Drawing.Point(5, 13);
-            this.cbbCarrer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbbCarrer.Margin = new System.Windows.Forms.Padding(5);
             this.cbbCarrer.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbbCarrer.Name = "cbbCarrer";
             this.cbbCarrer.Size = new System.Drawing.Size(650, 28);
@@ -273,7 +274,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(145, 29);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 35);
             this.button1.TabIndex = 18;
@@ -290,9 +291,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(26, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(693, 83);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
@@ -304,7 +305,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(453, 29);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(227, 35);
             this.button3.TabIndex = 20;
@@ -317,7 +318,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(283, 29);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(161, 35);
             this.button2.TabIndex = 19;
@@ -482,7 +483,7 @@
             this.btnCreateStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCreateStudent.ForeColor = System.Drawing.Color.White;
             this.btnCreateStudent.Location = new System.Drawing.Point(338, 9);
-            this.btnCreateStudent.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreateStudent.Margin = new System.Windows.Forms.Padding(5);
             this.btnCreateStudent.Name = "btnCreateStudent";
             this.btnCreateStudent.Size = new System.Drawing.Size(127, 35);
             this.btnCreateStudent.TabIndex = 35;
@@ -559,7 +560,7 @@
             this.flowLayoutPanel1.Controls.Add(this.label13);
             this.flowLayoutPanel1.Controls.Add(this.txtGender);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 73);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(261, 609);
             this.flowLayoutPanel1.TabIndex = 34;
@@ -781,7 +782,7 @@
             this.btnAddGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddGrade.ForeColor = System.Drawing.Color.White;
             this.btnAddGrade.Location = new System.Drawing.Point(217, 9);
-            this.btnAddGrade.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAddGrade.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddGrade.Name = "btnAddGrade";
             this.btnAddGrade.Size = new System.Drawing.Size(112, 35);
             this.btnAddGrade.TabIndex = 34;

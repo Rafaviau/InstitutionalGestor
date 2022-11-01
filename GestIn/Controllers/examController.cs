@@ -160,11 +160,23 @@ namespace GestIn.Controllers
             {
                 try
                 {
+                    //Trae unicamente las materias que tenga cursada aprobada
                     var enrolment = db.SubjectEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Approved == true)).Select(x => x.SubjectId).ToList();
+
+                    //Trae las materia en las que ya aprobo el examen
                     var aprovedExams = db.Grades.Where(x => x.Student.User.Dni == studentDni).Select(x => x.SubjectId).ToList();
+
+                    // trae las materia en las que ya se inscribio al examen y la fecha es mayor a la actual
+                    var alreadyEnroledExams = db.ExamEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Exam.Date > DateTime.Now))
+                        .Select(x => x.Exam.IdSubject)
+                        .ToList();
+
                     if (enrolment != null) { 
                         var result = db.Exams.Where(
-                            x => (x.Date >= DateTime.Today && enrolment.Contains(x.IdSubject) && !aprovedExams.Contains(x.IdSubject)))
+                            x => (x.Date >= DateTime.Today 
+                                && enrolment.Contains(x.IdSubject) 
+                                && !aprovedExams.Contains(x.IdSubject) 
+                                && !alreadyEnroledExams.Contains(x.IdSubject)))
                             .Include(x => x.IdSubjectNavigation)
                             .Include(x => x.IdSubjectNavigation.Career)
                          .ToList();

@@ -2,10 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="UI\Excel\test.cs">
+    <Compile Update="UI\Commons\formShowInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UI\formHeredable.cs">
+    <Compile Update="UI\Excel\test.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Home\Careers\formCareer.cs">
@@ -51,9 +51,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Home\Teachers\formTeacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="UI\Login\formWelcome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Login\formLogin.cs">

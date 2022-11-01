@@ -1,6 +1,6 @@
-﻿namespace GestIn.UI.Login
+﻿namespace GestIn.UI.Commons
 {
-    partial class formWelcome
+    partial class formShowInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -37,10 +37,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GestIn.Properties.Resources.Done;
-            this.pictureBox1.Location = new System.Drawing.Point(290, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(331, 29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 144);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -51,8 +52,8 @@
             this.lblText.ForeColor = System.Drawing.Color.White;
             this.lblText.Location = new System.Drawing.Point(0, 0);
             this.lblText.Name = "lblText";
-            this.lblText.Padding = new System.Windows.Forms.Padding(0, 70, 0, 0);
-            this.lblText.Size = new System.Drawing.Size(735, 332);
+            this.lblText.Padding = new System.Windows.Forms.Padding(0, 93, 0, 0);
+            this.lblText.Size = new System.Drawing.Size(840, 443);
             this.lblText.TabIndex = 1;
             this.lblText.Text = "¡Bienvenido!";
             this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,30 +65,31 @@
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOk.ForeColor = System.Drawing.Color.Black;
-            this.btnOk.Location = new System.Drawing.Point(290, 256);
+            this.btnOk.Location = new System.Drawing.Point(331, 341);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(159, 37);
+            this.btnOk.Size = new System.Drawing.Size(182, 49);
             this.btnOk.TabIndex = 16;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // formBienvenido
+            // formShowInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(735, 332);
+            this.ClientSize = new System.Drawing.Size(840, 443);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "formBienvenido";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "formShowInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formBienvenido";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -10,10 +10,13 @@
 
   <ItemGroup>
     <Compile Remove="Controladores\**" />
+    <Compile Remove="UI\Test\**" />
     <Compile Remove="Vistas\**" />
     <EmbeddedResource Remove="Controladores\**" />
+    <EmbeddedResource Remove="UI\Test\**" />
     <EmbeddedResource Remove="Vistas\**" />
     <None Remove="Controladores\**" />
+    <None Remove="UI\Test\**" />
     <None Remove="Vistas\**" />
   </ItemGroup>
 
@@ -35,7 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="UI\Test\" />
   </ItemGroup>
 
 </Project>

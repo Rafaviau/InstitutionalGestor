@@ -44,7 +44,7 @@ namespace GestIn.Controllers
                 catch { return (false,null); }
             }
         }
-        public string enrolStudentToExam(int studentId, int examId)
+        public bool enrolStudentToExam(int studentId, int examId)
         {
             try {
                 ExamEnrolment exEnrol = new ExamEnrolment();
@@ -57,9 +57,9 @@ namespace GestIn.Controllers
                     db.ExamEnrolments.Add(exEnrol);
                     db.SaveChanges();
                 }
-                return "Cargado correctamente";
+                return true;
             }
-            catch { return ("Error, intentelo mas tarde"); }
+            catch { return (false); }
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using GestIn.Controllers;
+using GestIn.Properties;
+using GestIn.UI.Commons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -226,7 +228,7 @@ namespace GestIn.UI.Login
                                                     fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
                                                     txtActividadLaboral.Text,txtHorarioLaboral.Text))
                 {
-                formWelcome formBienvenido = new formWelcome("¡Bienvenido!");
+                formShowInfo formBienvenido = new formShowInfo("¡Bienvenido!", Resources.Done);
                 formBienvenido.ShowDialog();
                 this.Close();
                 }
