@@ -17,6 +17,7 @@ namespace GestIn.UI.Home.Exams
     {
         careerController careerController = careerController.GetInstance();
         examController examCnt = examController.GetInstance();
+        examEnrolmentController examEnrolCnt = examEnrolmentController.GetInstance();
 
         public FormExams()
         {
@@ -37,7 +38,7 @@ namespace GestIn.UI.Home.Exams
         }
         private void addExam(Exam ex)
         {
-            int StudentsEnroled = 0;
+            int StudentsEnroled = examEnrolCnt.countEnroledStudent(ex.Id);
             dgvExams.Rows.Add(ex.Id, ex.IdSubjectNavigation.Career.Name, ex.IdSubjectNavigation.Name, ex.Date, StudentsEnroled);
         }
         private void btnNewExam_Click(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using GestIn.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,6 +69,17 @@ namespace GestIn.Controllers
                 try
                 {
                     return db.ExamEnrolments.Where(x => x.ExamId == IdExam).Select(x => x.Student).ToList();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+        public int countEnroledStudent(int IdExam)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.ExamEnrolments.Count(x => x.ExamId == IdExam);
                 }
                 catch (SqlException exception) { throw exception; }
             }

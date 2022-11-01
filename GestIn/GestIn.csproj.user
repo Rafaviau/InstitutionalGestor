@@ -11,6 +11,9 @@
     <Compile Update="UI\Home\Careers\formCareer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Home\ExamEnrolment\formActaVolante.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Home\ExamEnrolment\formExamEnrolmentAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
