@@ -50,7 +50,7 @@
     <Compile Update="UI\Home\Subjects\formSubjectTeachers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UI\Home\Teachers\formTeacher.cs">
+    <Compile Update="UI\Home\Users\formUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UI\Login\formWelcome.cs">

@@ -40,6 +40,45 @@ namespace GestIn.Controllers
 
         #region User
 
+        public int countUsers()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Users.Count();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public int countStudents() 
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Students.Count();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<Student> loadStudent()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Students.ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
         public User findUser(int dni)
         {
             using (var db = new Context())
@@ -408,6 +447,19 @@ namespace GestIn.Controllers
         #endregion
 
         #region Docentes
+
+        public int countTeachers()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Teachers.Count();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
 
         public List<Teacher> loadTeachers()
         {

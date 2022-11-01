@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSubjectsRecord = new System.Windows.Forms.DataGridView();
             this.IdGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearInCarrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +59,7 @@
             this.cbDni = new System.Windows.Forms.CheckBox();
             this.cbMedicCerf = new System.Windows.Forms.CheckBox();
             this.cbAnalitic = new System.Windows.Forms.CheckBox();
-            this.btnCreateStudent = new System.Windows.Forms.Button();
+            this.btnCreateUser = new System.Windows.Forms.Button();
             this.panelLeftMenu = new System.Windows.Forms.Panel();
             this.panelStudentInfoRead = new System.Windows.Forms.Panel();
             this.lblStudentId = new System.Windows.Forms.Label();
@@ -110,16 +110,16 @@
             this.dgvSubjectsRecord.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.dgvSubjectsRecord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubjectsRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSubjectsRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubjectsRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdGrade,
@@ -170,8 +170,8 @@
             // 
             // enrolmentAprovalYear
             // 
-            dataGridViewCellStyle2.NullValue = "Sin cursar";
-            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.NullValue = "Sin cursar";
+            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle4;
             this.enrolmentAprovalYear.HeaderText = "Año de cursada aprobada";
             this.enrolmentAprovalYear.MinimumWidth = 6;
             this.enrolmentAprovalYear.Name = "enrolmentAprovalYear";
@@ -223,7 +223,7 @@
             this.cbbCarrer.ForeColor = System.Drawing.Color.White;
             this.cbbCarrer.FormattingEnabled = true;
             this.cbbCarrer.Location = new System.Drawing.Point(5, 13);
-            this.cbbCarrer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbbCarrer.Margin = new System.Windows.Forms.Padding(5);
             this.cbbCarrer.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbbCarrer.Name = "cbbCarrer";
             this.cbbCarrer.Size = new System.Drawing.Size(650, 28);
@@ -273,7 +273,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(145, 29);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 35);
             this.button1.TabIndex = 18;
@@ -290,9 +290,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(26, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(693, 83);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
@@ -304,7 +304,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(453, 29);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(227, 35);
             this.button3.TabIndex = 20;
@@ -317,7 +317,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(283, 29);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(161, 35);
             this.button2.TabIndex = 19;
@@ -474,21 +474,21 @@
             this.cbAnalitic.Text = "Analitico secundario";
             this.cbAnalitic.UseVisualStyleBackColor = true;
             // 
-            // btnCreateStudent
+            // btnCreateUser
             // 
-            this.btnCreateStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.btnCreateStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateStudent.ForeColor = System.Drawing.Color.White;
-            this.btnCreateStudent.Location = new System.Drawing.Point(338, 9);
-            this.btnCreateStudent.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnCreateStudent.Name = "btnCreateStudent";
-            this.btnCreateStudent.Size = new System.Drawing.Size(127, 35);
-            this.btnCreateStudent.TabIndex = 35;
-            this.btnCreateStudent.Text = "Crear estudiante";
-            this.btnCreateStudent.UseVisualStyleBackColor = false;
-            this.btnCreateStudent.Click += new System.EventHandler(this.btnCreateStudent_Click);
+            this.btnCreateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCreateUser.ForeColor = System.Drawing.Color.White;
+            this.btnCreateUser.Location = new System.Drawing.Point(338, 9);
+            this.btnCreateUser.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCreateUser.Name = "btnCreateUser";
+            this.btnCreateUser.Size = new System.Drawing.Size(127, 35);
+            this.btnCreateUser.TabIndex = 35;
+            this.btnCreateUser.Text = "Crear usuario";
+            this.btnCreateUser.UseVisualStyleBackColor = false;
+            this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
             // 
             // panelLeftMenu
             // 
@@ -559,7 +559,7 @@
             this.flowLayoutPanel1.Controls.Add(this.label13);
             this.flowLayoutPanel1.Controls.Add(this.txtGender);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 73);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(261, 609);
             this.flowLayoutPanel1.TabIndex = 34;
@@ -764,7 +764,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.panel4.Controls.Add(this.btnCreateStudent);
+            this.panel4.Controls.Add(this.btnCreateUser);
             this.panel4.Controls.Add(this.btnAddGrade);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(728, 0);
@@ -781,7 +781,7 @@
             this.btnAddGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddGrade.ForeColor = System.Drawing.Color.White;
             this.btnAddGrade.Location = new System.Drawing.Point(217, 9);
-            this.btnAddGrade.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAddGrade.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddGrade.Name = "btnAddGrade";
             this.btnAddGrade.Size = new System.Drawing.Size(112, 35);
             this.btnAddGrade.TabIndex = 34;
@@ -899,7 +899,7 @@
         private CheckBox cbDni;
         private CheckBox cbMedicCerf;
         private CheckBox cbAnalitic;
-        private Button btnCreateStudent;
+        private Button btnCreateUser;
         private Panel panelLeftMenu;
         private Panel panel2;
         private Panel panel3;

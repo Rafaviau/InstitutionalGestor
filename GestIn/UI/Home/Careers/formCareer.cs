@@ -29,7 +29,7 @@ namespace GestIn.UI.Home.Careers
 
         public void NullCheckCarreras()
         {
-            if (careerController.loadCareers().Count != 0)
+            if (careerController.countCareers() != 0)
             {
                 RefreshTableCarrera();
             }

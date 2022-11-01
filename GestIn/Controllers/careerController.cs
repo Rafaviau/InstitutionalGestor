@@ -111,6 +111,18 @@ namespace GestIn.Controllers
 
 
         #region Career
+        public int countCareers()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Careers.Count();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
 
         public Career createCareer(string ResolutionNum, string name, string degree, string turn)
         {
@@ -296,6 +308,19 @@ namespace GestIn.Controllers
 
 
         #region Subject
+
+        public int countSubjects()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Subjects.Count();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
 
         public List<Subject> getSubjectsFromCareer(object career) //pido las materias de una determinada carrera
         {
