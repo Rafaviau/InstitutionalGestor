@@ -61,5 +61,16 @@ namespace GestIn.Controllers
             }
             catch { return (false); }
         }
+        public List<Student> getEnroledStudent(int IdExam)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.ExamEnrolments.Where(x => x.ExamId == IdExam).Select(x => x.Student).ToList();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
     }
 }
