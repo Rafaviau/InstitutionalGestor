@@ -28,6 +28,7 @@ namespace GestIn.UI.Home.Subjects
 
         private void formSubjectTeachers_Load(object sender, EventArgs e)
         {
+            this.ListboxSearchResults.Visible = false;
             RefreshTableTeachersSubject();
             RefreshLableSubjectName();
         }

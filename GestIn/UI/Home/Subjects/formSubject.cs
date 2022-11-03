@@ -28,7 +28,7 @@ namespace GestIn.UI.Home.Subjects
 
         public void NullCheckCarreras() //Para que no me paresca errores
         {
-            if (careerController.loadCareers().Count != 0)
+            if (careerController.countCareers() != 0)
             {
                 RefreshCbbCareers();
                 RefreshTableSubjects();

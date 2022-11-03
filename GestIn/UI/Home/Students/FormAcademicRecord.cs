@@ -1,6 +1,7 @@
 ﻿using GestIn.Controllers;
 using GestIn.Model;
 using GestIn.UI.Home.Grades;
+using GestIn.UI.Home.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -179,10 +180,10 @@ namespace GestIn.UI.Home.Students
 
         }
 
-        private void btnCreateStudent_Click(object sender, EventArgs e)
+        private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            TempStudentCreate formGrade = new TempStudentCreate();
-            formGrade.ShowDialog();
+            formUser userForm = new formUser();
+            userForm.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -266,5 +267,7 @@ namespace GestIn.UI.Home.Students
         {
 
         }
+
+        
     }
 }

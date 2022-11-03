@@ -46,6 +46,7 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelSeparador1 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubmenuEnrolments.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -58,6 +59,7 @@
             this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.panelMenuLateral.Controls.Add(this.panelSubmenuEnrolments);
             this.panelMenuLateral.Controls.Add(this.btnEnrolments);
+            this.panelMenuLateral.Controls.Add(this.btnUsers);
             this.panelMenuLateral.Controls.Add(this.btnExams);
             this.panelMenuLateral.Controls.Add(this.btnStudents);
             this.panelMenuLateral.Controls.Add(this.btnSubjects);
@@ -149,11 +151,13 @@
             this.btnExams.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnExams.FlatAppearance.BorderSize = 0;
             this.btnExams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExams.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExams.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExams.ForeColor = System.Drawing.Color.White;
             this.btnExams.Image = global::GestIn.Properties.Resources.ExamIcon;
             this.btnExams.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExams.Location = new System.Drawing.Point(0, 205);
+            this.btnExams.Location = new System.Drawing.Point(0, 273);
+            this.btnExams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExams.Name = "btnExams";
             this.btnExams.Padding = new System.Windows.Forms.Padding(3, 5, 5, 5);
             this.btnExams.Size = new System.Drawing.Size(250, 45);
@@ -332,6 +336,27 @@
             this.panelContenedor.Size = new System.Drawing.Size(684, 561);
             this.panelContenedor.TabIndex = 6;
             // 
+            // btnUsers
+            // 
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.Image = global::GestIn.Properties.Resources.StudentIcon;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(0, 333);
+            this.btnUsers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Padding = new System.Windows.Forms.Padding(3, 7, 6, 7);
+            this.btnUsers.Size = new System.Drawing.Size(286, 60);
+            this.btnUsers.TabIndex = 12;
+            this.btnUsers.Text = "        Usuarios";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
             // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -372,5 +397,6 @@
         private Button btnExamEnrolment;
         private Button btnSubjectEnrolment;
         private Button btnEnrolments;
+        private Button btnUsers;
     }
 }
