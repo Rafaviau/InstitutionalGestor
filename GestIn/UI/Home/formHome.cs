@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.UI.Home.Exams;
 using GestIn.UI.Home.Subjects;
+using GestIn.UI.Home.ExamEnrolment;
 
 namespace GestIn.UI.Home
 {
@@ -26,32 +27,39 @@ namespace GestIn.UI.Home
         {
             Application.Exit(); 
         }
+        private void munuBtnClick(object sender) {
+            ChangeButtonColor(sender);
+            hideSubmenus();
+        }
         
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            //Abrir hijo
-            //AbrirFormularioHijo(new formMateria());
-            ChangeButtonColor(sender);
+            munuBtnClick(sender);
         }
         private void btnCarreras_Click(object sender, EventArgs e)
         {
-            ChangeButtonColor(sender);
+            munuBtnClick(sender);
             AbrirFormularioHijo(new formCareer());
         }
         private void btnSubjects_Click(object sender, EventArgs e)
         {
-            ChangeButtonColor(sender);
+            munuBtnClick(sender);
             AbrirFormularioHijo(new formSubject());
         }
         private void btnExams_Click(object sender, EventArgs e)
         {
-            ChangeButtonColor(sender);
+            munuBtnClick(sender);
             AbrirFormularioHijo(new FormExams());
         }
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            ChangeButtonColor(sender);
+            munuBtnClick(sender);
             AbrirFormularioHijo(new formAcademicRecord());
+        }
+        private void btnEnrolments_Click(object sender, EventArgs e)
+        {
+            ChangeButtonColor(sender);
+            subMenuToggle(panelSubmenuEnrolments);
         }
 
         private void AbrirFormularioHijo(Form formHijo) {
@@ -76,8 +84,30 @@ namespace GestIn.UI.Home
             btnInicio.BackColor = Color.FromArgb(47, 49, 54);
             btnStudents.BackColor = Color.FromArgb(47, 49, 54);
             btnExams.BackColor = Color.FromArgb(47, 49, 54);
+            btnEnrolments.BackColor = Color.FromArgb(47, 49, 54);
             Button b = (Button)sender;
             b.BackColor = Color.FromArgb(114, 137, 218);
+        }
+
+        //Agregar futuros submenus aca
+        private void hideSubmenus() {
+            panelSubmenuEnrolments.Visible = false;
+        }
+        private void subMenuToggle(Panel panel) {
+            if (panel.Visible == false) {
+                hideSubmenus();
+                panel.Visible = true;
+            }
+            else{
+                panel.Visible = false;
+            }
+            
+        }
+
+        private void btnExamEnrolment_Click(object sender, EventArgs e)
+        {
+            hideSubmenus();
+            AbrirFormularioHijo(new formExamEnrolmentAdmin());
         }
     }
 }

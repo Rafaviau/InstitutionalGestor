@@ -1,6 +1,8 @@
 ﻿using GestIn.Controllers;
 using GestIn.Model;
 using GestIn.Properties;
+using GestIn.UI.Commons;
+using GestIn.UI.Home.ExamEnrolment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,7 @@ namespace GestIn.UI.Home.Exams
         careerController careerController = careerController.GetInstance();
         examController examCnt = examController.GetInstance();
         examEnrolmentController examEnrolCnt = examEnrolmentController.GetInstance();
+        userController userCnt = userController.GetInstance();
 
         public FormExams()
         {
@@ -30,11 +33,6 @@ namespace GestIn.UI.Home.Exams
             foreach (Exam e in examCnt.loadExams()) {
                 addExam(e);
             }
-        }
-        private void addExam(int cod, string career, string subject, DateTime date)
-        {
-            int StudentsEnroled = 0;
-            dgvExams.Rows.Add(cod,career,subject,date, StudentsEnroled);
         }
         private void addExam(Exam ex)
         {
@@ -138,6 +136,16 @@ namespace GestIn.UI.Home.Exams
             foreach (object subject in list)
             {
                 cbbSubject.Items.Add(subject);
+            }
+        }
+        private void loadTeachersCb() {
+            var list = userCnt.getAllTeachersFromCareer(cbbCarrer.SelectedItem);
+            foreach (object subject in list)
+            {
+                cbbTitular.Items.Add(subject);
+                cbb1Vowel.Items.Add(subject);
+                cbb2Vowel.Items.Add(subject);
+                cbb3Vowel.Items.Add(subject);
             }
         }
         private object teacherSelection(ComboBox comboBox)
@@ -269,6 +277,12 @@ namespace GestIn.UI.Home.Exams
             FormGenerateMultipleExams formGenerate = new FormGenerateMultipleExams();
             formGenerate.ShowDialog();
             panelOptions.Visible = !panelOptions.Visible;
+        }
+
+        private void dgvExams_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Helpers.OpenChildForm(new formActaVolante(
+                Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value)), this.Parent);
         }
     }
 }

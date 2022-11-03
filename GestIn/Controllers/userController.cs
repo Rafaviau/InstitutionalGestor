@@ -458,6 +458,14 @@ namespace GestIn.Controllers
                 return list;
             }
         }
+        public List<Teacher> getAllTeachersFromCareer(object career) {
+            var _career = (Career)career;
+            using (var db = new Context())
+            {
+                var list = db.TeacherSubjects.Where(x => x.Subject.CareerId == _career.Id).Select(x => x.Teacher).ToList();
+                return list;
+            }
+        }
 
         #endregion
     }
