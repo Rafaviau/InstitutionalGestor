@@ -39,25 +39,27 @@
             this.txtDNI = new System.Windows.Forms.Label();
             this.bindingSourceTeachers = new System.Windows.Forms.BindingSource(this.components);
             this.teacherPanel = new System.Windows.Forms.Panel();
-            this.dateTimePickerDateBirth = new System.Windows.Forms.DateTimePicker();
+            this.UserDateBirth = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtBirthPlace = new System.Windows.Forms.TextBox();
+            this.txtUserBirthPlace = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtEmergencyContact = new System.Windows.Forms.TextBox();
+            this.txtUserEmergencyContact = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtGender = new System.Windows.Forms.TextBox();
+            this.txtUserGender = new System.Windows.Forms.TextBox();
             this.bindingSourceStudents = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxUserType = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtUserLastName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtStudent = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtStudentDni = new System.Windows.Forms.TextBox();
+            this.txtUserDni = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtStudentPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtUserPhoneNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtStudentEmail = new System.Windows.Forms.TextBox();
+            this.txtUserEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.studentPanel = new System.Windows.Forms.Panel();
             this.cbPhotos = new System.Windows.Forms.CheckBox();
@@ -93,14 +95,10 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Titulo";
             // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(GestIn.Model.User);
-            // 
             // btnInsert
             // 
             this.btnInsert.ForeColor = System.Drawing.Color.Black;
-            this.btnInsert.Location = new System.Drawing.Point(351, 662);
+            this.btnInsert.Location = new System.Drawing.Point(731, 685);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(94, 29);
             this.btnInsert.TabIndex = 3;
@@ -111,7 +109,7 @@
             // btnUpdate
             // 
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(460, 662);
+            this.btnUpdate.Location = new System.Drawing.Point(840, 685);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 29);
             this.btnUpdate.TabIndex = 4;
@@ -122,6 +120,7 @@
             // txtTitle
             // 
             this.txtTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtTitle.ForeColor = System.Drawing.Color.White;
             this.txtTitle.Location = new System.Drawing.Point(88, 109);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(150, 27);
@@ -130,7 +129,7 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(573, 662);
+            this.btnDelete.Location = new System.Drawing.Point(953, 685);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 29);
             this.btnDelete.TabIndex = 7;
@@ -141,11 +140,11 @@
             // txtCUILL
             // 
             this.txtCUILL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtCUILL.ForeColor = System.Drawing.Color.White;
             this.txtCUILL.Location = new System.Drawing.Point(88, 42);
             this.txtCUILL.Name = "txtCUILL";
             this.txtCUILL.Size = new System.Drawing.Size(150, 27);
             this.txtCUILL.TabIndex = 18;
-            this.txtCUILL.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtDNI
             // 
@@ -164,88 +163,85 @@
             this.teacherPanel.Controls.Add(this.txtDNI);
             this.teacherPanel.Controls.Add(this.txtTitle);
             this.teacherPanel.Controls.Add(this.label2);
-            this.teacherPanel.Location = new System.Drawing.Point(31, 708);
+            this.teacherPanel.Location = new System.Drawing.Point(344, 312);
             this.teacherPanel.Name = "teacherPanel";
             this.teacherPanel.Size = new System.Drawing.Size(260, 189);
             this.teacherPanel.TabIndex = 35;
             // 
-            // dateTimePickerDateBirth
+            // UserDateBirth
             // 
-            this.dateTimePickerDateBirth.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.dateTimePickerDateBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateBirth.Location = new System.Drawing.Point(3, 285);
-            this.dateTimePickerDateBirth.Name = "dateTimePickerDateBirth";
-            this.dateTimePickerDateBirth.Size = new System.Drawing.Size(252, 27);
-            this.dateTimePickerDateBirth.TabIndex = 12;
+            this.UserDateBirth.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.UserDateBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.UserDateBirth.Location = new System.Drawing.Point(3, 333);
+            this.UserDateBirth.Name = "UserDateBirth";
+            this.UserDateBirth.Size = new System.Drawing.Size(252, 27);
+            this.UserDateBirth.TabIndex = 12;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(3, 328);
+            this.label16.Location = new System.Drawing.Point(3, 376);
             this.label16.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(145, 17);
             this.label16.TabIndex = 38;
             this.label16.Text = "Lugar de nacimiento :";
             // 
-            // txtBirthPlace
+            // txtUserBirthPlace
             // 
-            this.txtBirthPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtBirthPlace.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBirthPlace.ForeColor = System.Drawing.Color.White;
-            this.txtBirthPlace.Location = new System.Drawing.Point(3, 348);
-            this.txtBirthPlace.Name = "txtBirthPlace";
-            this.txtBirthPlace.ReadOnly = true;
-            this.txtBirthPlace.Size = new System.Drawing.Size(253, 30);
-            this.txtBirthPlace.TabIndex = 36;
+            this.txtUserBirthPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserBirthPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserBirthPlace.ForeColor = System.Drawing.Color.White;
+            this.txtUserBirthPlace.Location = new System.Drawing.Point(3, 396);
+            this.txtUserBirthPlace.Name = "txtUserBirthPlace";
+            this.txtUserBirthPlace.Size = new System.Drawing.Size(253, 29);
+            this.txtUserBirthPlace.TabIndex = 36;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(3, 394);
+            this.label17.Location = new System.Drawing.Point(3, 441);
             this.label17.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(174, 17);
             this.label17.TabIndex = 37;
             this.label17.Text = "Teléfono  de emergencia :";
             // 
-            // txtEmergencyContact
+            // txtUserEmergencyContact
             // 
-            this.txtEmergencyContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtEmergencyContact.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmergencyContact.ForeColor = System.Drawing.Color.White;
-            this.txtEmergencyContact.Location = new System.Drawing.Point(3, 414);
-            this.txtEmergencyContact.Name = "txtEmergencyContact";
-            this.txtEmergencyContact.ReadOnly = true;
-            this.txtEmergencyContact.Size = new System.Drawing.Size(252, 30);
-            this.txtEmergencyContact.TabIndex = 39;
+            this.txtUserEmergencyContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserEmergencyContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserEmergencyContact.ForeColor = System.Drawing.Color.White;
+            this.txtUserEmergencyContact.Location = new System.Drawing.Point(3, 461);
+            this.txtUserEmergencyContact.Name = "txtUserEmergencyContact";
+            this.txtUserEmergencyContact.Size = new System.Drawing.Size(252, 29);
+            this.txtUserEmergencyContact.TabIndex = 39;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(3, 460);
+            this.label18.Location = new System.Drawing.Point(3, 506);
             this.label18.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 17);
             this.label18.TabIndex = 40;
             this.label18.Text = "Género :";
             // 
-            // txtGender
+            // txtUserGender
             // 
-            this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtGender.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtGender.ForeColor = System.Drawing.Color.White;
-            this.txtGender.Location = new System.Drawing.Point(3, 480);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(252, 30);
-            this.txtGender.TabIndex = 41;
+            this.txtUserGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserGender.ForeColor = System.Drawing.Color.White;
+            this.txtUserGender.Location = new System.Drawing.Point(3, 526);
+            this.txtUserGender.Name = "txtUserGender";
+            this.txtUserGender.Size = new System.Drawing.Size(252, 29);
+            this.txtUserGender.TabIndex = 41;
             // 
             // checkedListBoxUserType
             // 
@@ -260,8 +256,6 @@
             this.checkedListBoxUserType.Size = new System.Drawing.Size(253, 48);
             this.checkedListBoxUserType.TabIndex = 39;
             this.checkedListBoxUserType.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxUserType_ItemCheck);
-            this.checkedListBoxUserType.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxUserType_SelectedIndexChanged);
-            this.checkedListBoxUserType.SelectedValueChanged += new System.EventHandler(this.checkedListBoxUserType_SelectedValueChanged);
             // 
             // label1
             // 
@@ -276,125 +270,144 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.label15);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserLastName);
             this.flowLayoutPanel1.Controls.Add(this.label6);
-            this.flowLayoutPanel1.Controls.Add(this.txtStudent);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserName);
             this.flowLayoutPanel1.Controls.Add(this.label7);
-            this.flowLayoutPanel1.Controls.Add(this.txtStudentDni);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserDni);
             this.flowLayoutPanel1.Controls.Add(this.label8);
-            this.flowLayoutPanel1.Controls.Add(this.txtStudentPhoneNumber);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserPhoneNumber);
             this.flowLayoutPanel1.Controls.Add(this.label9);
-            this.flowLayoutPanel1.Controls.Add(this.txtStudentEmail);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserEmail);
             this.flowLayoutPanel1.Controls.Add(this.label10);
-            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateBirth);
+            this.flowLayoutPanel1.Controls.Add(this.UserDateBirth);
             this.flowLayoutPanel1.Controls.Add(this.label16);
-            this.flowLayoutPanel1.Controls.Add(this.txtBirthPlace);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserBirthPlace);
             this.flowLayoutPanel1.Controls.Add(this.label17);
-            this.flowLayoutPanel1.Controls.Add(this.txtEmergencyContact);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserEmergencyContact);
             this.flowLayoutPanel1.Controls.Add(this.label18);
-            this.flowLayoutPanel1.Controls.Add(this.txtGender);
+            this.flowLayoutPanel1.Controls.Add(this.txtUserGender);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(33, 141);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 550);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 588);
             this.flowLayoutPanel1.TabIndex = 42;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 17);
+            this.label15.TabIndex = 57;
+            this.label15.Text = "Apellido :";
+            // 
+            // txtUserLastName
+            // 
+            this.txtUserLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserLastName.ForeColor = System.Drawing.Color.White;
+            this.txtUserLastName.Location = new System.Drawing.Point(3, 20);
+            this.txtUserLastName.Name = "txtUserLastName";
+            this.txtUserLastName.Size = new System.Drawing.Size(253, 29);
+            this.txtUserLastName.TabIndex = 56;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(3, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 17);
+            this.label6.Size = new System.Drawing.Size(66, 17);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Apellido y nombre";
+            this.label6.Text = "Nombre :";
             // 
-            // txtStudent
+            // txtUserName
             // 
-            this.txtStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudent.ForeColor = System.Drawing.Color.White;
-            this.txtStudent.Location = new System.Drawing.Point(3, 20);
-            this.txtStudent.Name = "txtStudent";
-            this.txtStudent.ReadOnly = true;
-            this.txtStudent.Size = new System.Drawing.Size(253, 30);
-            this.txtStudent.TabIndex = 10;
+            this.txtUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserName.ForeColor = System.Drawing.Color.White;
+            this.txtUserName.Location = new System.Drawing.Point(3, 72);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(253, 29);
+            this.txtUserName.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 66);
+            this.label7.Location = new System.Drawing.Point(3, 117);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 17);
             this.label7.TabIndex = 5;
             this.label7.Text = "Dni :";
             // 
-            // txtStudentDni
+            // txtUserDni
             // 
-            this.txtStudentDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentDni.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudentDni.ForeColor = System.Drawing.Color.White;
-            this.txtStudentDni.Location = new System.Drawing.Point(3, 86);
-            this.txtStudentDni.Name = "txtStudentDni";
-            this.txtStudentDni.ReadOnly = true;
-            this.txtStudentDni.Size = new System.Drawing.Size(253, 30);
-            this.txtStudentDni.TabIndex = 11;
+            this.txtUserDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserDni.ForeColor = System.Drawing.Color.White;
+            this.txtUserDni.Location = new System.Drawing.Point(3, 137);
+            this.txtUserDni.Name = "txtUserDni";
+            this.txtUserDni.Size = new System.Drawing.Size(253, 29);
+            this.txtUserDni.TabIndex = 11;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 132);
+            this.label8.Location = new System.Drawing.Point(3, 182);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 17);
             this.label8.TabIndex = 9;
             this.label8.Text = "Teléfono :";
             // 
-            // txtStudentPhoneNumber
+            // txtUserPhoneNumber
             // 
-            this.txtStudentPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudentPhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(3, 152);
-            this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
-            this.txtStudentPhoneNumber.ReadOnly = true;
-            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(252, 30);
-            this.txtStudentPhoneNumber.TabIndex = 23;
+            this.txtUserPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserPhoneNumber.ForeColor = System.Drawing.Color.White;
+            this.txtUserPhoneNumber.Location = new System.Drawing.Point(3, 202);
+            this.txtUserPhoneNumber.Name = "txtUserPhoneNumber";
+            this.txtUserPhoneNumber.Size = new System.Drawing.Size(252, 29);
+            this.txtUserPhoneNumber.TabIndex = 23;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(3, 198);
+            this.label9.Location = new System.Drawing.Point(3, 247);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 17);
             this.label9.TabIndex = 22;
             this.label9.Text = "Correo electrónico";
             // 
-            // txtStudentEmail
+            // txtUserEmail
             // 
-            this.txtStudentEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtStudentEmail.ForeColor = System.Drawing.Color.White;
-            this.txtStudentEmail.Location = new System.Drawing.Point(3, 218);
-            this.txtStudentEmail.Name = "txtStudentEmail";
-            this.txtStudentEmail.ReadOnly = true;
-            this.txtStudentEmail.Size = new System.Drawing.Size(252, 30);
-            this.txtStudentEmail.TabIndex = 21;
+            this.txtUserEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUserEmail.ForeColor = System.Drawing.Color.White;
+            this.txtUserEmail.Location = new System.Drawing.Point(3, 267);
+            this.txtUserEmail.Name = "txtUserEmail";
+            this.txtUserEmail.Size = new System.Drawing.Size(252, 29);
+            this.txtUserEmail.TabIndex = 21;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(3, 264);
+            this.label10.Location = new System.Drawing.Point(3, 312);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(153, 18);
@@ -411,11 +424,10 @@
             this.studentPanel.Controls.Add(this.cbDni);
             this.studentPanel.Controls.Add(this.cbMedicCerf);
             this.studentPanel.Controls.Add(this.cbAnalitic);
-            this.studentPanel.Location = new System.Drawing.Point(28, 708);
+            this.studentPanel.Location = new System.Drawing.Point(341, 540);
             this.studentPanel.Name = "studentPanel";
             this.studentPanel.Size = new System.Drawing.Size(263, 189);
             this.studentPanel.TabIndex = 44;
-            this.studentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.studentPanel_Paint);
             // 
             // cbPhotos
             // 
@@ -512,7 +524,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(352, 817);
+            this.label4.Location = new System.Drawing.Point(783, 621);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 20);
             this.label4.TabIndex = 45;
@@ -521,7 +533,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(352, 751);
+            this.label5.Location = new System.Drawing.Point(783, 555);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 46;
@@ -530,7 +542,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(352, 784);
+            this.label11.Location = new System.Drawing.Point(783, 588);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 47;
@@ -541,7 +553,7 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblStudentCount.ForeColor = System.Drawing.Color.White;
-            this.lblStudentCount.Location = new System.Drawing.Point(546, 751);
+            this.lblStudentCount.Location = new System.Drawing.Point(977, 555);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(13, 20);
             this.lblStudentCount.TabIndex = 48;
@@ -551,7 +563,7 @@
             // 
             this.lblTeacherCount.AutoSize = true;
             this.lblTeacherCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.lblTeacherCount.Location = new System.Drawing.Point(546, 784);
+            this.lblTeacherCount.Location = new System.Drawing.Point(977, 588);
             this.lblTeacherCount.Name = "lblTeacherCount";
             this.lblTeacherCount.Size = new System.Drawing.Size(13, 20);
             this.lblTeacherCount.TabIndex = 49;
@@ -562,7 +574,7 @@
             this.lblUserCount.AutoSize = true;
             this.lblUserCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblUserCount.ForeColor = System.Drawing.Color.White;
-            this.lblUserCount.Location = new System.Drawing.Point(546, 817);
+            this.lblUserCount.Location = new System.Drawing.Point(977, 621);
             this.lblUserCount.Name = "lblUserCount";
             this.lblUserCount.Size = new System.Drawing.Size(13, 20);
             this.lblUserCount.TabIndex = 50;
@@ -580,18 +592,18 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(590, 23);
+            this.label13.Location = new System.Drawing.Point(534, 53);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(199, 20);
+            this.label13.Size = new System.Drawing.Size(206, 20);
             this.label13.TabIndex = 52;
-            this.label13.Text = "Tipo de usuario selecionado:";
+            this.label13.Text = "Tipo de usuario seleccionado:";
             // 
             // lblUserType
             // 
             this.lblUserType.AutoSize = true;
             this.lblUserType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblUserType.ForeColor = System.Drawing.Color.White;
-            this.lblUserType.Location = new System.Drawing.Point(632, 56);
+            this.lblUserType.Location = new System.Drawing.Point(591, 85);
             this.lblUserType.Name = "lblUserType";
             this.lblUserType.Size = new System.Drawing.Size(13, 20);
             this.lblUserType.TabIndex = 53;
@@ -609,6 +621,7 @@
             this.Controls.Add(this.lblUserCount);
             this.Controls.Add(this.lblTeacherCount);
             this.Controls.Add(this.lblStudentCount);
+            this.Controls.Add(this.teacherPanel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -617,7 +630,6 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkedListBoxUserType);
-            this.Controls.Add(this.teacherPanel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
@@ -651,24 +663,24 @@
         private Panel teacherPanel;
         private BindingSource bindingSourceStudents;
         private BindingSource userBindingSource;
-        private DateTimePicker dateTimePickerDateBirth;
+        private DateTimePicker UserDateBirth;
         private Label label16;
-        private TextBox txtBirthPlace;
+        private TextBox txtUserBirthPlace;
         private Label label17;
-        private TextBox txtEmergencyContact;
+        private TextBox txtUserEmergencyContact;
         private Label label18;
-        private TextBox txtGender;
+        private TextBox txtUserGender;
         private CheckedListBox checkedListBoxUserType;
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label6;
-        private TextBox txtStudent;
+        private TextBox txtUserName;
         private Label label7;
-        private TextBox txtStudentDni;
+        private TextBox txtUserDni;
         private Label label8;
-        private TextBox txtStudentPhoneNumber;
+        private TextBox txtUserPhoneNumber;
         private Label label9;
-        private TextBox txtStudentEmail;
+        private TextBox txtUserEmail;
         private Label label10;
         private Panel studentPanel;
         private CheckBox cbPhotos;
@@ -687,5 +699,7 @@
         private Label label12;
         private Label label13;
         private Label lblUserType;
+        private Label label15;
+        private TextBox txtUserLastName;
     }
 }

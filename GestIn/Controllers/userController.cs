@@ -395,6 +395,7 @@ namespace GestIn.Controllers
             } catch { }
             return null;
         }
+
         public void updateStudent(int dni,string email, string name, string lastname) {
             using (var db = new Context())
             {
@@ -415,6 +416,7 @@ namespace GestIn.Controllers
                 }
             }
         }
+
         public List<Student> searchBoxStudentWithString(string search)
         {
             using (var db = new Context())
@@ -486,6 +488,113 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
 
             }
+        }
+
+        bool createTeacher(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string? placeOfBirth,
+                                string? gender, string? phone, string? emergencyphone, string cuil, string? title, LoginInformation log, User user)
+        {
+            try
+            {
+                Teacher teacher = new Teacher();
+                teacher.UserId = user.Id;
+                teacher.LoginInformationId = log.Id;
+                teacher.Cuil = cuil;
+                teacher.Titulo = title;
+                teacher.CreatedAt = DateTime.Now;
+                teacher.LastModificationBy = name + " " + lastname;
+                using (var db = new Context())
+                {
+                    db.Teachers.Add(teacher);
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (SqlException exception)
+            {
+                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return false;
+
+        }
+
+        bool createTeacher(int Dni, string mail, string name, string lastname, string cuil, string? title, LoginInformation log, User user)
+        {
+            try
+            {
+                Teacher teacher = new Teacher();
+                teacher.UserId = user.Id;
+                teacher.LoginInformationId = log.Id;
+                teacher.Cuil = cuil;
+                teacher.Titulo = title;
+                teacher.CreatedAt = DateTime.Now;
+                teacher.LastModificationBy = name + " " + lastname;
+                using (var db = new Context())
+                {
+                    db.Teachers.Add(teacher);
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (SqlException exception)
+            {
+                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+            }
+            return false;
+        }
+
+        public void updateTeacher(int dni, string email, string name, string lastname)
+        {
+            using (var db = new Context())
+            {
+                var result = findTeacher(dni);
+                if (result != null)
+                {
+                    result.User.Name = name;
+                    result.User.LastName = lastname;
+                    result.LoginInformation.Email = email;
+                    result.UpdatedAt = DateTime.Now;
+                    result.LastModificationBy = "Preceptor cargando notas";
+                    result.User.UpdatedAt = DateTime.Now;
+                    result.User.LastModificationBy = "Preceptor cargando notas";
+                    result.LoginInformation.UpdatedAt = DateTime.Now;
+                    result.LoginInformation.LastModificationBy = "Preceptor cargando notas";
+                    db.Update(result);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public bool inputTeacher(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
+                        string gender, string phone, string emergencyphone, string cuil, string title)
+        {
+            User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
+            if (user != null)
+            {
+                LoginInformation log = createLoginInformation(mail, password, name, lastname);
+                if (log != null)
+                {
+                    return (createTeacher(Dni, mail, password, name, lastname, dateOfBirth, placeOfBirth,
+                            gender, phone, emergencyphone, cuil, title, log, user));
+                }
+            }
+            return false;
+        }
+
+        public bool inputTeacher(int Dni, string mail, string name, string lastname, DateTime? dateOfBirth, string? placeBirth, 
+            string? phone, string? emergencyphone, string? gender, string cuil, string title)
+        {
+            User user = createUser(Dni, name, lastname, dateOfBirth, placeBirth, phone, emergencyphone, gender);
+            if (user != null)
+            {
+                LoginInformation log = createLoginInformation(mail, Dni);
+                if (log != null)
+                {
+                    return (createTeacher(Dni, mail, name, lastname, cuil, title, log, user));
+                }
+            }
+            return false;
         }
 
         public Teacher getTeacher(object teacher) //deprecated

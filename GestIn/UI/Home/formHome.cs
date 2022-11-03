@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestIn.UI.Home.Exams;
 using GestIn.UI.Home.Subjects;
+using GestIn.UI.Home.Users;
 
 namespace GestIn.UI.Home
 {
@@ -54,6 +55,12 @@ namespace GestIn.UI.Home
             AbrirFormularioHijo(new formAcademicRecord());
         }
 
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            ChangeButtonColor(sender);
+            AbrirFormularioHijo(new formUser());
+        }
+
         private void AbrirFormularioHijo(Form formHijo) {
             if(formActivo != null)
             {
@@ -76,8 +83,11 @@ namespace GestIn.UI.Home
             btnInicio.BackColor = Color.FromArgb(47, 49, 54);
             btnStudents.BackColor = Color.FromArgb(47, 49, 54);
             btnExams.BackColor = Color.FromArgb(47, 49, 54);
+            btnUsers.BackColor = Color.FromArgb(47, 49, 54);
             Button b = (Button)sender;
             b.BackColor = Color.FromArgb(114, 137, 218);
         }
+
+        
     }
 }

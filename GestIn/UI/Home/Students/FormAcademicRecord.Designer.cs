@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSubjectsRecord = new System.Windows.Forms.DataGridView();
             this.IdGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearInCarrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +59,6 @@
             this.cbDni = new System.Windows.Forms.CheckBox();
             this.cbMedicCerf = new System.Windows.Forms.CheckBox();
             this.cbAnalitic = new System.Windows.Forms.CheckBox();
-            this.btnCreateUser = new System.Windows.Forms.Button();
             this.panelLeftMenu = new System.Windows.Forms.Panel();
             this.panelStudentInfoRead = new System.Windows.Forms.Panel();
             this.lblStudentId = new System.Windows.Forms.Label();
@@ -110,16 +109,16 @@
             this.dgvSubjectsRecord.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.dgvSubjectsRecord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubjectsRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubjectsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSubjectsRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubjectsRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdGrade,
@@ -170,8 +169,8 @@
             // 
             // enrolmentAprovalYear
             // 
-            dataGridViewCellStyle4.NullValue = "Sin cursar";
-            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.NullValue = "Sin cursar";
+            this.enrolmentAprovalYear.DefaultCellStyle = dataGridViewCellStyle2;
             this.enrolmentAprovalYear.HeaderText = "Año de cursada aprobada";
             this.enrolmentAprovalYear.MinimumWidth = 6;
             this.enrolmentAprovalYear.Name = "enrolmentAprovalYear";
@@ -219,14 +218,14 @@
             this.cbbCarrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.cbbCarrer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCarrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbCarrer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbbCarrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbbCarrer.ForeColor = System.Drawing.Color.White;
             this.cbbCarrer.FormattingEnabled = true;
             this.cbbCarrer.Location = new System.Drawing.Point(5, 13);
             this.cbbCarrer.Margin = new System.Windows.Forms.Padding(5);
             this.cbbCarrer.MinimumSize = new System.Drawing.Size(171, 0);
             this.cbbCarrer.Name = "cbbCarrer";
-            this.cbbCarrer.Size = new System.Drawing.Size(650, 28);
+            this.cbbCarrer.Size = new System.Drawing.Size(650, 26);
             this.cbbCarrer.Sorted = true;
             this.cbbCarrer.TabIndex = 14;
             // 
@@ -327,12 +326,12 @@
             // searchBox
             // 
             this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.searchBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchBox.ForeColor = System.Drawing.Color.White;
             this.searchBox.Location = new System.Drawing.Point(14, 15);
             this.searchBox.Name = "searchBox";
             this.searchBox.PlaceholderText = "  Buscar estudiante";
-            this.searchBox.Size = new System.Drawing.Size(260, 30);
+            this.searchBox.Size = new System.Drawing.Size(260, 29);
             this.searchBox.TabIndex = 1;
             this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_KeyDown);
@@ -474,22 +473,6 @@
             this.cbAnalitic.Text = "Analitico secundario";
             this.cbAnalitic.UseVisualStyleBackColor = true;
             // 
-            // btnCreateUser
-            // 
-            this.btnCreateUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateUser.ForeColor = System.Drawing.Color.White;
-            this.btnCreateUser.Location = new System.Drawing.Point(338, 9);
-            this.btnCreateUser.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(127, 35);
-            this.btnCreateUser.TabIndex = 35;
-            this.btnCreateUser.Text = "Crear usuario";
-            this.btnCreateUser.UseVisualStyleBackColor = false;
-            this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
-            // 
             // panelLeftMenu
             // 
             this.panelLeftMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
@@ -578,12 +561,12 @@
             // txtStudent
             // 
             this.txtStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtStudent.ForeColor = System.Drawing.Color.White;
             this.txtStudent.Location = new System.Drawing.Point(3, 20);
             this.txtStudent.Name = "txtStudent";
             this.txtStudent.ReadOnly = true;
-            this.txtStudent.Size = new System.Drawing.Size(253, 30);
+            this.txtStudent.Size = new System.Drawing.Size(253, 29);
             this.txtStudent.TabIndex = 10;
             // 
             // label7
@@ -591,7 +574,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 66);
+            this.label7.Location = new System.Drawing.Point(3, 65);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 17);
@@ -601,12 +584,12 @@
             // txtStudentDni
             // 
             this.txtStudentDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentDni.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudentDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtStudentDni.ForeColor = System.Drawing.Color.White;
-            this.txtStudentDni.Location = new System.Drawing.Point(3, 86);
+            this.txtStudentDni.Location = new System.Drawing.Point(3, 85);
             this.txtStudentDni.Name = "txtStudentDni";
             this.txtStudentDni.ReadOnly = true;
-            this.txtStudentDni.Size = new System.Drawing.Size(253, 30);
+            this.txtStudentDni.Size = new System.Drawing.Size(253, 29);
             this.txtStudentDni.TabIndex = 11;
             // 
             // label8
@@ -614,7 +597,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 132);
+            this.label8.Location = new System.Drawing.Point(3, 130);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 17);
@@ -624,12 +607,12 @@
             // txtStudentPhoneNumber
             // 
             this.txtStudentPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudentPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtStudentPhoneNumber.ForeColor = System.Drawing.Color.White;
-            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(3, 152);
+            this.txtStudentPhoneNumber.Location = new System.Drawing.Point(3, 150);
             this.txtStudentPhoneNumber.Name = "txtStudentPhoneNumber";
             this.txtStudentPhoneNumber.ReadOnly = true;
-            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(252, 30);
+            this.txtStudentPhoneNumber.Size = new System.Drawing.Size(252, 29);
             this.txtStudentPhoneNumber.TabIndex = 23;
             // 
             // label9
@@ -637,7 +620,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(3, 198);
+            this.label9.Location = new System.Drawing.Point(3, 195);
             this.label9.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 17);
@@ -647,12 +630,12 @@
             // txtStudentEmail
             // 
             this.txtStudentEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtStudentEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtStudentEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtStudentEmail.ForeColor = System.Drawing.Color.White;
-            this.txtStudentEmail.Location = new System.Drawing.Point(3, 218);
+            this.txtStudentEmail.Location = new System.Drawing.Point(3, 215);
             this.txtStudentEmail.Name = "txtStudentEmail";
             this.txtStudentEmail.ReadOnly = true;
-            this.txtStudentEmail.Size = new System.Drawing.Size(252, 30);
+            this.txtStudentEmail.Size = new System.Drawing.Size(252, 29);
             this.txtStudentEmail.TabIndex = 21;
             // 
             // label10
@@ -660,7 +643,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(3, 264);
+            this.label10.Location = new System.Drawing.Point(3, 260);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(153, 18);
@@ -670,12 +653,12 @@
             // txtBirthDate
             // 
             this.txtBirthDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtBirthDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBirthDate.ForeColor = System.Drawing.Color.White;
-            this.txtBirthDate.Location = new System.Drawing.Point(3, 285);
+            this.txtBirthDate.Location = new System.Drawing.Point(3, 281);
             this.txtBirthDate.Name = "txtBirthDate";
             this.txtBirthDate.ReadOnly = true;
-            this.txtBirthDate.Size = new System.Drawing.Size(253, 30);
+            this.txtBirthDate.Size = new System.Drawing.Size(253, 29);
             this.txtBirthDate.TabIndex = 27;
             // 
             // label11
@@ -683,7 +666,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(3, 331);
+            this.label11.Location = new System.Drawing.Point(3, 326);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(145, 17);
@@ -693,12 +676,12 @@
             // txtBirthPlace
             // 
             this.txtBirthPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtBirthPlace.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBirthPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBirthPlace.ForeColor = System.Drawing.Color.White;
-            this.txtBirthPlace.Location = new System.Drawing.Point(3, 351);
+            this.txtBirthPlace.Location = new System.Drawing.Point(3, 346);
             this.txtBirthPlace.Name = "txtBirthPlace";
             this.txtBirthPlace.ReadOnly = true;
-            this.txtBirthPlace.Size = new System.Drawing.Size(253, 30);
+            this.txtBirthPlace.Size = new System.Drawing.Size(253, 29);
             this.txtBirthPlace.TabIndex = 32;
             // 
             // label12
@@ -706,7 +689,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(3, 397);
+            this.label12.Location = new System.Drawing.Point(3, 391);
             this.label12.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(174, 17);
@@ -716,12 +699,12 @@
             // txtEmergencyContact
             // 
             this.txtEmergencyContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtEmergencyContact.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmergencyContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtEmergencyContact.ForeColor = System.Drawing.Color.White;
-            this.txtEmergencyContact.Location = new System.Drawing.Point(3, 417);
+            this.txtEmergencyContact.Location = new System.Drawing.Point(3, 411);
             this.txtEmergencyContact.Name = "txtEmergencyContact";
             this.txtEmergencyContact.ReadOnly = true;
-            this.txtEmergencyContact.Size = new System.Drawing.Size(252, 30);
+            this.txtEmergencyContact.Size = new System.Drawing.Size(252, 29);
             this.txtEmergencyContact.TabIndex = 33;
             // 
             // label13
@@ -729,7 +712,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(3, 463);
+            this.label13.Location = new System.Drawing.Point(3, 456);
             this.label13.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 17);
@@ -739,12 +722,12 @@
             // txtGender
             // 
             this.txtGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtGender.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtGender.ForeColor = System.Drawing.Color.White;
-            this.txtGender.Location = new System.Drawing.Point(3, 483);
+            this.txtGender.Location = new System.Drawing.Point(3, 476);
             this.txtGender.Name = "txtGender";
             this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(252, 30);
+            this.txtGender.Size = new System.Drawing.Size(252, 29);
             this.txtGender.TabIndex = 35;
             // 
             // panel2
@@ -764,7 +747,6 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.panel4.Controls.Add(this.btnCreateUser);
             this.panel4.Controls.Add(this.btnAddGrade);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(728, 0);
@@ -780,7 +762,7 @@
             this.btnAddGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddGrade.ForeColor = System.Drawing.Color.White;
-            this.btnAddGrade.Location = new System.Drawing.Point(217, 9);
+            this.btnAddGrade.Location = new System.Drawing.Point(330, 9);
             this.btnAddGrade.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddGrade.Name = "btnAddGrade";
             this.btnAddGrade.Size = new System.Drawing.Size(112, 35);
@@ -899,7 +881,6 @@
         private CheckBox cbDni;
         private CheckBox cbMedicCerf;
         private CheckBox cbAnalitic;
-        private Button btnCreateUser;
         private Panel panelLeftMenu;
         private Panel panel2;
         private Panel panel3;

@@ -40,37 +40,45 @@ namespace GestIn.UI.Home.Users
         }
         private void checkedListBoxUserType_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            //solamente 1 seleccionado a la ves
-            for (int ix = 0; ix < checkedListBoxUserType.Items.Count; ++ix)
+            for (int ix = 0; ix < checkedListBoxUserType.Items.Count; ++ix) //solamente 1 seleccionado a la ves
                 if (ix != e.Index) checkedListBoxUserType.SetItemChecked(ix, false);
 
-            if (checkedListBoxUserType.CheckedItems.Contains("Estudiante")) 
+            checkCurrentState();
+        }
+
+        public void checkCurrentState()
+        {
+            if (checkedListBoxUserType.CheckedItems.Contains("Estudiante"))
             {
-                studentPanel.Visible = false;
-                teacherPanel.Visible = true; //por las dudas
+                studentPanel.Visible = true;
+                setLableUserType();
             }
             else if (checkedListBoxUserType.CheckedItems.Contains("Docente"))
             {
+                teacherPanel.Visible = true;
+                setLableUserType();
+            }
+            else
+            {
                 teacherPanel.Visible = false;
-                studentPanel.Visible = true;
+                studentPanel.Visible = false;
             }
         }
-        public void setCheckState()
+
+        public void setLableUserType()
         {
             int index = getCheckItemIndex();
             if (index>0)
             {
                 lblUserType.Text = checkedListBoxUserType.CheckedItems[getCheckItemIndex()].ToString();
             }
-            else
             {
-
+                lblUserType.Text = "";
             }
         }
 
         public int getCheckItemIndex()
         {
-            //MessageBox.Show("" + checkedListBoxUserType.Items.Count);
             int index = 0;
             for (int i = 0; i < checkedListBoxUserType.Items.Count; i++)
             {
@@ -83,58 +91,72 @@ namespace GestIn.UI.Home.Users
             return index;
         }
 
-
-        private void checkedListBoxUserType_SelectedValueChanged(object sender, EventArgs e)
+        public bool ValidateInformation()
         {
-
-
-        }
-
-        public int getListBoxIndex()
-        {
-            return 0;
-        }
-
-        private void checkedListBoxUserType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            bool state = true;
+            if (txtUserDni.Equals("") || txtUserEmail.Equals("") || txtUserLastName.Equals("") || txtUserName.Equals("")) 
+            { 
+                state = false; 
+            }
+            return state;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-
+            if (checkedListBoxUserType.CheckedItems.Contains("Estudiante")) //Student
+            {
+                if (ValidateInformation())
+                {
+                    try
+                    {
+                        if (userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserPhoneNumber.Text))
+                        {
+                            MessageBox.Show("Guardado correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo cargar. Verifique que el alumno no este cargado");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Complete todos los campos");
+                }
+            }
+            else if (checkedListBoxUserType.CheckedItems.Contains("Docente")) //Teacher
+            {
+                if (ValidateInformation())
+                {
+                    try
+                    {
+                        if (userController.inputTeacher(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text, 
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, txtUserGender.Text, txtCUILL.Text, txtTitle.Text))
+                        {
+                            MessageBox.Show("Guardado correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo cargar. Verifique que el alumno no este cargado");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            else { MessageBox.Show("Error, por favor escoja un tipo de usuario"); }
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
         }
         private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelStudentInfoRead_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void studentPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
