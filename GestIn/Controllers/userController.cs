@@ -507,7 +507,6 @@ namespace GestIn.Controllers
                     db.Teachers.Add(teacher);
                     db.SaveChanges();
                 }
-
                 return true;
             }
             catch (SqlException exception)
