@@ -110,7 +110,12 @@ namespace GestIn.UI.Home.Subjects
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+            if(careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text)))
+            {
+                lblResult.Text = "Materia Guardada";
+                lblResult.Visible = true;
+                StartLableRemovalTimer();
+            }
             RefreshTableSubjects();
         }
 
@@ -119,7 +124,12 @@ namespace GestIn.UI.Home.Subjects
             if (dataGridViewMaterias.CurrentRow.Cells[0].Value!=null)
             {
                 object selectedMateria = SetGlobalSubject();
-                careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+                if(careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text)))
+                {
+                    lblResult.Text = "Materia Actualizada";
+                    lblResult.Visible = true;
+                    StartLableRemovalTimer();
+                }
                 RefreshTableSubjects();
             }
         }
@@ -187,6 +197,19 @@ namespace GestIn.UI.Home.Subjects
 
             }
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
+        }
+
+        public void StartLableRemovalTimer()
+        {
+            lableTimer.Interval = 4000; // 3 segundos
+            lableTimer.Tick += lableTimer_Tick;
+            lableTimer.Start();
+        }
+
+        private void lableTimer_Tick(object sender, EventArgs e)
+        {
+            lblResult.Visible = false;
+            lableTimer.Stop();
         }
     }
 }

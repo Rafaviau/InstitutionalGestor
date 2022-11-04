@@ -79,6 +79,16 @@ namespace GestIn.Controllers
             }
         }
 
+        public bool CheckSameUserDNI(int dni)
+        {
+            bool repetition = false;
+            if (findUser(dni) != null)
+            {
+                repetition = true;
+            }
+            return repetition;
+        }
+
         public User findUser(int dni)
         {
             using (var db = new Context())
@@ -95,38 +105,33 @@ namespace GestIn.Controllers
         User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)
         {
-            try
+            if (!CheckSameUserDNI(Dni))
             {
-                User user = new User();
-                user.Dni = Dni;
-                user.Name = name;
-                user.LastName = lastname;
-                user.DateOfBirth = dateOfBirth;
-                user.PlaceOfBirth = placeOfBirth;
-                user.Gender = gender;
-                user.PhoneNumbre = phone;
-                user.EmergencyPhoneNumber = emergencyphone;
-                user.CreatedAt = DateTime.Now;
-                user.LastModificationBy = name + " " + lastname;
-
-                using (var db = new Context())
+                try
                 {
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                }
+                    User user = new User();
+                    user.Dni = Dni;
+                    user.Name = name;
+                    user.LastName = lastname;
+                    user.DateOfBirth = dateOfBirth;
+                    user.PlaceOfBirth = placeOfBirth;
+                    user.Gender = gender;
+                    user.PhoneNumbre = phone;
+                    user.EmergencyPhoneNumber = emergencyphone;
+                    user.CreatedAt = DateTime.Now;
+                    user.LastModificationBy = name + " " + lastname;
 
-                return user;
-            }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE DNI DUPLICADO
-                    return null;
+                    using (var db = new Context())
+                    {
+                        db.Users.Add(user);
+                        db.SaveChanges();
+                    }
+
+                    return user;
                 }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+                catch (SqlException exception) { throw exception; }
             }
+            else { MessageBox.Show("Error ya existe un usuario con ese DNI");}
             return null;
         }
 
@@ -245,16 +250,7 @@ namespace GestIn.Controllers
 
                 return log;
             }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE EMAIL DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
+            catch (SqlException exception) { throw exception; }
             return null;
         }
 
@@ -364,10 +360,10 @@ namespace GestIn.Controllers
             //borrar todo
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string placeOfBirth, 
-            string phone, string gender, string emergencyphone, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil)
+        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string? placeOfBirth, 
+            string? phone, string? gender, string? emergencyphone, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil)
         {
-            User user = createUser(Dni, name, lastname,dateOfBirth,phone);
+            User user = createUser(Dni, name, lastname,dateOfBirth, placeOfBirth, phone, gender, emergencyphone);
                 if (user != null)
                 {
                     LoginInformation log = createLoginInformation(mail, Dni);

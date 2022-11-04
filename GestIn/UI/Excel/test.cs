@@ -45,7 +45,7 @@ namespace GestIn
                 string name = (s1.GetCellValueAsString(1, 1));
                 string degree = (s1.GetCellValueAsString(2, 2));
                 string res = (s1.GetCellValueAsString(3, 2));
-                cntCareer.createCareer(res, name, degree);
+                //cntCareer.createCareer(res, name, degree);
             }
         }
         void loadsubject()

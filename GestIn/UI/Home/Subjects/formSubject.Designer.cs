@@ -60,10 +60,12 @@
             this.cbbSubjectYear = new System.Windows.Forms.ComboBox();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
+            this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherSubjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTable = new System.Windows.Forms.Panel();
             this.panelSelector = new System.Windows.Forms.Panel();
-            this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.lableTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
@@ -373,14 +375,22 @@
             this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.teacherDataGridViewTextBoxColumn});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
-            this.dataGridViewTeachers.Location = new System.Drawing.Point(756, 33);
+            this.dataGridViewTeachers.Location = new System.Drawing.Point(810, 38);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
             this.dataGridViewTeachers.RowHeadersVisible = false;
             this.dataGridViewTeachers.RowHeadersWidth = 51;
             this.dataGridViewTeachers.RowTemplate.Height = 29;
-            this.dataGridViewTeachers.Size = new System.Drawing.Size(506, 157);
+            this.dataGridViewTeachers.Size = new System.Drawing.Size(452, 152);
             this.dataGridViewTeachers.TabIndex = 39;
+            // 
+            // teacherDataGridViewTextBoxColumn
+            // 
+            this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
+            this.teacherDataGridViewTextBoxColumn.HeaderText = "Docentes";
+            this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
+            this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // teacherSubjectBindingSource
             // 
@@ -397,6 +407,7 @@
             // panelSelector
             // 
             this.panelSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelSelector.Controls.Add(this.lblResult);
             this.panelSelector.Controls.Add(this.cbbCarreraSelector);
             this.panelSelector.Controls.Add(this.lblCarrera);
             this.panelSelector.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -405,13 +416,21 @@
             this.panelSelector.Size = new System.Drawing.Size(1349, 48);
             this.panelSelector.TabIndex = 31;
             // 
-            // teacherDataGridViewTextBoxColumn
+            // lblResult
             // 
-            this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
-            this.teacherDataGridViewTextBoxColumn.HeaderText = "Docentes";
-            this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
-            this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lblResult.AutoSize = true;
+            this.lblResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblResult.ForeColor = System.Drawing.Color.White;
+            this.lblResult.Location = new System.Drawing.Point(1043, 10);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(75, 20);
+            this.lblResult.TabIndex = 30;
+            this.lblResult.Text = "Resultado";
+            this.lblResult.Visible = false;
+            // 
+            // lableTimer
+            // 
+            this.lableTimer.Tick += new System.EventHandler(this.lableTimer_Tick);
             // 
             // formSubject
             // 
@@ -424,7 +443,7 @@
             this.Controls.Add(this.panelTable);
             this.Controls.Add(this.panelInfo);
             this.Name = "formSubject";
-            this.Text = "formSubject";
+            this.Text = "Materias";
             this.Load += new System.EventHandler(this.formSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).EndInit();
@@ -489,5 +508,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private DataGridViewTextBoxColumn teacherDataGridViewTextBoxColumn;
+        private Label lblResult;
+        private System.Windows.Forms.Timer lableTimer;
     }
 }

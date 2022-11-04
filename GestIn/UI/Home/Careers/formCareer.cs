@@ -61,7 +61,12 @@ namespace GestIn.UI.Home.Careers
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text);
+            if(careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text))
+            {
+                lblResult.Text = "Carrera Guardada";
+                lblResult.Visible = true;
+                StartLableRemovalTimer();
+            }
             RefreshTableCarrera();
             ClearAll();
         }
@@ -70,7 +75,12 @@ namespace GestIn.UI.Home.Careers
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            careerController.updateCareer(id, txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text, chkActivo.Checked);
+            if(careerController.updateCareer(id, txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text, chkActivo.Checked))
+            {
+                lblResult.Text = "Carrera Actualizada";
+                lblResult.Visible = true;
+                StartLableRemovalTimer();
+            }
             RefreshTableCarrera();
             ClearAll();
         }
@@ -102,6 +112,24 @@ namespace GestIn.UI.Home.Careers
             else { cbbTurno.SelectedIndex = -1; }
             chkActivo.Checked = Convert.ToBoolean(dataGridViewCarreras.CurrentRow.Cells[5].Value);
             RefreshLableCareerName(id);
+        }
+
+        public void StartLableRemovalTimer()
+        {
+            lableTimer.Interval = 4000; // 4 segundos
+            lableTimer.Tick += lableTimer_Tick;
+            lableTimer.Start();
+        }
+
+        private void lableTimer_Tick(object sender, EventArgs e)
+        {
+            lblResult.Visible = false;
+            lableTimer.Stop();
+        }
+
+        private void panelInfo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

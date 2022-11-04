@@ -34,6 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DateSince = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherSubjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceTeachersSubject = new System.Windows.Forms.BindingSource(this.components);
@@ -53,12 +59,6 @@
             this.dateTimePickerUntil = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.btnDeactivateTeacher = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateSince = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
@@ -134,6 +134,61 @@
             this.dataGridViewTeachers.Size = new System.Drawing.Size(1054, 276);
             this.dataGridViewTeachers.TabIndex = 58;
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // teacherDataGridViewTextBoxColumn
+            // 
+            this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
+            this.teacherDataGridViewTextBoxColumn.FillWeight = 140F;
+            this.teacherDataGridViewTextBoxColumn.HeaderText = "Docente";
+            this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
+            this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Condition
+            // 
+            this.Condition.DataPropertyName = "Condition";
+            this.Condition.HeaderText = "Condición";
+            this.Condition.MinimumWidth = 6;
+            this.Condition.Name = "Condition";
+            this.Condition.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.FillWeight = 80F;
+            this.Active.HeaderText = "Activo";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            // 
+            // DateSince
+            // 
+            this.DateSince.DataPropertyName = "DateSince";
+            this.DateSince.FillWeight = 90F;
+            this.DateSince.HeaderText = "Fecha Desde";
+            this.DateSince.MinimumWidth = 6;
+            this.DateSince.Name = "DateSince";
+            this.DateSince.ReadOnly = true;
+            // 
+            // DateUntil
+            // 
+            this.DateUntil.DataPropertyName = "DateUntil";
+            this.DateUntil.FillWeight = 90F;
+            this.DateUntil.HeaderText = "Fecha Hasta";
+            this.DateUntil.MinimumWidth = 6;
+            this.DateUntil.Name = "DateUntil";
+            this.DateUntil.ReadOnly = true;
             // 
             // teacherSubjectBindingSource
             // 
@@ -296,61 +351,6 @@
             this.btnDeactivateTeacher.UseVisualStyleBackColor = true;
             this.btnDeactivateTeacher.Click += new System.EventHandler(this.btnDeactivateTeacher_Click);
             // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 28;
-            // 
-            // teacherDataGridViewTextBoxColumn
-            // 
-            this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
-            this.teacherDataGridViewTextBoxColumn.FillWeight = 140F;
-            this.teacherDataGridViewTextBoxColumn.HeaderText = "Docente";
-            this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
-            this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Condition
-            // 
-            this.Condition.DataPropertyName = "Condition";
-            this.Condition.HeaderText = "Condición";
-            this.Condition.MinimumWidth = 6;
-            this.Condition.Name = "Condition";
-            this.Condition.ReadOnly = true;
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.FillWeight = 80F;
-            this.Active.HeaderText = "Activo";
-            this.Active.MinimumWidth = 6;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            // 
-            // DateSince
-            // 
-            this.DateSince.DataPropertyName = "DateSince";
-            this.DateSince.FillWeight = 90F;
-            this.DateSince.HeaderText = "Fecha Desde";
-            this.DateSince.MinimumWidth = 6;
-            this.DateSince.Name = "DateSince";
-            this.DateSince.ReadOnly = true;
-            // 
-            // DateUntil
-            // 
-            this.DateUntil.DataPropertyName = "DateUntil";
-            this.DateUntil.FillWeight = 90F;
-            this.DateUntil.HeaderText = "Fecha Hasta";
-            this.DateUntil.MinimumWidth = 6;
-            this.DateUntil.Name = "DateUntil";
-            this.DateUntil.ReadOnly = true;
-            // 
             // formSubjectTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -378,7 +378,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Name = "formSubjectTeachers";
-            this.Text = "formSubjectTeachers";
+            this.Text = "Docentes de una Materia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubjectTeachers_FormClosing);
             this.Load += new System.EventHandler(this.formSubjectTeachers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).EndInit();
