@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using GestIn.Model;
 using Microsoft.EntityFrameworkCore;
@@ -124,71 +125,40 @@ namespace GestIn.Controllers
             }
         }
 
-        public Career createCareer(string ResolutionNum, string name, string degree, string turn)
+        public bool createCareer(string ResolutionNum, string name, string degree, string turn)
         {
-            Career nuevacarrera = new Career();
-
-            try
+            bool status = false;
+            if(!CheckSameResolutionNumber(ResolutionNum))
             {
-                nuevacarrera.Resolution = ResolutionNum;
-                nuevacarrera.Name = name;
-                nuevacarrera.Degree = degree;
-                nuevacarrera.Turn = turn;
-                nuevacarrera.CreatedAt = DateTime.Now;
-                nuevacarrera.LastModificationBy = "Preceptor cargando materias";
-                using (var db = new Context())
+                try
                 {
-                    db.Careers.Add(nuevacarrera);
-                    db.SaveChanges();
+                    Career nuevacarrera = new Career();
+                    nuevacarrera.Resolution = ResolutionNum;
+                    nuevacarrera.Name = name;
+                    nuevacarrera.Degree = degree;
+                    nuevacarrera.Turn = turn;
+                    nuevacarrera.CreatedAt = DateTime.Now;
+                    nuevacarrera.LastModificationBy = "Preceptor cargando materias";
+                    using (var db = new Context())
+                    {
+                        db.Careers.Add(nuevacarrera);
+                        db.SaveChanges();
+                        status = true;
+                    }
                 }
-
-                return nuevacarrera;
+                catch (SqlException exception) { throw exception; }
             }
-            catch (SqlException exception)
+            else
             {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE DNI DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+                MessageBox.Show("Error, Ya existe una carrera con ese mismo numero de resolución");
             }
+            return status;
+            
         }
-        public Career createCareer(string resolution, string name, string degree)
-        {
-            try
-            {
-                Career career = new Career();
-                career.Resolution = resolution;
-                career.Name = name;
-                career.Degree = degree;
-                career.CreatedAt = DateTime.Now;
-                career.LastModificationBy = "Preceptor cargando materias";
-                using (var db = new Context())
-                {
-                    db.Careers.Add(career);
-                    db.SaveChanges();
-                }
-
-                return career;
-            }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE DNI DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
-            return null;
-        }
-
 
         public bool updateCareer(int idcareer, string ResolutionNum, string name, string degree, string turn, bool careerState)
         {
+            bool status = false;
             try
             {
                 using (var db = new Context())
@@ -205,11 +175,12 @@ namespace GestIn.Controllers
                         updatedCareer.UpdatedAt = DateTime.Now;
                         db.Update(updatedCareer);
                         db.SaveChanges();
+                        status = true;
                     }
                 }
             }
             catch (SqlException exception) { throw exception; }
-            return false;
+            return status;
         }
 
         internal bool updateCareer(int id, string reso, string name, string degree) //Rafa
@@ -253,6 +224,16 @@ namespace GestIn.Controllers
             catch (SqlException exception) { throw exception; }
         } //Rafa
 
+        public bool CheckSameResolutionNumber(string ResolutionNum)
+        {
+            bool repetition = false;
+            if (findCareer(ResolutionNum)!=null)
+            {
+                repetition = true;
+            }
+            return repetition;
+        }
+
         public Career findCareer(int id)
         {
             using (var db = new Context())
@@ -272,7 +253,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    var career = db.Careers.Where(x => x.Resolution == ResolutionNum).First();
+                    var career = db.Careers.Where(x => x.Resolution == ResolutionNum).FirstOrDefault();
                     return career;
                 }
                 catch (SqlException exception) { throw exception; }
@@ -348,11 +329,12 @@ namespace GestIn.Controllers
             }
         }
 
-        public Subject createSubject(int careerID, string name, int yearInCareer, int annualTotalhours)
+        public bool createSubject(int careerID, string name, int yearInCareer, int annualTotalhours)
         {
-            Subject nuevaMateria = new Subject();
+            bool status = false;
             try
             {
+                Subject nuevaMateria = new Subject();
                 nuevaMateria.CareerId = careerID;
                 nuevaMateria.Name = name;
                 nuevaMateria.YearInCareer = yearInCareer;
@@ -363,14 +345,15 @@ namespace GestIn.Controllers
                 {
                     db.Subjects.Add(nuevaMateria);
                     db.SaveChanges();
+                    status = true;
                 }
-
-                return nuevaMateria;
+                
             }
             catch (SqlException exception)
             {
                 throw exception;
             }
+            return status;
         }
 
         public Subject createSubject(int careerID, string name, int yearInCareer, int annualTotalhours, object career) //Rafa
@@ -776,7 +759,6 @@ namespace GestIn.Controllers
             }
             
         }
-
         public void deactivateCharge(TeacherSubject currentActive)
         {
             using (var db = new Context())
@@ -788,6 +770,24 @@ namespace GestIn.Controllers
                     db.SaveChanges();
                 }
                 catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public void deactivateCharge(int id, string condition)
+        {
+            if (!condition.Equals("Suplente"))
+            {
+                using (var db = new Context())
+                {
+                    TeacherSubject existingCharge = findTeacherCharge(id);
+                    try
+                    {
+                        existingCharge.Active = false;
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
+                    catch (SqlException exception) { throw exception; }
+                }
             }
         }
 
@@ -893,6 +893,20 @@ namespace GestIn.Controllers
                 try
                 {
                     listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == subjectMatter.Id && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    return listActiveCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<TeacherSubject> getAllActiveCharges(int idSubject)
+        {
+            List<TeacherSubject> listActiveCharges = new List<TeacherSubject>();
+            using (var db = new Context())
+            {
+                try
+                {
+                    listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == idSubject && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
                     return listActiveCharges;
                 }
                 catch (SqlException exception) { throw exception; }

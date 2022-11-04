@@ -55,8 +55,26 @@ namespace GestIn.UI.Home.Subjects
                 {
                     bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
                     bindingSourceCarreraMaterias.ResetBindings(false);
-                    //dataGridViewMaterias.Sort(dataGridViewMaterias.Columns[3], 0);
                     dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
+                    RefreshLableSubjectName(SetGlobalSubject());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        public void RefreshTableTeachers()
+        {
+            int id = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
+            if (careerController.getAllActiveCharges(id).Count>0)
+            {
+                try
+                {
+                    teacherSubjectBindingSource.DataSource = careerController.getAllActiveCharges(id);
+                    teacherSubjectBindingSource.ResetBindings(false);
+                    dataGridViewTeachers.DataSource = teacherSubjectBindingSource;
                     RefreshLableSubjectName(SetGlobalSubject());
                 }
                 catch (Exception ex)
@@ -76,24 +94,12 @@ namespace GestIn.UI.Home.Subjects
                 cbbCarreraSelector.DisplayMember = "NAME";
                 cbbCarreraSelector.ValueMember = "ID";
                 cbbCarreraSelector.SelectedIndex = 0;
-
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
             
-        }
-        public void DisableUserInput()
-        {
-            btnInsert.Enabled = false;
-            btnUpdate.Enabled = false;
-            txtNombre.Enabled = false;
-            cbbSubjectYear.Enabled = false;
-            cbbCarreraSelector.Enabled = true;
-            txtCargaHorariaTotal.Enabled = false;
-            lblPermission.Visible = true;
-            dataGridViewMaterias.Enabled = true;
         }
 
         public void ClearAll()
@@ -104,9 +110,13 @@ namespace GestIn.UI.Home.Subjects
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+            if(careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text)))
+            {
+                lblResult.Text = "Materia Guardada";
+                lblResult.Visible = true;
+                StartLableRemovalTimer();
+            }
             RefreshTableSubjects();
-            DisableUserInput();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -114,9 +124,13 @@ namespace GestIn.UI.Home.Subjects
             if (dataGridViewMaterias.CurrentRow.Cells[0].Value!=null)
             {
                 object selectedMateria = SetGlobalSubject();
-                careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+                if(careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text)))
+                {
+                    lblResult.Text = "Materia Actualizada";
+                    lblResult.Visible = true;
+                    StartLableRemovalTimer();
+                }
                 RefreshTableSubjects();
-                DisableUserInput();
             }
         }
 
@@ -147,6 +161,7 @@ namespace GestIn.UI.Home.Subjects
             txtNombre.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
             cbbSubjectYear.SelectedItem = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
             txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
+            RefreshTableTeachers();
         }
 
         private void cbCareerSelector_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,18 +184,6 @@ namespace GestIn.UI.Home.Subjects
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            btnInsert.Enabled = true;
-            btnUpdate.Enabled = true;
-            txtNombre.Enabled = true;
-            cbbSubjectYear.Enabled = true;
-            cbbCarreraSelector.Enabled = false;
-            txtCargaHorariaTotal.Enabled = true;
-            lblPermission.Visible = true;
-            dataGridViewMaterias.Enabled = false;
-        }
-
         private void btnCorrelativas_Click(object sender, EventArgs e)
         {
             try
@@ -194,6 +197,19 @@ namespace GestIn.UI.Home.Subjects
 
             }
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
+        }
+
+        public void StartLableRemovalTimer()
+        {
+            lableTimer.Interval = 4000; // 3 segundos
+            lableTimer.Tick += lableTimer_Tick;
+            lableTimer.Start();
+        }
+
+        private void lableTimer_Tick(object sender, EventArgs e)
+        {
+            lblResult.Visible = false;
+            lableTimer.Stop();
         }
     }
 }

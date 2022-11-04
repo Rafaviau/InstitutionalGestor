@@ -26,7 +26,7 @@ namespace GestIn.UI.Home.Users
             studentPanel.Visible = false;
             teacherPanel.Visible = false;
             cmbUserType.SelectedIndex = 0;
-
+            cmbGender.SelectedIndex = 0;
         }
 
         public void NullCheck()
@@ -35,7 +35,6 @@ namespace GestIn.UI.Home.Users
             {
                 lblStudentCount.Text = userController.countStudents().ToString();
                 lblTeacherCount.Text = userController.countTeachers().ToString();
-                //RefreshTableUserType(); //not necessary
             }
         }
 
@@ -50,62 +49,65 @@ namespace GestIn.UI.Home.Users
             {
                 studentPanel.Visible = true;
                 teacherPanel.Visible = false;
-                //lblUserType.Text = cmbUserType.SelectedItem.ToString();
             }
             else
             {
                 studentPanel.Visible = false;
                 teacherPanel.Visible = true;
-                //lblUserType.Text = cmbUserType.SelectedItem.ToString();
             }
-
         }
 
-        public bool ValidateInformation()
+        public bool ValidateObligatoryInformation()
         {
             bool state = true;
             if (txtUserDni.Equals("") || txtUserEmail.Equals("") || txtUserLastName.Equals("") || txtUserName.Equals("")) 
-            { 
-                state = false; 
+            {
+                state = false;
+                MessageBox.Show("Complete todos los campos obligatorios {X}");
+            }
+            return state;
+        }
+        public bool ValidateDate()
+        {
+            bool state = true;
+            if(UserDateBirth.Value.Date.Equals(DateTime.Now) || DateTime.Now<UserDateBirth.Value.Date)
+            {
+                state = false;
+                MessageBox.Show("Error, fecha ingresada de formato incorrecto");
             }
             return state;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (cmbUserType.SelectedItem.ToString().Equals("Estudiante")) //Student
+            if (ValidateObligatoryInformation() && ValidateDate())
             {
-                if (ValidateInformation())
+                if (cmbUserType.SelectedItem.ToString().Equals("Estudiante")) //Student
                 {
                     try
                     {
-                        userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserPhoneNumber.Text);
-                        lblSuccess.Text = "Estudiante creado";
-                        lblSuccess.Visible = true;
-                        lblTeacherCount.Text = userController.countStudents().ToString();
-
+                        userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text,
+                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, cmbGender.SelectedItem.ToString(), txtUserEmergencyContact.Text,
+                            cbAnalitic.Checked, cbDni.Checked, cbBirthCert.Checked, cbMedicCerf.Checked, cbPhotos.Checked, cbCuil.Checked);
+                        lblResult.Text = "Estudiante creado";
+                        lblResult.Visible = true;
+                        lblStudentCount.Text = userController.countStudents().ToString();
+                        StartLableRemovalTimer();
                     }
-                    catch (Exception ex){MessageBox.Show(ex.Message);}
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
-                else
-                {
-                    MessageBox.Show("Complete todos los campos");
-                }
-            }
-            else //Teacher
-            {
-                if (ValidateInformation())
+                else //Teacher
                 {
                     try
                     {
                         userController.inputTeacher(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
-                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, txtUserGender.Text, txtCUILL.Text, txtTitle.Text);
-                        lblSuccess.Text = "Docente creado";
-                        lblSuccess.Visible = true;
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(), txtCUILL.Text, txtTitle.Text);
+                        lblResult.Text = "Docente creado";
+                        lblResult.Visible = true;
                         lblTeacherCount.Text = userController.countTeachers().ToString();
-
+                        StartLableRemovalTimer();
                     }
-                    catch (Exception ex){MessageBox.Show(ex.Message);}
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
             }
         }
@@ -118,73 +120,17 @@ namespace GestIn.UI.Home.Users
 
         }
 
-        private void lblSuccess_Click(object sender, EventArgs e)
+        public void StartLableRemovalTimer()
         {
-
+            lableTimer.Interval = 4000; // 3 segundos
+            lableTimer.Tick += lableTimer_Tick;
+            lableTimer.Start();
         }
 
-
-
-
-
-        /* Unnecessary
-        public bool NullCheck(int userType)
+        private void lableTimer_Tick(object sender, EventArgs e)
         {
-            bool state = false;
-            if (userType == 0)
-            {
-                if (userController.countStudents() != 0)
-                {
-                    state = true;
-                }
-            }
-            else
-            {
-                if (userController.countTeachers() != 0)
-                {
-                    state = true;
-                }
-            }
-            return state;
+            lblResult.Visible = false;
+            lableTimer.Stop();
         }
-
-        public void RefreshTableUserType(int userType)
-        {
-            if (userType == 0) //again i'm assuming student starts at index 0
-            {
-                bindingSourceStudents.DataSource = userController.loadStudent();
-                bindingSourceStudents.ResetBindings(false);
-                dataGridViewUsers.DataSource = bindingSourceStudents;
-                if (userController.countStudents() > 0)
-                {
-                    dataGridViewUsers.DataSource = dataGridViewUsers.DataSource = bindingSourceStudents;
-                    dataGridViewUsers.CurrentCell.Selected = false;
-                }
-            }
-            else
-            {
-                bindingSourceTeachers.DataSource = userController.loadTeachers();
-                bindingSourceTeachers.ResetBindings(false);
-                dataGridViewUsers.DataSource = bindingSourceTeachers;
-                if (userController.countTeachers() > 0)
-                {
-                    dataGridViewUsers.DataSource = dataGridViewUsers.DataSource = bindingSourceTeachers;
-                    dataGridViewUsers.CurrentCell.Selected = false;
-                }
-            }
-        }
-
-        private void checkedListBoxUserType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int userTypeState = checkedListBoxUserType.SelectedIndex;
-            if (NullCheck(userTypeState))
-            {
-                RefreshTableUserType(userTypeState);
-            }
-
-            //Asumo de que el primer indice es el estudiante
-
-        }
-        */
     }
 }

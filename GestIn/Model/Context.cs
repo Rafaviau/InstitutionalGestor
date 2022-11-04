@@ -38,10 +38,11 @@ namespace GestIn.Model
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=DbGestin;User id =SA;Password=G@ldaf0*+;");
-                optionsBuilder.UseSqlServer(LocalInformation.getConnectionString());
+                //optionsBuilder.UseSqlServer(LocalInformation.getConnectionString());
+                //optionsBuilder.UseSqlServer("Server=192.168.128.26,49172,Database=DbGestin,User id=Preceptoria;Password=321;");
                 //optionsBuilder.UseSqlServer("Server=PC15\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
                 //optionsBuilder.UseSqlServer("Server=DESKTOP-CKP73PI\\SQLEXPRESS;Database=DbGestin;Trusted_Connection=True;");
-                //optionsBuilder.UseSqlServer("Server=DESKTOP-5KDFBNS;Database=DbGestin;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-5KDFBNS;Database=DbGestin;Trusted_Connection=True;");
             }
         }
 

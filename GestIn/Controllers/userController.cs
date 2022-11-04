@@ -79,6 +79,16 @@ namespace GestIn.Controllers
             }
         }
 
+        public bool CheckSameUserDNI(int dni)
+        {
+            bool repetition = false;
+            if (findUser(dni) != null)
+            {
+                repetition = true;
+            }
+            return repetition;
+        }
+
         public User findUser(int dni)
         {
             using (var db = new Context())
@@ -95,38 +105,33 @@ namespace GestIn.Controllers
         User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)
         {
-            try
+            if (!CheckSameUserDNI(Dni))
             {
-                User user = new User();
-                user.Dni = Dni;
-                user.Name = name;
-                user.LastName = lastname;
-                user.DateOfBirth = dateOfBirth;
-                user.PlaceOfBirth = placeOfBirth;
-                user.Gender = gender;
-                user.PhoneNumbre = phone;
-                user.EmergencyPhoneNumber = emergencyphone;
-                user.CreatedAt = DateTime.Now;
-                user.LastModificationBy = name + " " + lastname;
-
-                using (var db = new Context())
+                try
                 {
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                }
+                    User user = new User();
+                    user.Dni = Dni;
+                    user.Name = name;
+                    user.LastName = lastname;
+                    user.DateOfBirth = dateOfBirth;
+                    user.PlaceOfBirth = placeOfBirth;
+                    user.Gender = gender;
+                    user.PhoneNumbre = phone;
+                    user.EmergencyPhoneNumber = emergencyphone;
+                    user.CreatedAt = DateTime.Now;
+                    user.LastModificationBy = name + " " + lastname;
 
-                return user;
-            }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE DNI DUPLICADO
-                    return null;
+                    using (var db = new Context())
+                    {
+                        db.Users.Add(user);
+                        db.SaveChanges();
+                    }
+
+                    return user;
                 }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+                catch (SqlException exception) { throw exception; }
             }
+            else { MessageBox.Show("Error ya existe un usuario con ese DNI");}
             return null;
         }
 
@@ -245,16 +250,7 @@ namespace GestIn.Controllers
 
                 return log;
             }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE EMAIL DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
+            catch (SqlException exception) { throw exception; }
             return null;
         }
 
@@ -289,13 +285,36 @@ namespace GestIn.Controllers
 
                 return true;
             }
-            catch (SqlException exception)
-            {
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
-            return false;
+            catch (SqlException exception) { throw exception; }
 
         }
+        bool createStudent(int Dni, string mail, string name, string lastname, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, LoginInformation log, User user)
+        {
+            try
+            {
+                Student student = new Student();
+                student.UserId = user.Id;
+                student.LoginInformationId = log.Id;
+                student.DniPhotocopy = dni;
+                student.HighSchoolTitPhotocopy = analitic;
+                student.Photo4x4 = photo;
+                student.MedicalCertificate = medicalCertificate;
+                student.BirthCertificate = birthCertificate;
+                student.CuilConstansy = cuil;
+                student.Cooperative = false;
+                student.CreatedAt = DateTime.Now;
+                student.LastModificationBy = "Preceptor carando notas";
+                using (var db = new Context())
+                {
+                    db.Students.Add(student);
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (SqlException exception) { throw exception; }
+        }
+
         bool createStudent(int Dni, string mail, string name, string lastname, LoginInformation log, User user)
         {
             try
@@ -320,13 +339,11 @@ namespace GestIn.Controllers
 
                 return true;
             }
-            catch (SqlException exception)
-            {
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
+            catch (SqlException exception) { throw exception; }
             return false;
 
         }
+
         public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
         {
@@ -340,37 +357,38 @@ namespace GestIn.Controllers
                             gender, phone, emergencyphone, socialWork, workActivity, workingHours, log, user));
                 }
             }
-
-
             //borrar todo
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string phone)
+        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string? placeOfBirth, 
+            string? phone, string? gender, string? emergencyphone, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil)
         {
-            User user = createUser(Dni, name, lastname,dateOfBirth,phone);
+            User user = createUser(Dni, name, lastname,dateOfBirth, placeOfBirth, phone, gender, emergencyphone);
                 if (user != null)
                 {
                     LoginInformation log = createLoginInformation(mail, Dni);
-                    if (log != null)
-                    {
-                        return (createStudent(Dni, mail, name, lastname, log, user));
+                if (log != null)
+                {
+                    return (createStudent(Dni, mail, name, lastname, analitic, dni, birthCertificate, medicalCertificate, photo, cuil, log, user));
                     }
             }
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname)
+
+        public bool enrolStudent(int Dni, string mail, string name, string lastname, DateTime? dateOfBirth, string phone)
         {
-                User user = createUser(Dni, name, lastname);
-                if (user != null)
+            User user = createUser(Dni, name, lastname, dateOfBirth, phone);
+            if (user != null)
+            {
+                LoginInformation log = createLoginInformation(mail, Dni);
+                if (log != null)
                 {
-                    LoginInformation log = createLoginInformation(mail, Dni);
-                    if (log != null)
-                    {
-                        return (createStudent(Dni, mail, name, lastname, log, user));
-                    }
+                    return (createStudent(Dni, mail, name, lastname, log, user));
                 }
+            }
             return false;
         }
+
         public Student findStudent(int dni) {
             using (var db = new Context())
             {
