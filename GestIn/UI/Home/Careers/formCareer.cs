@@ -51,7 +51,7 @@ namespace GestIn.UI.Home.Careers
         {
             try
             {
-                lblcarreraaqui.Text = careerController.getCareer(careerID).Name;
+                lblCareerName.Text = "[ " + careerController.getCareer(careerID).Name + " ]";
             }
             catch (Exception exc)
             {
@@ -59,33 +59,20 @@ namespace GestIn.UI.Home.Careers
             }
         }
 
-        public void DisableUserInput()
-        {
-            txtNumResolucion.Enabled = false;
-            txtNombre.Enabled = false;
-            txtTitulo.Enabled = false;
-            cbbTurno.Enabled = false;
-            btnInsert.Enabled = false;
-            btnUpdate.Enabled = false;
-            chkActivo.Enabled = false;
-            lblPermission.Visible = false;
-            dataGridViewCarreras.Enabled = true;
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            careerController.createCareer(this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text);
+            careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text);
             RefreshTableCarrera();
-            DisableUserInput();
+            ClearAll();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            careerController.updateCareer(id, this.txtNumResolucion.Text, this.txtNombre.Text, this.txtTitulo.Text, this.cbbTurno.Text, this.chkActivo.Checked);
+            careerController.updateCareer(id, txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text, chkActivo.Checked);
             RefreshTableCarrera();
-            DisableUserInput();
+            ClearAll();
         }
 
         private void dataGridViewCarreras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -107,24 +94,14 @@ namespace GestIn.UI.Home.Careers
             txtNumResolucion.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[1].Value);
             txtNombre.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[2].Value);
             txtTitulo.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[3].Value);
-            cbbTurno.SelectedItem = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value);
-            RefreshLableCareerName(id);
-        }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewCarreras.CurrentRow != null)
+            if (!Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value).Equals(""))
             {
-                txtNumResolucion.Enabled = true;
-                txtNombre.Enabled = true;
-                txtTitulo.Enabled = true;
-                cbbTurno.Enabled = true;
-                chkActivo.Enabled = true;
-                btnInsert.Enabled = true;
-                btnUpdate.Enabled = true;
-                lblPermission.Visible = true;
-                dataGridViewCarreras.Enabled = false;
+                cbbTurno.SelectedItem = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value);
             }
+            else { cbbTurno.SelectedIndex = -1; }
+            chkActivo.Checked = Convert.ToBoolean(dataGridViewCarreras.CurrentRow.Cells[5].Value);
+            RefreshLableCareerName(id);
         }
     }
 }

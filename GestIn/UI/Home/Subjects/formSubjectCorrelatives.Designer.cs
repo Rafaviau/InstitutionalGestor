@@ -69,6 +69,7 @@
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource1;
             this.dataGridViewCorrelativas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(12, 245);
+            this.dataGridViewCorrelativas.MultiSelect = false;
             this.dataGridViewCorrelativas.Name = "dataGridViewCorrelativas";
             this.dataGridViewCorrelativas.ReadOnly = true;
             this.dataGridViewCorrelativas.RowHeadersVisible = false;

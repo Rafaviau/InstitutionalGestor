@@ -40,7 +40,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtUserEmergencyContact = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtUserGender = new System.Windows.Forms.TextBox();
             this.bindingSourceStudents = new System.Windows.Forms.BindingSource(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtUserEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cmbGender = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -85,10 +85,10 @@
             // btnInsert
             // 
             this.btnInsert.ForeColor = System.Drawing.Color.Black;
-            this.btnInsert.Location = new System.Drawing.Point(30, 652);
+            this.btnInsert.Location = new System.Drawing.Point(25, 680);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(94, 29);
-            this.btnInsert.TabIndex = 3;
+            this.btnInsert.TabIndex = 12;
             this.btnInsert.Text = "Guardar";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
@@ -96,10 +96,10 @@
             // btnUpdate
             // 
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(130, 652);
+            this.btnUpdate.Location = new System.Drawing.Point(125, 680);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 29);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 13;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -107,10 +107,10 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(230, 652);
+            this.btnDelete.Location = new System.Drawing.Point(225, 680);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 29);
-            this.btnDelete.TabIndex = 7;
+            this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Baja";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -122,7 +122,7 @@
             this.UserDateBirth.Location = new System.Drawing.Point(3, 333);
             this.UserDateBirth.Name = "UserDateBirth";
             this.UserDateBirth.Size = new System.Drawing.Size(252, 27);
-            this.UserDateBirth.TabIndex = 12;
+            this.UserDateBirth.TabIndex = 6;
             // 
             // label16
             // 
@@ -144,7 +144,7 @@
             this.txtUserBirthPlace.Location = new System.Drawing.Point(3, 396);
             this.txtUserBirthPlace.Name = "txtUserBirthPlace";
             this.txtUserBirthPlace.Size = new System.Drawing.Size(253, 29);
-            this.txtUserBirthPlace.TabIndex = 36;
+            this.txtUserBirthPlace.TabIndex = 7;
             // 
             // label17
             // 
@@ -166,7 +166,7 @@
             this.txtUserEmergencyContact.Location = new System.Drawing.Point(3, 461);
             this.txtUserEmergencyContact.Name = "txtUserEmergencyContact";
             this.txtUserEmergencyContact.Size = new System.Drawing.Size(252, 29);
-            this.txtUserEmergencyContact.TabIndex = 39;
+            this.txtUserEmergencyContact.TabIndex = 8;
             // 
             // label18
             // 
@@ -179,16 +179,6 @@
             this.label18.Size = new System.Drawing.Size(64, 17);
             this.label18.TabIndex = 40;
             this.label18.Text = "Género :";
-            // 
-            // txtUserGender
-            // 
-            this.txtUserGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtUserGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUserGender.ForeColor = System.Drawing.Color.White;
-            this.txtUserGender.Location = new System.Drawing.Point(3, 526);
-            this.txtUserGender.Name = "txtUserGender";
-            this.txtUserGender.Size = new System.Drawing.Size(252, 29);
-            this.txtUserGender.TabIndex = 41;
             // 
             // flowLayoutPanel1
             // 
@@ -209,11 +199,11 @@
             this.flowLayoutPanel1.Controls.Add(this.label17);
             this.flowLayoutPanel1.Controls.Add(this.txtUserEmergencyContact);
             this.flowLayoutPanel1.Controls.Add(this.label18);
-            this.flowLayoutPanel1.Controls.Add(this.txtUserGender);
+            this.flowLayoutPanel1.Controls.Add(this.cmbGender);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 76);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(271, 568);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(271, 596);
             this.flowLayoutPanel1.TabIndex = 42;
             // 
             // label15
@@ -223,9 +213,9 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(3, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(66, 17);
+            this.label15.Size = new System.Drawing.Size(89, 17);
             this.label15.TabIndex = 57;
-            this.label15.Text = "Apellido :";
+            this.label15.Text = "Apellido {X} :";
             // 
             // txtUserLastName
             // 
@@ -235,7 +225,7 @@
             this.txtUserLastName.Location = new System.Drawing.Point(3, 20);
             this.txtUserLastName.Name = "txtUserLastName";
             this.txtUserLastName.Size = new System.Drawing.Size(253, 29);
-            this.txtUserLastName.TabIndex = 56;
+            this.txtUserLastName.TabIndex = 1;
             // 
             // label6
             // 
@@ -244,9 +234,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(3, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 17);
+            this.label6.Size = new System.Drawing.Size(89, 17);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Nombre :";
+            this.label6.Text = "Nombre {X} :";
             // 
             // txtUserName
             // 
@@ -256,7 +246,7 @@
             this.txtUserName.Location = new System.Drawing.Point(3, 72);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(253, 29);
-            this.txtUserName.TabIndex = 10;
+            this.txtUserName.TabIndex = 2;
             // 
             // label7
             // 
@@ -266,9 +256,9 @@
             this.label7.Location = new System.Drawing.Point(3, 117);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 13, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 17);
+            this.label7.Size = new System.Drawing.Size(60, 17);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Dni :";
+            this.label7.Text = "Dni {X} :";
             // 
             // txtUserDni
             // 
@@ -278,7 +268,7 @@
             this.txtUserDni.Location = new System.Drawing.Point(3, 137);
             this.txtUserDni.Name = "txtUserDni";
             this.txtUserDni.Size = new System.Drawing.Size(253, 29);
-            this.txtUserDni.TabIndex = 11;
+            this.txtUserDni.TabIndex = 3;
             // 
             // label8
             // 
@@ -300,7 +290,7 @@
             this.txtUserPhoneNumber.Location = new System.Drawing.Point(3, 202);
             this.txtUserPhoneNumber.Name = "txtUserPhoneNumber";
             this.txtUserPhoneNumber.Size = new System.Drawing.Size(252, 29);
-            this.txtUserPhoneNumber.TabIndex = 23;
+            this.txtUserPhoneNumber.TabIndex = 4;
             // 
             // label9
             // 
@@ -322,7 +312,7 @@
             this.txtUserEmail.Location = new System.Drawing.Point(3, 267);
             this.txtUserEmail.Name = "txtUserEmail";
             this.txtUserEmail.Size = new System.Drawing.Size(252, 29);
-            this.txtUserEmail.TabIndex = 21;
+            this.txtUserEmail.TabIndex = 5;
             // 
             // label10
             // 
@@ -335,6 +325,21 @@
             this.label10.Size = new System.Drawing.Size(153, 18);
             this.label10.TabIndex = 28;
             this.label10.Text = "Fecha de nacimiento :";
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGender.ForeColor = System.Drawing.Color.White;
+            this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino",
+            "Otro"});
+            this.cmbGender.Location = new System.Drawing.Point(3, 526);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.Size = new System.Drawing.Size(255, 28);
+            this.cmbGender.TabIndex = 9;
             // 
             // label3
             // 
@@ -408,7 +413,7 @@
             this.cmbUserType.Location = new System.Drawing.Point(229, 20);
             this.cmbUserType.Name = "cmbUserType";
             this.cmbUserType.Size = new System.Drawing.Size(251, 28);
-            this.cmbUserType.TabIndex = 54;
+            this.cmbUserType.TabIndex = 0;
             this.cmbUserType.SelectedIndexChanged += new System.EventHandler(this.cmbUserType_SelectedIndexChanged);
             // 
             // teacherPanel
@@ -431,7 +436,7 @@
             this.txtCUILL.Location = new System.Drawing.Point(7, 23);
             this.txtCUILL.Name = "txtCUILL";
             this.txtCUILL.Size = new System.Drawing.Size(295, 27);
-            this.txtCUILL.TabIndex = 18;
+            this.txtCUILL.TabIndex = 10;
             // 
             // txtDNI
             // 
@@ -449,7 +454,7 @@
             this.txtTitle.Location = new System.Drawing.Point(7, 75);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(295, 27);
-            this.txtTitle.TabIndex = 6;
+            this.txtTitle.TabIndex = 11;
             // 
             // label2
             // 
@@ -615,7 +620,6 @@
         private Label label17;
         private TextBox txtUserEmergencyContact;
         private Label label18;
-        private TextBox txtUserGender;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label6;
         private TextBox txtUserName;
@@ -648,5 +652,6 @@
         private CheckBox cbDni;
         private CheckBox cbMedicCerf;
         private CheckBox cbAnalitic;
+        private ComboBox cmbGender;
     }
 }

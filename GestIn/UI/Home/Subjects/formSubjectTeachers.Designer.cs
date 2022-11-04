@@ -48,10 +48,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnModifyUntil = new System.Windows.Forms.Button();
-            this.btnDeactivate = new System.Windows.Forms.Button();
+            this.btnDeactivateSubstitute = new System.Windows.Forms.Button();
             this.dateTimePickerSince = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerUntil = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnDeactivateTeacher = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,6 +124,7 @@
             this.DateUntil});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
             this.dataGridViewTeachers.Location = new System.Drawing.Point(112, 371);
+            this.dataGridViewTeachers.MultiSelect = false;
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
             this.dataGridViewTeachers.RowHeadersVisible = false;
@@ -198,7 +200,7 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(529, 331);
+            this.btnInsert.Location = new System.Drawing.Point(453, 331);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(148, 34);
             this.btnInsert.TabIndex = 65;
@@ -210,11 +212,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(568, 227);
+            this.label4.Location = new System.Drawing.Point(518, 231);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.Size = new System.Drawing.Size(145, 20);
             this.label4.TabIndex = 66;
-            this.label4.Text = "Condicion:";
+            this.label4.Text = "Situación de Revista:";
             // 
             // label5
             // 
@@ -225,7 +227,6 @@
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 68;
             this.label5.Text = "Fecha Inicio: ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -236,11 +237,10 @@
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
             this.label6.Text = "Fecha Cese:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnModifyUntil
             // 
-            this.btnModifyUntil.Location = new System.Drawing.Point(1011, 334);
+            this.btnModifyUntil.Location = new System.Drawing.Point(1022, 335);
             this.btnModifyUntil.Name = "btnModifyUntil";
             this.btnModifyUntil.Size = new System.Drawing.Size(144, 31);
             this.btnModifyUntil.TabIndex = 72;
@@ -248,15 +248,15 @@
             this.btnModifyUntil.UseVisualStyleBackColor = true;
             this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyDates_Click);
             // 
-            // btnDeactivate
+            // btnDeactivateSubstitute
             // 
-            this.btnDeactivate.Location = new System.Drawing.Point(687, 331);
-            this.btnDeactivate.Name = "btnDeactivate";
-            this.btnDeactivate.Size = new System.Drawing.Size(155, 34);
-            this.btnDeactivate.TabIndex = 73;
-            this.btnDeactivate.Text = "Desactivar Suplente";
-            this.btnDeactivate.UseVisualStyleBackColor = true;
-            this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
+            this.btnDeactivateSubstitute.Location = new System.Drawing.Point(768, 331);
+            this.btnDeactivateSubstitute.Name = "btnDeactivateSubstitute";
+            this.btnDeactivateSubstitute.Size = new System.Drawing.Size(155, 34);
+            this.btnDeactivateSubstitute.TabIndex = 73;
+            this.btnDeactivateSubstitute.Text = "Desactivar Suplente";
+            this.btnDeactivateSubstitute.UseVisualStyleBackColor = true;
+            this.btnDeactivateSubstitute.Click += new System.EventHandler(this.btnDeactivate_Click);
             // 
             // dateTimePickerSince
             // 
@@ -286,6 +286,16 @@
             this.label8.TabIndex = 76;
             this.label8.Text = "Ingrese el nombre de un docente:";
             // 
+            // btnDeactivateTeacher
+            // 
+            this.btnDeactivateTeacher.Location = new System.Drawing.Point(607, 331);
+            this.btnDeactivateTeacher.Name = "btnDeactivateTeacher";
+            this.btnDeactivateTeacher.Size = new System.Drawing.Size(155, 34);
+            this.btnDeactivateTeacher.TabIndex = 77;
+            this.btnDeactivateTeacher.Text = "Desactivar Docente";
+            this.btnDeactivateTeacher.UseVisualStyleBackColor = true;
+            this.btnDeactivateTeacher.Click += new System.EventHandler(this.btnDeactivateTeacher_Click);
+            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -300,6 +310,7 @@
             // teacherDataGridViewTextBoxColumn
             // 
             this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
+            this.teacherDataGridViewTextBoxColumn.FillWeight = 140F;
             this.teacherDataGridViewTextBoxColumn.HeaderText = "Docente";
             this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
@@ -316,6 +327,7 @@
             // Active
             // 
             this.Active.DataPropertyName = "Active";
+            this.Active.FillWeight = 80F;
             this.Active.HeaderText = "Activo";
             this.Active.MinimumWidth = 6;
             this.Active.Name = "Active";
@@ -324,6 +336,7 @@
             // DateSince
             // 
             this.DateSince.DataPropertyName = "DateSince";
+            this.DateSince.FillWeight = 90F;
             this.DateSince.HeaderText = "Fecha Desde";
             this.DateSince.MinimumWidth = 6;
             this.DateSince.Name = "DateSince";
@@ -332,6 +345,7 @@
             // DateUntil
             // 
             this.DateUntil.DataPropertyName = "DateUntil";
+            this.DateUntil.FillWeight = 90F;
             this.DateUntil.HeaderText = "Fecha Hasta";
             this.DateUntil.MinimumWidth = 6;
             this.DateUntil.Name = "DateUntil";
@@ -343,10 +357,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1241, 699);
+            this.Controls.Add(this.btnDeactivateTeacher);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTimePickerUntil);
             this.Controls.Add(this.dateTimePickerSince);
-            this.Controls.Add(this.btnDeactivate);
+            this.Controls.Add(this.btnDeactivateSubstitute);
             this.Controls.Add(this.btnModifyUntil);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -397,10 +412,11 @@
         private Label label5;
         private Label label6;
         private Button btnModifyUntil;
-        private Button btnDeactivate;
+        private Button btnDeactivateSubstitute;
         private DateTimePicker dateTimePickerSince;
         private DateTimePicker dateTimePickerUntil;
         private Label label8;
+        private Button btnDeactivateTeacher;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn teacherDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;

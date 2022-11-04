@@ -80,7 +80,7 @@ namespace GestIn.UI.Home.Users
                     try
                     {
                         userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text,
-                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserGender.Text, txtUserEmergencyContact.Text,
+                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, cmbGender.SelectedItem.ToString(), txtUserEmergencyContact.Text,
                             cbAnalitic.Checked, cbDni.Checked, cbBirthCert.Checked, cbMedicCerf.Checked, cbPhotos.Checked, cbCuil.Checked);
 
                         lblSuccess.Text = "Estudiante creado";
@@ -102,7 +102,7 @@ namespace GestIn.UI.Home.Users
                     try
                     {
                         userController.inputTeacher(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
-                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, txtUserGender.Text, txtCUILL.Text, txtTitle.Text);
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(), txtCUILL.Text, txtTitle.Text);
                         lblSuccess.Text = "Docente creado";
                         lblSuccess.Visible = true;
                         lblTeacherCount.Text = userController.countTeachers().ToString();

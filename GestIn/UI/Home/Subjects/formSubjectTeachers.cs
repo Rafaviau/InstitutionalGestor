@@ -124,6 +124,21 @@ namespace GestIn.UI.Home.Subjects
             catch { }
         }
 
+        private void btnDeactivateTeacher_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
+                {
+                    int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
+                    string condition = Convert.ToString(dataGridViewTeachers.CurrentRow.Cells[1].Value);
+                    careerController.deactivateCharge(selectedTeacherID,condition);
+                    RefreshTableTeachersSubject();
+                }
+            }
+            catch { }
+        }
+
         private void btnDeactivate_Click(object sender, EventArgs e)
         {
             try
@@ -182,8 +197,6 @@ namespace GestIn.UI.Home.Subjects
             }
             if (e.KeyCode == Keys.Enter && ListboxSearchResults.SelectedIndex >= 0)
             {
-                //object selectedTeacher = ListboxSearchResults.SelectedItem;
-                //careerController.assignTeacherCharge(selectedTeacher, receivedSubject, cmbCondition.SelectedText);
                 cmbCondition.Enabled = true;
                 RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
                 btnInsert.Enabled = true;
@@ -200,37 +213,13 @@ namespace GestIn.UI.Home.Subjects
                 RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
                 btnInsert.Enabled = true;
                 cmbCondition.Focus();
-                /*
-                object selectedTeacher = ListboxSearchResults.SelectedItem;
-                careerController.assignTeacherCharge(selectedTeacher, receivedSubject, cmbCondition.SelectedText);
-                RefreshTableTeachersSubject();
-                */
+                ListboxSearchResults.Visible = false;
             }
         }
 
         private void dataGridViewTeachers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RefreshLableTeacherName();
-        }
-
-        private void txtFechaInicio_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFechaCese_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

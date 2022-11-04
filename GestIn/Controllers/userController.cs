@@ -289,11 +289,7 @@ namespace GestIn.Controllers
 
                 return true;
             }
-            catch (SqlException exception)
-            {
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
-            return false;
+            catch (SqlException exception) { throw exception; }
 
         }
         bool createStudent(int Dni, string mail, string name, string lastname, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, LoginInformation log, User user)
@@ -320,13 +316,38 @@ namespace GestIn.Controllers
 
                 return true;
             }
-            catch (SqlException exception)
+            catch (SqlException exception) { throw exception; }
+        }
+
+        bool createStudent(int Dni, string mail, string name, string lastname, LoginInformation log, User user)
+        {
+            try
             {
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
+                Student student = new Student();
+                student.UserId = user.Id;
+                student.LoginInformationId = log.Id;
+                student.DniPhotocopy = false;
+                student.HighSchoolTitPhotocopy = false;
+                student.Photo4x4 = false;
+                student.MedicalCertificate = false;
+                student.BirthCertificate = false;
+                student.CuilConstansy = false;
+                student.Cooperative = false;
+                student.CreatedAt = DateTime.Now;
+                student.LastModificationBy = "Preceptor carando notas";
+                using (var db = new Context())
+                {
+                    db.Students.Add(student);
+                    db.SaveChanges();
+                }
+
+                return true;
             }
+            catch (SqlException exception) { throw exception; }
             return false;
 
         }
+
         public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
         {
@@ -340,8 +361,6 @@ namespace GestIn.Controllers
                             gender, phone, emergencyphone, socialWork, workActivity, workingHours, log, user));
                 }
             }
-
-
             //borrar todo
             return false;
         }
@@ -359,21 +378,20 @@ namespace GestIn.Controllers
             }
             return false;
         }
-        /*
-        public bool enrolStudent(int Dni, string mail, string name, string lastname)
+
+        public bool enrolStudent(int Dni, string mail, string name, string lastname, DateTime? dateOfBirth, string phone)
         {
-                User user = createUser(Dni, name, lastname);
-                if (user != null)
+            User user = createUser(Dni, name, lastname, dateOfBirth, phone);
+            if (user != null)
+            {
+                LoginInformation log = createLoginInformation(mail, Dni);
+                if (log != null)
                 {
-                    LoginInformation log = createLoginInformation(mail, Dni);
-                    if (log != null)
-                    {
-                        return (createStudent(Dni, mail, name, lastname, log, user));
-                    }
+                    return (createStudent(Dni, mail, name, lastname, log, user));
                 }
+            }
             return false;
         }
-        */
 
         public Student findStudent(int dni) {
             using (var db = new Context())

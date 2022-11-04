@@ -127,7 +127,6 @@ namespace GestIn.Controllers
         public Career createCareer(string ResolutionNum, string name, string degree, string turn)
         {
             Career nuevacarrera = new Career();
-
             try
             {
                 nuevacarrera.Resolution = ResolutionNum;
@@ -155,7 +154,7 @@ namespace GestIn.Controllers
                     throw; // MANEAJAR EXCEPEPTION INDEFINIDA
             }
         }
-        public Career createCareer(string resolution, string name, string degree)
+        public void createCareer(string resolution, string name, string degree)
         {
             try
             {
@@ -170,20 +169,8 @@ namespace GestIn.Controllers
                     db.Careers.Add(career);
                     db.SaveChanges();
                 }
-
-                return career;
             }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE DNI DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
-            return null;
+            catch (SqlException exception) { throw exception; }
         }
 
 
@@ -776,7 +763,6 @@ namespace GestIn.Controllers
             }
             
         }
-
         public void deactivateCharge(TeacherSubject currentActive)
         {
             using (var db = new Context())
@@ -788,6 +774,24 @@ namespace GestIn.Controllers
                     db.SaveChanges();
                 }
                 catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public void deactivateCharge(int id, string condition)
+        {
+            if (!condition.Equals("Suplente"))
+            {
+                using (var db = new Context())
+                {
+                    TeacherSubject existingCharge = findTeacherCharge(id);
+                    try
+                    {
+                        existingCharge.Active = false;
+                        db.Update(existingCharge);
+                        db.SaveChanges();
+                    }
+                    catch (SqlException exception) { throw exception; }
+                }
             }
         }
 
@@ -893,6 +897,20 @@ namespace GestIn.Controllers
                 try
                 {
                     listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == subjectMatter.Id && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
+                    return listActiveCharges;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<TeacherSubject> getAllActiveCharges(int idSubject)
+        {
+            List<TeacherSubject> listActiveCharges = new List<TeacherSubject>();
+            using (var db = new Context())
+            {
+                try
+                {
+                    listActiveCharges = db.TeacherSubjects.Where(x => x.SubjectId == idSubject && x.Active == true).Include(x => x.Subject).Include(x => x.Teacher.User).ToList();
                     return listActiveCharges;
                 }
                 catch (SqlException exception) { throw exception; }
