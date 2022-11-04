@@ -353,7 +353,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(306, 303);
+            this.label5.Location = new System.Drawing.Point(334, 591);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 46;
@@ -362,7 +362,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(306, 336);
+            this.label11.Location = new System.Drawing.Point(334, 624);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 47;
@@ -373,7 +373,7 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblStudentCount.ForeColor = System.Drawing.Color.White;
-            this.lblStudentCount.Location = new System.Drawing.Point(528, 303);
+            this.lblStudentCount.Location = new System.Drawing.Point(556, 591);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(13, 20);
             this.lblStudentCount.TabIndex = 48;
@@ -383,7 +383,7 @@
             // 
             this.lblTeacherCount.AutoSize = true;
             this.lblTeacherCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.lblTeacherCount.Location = new System.Drawing.Point(528, 336);
+            this.lblTeacherCount.Location = new System.Drawing.Point(556, 624);
             this.lblTeacherCount.Name = "lblTeacherCount";
             this.lblTeacherCount.Size = new System.Drawing.Size(13, 20);
             this.lblTeacherCount.TabIndex = 49;
@@ -419,7 +419,7 @@
             this.teacherPanel.Controls.Add(this.txtDNI);
             this.teacherPanel.Controls.Add(this.txtTitle);
             this.teacherPanel.Controls.Add(this.label2);
-            this.teacherPanel.Location = new System.Drawing.Point(306, 65);
+            this.teacherPanel.Location = new System.Drawing.Point(322, 193);
             this.teacherPanel.Name = "teacherPanel";
             this.teacherPanel.Size = new System.Drawing.Size(318, 136);
             this.teacherPanel.TabIndex = 55;
@@ -481,7 +481,7 @@
             this.studentPanel.Controls.Add(this.cbDni);
             this.studentPanel.Controls.Add(this.cbMedicCerf);
             this.studentPanel.Controls.Add(this.cbAnalitic);
-            this.studentPanel.Location = new System.Drawing.Point(303, 65);
+            this.studentPanel.Location = new System.Drawing.Point(319, 193);
             this.studentPanel.Name = "studentPanel";
             this.studentPanel.Size = new System.Drawing.Size(261, 201);
             this.studentPanel.TabIndex = 57;
@@ -569,7 +569,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(640, 721);
+            this.ClientSize = new System.Drawing.Size(845, 721);
             this.Controls.Add(this.studentPanel);
             this.Controls.Add(this.lblSuccess);
             this.Controls.Add(this.teacherPanel);

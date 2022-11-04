@@ -296,19 +296,19 @@ namespace GestIn.Controllers
             return false;
 
         }
-        bool createStudent(int Dni, string mail, string name, string lastname, LoginInformation log, User user)
+        bool createStudent(int Dni, string mail, string name, string lastname, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, LoginInformation log, User user)
         {
             try
             {
                 Student student = new Student();
                 student.UserId = user.Id;
                 student.LoginInformationId = log.Id;
-                student.DniPhotocopy = false;
-                student.HighSchoolTitPhotocopy = false;
-                student.Photo4x4 = false;
-                student.MedicalCertificate = false;
-                student.BirthCertificate = false;
-                student.CuilConstansy = false;
+                student.DniPhotocopy = dni;
+                student.HighSchoolTitPhotocopy = analitic;
+                student.Photo4x4 = photo;
+                student.MedicalCertificate = medicalCertificate;
+                student.BirthCertificate = birthCertificate;
+                student.CuilConstansy = cuil;
                 student.Cooperative = false;
                 student.CreatedAt = DateTime.Now;
                 student.LastModificationBy = "Preceptor carando notas";
@@ -345,19 +345,21 @@ namespace GestIn.Controllers
             //borrar todo
             return false;
         }
-        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string phone)
+        public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string placeOfBirth, 
+            string phone, string gender, string emergencyphone, bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil)
         {
             User user = createUser(Dni, name, lastname,dateOfBirth,phone);
                 if (user != null)
                 {
                     LoginInformation log = createLoginInformation(mail, Dni);
-                    if (log != null)
-                    {
-                        return (createStudent(Dni, mail, name, lastname, log, user));
+                if (log != null)
+                {
+                    return (createStudent(Dni, mail, name, lastname, analitic, dni, birthCertificate, medicalCertificate, photo, cuil, log, user));
                     }
             }
             return false;
         }
+        /*
         public bool enrolStudent(int Dni, string mail, string name, string lastname)
         {
                 User user = createUser(Dni, name, lastname);
@@ -371,6 +373,8 @@ namespace GestIn.Controllers
                 }
             return false;
         }
+        */
+
         public Student findStudent(int dni) {
             using (var db = new Context())
             {

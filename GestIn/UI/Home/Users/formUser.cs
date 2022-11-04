@@ -79,7 +79,10 @@ namespace GestIn.UI.Home.Users
                 {
                     try
                     {
-                        userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserPhoneNumber.Text);
+                        userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text,
+                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserGender.Text, txtUserEmergencyContact.Text,
+                            cbAnalitic.Checked, cbDni.Checked, cbBirthCert.Checked, cbMedicCerf.Checked, cbPhotos.Checked, cbCuil.Checked);
+
                         lblSuccess.Text = "Estudiante creado";
                         lblSuccess.Visible = true;
                         lblTeacherCount.Text = userController.countStudents().ToString();
