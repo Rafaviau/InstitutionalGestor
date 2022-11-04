@@ -25,6 +25,7 @@ namespace GestIn.UI.Home.Exams
         public FormExams()
         {
             InitializeComponent();
+            dtDate.CustomFormat = "dd-MM-yyyy";
             cbbCarrer.DataSource = careerController.loadCareers();
             loadExams();
         }
@@ -137,6 +138,7 @@ namespace GestIn.UI.Home.Exams
             {
                 cbbSubject.Items.Add(subject);
             }
+            loadTeachersCb();
         }
         private void loadTeachersCb() {
             var list = userCnt.getAllTeachersFromCareer(cbbCarrer.SelectedItem);
@@ -201,7 +203,7 @@ namespace GestIn.UI.Home.Exams
         private void addExamInfoToLbl(int examCode) {
             var exam = examCnt.findExam(examCode);
             lblShowCareer.Text = exam.IdSubjectNavigation.Career.Name;
-            lblShowDate.Text = exam.Date.ToString("yyyy/MM/dd");
+            lblShowDate.Text = exam.Date.ToString("dd/MM/yyyy");
             lblShowTime.Text = exam.Date.ToString("HH:mm");
             lblShowPlace.Text = exam.Place;
             lblShowSubject.Text = exam.IdSubjectNavigation.Name;
@@ -281,8 +283,11 @@ namespace GestIn.UI.Home.Exams
 
         private void dgvExams_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Helpers.OpenChildForm(new formActaVolante(
-                Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value)), this.Parent);
+            if(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0] != null) {
+                Helpers.OpenChildForm(
+                    new formActaVolante(
+                    Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value)), this.Parent);
+            }
         }
     }
 }

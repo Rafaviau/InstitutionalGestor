@@ -33,7 +33,7 @@ namespace GestIn.UI.Home.Students
             txtStudentDni.Text = student.User.Dni.ToString();
             txtStudentPhoneNumber.Text = student.User.PhoneNumbre;
             txtStudentEmail.Text = student.LoginInformation.Email;
-            txtBirthDate.Text = Convert.ToDateTime(student.User.DateOfBirth.ToString()).ToString("dd-MM-yyyy").ToString();
+            txtBirthDate.Text = student.User.DateOfBirth?.ToString().Substring(0,10);
             txtBirthPlace.Text = student.User.PlaceOfBirth;
             txtEmergencyContact.Text = student.User.EmergencyPhoneNumber;
             txtGender.Text = student.User.Gender;

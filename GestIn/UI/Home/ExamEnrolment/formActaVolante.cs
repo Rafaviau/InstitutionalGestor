@@ -19,7 +19,7 @@ namespace GestIn.UI.Home.ExamEnrolment
         {
             InitializeComponent();
             var exam = cntExam.findExam(IdExam);
-            lblExam.Text = exam.IdSubject.ToString();
+            lblExam.Text = exam.IdSubjectNavigation.Name + " " + exam.Date.ToString("dd-MM-yyyy");
             foreach (var item in cntExamEnrol.getEnroledStudent(IdExam)) {
                 lbStudents.Items.Add(item);
             }

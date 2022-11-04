@@ -208,18 +208,23 @@
             // 
             // dtDate
             // 
-            this.dtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtDate.CalendarForeColor = System.Drawing.Color.Cyan;
             this.dtDate.CalendarMonthBackground = System.Drawing.Color.Blue;
             this.dtDate.CalendarTitleBackColor = System.Drawing.Color.Lime;
             this.dtDate.CalendarTitleForeColor = System.Drawing.Color.Red;
             this.dtDate.CalendarTrailingForeColor = System.Drawing.Color.Yellow;
+            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtDate.Location = new System.Drawing.Point(77, 106);
-            this.dtDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dtDate.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
+            this.dtDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtDate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtDate.MinimumSize = new System.Drawing.Size(100, 0);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(257, 23);
             this.dtDate.TabIndex = 3;
+            this.dtDate.Value = new System.DateTime(2022, 11, 4, 9, 34, 25, 0);
             this.dtDate.Visible = false;
             // 
             // lblTime
@@ -295,7 +300,7 @@
             this.btnDeleteExam.ForeColor = System.Drawing.Color.White;
             this.btnDeleteExam.Image = global::GestIn.Properties.Resources.deleteIcon;
             this.btnDeleteExam.Location = new System.Drawing.Point(325, 4);
-            this.btnDeleteExam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteExam.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteExam.Name = "btnDeleteExam";
             this.btnDeleteExam.Size = new System.Drawing.Size(55, 26);
             this.btnDeleteExam.TabIndex = 20;
@@ -310,7 +315,7 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(1083, 110);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(118, 26);
             this.btnSave.TabIndex = 10;
@@ -326,7 +331,7 @@
             this.btnUpdateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUpdateExam.ForeColor = System.Drawing.Color.White;
             this.btnUpdateExam.Location = new System.Drawing.Point(173, 4);
-            this.btnUpdateExam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateExam.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateExam.Name = "btnUpdateExam";
             this.btnUpdateExam.Size = new System.Drawing.Size(144, 26);
             this.btnUpdateExam.TabIndex = 22;
@@ -373,9 +378,9 @@
             this.gbNewExam.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbNewExam.ForeColor = System.Drawing.Color.White;
             this.gbNewExam.Location = new System.Drawing.Point(4, 578);
-            this.gbNewExam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNewExam.Margin = new System.Windows.Forms.Padding(4);
             this.gbNewExam.Name = "gbNewExam";
-            this.gbNewExam.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNewExam.Padding = new System.Windows.Forms.Padding(4);
             this.gbNewExam.Size = new System.Drawing.Size(1344, 158);
             this.gbNewExam.TabIndex = 23;
             this.gbNewExam.TabStop = false;
@@ -415,7 +420,7 @@
             this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSaveUpdate.ForeColor = System.Drawing.Color.White;
             this.btnSaveUpdate.Location = new System.Drawing.Point(1083, 110);
-            this.btnSaveUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(118, 26);
             this.btnSaveUpdate.TabIndex = 10;
@@ -550,7 +555,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(1213, 110);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 26);
             this.btnCancel.TabIndex = 11;
@@ -622,7 +627,7 @@
             this.cbb3Vowel.ForeColor = System.Drawing.Color.White;
             this.cbb3Vowel.FormattingEnabled = true;
             this.cbb3Vowel.Location = new System.Drawing.Point(1083, 76);
-            this.cbb3Vowel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbb3Vowel.Margin = new System.Windows.Forms.Padding(4);
             this.cbb3Vowel.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbb3Vowel.Name = "cbb3Vowel";
             this.cbb3Vowel.Size = new System.Drawing.Size(250, 25);
@@ -640,7 +645,7 @@
             this.cbb1Vowel.ForeColor = System.Drawing.Color.White;
             this.cbb1Vowel.FormattingEnabled = true;
             this.cbb1Vowel.Location = new System.Drawing.Point(1083, 37);
-            this.cbb1Vowel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbb1Vowel.Margin = new System.Windows.Forms.Padding(4);
             this.cbb1Vowel.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbb1Vowel.Name = "cbb1Vowel";
             this.cbb1Vowel.Size = new System.Drawing.Size(250, 25);
@@ -658,7 +663,7 @@
             this.cbb2Vowel.ForeColor = System.Drawing.Color.White;
             this.cbb2Vowel.FormattingEnabled = true;
             this.cbb2Vowel.Location = new System.Drawing.Point(742, 76);
-            this.cbb2Vowel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbb2Vowel.Margin = new System.Windows.Forms.Padding(4);
             this.cbb2Vowel.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbb2Vowel.Name = "cbb2Vowel";
             this.cbb2Vowel.Size = new System.Drawing.Size(250, 25);
@@ -676,7 +681,7 @@
             this.cbbTitular.ForeColor = System.Drawing.Color.White;
             this.cbbTitular.FormattingEnabled = true;
             this.cbbTitular.Location = new System.Drawing.Point(742, 37);
-            this.cbbTitular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbTitular.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTitular.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbbTitular.Name = "cbbTitular";
             this.cbbTitular.Size = new System.Drawing.Size(250, 25);
@@ -694,7 +699,7 @@
             this.cbbSubject.ForeColor = System.Drawing.Color.White;
             this.cbbSubject.FormattingEnabled = true;
             this.cbbSubject.Location = new System.Drawing.Point(80, 73);
-            this.cbbSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbSubject.Margin = new System.Windows.Forms.Padding(4);
             this.cbbSubject.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbbSubject.Name = "cbbSubject";
             this.cbbSubject.Size = new System.Drawing.Size(480, 25);
@@ -712,7 +717,7 @@
             this.cbbCarrer.ForeColor = System.Drawing.Color.White;
             this.cbbCarrer.FormattingEnabled = true;
             this.cbbCarrer.Location = new System.Drawing.Point(80, 37);
-            this.cbbCarrer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbCarrer.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCarrer.MinimumSize = new System.Drawing.Size(150, 0);
             this.cbbCarrer.Name = "cbbCarrer";
             this.cbbCarrer.Size = new System.Drawing.Size(480, 25);
@@ -728,7 +733,7 @@
             this.btnNewExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNewExam.ForeColor = System.Drawing.Color.White;
             this.btnNewExam.Location = new System.Drawing.Point(22, 4);
-            this.btnNewExam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewExam.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewExam.Name = "btnNewExam";
             this.btnNewExam.Size = new System.Drawing.Size(144, 26);
             this.btnNewExam.TabIndex = 25;
@@ -759,7 +764,7 @@
             this.btnOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOptions.ForeColor = System.Drawing.Color.White;
             this.btnOptions.Location = new System.Drawing.Point(1289, 2);
-            this.btnOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOptions.Margin = new System.Windows.Forms.Padding(4);
             this.btnOptions.Name = "btnOptions";
             this.btnOptions.Size = new System.Drawing.Size(44, 26);
             this.btnOptions.TabIndex = 27;
@@ -788,7 +793,7 @@
             this.panelOptions.Location = new System.Drawing.Point(1117, 448);
             this.panelOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelOptions.Name = "panelOptions";
-            this.panelOptions.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelOptions.Padding = new System.Windows.Forms.Padding(4);
             this.panelOptions.Size = new System.Drawing.Size(219, 94);
             this.panelOptions.TabIndex = 28;
             this.panelOptions.Visible = false;
@@ -801,7 +806,7 @@
             this.btnGenerateExams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGenerateExams.ForeColor = System.Drawing.Color.White;
             this.btnGenerateExams.Location = new System.Drawing.Point(4, 4);
-            this.btnGenerateExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenerateExams.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerateExams.Name = "btnGenerateExams";
             this.btnGenerateExams.Size = new System.Drawing.Size(211, 26);
             this.btnGenerateExams.TabIndex = 23;
@@ -820,9 +825,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbNewExam);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormExams";
-            this.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Padding = new System.Windows.Forms.Padding(4);
             this.Text = "Exámenes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).EndInit();
             this.gbNewExam.ResumeLayout(false);
