@@ -105,33 +105,29 @@ namespace GestIn.Controllers
         User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone)
         {
-            if (!CheckSameUserDNI(Dni))
+            try
             {
-                try
+                User user = new User();
+                user.Dni = Dni;
+                user.Name = name;
+                user.LastName = lastname;
+                user.DateOfBirth = dateOfBirth;
+                user.PlaceOfBirth = placeOfBirth;
+                user.Gender = gender;
+                user.PhoneNumbre = phone;
+                user.EmergencyPhoneNumber = emergencyphone;
+                user.CreatedAt = DateTime.Now;
+                user.LastModificationBy = name + " " + lastname;
+
+                using (var db = new Context())
                 {
-                    User user = new User();
-                    user.Dni = Dni;
-                    user.Name = name;
-                    user.LastName = lastname;
-                    user.DateOfBirth = dateOfBirth;
-                    user.PlaceOfBirth = placeOfBirth;
-                    user.Gender = gender;
-                    user.PhoneNumbre = phone;
-                    user.EmergencyPhoneNumber = emergencyphone;
-                    user.CreatedAt = DateTime.Now;
-                    user.LastModificationBy = name + " " + lastname;
-
-                    using (var db = new Context())
-                    {
-                        db.Users.Add(user);
-                        db.SaveChanges();
-                    }
-
-                    return user;
+                    db.Users.Add(user);
+                    db.SaveChanges();
                 }
-                catch (SqlException exception) { throw exception; }
+
+                return user;
             }
-            else { MessageBox.Show("Error ya existe un usuario con ese DNI");}
+            catch (SqlException exception) { throw exception; }
             return null;
         }
 
@@ -341,22 +337,33 @@ namespace GestIn.Controllers
             }
             catch (SqlException exception) { throw exception; }
             return false;
+        }
 
+        public bool ExistStudentAsExistingUser(User user, int dni)
+        {
+            bool status = false;
+            if (findStudent(dni).UserId == user.Id)
+            {
+                status = true;
+            }
+            return status;
         }
 
         public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
                                 string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
-        {
-            User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
-            if (user != null) 
-            {
-                LoginInformation log = createLoginInformation(mail, password, name, lastname);
-                if (log != null)
+        {      
+            if (findStudent(Dni)!=null)
                 {
+                    LoginInformation log = createLoginInformation(mail, password, name, lastname);
+                    User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
                     return (createStudent(Dni, mail, password, name, lastname, dateOfBirth, placeOfBirth,
                             gender, phone, emergencyphone, socialWork, workActivity, workingHours, log, user));
-                }
             }
+            else
+            {
+                MessageBox.Show("El estudiante que intenta crear ya existe");
+            }
+
             //borrar todo
             return false;
         }
@@ -399,6 +406,7 @@ namespace GestIn.Controllers
                 
             }
         }
+
         public Dictionary<string, string> loadStudentInformation(int dni) {
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {

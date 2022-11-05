@@ -41,6 +41,8 @@ namespace GestIn.UI.Home.Users
         private void cmbUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkCurrentState();
+            lblSearchInfo.Visible = true;
+            listBoxSearchResults.Visible = true;
         }
 
         public void checkCurrentState()

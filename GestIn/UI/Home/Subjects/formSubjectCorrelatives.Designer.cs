@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewCorrelativas = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativeSubjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,19 +62,22 @@
             this.dataGridViewCorrelativas.AutoGenerateColumns = false;
             this.dataGridViewCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCorrelativas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.dataGridViewCorrelativas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.correlativeSubjectDataGridViewTextBoxColumn,
             this.CorrelativeFinal});
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource1;
-            this.dataGridViewCorrelativas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.dataGridViewCorrelativas.GridColor = System.Drawing.SystemColors.WindowFrame;
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(12, 245);
             this.dataGridViewCorrelativas.MultiSelect = false;
             this.dataGridViewCorrelativas.Name = "dataGridViewCorrelativas";
             this.dataGridViewCorrelativas.ReadOnly = true;
             this.dataGridViewCorrelativas.RowHeadersVisible = false;
             this.dataGridViewCorrelativas.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.dataGridViewCorrelativas.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewCorrelativas.RowTemplate.Height = 29;
             this.dataGridViewCorrelativas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCorrelativas.Size = new System.Drawing.Size(817, 248);

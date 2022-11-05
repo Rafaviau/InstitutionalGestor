@@ -367,7 +367,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(662, 624);
+            this.label5.Location = new System.Drawing.Point(353, 397);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 46;
@@ -376,7 +376,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(662, 657);
+            this.label11.Location = new System.Drawing.Point(353, 430);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 47;
@@ -387,7 +387,7 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblStudentCount.ForeColor = System.Drawing.Color.White;
-            this.lblStudentCount.Location = new System.Drawing.Point(837, 624);
+            this.lblStudentCount.Location = new System.Drawing.Point(498, 397);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(13, 20);
             this.lblStudentCount.TabIndex = 48;
@@ -397,7 +397,7 @@
             // 
             this.lblTeacherCount.AutoSize = true;
             this.lblTeacherCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.lblTeacherCount.Location = new System.Drawing.Point(837, 657);
+            this.lblTeacherCount.Location = new System.Drawing.Point(498, 430);
             this.lblTeacherCount.Name = "lblTeacherCount";
             this.lblTeacherCount.Size = new System.Drawing.Size(13, 20);
             this.lblTeacherCount.TabIndex = 49;
@@ -435,7 +435,7 @@
             this.teacherPanel.Controls.Add(this.txtDNI);
             this.teacherPanel.Controls.Add(this.txtTitle);
             this.teacherPanel.Controls.Add(this.label2);
-            this.teacherPanel.Location = new System.Drawing.Point(320, 476);
+            this.teacherPanel.Location = new System.Drawing.Point(350, 476);
             this.teacherPanel.Name = "teacherPanel";
             this.teacherPanel.Size = new System.Drawing.Size(318, 136);
             this.teacherPanel.TabIndex = 55;
@@ -497,7 +497,7 @@
             this.studentPanel.Controls.Add(this.cbDni);
             this.studentPanel.Controls.Add(this.cbMedicCerf);
             this.studentPanel.Controls.Add(this.cbAnalitic);
-            this.studentPanel.Location = new System.Drawing.Point(323, 476);
+            this.studentPanel.Location = new System.Drawing.Point(353, 476);
             this.studentPanel.Name = "studentPanel";
             this.studentPanel.Size = new System.Drawing.Size(324, 222);
             this.studentPanel.TabIndex = 57;
@@ -597,7 +597,7 @@
             // 
             this.textBoxSearchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBoxSearchBar.ForeColor = System.Drawing.Color.White;
-            this.textBoxSearchBar.Location = new System.Drawing.Point(14, 42);
+            this.textBoxSearchBar.Location = new System.Drawing.Point(17, 43);
             this.textBoxSearchBar.Name = "textBoxSearchBar";
             this.textBoxSearchBar.Size = new System.Drawing.Size(386, 27);
             this.textBoxSearchBar.TabIndex = 58;
@@ -609,7 +609,7 @@
             this.listBoxSearchResults.ForeColor = System.Drawing.Color.White;
             this.listBoxSearchResults.FormattingEnabled = true;
             this.listBoxSearchResults.ItemHeight = 20;
-            this.listBoxSearchResults.Location = new System.Drawing.Point(14, 75);
+            this.listBoxSearchResults.Location = new System.Drawing.Point(17, 76);
             this.listBoxSearchResults.Name = "listBoxSearchResults";
             this.listBoxSearchResults.Size = new System.Drawing.Size(386, 124);
             this.listBoxSearchResults.TabIndex = 59;
@@ -618,7 +618,7 @@
             // lblSearchInfo
             // 
             this.lblSearchInfo.AutoSize = true;
-            this.lblSearchInfo.Location = new System.Drawing.Point(14, 19);
+            this.lblSearchInfo.Location = new System.Drawing.Point(17, 20);
             this.lblSearchInfo.Name = "lblSearchInfo";
             this.lblSearchInfo.Size = new System.Drawing.Size(319, 20);
             this.lblSearchInfo.TabIndex = 60;
@@ -633,24 +633,24 @@
             this.panelSearch.Controls.Add(this.listBoxSearchResults);
             this.panelSearch.Controls.Add(this.lblSearchInfo);
             this.panelSearch.Controls.Add(this.textBoxSearchBar);
-            this.panelSearch.Location = new System.Drawing.Point(323, 102);
+            this.panelSearch.Location = new System.Drawing.Point(353, 102);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(438, 330);
+            this.panelSearch.Size = new System.Drawing.Size(438, 264);
             this.panelSearch.TabIndex = 61;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(183, 245);
+            this.label4.Location = new System.Drawing.Point(183, 221);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 20);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 62;
-            this.label4.Text = "                         ";
+            this.label4.Text = "Here        ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 244);
+            this.label1.Location = new System.Drawing.Point(18, 220);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 61;

@@ -47,18 +47,6 @@ namespace GestIn.UI.Home.Careers
             }
         }
 
-        public void RefreshLableCareerName(int careerID)
-        {
-            try
-            {
-                lblCareerName.Text = "[ " + careerController.getCareer(careerID).Name + " ]";
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if(careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text))
@@ -111,7 +99,6 @@ namespace GestIn.UI.Home.Careers
             }
             else { cbbTurno.SelectedIndex = -1; }
             chkActivo.Checked = Convert.ToBoolean(dataGridViewCarreras.CurrentRow.Cells[5].Value);
-            RefreshLableCareerName(id);
         }
 
         public void StartLableRemovalTimer()
@@ -130,6 +117,11 @@ namespace GestIn.UI.Home.Careers
         private void panelInfo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void chkActivo_MouseHover(object sender, EventArgs e)
+        {
+           //toolTip1.SetToolTip(chkActivo, "Indica si la carrera se ecnuentra activa para inscripciones.");
         }
     }
 }
