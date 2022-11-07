@@ -53,20 +53,20 @@
             this.cbbSubjectYear = new System.Windows.Forms.ComboBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridViewTeachers = new System.Windows.Forms.DataGridView();
-            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelTable = new System.Windows.Forms.Panel();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelGrid = new System.Windows.Forms.Panel();
             this.lblCarrera = new System.Windows.Forms.Label();
             this.cbbCarreraSelector = new System.Windows.Forms.ComboBox();
             this.lblResult = new System.Windows.Forms.Label();
-            this.panelSelector = new System.Windows.Forms.Panel();
+            this.panelCombo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
@@ -75,8 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).BeginInit();
-            this.panelTable.SuspendLayout();
-            this.panelSelector.SuspendLayout();
+            this.panelGrid.SuspendLayout();
+            this.panelCombo.SuspendLayout();
             this.SuspendLayout();
             // 
             // subjectBindingSource1
@@ -258,6 +258,8 @@
             // 
             // dataGridViewTeachers
             // 
+            this.dataGridViewTeachers.AllowUserToAddRows = false;
+            this.dataGridViewTeachers.AllowUserToDeleteRows = false;
             this.dataGridViewTeachers.AutoGenerateColumns = false;
             this.dataGridViewTeachers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTeachers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
@@ -275,15 +277,6 @@
             this.dataGridViewTeachers.Size = new System.Drawing.Size(452, 152);
             this.dataGridViewTeachers.TabIndex = 39;
             // 
-            // Condition
-            // 
-            this.Condition.DataPropertyName = "Condition";
-            this.Condition.FillWeight = 65F;
-            this.Condition.HeaderText = "Condition";
-            this.Condition.MinimumWidth = 6;
-            this.Condition.Name = "Condition";
-            this.Condition.ReadOnly = true;
-            // 
             // teacherDataGridViewTextBoxColumn
             // 
             this.teacherDataGridViewTextBoxColumn.DataPropertyName = "Teacher";
@@ -292,6 +285,15 @@
             this.teacherDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.teacherDataGridViewTextBoxColumn.Name = "teacherDataGridViewTextBoxColumn";
             this.teacherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Condition
+            // 
+            this.Condition.DataPropertyName = "Condition";
+            this.Condition.FillWeight = 65F;
+            this.Condition.HeaderText = "Condition";
+            this.Condition.MinimumWidth = 6;
+            this.Condition.Name = "Condition";
+            this.Condition.ReadOnly = true;
             // 
             // panelInfo
             // 
@@ -310,9 +312,10 @@
             this.panelInfo.Controls.Add(this.txtNombre);
             this.panelInfo.Controls.Add(this.txtCargaHorariaTotal);
             this.panelInfo.Controls.Add(this.btnInsert);
-            this.panelInfo.Location = new System.Drawing.Point(1, 612);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelInfo.Location = new System.Drawing.Point(0, 613);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(1349, 213);
+            this.panelInfo.Size = new System.Drawing.Size(1350, 213);
             this.panelInfo.TabIndex = 39;
             // 
             // dataGridViewMaterias
@@ -340,46 +343,10 @@
             this.dataGridViewMaterias.RowHeadersWidth = 51;
             this.dataGridViewMaterias.RowTemplate.Height = 29;
             this.dataGridViewMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterias.Size = new System.Drawing.Size(1356, 569);
+            this.dataGridViewMaterias.Size = new System.Drawing.Size(1350, 613);
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
-            this.dataGridViewTextBoxColumn14.FillWeight = 8.928704F;
-            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
-            this.dataGridViewTextBoxColumn13.FillWeight = 10.32264F;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn12.FillWeight = 40F;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "CareerId";
-            this.dataGridViewTextBoxColumn11.HeaderText = "CareerId";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
+            this.dataGridViewMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellContentClick);
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -392,13 +359,51 @@
             this.dataGridViewTextBoxColumn10.Visible = false;
             this.dataGridViewTextBoxColumn10.Width = 125;
             // 
-            // panelTable
+            // dataGridViewTextBoxColumn11
             // 
-            this.panelTable.Controls.Add(this.dataGridViewMaterias);
-            this.panelTable.Location = new System.Drawing.Point(-6, 0);
-            this.panelTable.Name = "panelTable";
-            this.panelTable.Size = new System.Drawing.Size(1356, 569);
-            this.panelTable.TabIndex = 40;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "CareerId";
+            this.dataGridViewTextBoxColumn11.HeaderText = "CareerId";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn12.FillWeight = 40F;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
+            this.dataGridViewTextBoxColumn13.FillWeight = 10.32264F;
+            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn14.FillWeight = 8.928704F;
+            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.dataGridViewMaterias);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 0);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(1350, 613);
+            this.panelGrid.TabIndex = 40;
             // 
             // lblCarrera
             // 
@@ -432,17 +437,18 @@
             this.lblResult.Text = "Resultado";
             this.lblResult.Visible = false;
             // 
-            // panelSelector
+            // panelCombo
             // 
-            this.panelSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelSelector.Controls.Add(this.lblResult);
-            this.panelSelector.Controls.Add(this.cbbCarreraSelector);
-            this.panelSelector.Controls.Add(this.lblCarrera);
-            this.panelSelector.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelSelector.Location = new System.Drawing.Point(1, 568);
-            this.panelSelector.Name = "panelSelector";
-            this.panelSelector.Size = new System.Drawing.Size(1349, 48);
-            this.panelSelector.TabIndex = 31;
+            this.panelCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelCombo.Controls.Add(this.lblResult);
+            this.panelCombo.Controls.Add(this.cbbCarreraSelector);
+            this.panelCombo.Controls.Add(this.lblCarrera);
+            this.panelCombo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelCombo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelCombo.Location = new System.Drawing.Point(0, 565);
+            this.panelCombo.Name = "panelCombo";
+            this.panelCombo.Size = new System.Drawing.Size(1350, 48);
+            this.panelCombo.TabIndex = 31;
             // 
             // formSubject
             // 
@@ -451,8 +457,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1350, 826);
-            this.Controls.Add(this.panelSelector);
-            this.Controls.Add(this.panelTable);
+            this.Controls.Add(this.panelCombo);
+            this.Controls.Add(this.panelGrid);
             this.Controls.Add(this.panelInfo);
             this.Name = "formSubject";
             this.Text = "Materias";
@@ -466,9 +472,9 @@
             this.panelInfo.ResumeLayout(false);
             this.panelInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterias)).EndInit();
-            this.panelTable.ResumeLayout(false);
-            this.panelSelector.ResumeLayout(false);
-            this.panelSelector.PerformLayout();
+            this.panelGrid.ResumeLayout(false);
+            this.panelCombo.ResumeLayout(false);
+            this.panelCombo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -517,10 +523,10 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private Panel panelTable;
+        private Panel panelGrid;
         private Label lblCarrera;
         private ComboBox cbbCarreraSelector;
         private Label lblResult;
-        private Panel panelSelector;
+        private Panel panelCombo;
     }
 }

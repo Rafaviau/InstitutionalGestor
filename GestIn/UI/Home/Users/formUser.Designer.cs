@@ -79,9 +79,11 @@
             this.listBoxSearchResults = new System.Windows.Forms.ListBox();
             this.lblSearchInfo = new System.Windows.Forms.Label();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUserResult = new System.Windows.Forms.Label();
+            this.lblUserSelected = new System.Windows.Forms.Label();
             this.lableTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelInfo = new System.Windows.Forms.Panel();
+            this.panelMainSearch = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -89,12 +91,13 @@
             this.teacherPanel.SuspendLayout();
             this.studentPanel.SuspendLayout();
             this.panelSearch.SuspendLayout();
+            this.panelInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInsert
             // 
             this.btnInsert.ForeColor = System.Drawing.Color.Black;
-            this.btnInsert.Location = new System.Drawing.Point(25, 706);
+            this.btnInsert.Location = new System.Drawing.Point(12, 692);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(94, 29);
             this.btnInsert.TabIndex = 12;
@@ -105,7 +108,7 @@
             // btnUpdate
             // 
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(125, 706);
+            this.btnUpdate.Location = new System.Drawing.Point(113, 692);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 29);
             this.btnUpdate.TabIndex = 13;
@@ -116,7 +119,7 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(225, 706);
+            this.btnDelete.Location = new System.Drawing.Point(213, 692);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 29);
             this.btnDelete.TabIndex = 14;
@@ -209,7 +212,7 @@
             this.flowLayoutPanel1.Controls.Add(this.txtUserEmergencyContact);
             this.flowLayoutPanel1.Controls.Add(this.label18);
             this.flowLayoutPanel1.Controls.Add(this.cmbGender);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 102);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(22, 88);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(271, 596);
@@ -367,7 +370,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(353, 397);
+            this.label5.Location = new System.Drawing.Point(1080, 647);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 46;
@@ -376,7 +379,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(353, 430);
+            this.label11.Location = new System.Drawing.Point(1080, 680);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 47;
@@ -387,7 +390,7 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblStudentCount.ForeColor = System.Drawing.Color.White;
-            this.lblStudentCount.Location = new System.Drawing.Point(498, 397);
+            this.lblStudentCount.Location = new System.Drawing.Point(1222, 647);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(13, 20);
             this.lblStudentCount.TabIndex = 48;
@@ -397,7 +400,7 @@
             // 
             this.lblTeacherCount.AutoSize = true;
             this.lblTeacherCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.lblTeacherCount.Location = new System.Drawing.Point(498, 430);
+            this.lblTeacherCount.Location = new System.Drawing.Point(1222, 680);
             this.lblTeacherCount.Name = "lblTeacherCount";
             this.lblTeacherCount.Size = new System.Drawing.Size(13, 20);
             this.lblTeacherCount.TabIndex = 49;
@@ -406,7 +409,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 28);
+            this.label12.Location = new System.Drawing.Point(20, 14);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(187, 20);
             this.label12.TabIndex = 51;
@@ -421,7 +424,7 @@
             this.cmbUserType.Items.AddRange(new object[] {
             "Estudiante",
             "Docente"});
-            this.cmbUserType.Location = new System.Drawing.Point(30, 51);
+            this.cmbUserType.Location = new System.Drawing.Point(25, 37);
             this.cmbUserType.Name = "cmbUserType";
             this.cmbUserType.Size = new System.Drawing.Size(252, 28);
             this.cmbUserType.TabIndex = 0;
@@ -435,7 +438,7 @@
             this.teacherPanel.Controls.Add(this.txtDNI);
             this.teacherPanel.Controls.Add(this.txtTitle);
             this.teacherPanel.Controls.Add(this.label2);
-            this.teacherPanel.Location = new System.Drawing.Point(350, 476);
+            this.teacherPanel.Location = new System.Drawing.Point(336, 380);
             this.teacherPanel.Name = "teacherPanel";
             this.teacherPanel.Size = new System.Drawing.Size(318, 136);
             this.teacherPanel.TabIndex = 55;
@@ -479,9 +482,10 @@
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(353, 710);
+            this.lblResult.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblResult.Location = new System.Drawing.Point(842, 647);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(90, 20);
+            this.lblResult.Size = new System.Drawing.Size(222, 50);
             this.lblResult.TabIndex = 56;
             this.lblResult.Text = "Success Text";
             this.lblResult.Visible = false;
@@ -497,7 +501,7 @@
             this.studentPanel.Controls.Add(this.cbDni);
             this.studentPanel.Controls.Add(this.cbMedicCerf);
             this.studentPanel.Controls.Add(this.cbAnalitic);
-            this.studentPanel.Location = new System.Drawing.Point(353, 476);
+            this.studentPanel.Location = new System.Drawing.Point(339, 380);
             this.studentPanel.Name = "studentPanel";
             this.studentPanel.Size = new System.Drawing.Size(324, 222);
             this.studentPanel.TabIndex = 57;
@@ -601,7 +605,6 @@
             this.textBoxSearchBar.Name = "textBoxSearchBar";
             this.textBoxSearchBar.Size = new System.Drawing.Size(386, 27);
             this.textBoxSearchBar.TabIndex = 58;
-            this.textBoxSearchBar.Visible = false;
             // 
             // listBoxSearchResults
             // 
@@ -623,60 +626,77 @@
             this.lblSearchInfo.Size = new System.Drawing.Size(319, 20);
             this.lblSearchInfo.TabIndex = 60;
             this.lblSearchInfo.Text = "Por favor Ingrese el nombre/dni de un usuario: ";
-            this.lblSearchInfo.Visible = false;
             // 
             // panelSearch
             // 
             this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelSearch.Controls.Add(this.label4);
-            this.panelSearch.Controls.Add(this.label1);
+            this.panelSearch.Controls.Add(this.lblUserResult);
+            this.panelSearch.Controls.Add(this.lblUserSelected);
             this.panelSearch.Controls.Add(this.listBoxSearchResults);
             this.panelSearch.Controls.Add(this.lblSearchInfo);
             this.panelSearch.Controls.Add(this.textBoxSearchBar);
-            this.panelSearch.Location = new System.Drawing.Point(353, 102);
+            this.panelSearch.Location = new System.Drawing.Point(339, 23);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(438, 264);
             this.panelSearch.TabIndex = 61;
             // 
-            // label4
+            // lblUserResult
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(183, 221);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 20);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "Here        ";
+            this.lblUserResult.AutoSize = true;
+            this.lblUserResult.Location = new System.Drawing.Point(183, 221);
+            this.lblUserResult.Name = "lblUserResult";
+            this.lblUserResult.Size = new System.Drawing.Size(73, 20);
+            this.lblUserResult.TabIndex = 62;
+            this.lblUserResult.Text = "Here        ";
+            this.lblUserResult.Visible = false;
             // 
-            // label1
+            // lblUserSelected
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 220);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 20);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Usuario Seleccionado: ";
+            this.lblUserSelected.AutoSize = true;
+            this.lblUserSelected.Location = new System.Drawing.Point(18, 220);
+            this.lblUserSelected.Name = "lblUserSelected";
+            this.lblUserSelected.Size = new System.Drawing.Size(159, 20);
+            this.lblUserSelected.TabIndex = 61;
+            this.lblUserSelected.Text = "Usuario Seleccionado: ";
+            // 
+            // panelInfo
+            // 
+            this.panelInfo.Controls.Add(this.panelMainSearch);
+            this.panelInfo.Controls.Add(this.cmbUserType);
+            this.panelInfo.Controls.Add(this.btnInsert);
+            this.panelInfo.Controls.Add(this.btnUpdate);
+            this.panelInfo.Controls.Add(this.btnDelete);
+            this.panelInfo.Controls.Add(this.flowLayoutPanel1);
+            this.panelInfo.Controls.Add(this.label12);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelInfo.Location = new System.Drawing.Point(0, 0);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(316, 745);
+            this.panelInfo.TabIndex = 62;
+            // 
+            // panelMainSearch
+            // 
+            this.panelMainSearch.Location = new System.Drawing.Point(313, 0);
+            this.panelMainSearch.Name = "panelMainSearch";
+            this.panelMainSearch.Size = new System.Drawing.Size(976, 352);
+            this.panelMainSearch.TabIndex = 63;
             // 
             // formUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(952, 745);
+            this.ClientSize = new System.Drawing.Size(1292, 745);
+            this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.panelSearch);
             this.Controls.Add(this.studentPanel);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.teacherPanel);
-            this.Controls.Add(this.cmbUserType);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.lblTeacherCount);
             this.Controls.Add(this.lblStudentCount);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnInsert);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "formUser";
             this.Text = "Usuarios";
@@ -692,6 +712,8 @@
             this.studentPanel.PerformLayout();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
+            this.panelInfo.ResumeLayout(false);
+            this.panelInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,9 +769,11 @@
         private ListBox listBoxSearchResults;
         private Label lblSearchInfo;
         private Panel panelSearch;
-        private Label label4;
-        private Label label1;
+        private Label lblUserResult;
+        private Label lblUserSelected;
         private System.Windows.Forms.Timer lableTimer;
         private CheckBox cbCooperative;
+        private Panel panelInfo;
+        private Panel panelMainSearch;
     }
 }

@@ -23,8 +23,6 @@ namespace GestIn.UI.Home.Users
         private void formTeacher_Load(object sender, EventArgs e)
         {
             NullCheck();
-            studentPanel.Visible = false;
-            teacherPanel.Visible = false;
             cmbUserType.SelectedIndex = 0;
             cmbGender.SelectedIndex = 0;
         }
@@ -41,8 +39,6 @@ namespace GestIn.UI.Home.Users
         private void cmbUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkCurrentState();
-            lblSearchInfo.Visible = true;
-            listBoxSearchResults.Visible = true;
         }
 
         public void checkCurrentState()

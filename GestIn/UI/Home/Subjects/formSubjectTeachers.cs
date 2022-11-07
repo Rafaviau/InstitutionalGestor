@@ -99,7 +99,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 if(cmbCondition.GetItemText(cmbCondition.SelectedItem).Equals(""))
                 {
-                    MessageBox.Show("Error, agregar Condicion");
+                    MessageBox.Show("Agregar Condicion");
                 }
                 else
                 {
@@ -132,21 +132,7 @@ namespace GestIn.UI.Home.Subjects
                 {
                     int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
                     string condition = Convert.ToString(dataGridViewTeachers.CurrentRow.Cells[1].Value);
-                    careerController.deactivateCharge(selectedTeacherID,condition);
-                    RefreshTableTeachersSubject();
-                }
-            }
-            catch { }
-        }
-
-        private void btnDeactivate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dataGridViewTeachers.Rows.Count > 0 && dataGridViewTeachers.SelectedRows != null)
-                {
-                    int selectedTeacherID = Convert.ToInt32(dataGridViewTeachers.CurrentRow.Cells[0].Value);
-                    careerController.deactivateCharge(selectedTeacherID);
+                    careerController.deactivateCharge(selectedTeacherID, condition);
                     RefreshTableTeachersSubject();
                 }
             }
@@ -198,7 +184,7 @@ namespace GestIn.UI.Home.Subjects
             if (e.KeyCode == Keys.Enter && ListboxSearchResults.SelectedIndex >= 0)
             {
                 cmbCondition.Enabled = true;
-                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
+                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).ToString());
                 btnInsert.Enabled = true;
                 cmbCondition.Focus();
             }
@@ -210,7 +196,7 @@ namespace GestIn.UI.Home.Subjects
             if( index!= null || index<0)
             {
                 cmbCondition.Enabled = true;
-                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
+                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).ToString());
                 btnInsert.Enabled = true;
                 cmbCondition.Focus();
                 ListboxSearchResults.Visible = false;
@@ -219,7 +205,31 @@ namespace GestIn.UI.Home.Subjects
 
         private void dataGridViewTeachers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (!Convert.ToString(dataGridViewTeachers.CurrentRow.Cells[2].Value).Equals(""))
+            {
+                cmbCondition.SelectedItem = Convert.ToString(dataGridViewTeachers.CurrentRow.Cells[1].Value);
+            }
+            else { cmbCondition.SelectedIndex = -1; }
             RefreshLableTeacherName();
         }
+
+        private void ListboxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblteachername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        /*
+         * 
+         * 
+        
+
+         */
     }
 }
