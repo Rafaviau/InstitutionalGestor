@@ -59,5 +59,11 @@ namespace GestIn.Model
         {
             return this.User.LastName + " " + this.User.Name;
         }
+
+        public string FullName()
+        {
+            return this.User.LastName + " " + this.User.Name;
+        }
+
     }
 }

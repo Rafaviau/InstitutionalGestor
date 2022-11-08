@@ -183,7 +183,7 @@
             this.turnDataGridViewTextBoxColumn1,
             this.activeDataGridViewCheckBoxColumn});
             this.dataGridViewCarreras.DataSource = this.careerBindingSource1;
-            this.dataGridViewCarreras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewCarreras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCarreras.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewCarreras.Name = "dataGridViewCarreras";
             this.dataGridViewCarreras.ReadOnly = true;
@@ -191,7 +191,7 @@
             this.dataGridViewCarreras.RowHeadersWidth = 51;
             this.dataGridViewCarreras.RowTemplate.Height = 29;
             this.dataGridViewCarreras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCarreras.Size = new System.Drawing.Size(1373, 575);
+            this.dataGridViewCarreras.Size = new System.Drawing.Size(1373, 567);
             this.dataGridViewCarreras.TabIndex = 14;
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
@@ -363,9 +363,9 @@
             this.panelInfo.Controls.Add(this.btnInsert);
             this.panelInfo.Controls.Add(this.btnUpdate);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfo.Location = new System.Drawing.Point(0, 574);
+            this.panelInfo.Location = new System.Drawing.Point(0, 567);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(1373, 209);
+            this.panelInfo.Size = new System.Drawing.Size(1373, 216);
             this.panelInfo.TabIndex = 22;
             this.panelInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInfo_Paint);
             // 
@@ -382,11 +382,12 @@
             // 
             // panelGrid
             // 
+            this.panelGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.panelGrid.Controls.Add(this.dataGridViewCarreras);
-            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(1373, 574);
+            this.panelGrid.Size = new System.Drawing.Size(1373, 567);
             this.panelGrid.TabIndex = 23;
             // 
             // lableTimer
@@ -398,7 +399,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1373, 783);
             this.Controls.Add(this.panelGrid);

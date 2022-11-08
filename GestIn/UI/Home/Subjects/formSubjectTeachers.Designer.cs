@@ -293,7 +293,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(772, 102);
+            this.label6.Location = new System.Drawing.Point(772, 110);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
@@ -321,7 +321,7 @@
             // dateTimePickerUntil
             // 
             this.dateTimePickerUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerUntil.Location = new System.Drawing.Point(896, 103);
+            this.dateTimePickerUntil.Location = new System.Drawing.Point(896, 110);
             this.dateTimePickerUntil.Name = "dateTimePickerUntil";
             this.dateTimePickerUntil.Size = new System.Drawing.Size(125, 27);
             this.dateTimePickerUntil.TabIndex = 75;

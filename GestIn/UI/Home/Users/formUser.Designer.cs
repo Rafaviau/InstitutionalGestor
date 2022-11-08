@@ -483,7 +483,7 @@
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResult.Location = new System.Drawing.Point(842, 647);
+            this.lblResult.Location = new System.Drawing.Point(693, 656);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(222, 50);
             this.lblResult.TabIndex = 56;
@@ -605,6 +605,8 @@
             this.textBoxSearchBar.Name = "textBoxSearchBar";
             this.textBoxSearchBar.Size = new System.Drawing.Size(386, 27);
             this.textBoxSearchBar.TabIndex = 58;
+            this.textBoxSearchBar.TextChanged += new System.EventHandler(this.textBoxSearchBar_TextChanged);
+            this.textBoxSearchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchBar_KeyDown);
             // 
             // listBoxSearchResults
             // 
@@ -617,6 +619,8 @@
             this.listBoxSearchResults.Size = new System.Drawing.Size(386, 124);
             this.listBoxSearchResults.TabIndex = 59;
             this.listBoxSearchResults.Visible = false;
+            this.listBoxSearchResults.DoubleClick += new System.EventHandler(this.listBoxSearchResults_DoubleClick);
+            this.listBoxSearchResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBoxSearchResults_KeyDown);
             // 
             // lblSearchInfo
             // 
