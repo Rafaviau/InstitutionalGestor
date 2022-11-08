@@ -80,10 +80,10 @@ namespace GestIn.UI.Home.Exams
         private void clearExamForm() {
             cbbCarrer.SelectedIndex = 1;
             cbbSubject.SelectedIndex = 1;
-            //cbb1Vowel.SelectedIndex = 1;
-            //cbb2Vowel.SelectedIndex = 1;
-            //cbb3Vowel.SelectedIndex = 1;
-            //cbbTitular.SelectedIndex = 1;
+            cbb1Vowel.SelectedIndex = 0;
+            cbb2Vowel.SelectedIndex = 0;
+            cbb3Vowel.SelectedIndex = 1;
+            cbbTitular.SelectedIndex = 1;
             txtPlace.Text = "";
 
         }
@@ -142,6 +142,15 @@ namespace GestIn.UI.Home.Exams
         }
         private void loadTeachersCb() {
             var list = userCnt.getAllTeachersFromCareer(cbbCarrer.SelectedItem);
+            cbbTitular.Items.Clear();
+            cbb1Vowel.Items.Clear();
+            cbb2Vowel.Items.Clear();
+            cbb3Vowel.Items.Clear();
+
+            cbbTitular.Items.Add("--Vacio--");
+            cbb1Vowel.Items.Add("--Vacio--");
+            cbb2Vowel.Items.Add("--Vacio--");
+            cbb3Vowel.Items.Add("--Vacio--");
             foreach (object subject in list)
             {
                 cbbTitular.Items.Add(subject);
@@ -149,6 +158,7 @@ namespace GestIn.UI.Home.Exams
                 cbb2Vowel.Items.Add(subject);
                 cbb3Vowel.Items.Add(subject);
             }
+
         }
         private object teacherSelection(ComboBox comboBox)
         {
@@ -288,6 +298,16 @@ namespace GestIn.UI.Home.Exams
                     new formActaVolante(
                     Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value)), this.Parent);
             }
+        }
+
+        private void cbbSubject_SelectedValueChanged(object sender, EventArgs e)
+        {
+            selectTitularTeacher();
+        }
+        void selectTitularTeacher() {
+            int? index = userCnt.getMostResentActiveTeacherId(cbbSubject.SelectedItem);
+            if (index == null) cbbTitular.SelectedIndex = cbbTitular.FindString("--Vacio--");
+            else cbbTitular.SelectedIndex = index.Value;
         }
     }
 }

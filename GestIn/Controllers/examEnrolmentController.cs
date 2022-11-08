@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestIn.Controllers
 {
@@ -68,7 +69,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    return db.ExamEnrolments.Where(x => x.ExamId == IdExam).Select(x => x.Student).ToList();
+                    return db.ExamEnrolments.Where(x => x.ExamId == IdExam).Include(x => x.Student.User).Select(x => x.Student).ToList();
                 }
                 catch (SqlException exception) { throw exception; }
             }

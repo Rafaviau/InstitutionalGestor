@@ -206,15 +206,20 @@ namespace GestIn.UI.Home.Subjects
 
         private void ListboxSearchResults_DoubleClick(object sender, EventArgs e)
         {
-            int index = ListboxSearchResults.SelectedIndex;
-            if( index!= null || index<0)
+            try
             {
-                cmbCondition.Enabled = true;
-                RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem).User.Name);
-                btnInsert.Enabled = true;
-                cmbCondition.Focus();
-                ListboxSearchResults.Visible = false;
+                int index = ListboxSearchResults.SelectedIndex;
+                if (index != null || index < 0)
+                {
+                    cmbCondition.Enabled = true;
+                    RefreshLableTeacherName(userController.getTeacher(ListboxSearchResults.SelectedItem)?.User.Name);
+                    btnInsert.Enabled = true;
+                    cmbCondition.Focus();
+                    ListboxSearchResults.Visible = false;
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
         }
 
         private void dataGridViewTeachers_CellClick(object sender, DataGridViewCellEventArgs e)

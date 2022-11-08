@@ -1,4 +1,6 @@
 ﻿using GestIn.Controllers;
+using GestIn.Model;
+using GestIn.UI.Commons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +17,11 @@ namespace GestIn.UI.Home.ExamEnrolment
     {
         examEnrolmentController cntExamEnrol = examEnrolmentController.GetInstance();
         examController cntExam = examController.GetInstance();
+        Exam exam;
         public formActaVolante(int IdExam)
         {
             InitializeComponent();
-            var exam = cntExam.findExam(IdExam);
+            exam = cntExam.findExam(IdExam);
             lblExam.Text = exam.IdSubjectNavigation.Name + " " + exam.Date.ToString("dd-MM-yyyy");
             foreach (var item in cntExamEnrol.getEnroledStudent(IdExam)) {
                 lbStudents.Items.Add(item);
@@ -28,6 +31,18 @@ namespace GestIn.UI.Home.ExamEnrolment
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnUnrol_Click(object sender, EventArgs e)
+        {
+            var std = (Student)lbStudents.SelectedItem;
+            if (std != null) {
+                var result = formConfirmation.ShowDialog(this, "¿Esta seguro que desea desinscribir este estudiante?",
+                    ("El estudiante " +std.FullnameToString()+ " sera dado de baja del examen de "+ exam.IdSubjectNavigation.Name));
+                if (result == DialogResult.Yes) { MessageBox.Show("Yes"); }
+                else { MessageBox.Show("No"); }
+            }
+            
         }
     }
 }

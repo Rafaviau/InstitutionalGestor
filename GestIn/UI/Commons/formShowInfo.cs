@@ -12,10 +12,10 @@ namespace GestIn.UI.Commons
 {
     public partial class formShowInfo : Form
     {
-        public formShowInfo(string texto, Image img)
+        public formShowInfo(string txt, Image img)
         {
             InitializeComponent();
-            lblText.Text = texto;
+            lblText.Text = txt;
             pictureBox1.Image = img;
         }
 

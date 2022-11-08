@@ -84,6 +84,7 @@ namespace GestIn.Controllers
                         .Include(x => x.FirstVowelNavigation.User)
                         .Include(x => x.SecondVowelNavigation.User)
                         .Include(x => x.ThirdVowelNavigation.User)
+
                         .First();
                 }
                 catch { }

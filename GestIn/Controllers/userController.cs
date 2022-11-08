@@ -648,8 +648,24 @@ namespace GestIn.Controllers
             var _career = (Career)career;
             using (var db = new Context())
             {
-                var list = db.TeacherSubjects.Where(x => x.Subject.CareerId == _career.Id).Select(x => x.Teacher).ToList();
+                var list = db.TeacherSubjects
+                    .Where(x => (x.Subject.CareerId == _career.Id && x.Active == true))
+                    .Include(x => x.Teacher.User)
+                    .Select(x => x.Teacher)
+                    .ToList();
                 return list;
+            }
+        }
+        public int? getMostResentActiveTeacherId(object _Subject) {
+            Subject sub = (Subject)_Subject;
+            using (var db = new Context())
+            {
+                var teacherId = db.TeacherSubjects?
+                    .Where(x => (x.Subject.Id == sub.Id && x.Active == true))
+                    .OrderBy(x => x.CreatedAt)
+                    .Select(x => x.Teacher.Id)
+                    .FirstOrDefault();
+                return teacherId;
             }
         }
 
