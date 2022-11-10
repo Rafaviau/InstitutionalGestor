@@ -54,23 +54,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnModifyUntil = new System.Windows.Forms.Button();
-            this.btnDeactivateSubstitute = new System.Windows.Forms.Button();
             this.dateTimePickerSince = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerUntil = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.btnDeactivateTeacher = new System.Windows.Forms.Button();
+            this.InfoPanel = new System.Windows.Forms.Panel();
+            this.GridPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachersSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
+            this.InfoPanel.SuspendLayout();
+            this.GridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblmateriaName
             // 
             this.lblmateriaName.AutoSize = true;
             this.lblmateriaName.ForeColor = System.Drawing.Color.White;
-            this.lblmateriaName.Location = new System.Drawing.Point(683, 57);
+            this.lblmateriaName.Location = new System.Drawing.Point(573, 15);
             this.lblmateriaName.Name = "lblmateriaName";
             this.lblmateriaName.Size = new System.Drawing.Size(91, 20);
             this.lblmateriaName.TabIndex = 57;
@@ -80,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(518, 57);
+            this.label1.Location = new System.Drawing.Point(395, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 56;
@@ -91,7 +94,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(601, 5);
+            this.label2.Location = new System.Drawing.Point(1107, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 30);
             this.label2.TabIndex = 52;
@@ -101,7 +104,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(112, 348);
+            this.label7.Location = new System.Drawing.Point(1074, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 20);
             this.label7.TabIndex = 51;
@@ -123,7 +126,8 @@
             this.DateSince,
             this.DateUntil});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
-            this.dataGridViewTeachers.Location = new System.Drawing.Point(112, 371);
+            this.dataGridViewTeachers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewTeachers.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewTeachers.MultiSelect = false;
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
@@ -131,7 +135,7 @@
             this.dataGridViewTeachers.RowHeadersWidth = 51;
             this.dataGridViewTeachers.RowTemplate.Height = 29;
             this.dataGridViewTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTeachers.Size = new System.Drawing.Size(1054, 276);
+            this.dataGridViewTeachers.Size = new System.Drawing.Size(1241, 476);
             this.dataGridViewTeachers.TabIndex = 58;
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
             // 
@@ -200,7 +204,7 @@
             // 
             // txtSearchbar
             // 
-            this.txtSearchbar.Location = new System.Drawing.Point(112, 112);
+            this.txtSearchbar.Location = new System.Drawing.Point(25, 38);
             this.txtSearchbar.Name = "txtSearchbar";
             this.txtSearchbar.Size = new System.Drawing.Size(348, 27);
             this.txtSearchbar.TabIndex = 59;
@@ -211,7 +215,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(517, 180);
+            this.label3.Location = new System.Drawing.Point(395, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 61;
@@ -222,20 +226,22 @@
             this.lblteachername.AutoSize = true;
             this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
-            this.lblteachername.Location = new System.Drawing.Point(692, 180);
+            this.lblteachername.Location = new System.Drawing.Point(573, 66);
             this.lblteachername.Name = "lblteachername";
             this.lblteachername.Size = new System.Drawing.Size(125, 20);
             this.lblteachername.TabIndex = 62;
             this.lblteachername.Text = "                             ";
+            this.lblteachername.Click += new System.EventHandler(this.lblteachername_Click);
             // 
             // ListboxSearchResults
             // 
             this.ListboxSearchResults.FormattingEnabled = true;
             this.ListboxSearchResults.ItemHeight = 20;
-            this.ListboxSearchResults.Location = new System.Drawing.Point(112, 164);
+            this.ListboxSearchResults.Location = new System.Drawing.Point(25, 90);
             this.ListboxSearchResults.Name = "ListboxSearchResults";
             this.ListboxSearchResults.Size = new System.Drawing.Size(348, 124);
             this.ListboxSearchResults.TabIndex = 63;
+            this.ListboxSearchResults.SelectedIndexChanged += new System.EventHandler(this.ListboxSearchResults_SelectedIndexChanged);
             this.ListboxSearchResults.DoubleClick += new System.EventHandler(this.ListboxSearchResults_DoubleClick);
             this.ListboxSearchResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListboxSearchResults_KeyDown);
             // 
@@ -248,14 +254,14 @@
             "Titular",
             "Suplente",
             "Provisional"});
-            this.cmbCondition.Location = new System.Drawing.Point(692, 223);
+            this.cmbCondition.Location = new System.Drawing.Point(573, 100);
             this.cmbCondition.Name = "cmbCondition";
-            this.cmbCondition.Size = new System.Drawing.Size(125, 28);
+            this.cmbCondition.Size = new System.Drawing.Size(152, 28);
             this.cmbCondition.TabIndex = 64;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(453, 331);
+            this.btnInsert.Location = new System.Drawing.Point(395, 180);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(148, 34);
             this.btnInsert.TabIndex = 65;
@@ -267,7 +273,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(518, 231);
+            this.label4.Location = new System.Drawing.Point(395, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(145, 20);
             this.label4.TabIndex = 66;
@@ -277,7 +283,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(906, 184);
+            this.label5.Location = new System.Drawing.Point(772, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 68;
@@ -287,7 +293,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(906, 223);
+            this.label6.Location = new System.Drawing.Point(772, 110);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
@@ -295,7 +301,7 @@
             // 
             // btnModifyUntil
             // 
-            this.btnModifyUntil.Location = new System.Drawing.Point(1022, 335);
+            this.btnModifyUntil.Location = new System.Drawing.Point(846, 183);
             this.btnModifyUntil.Name = "btnModifyUntil";
             this.btnModifyUntil.Size = new System.Drawing.Size(144, 31);
             this.btnModifyUntil.TabIndex = 72;
@@ -303,20 +309,10 @@
             this.btnModifyUntil.UseVisualStyleBackColor = true;
             this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyDates_Click);
             // 
-            // btnDeactivateSubstitute
-            // 
-            this.btnDeactivateSubstitute.Location = new System.Drawing.Point(768, 331);
-            this.btnDeactivateSubstitute.Name = "btnDeactivateSubstitute";
-            this.btnDeactivateSubstitute.Size = new System.Drawing.Size(155, 34);
-            this.btnDeactivateSubstitute.TabIndex = 73;
-            this.btnDeactivateSubstitute.Text = "Desactivar Suplente";
-            this.btnDeactivateSubstitute.UseVisualStyleBackColor = true;
-            this.btnDeactivateSubstitute.Click += new System.EventHandler(this.btnDeactivate_Click);
-            // 
             // dateTimePickerSince
             // 
             this.dateTimePickerSince.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerSince.Location = new System.Drawing.Point(1030, 179);
+            this.dateTimePickerSince.Location = new System.Drawing.Point(896, 59);
             this.dateTimePickerSince.Name = "dateTimePickerSince";
             this.dateTimePickerSince.Size = new System.Drawing.Size(125, 27);
             this.dateTimePickerSince.TabIndex = 74;
@@ -325,7 +321,7 @@
             // dateTimePickerUntil
             // 
             this.dateTimePickerUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerUntil.Location = new System.Drawing.Point(1030, 224);
+            this.dateTimePickerUntil.Location = new System.Drawing.Point(896, 110);
             this.dateTimePickerUntil.Name = "dateTimePickerUntil";
             this.dateTimePickerUntil.Size = new System.Drawing.Size(125, 27);
             this.dateTimePickerUntil.TabIndex = 75;
@@ -335,7 +331,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(112, 89);
+            this.label8.Location = new System.Drawing.Point(25, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(231, 20);
             this.label8.TabIndex = 76;
@@ -343,7 +339,7 @@
             // 
             // btnDeactivateTeacher
             // 
-            this.btnDeactivateTeacher.Location = new System.Drawing.Point(607, 331);
+            this.btnDeactivateTeacher.Location = new System.Drawing.Point(573, 180);
             this.btnDeactivateTeacher.Name = "btnDeactivateTeacher";
             this.btnDeactivateTeacher.Size = new System.Drawing.Size(155, 34);
             this.btnDeactivateTeacher.TabIndex = 77;
@@ -351,32 +347,50 @@
             this.btnDeactivateTeacher.UseVisualStyleBackColor = true;
             this.btnDeactivateTeacher.Click += new System.EventHandler(this.btnDeactivateTeacher_Click);
             // 
+            // InfoPanel
+            // 
+            this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.InfoPanel.Controls.Add(this.ListboxSearchResults);
+            this.InfoPanel.Controls.Add(this.btnModifyUntil);
+            this.InfoPanel.Controls.Add(this.label2);
+            this.InfoPanel.Controls.Add(this.btnDeactivateTeacher);
+            this.InfoPanel.Controls.Add(this.txtSearchbar);
+            this.InfoPanel.Controls.Add(this.btnInsert);
+            this.InfoPanel.Controls.Add(this.dateTimePickerUntil);
+            this.InfoPanel.Controls.Add(this.dateTimePickerSince);
+            this.InfoPanel.Controls.Add(this.label8);
+            this.InfoPanel.Controls.Add(this.cmbCondition);
+            this.InfoPanel.Controls.Add(this.label6);
+            this.InfoPanel.Controls.Add(this.label3);
+            this.InfoPanel.Controls.Add(this.label5);
+            this.InfoPanel.Controls.Add(this.lblteachername);
+            this.InfoPanel.Controls.Add(this.label4);
+            this.InfoPanel.Controls.Add(this.label7);
+            this.InfoPanel.Controls.Add(this.label1);
+            this.InfoPanel.Controls.Add(this.lblmateriaName);
+            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.InfoPanel.Location = new System.Drawing.Point(0, 473);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Size = new System.Drawing.Size(1241, 226);
+            this.InfoPanel.TabIndex = 78;
+            // 
+            // GridPanel
+            // 
+            this.GridPanel.Controls.Add(this.dataGridViewTeachers);
+            this.GridPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GridPanel.Location = new System.Drawing.Point(0, 0);
+            this.GridPanel.Name = "GridPanel";
+            this.GridPanel.Size = new System.Drawing.Size(1241, 476);
+            this.GridPanel.TabIndex = 79;
+            // 
             // formSubjectTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1241, 699);
-            this.Controls.Add(this.btnDeactivateTeacher);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePickerUntil);
-            this.Controls.Add(this.dateTimePickerSince);
-            this.Controls.Add(this.btnDeactivateSubstitute);
-            this.Controls.Add(this.btnModifyUntil);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.cmbCondition);
-            this.Controls.Add(this.ListboxSearchResults);
-            this.Controls.Add(this.lblteachername);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtSearchbar);
-            this.Controls.Add(this.dataGridViewTeachers);
-            this.Controls.Add(this.lblmateriaName);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.GridPanel);
+            this.Controls.Add(this.InfoPanel);
             this.Name = "formSubjectTeachers";
             this.Text = "Docentes de una Materia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubjectTeachers_FormClosing);
@@ -386,8 +400,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachersSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).EndInit();
+            this.InfoPanel.ResumeLayout(false);
+            this.InfoPanel.PerformLayout();
+            this.GridPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -412,7 +428,6 @@
         private Label label5;
         private Label label6;
         private Button btnModifyUntil;
-        private Button btnDeactivateSubstitute;
         private DateTimePicker dateTimePickerSince;
         private DateTimePicker dateTimePickerUntil;
         private Label label8;
@@ -423,5 +438,7 @@
         private DataGridViewCheckBoxColumn Active;
         private DataGridViewTextBoxColumn DateSince;
         private DataGridViewTextBoxColumn DateUntil;
+        private Panel InfoPanel;
+        private Panel GridPanel;
     }
 }

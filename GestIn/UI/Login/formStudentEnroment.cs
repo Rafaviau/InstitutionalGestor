@@ -223,11 +223,12 @@ namespace GestIn.UI.Login
             {
                 String pass = System.Web.Helpers.Crypto.HashPassword(txtPassword.Text);
                 DateTime fecha = DateTime.Parse(txtFechaDeNacimiento.Text);
-                
+                /* Re add on a later date when passwords have been added
                 if (userController.enrolStudent(Int32.Parse(txtDni.Text), txtEmail.Text, pass, txtNombre.Text, txtApellido.Text,
                                                     fecha, txtLugarDeNacimiento.Text, cbSexo.Text, txtCelular.Text, txtCelularDeEmergencia.Text,txtObraSocial.Text,
                                                     txtActividadLaboral.Text,txtHorarioLaboral.Text))
                 {
+                
                 formShowInfo formBienvenido = new formShowInfo("¡Bienvenido!", Resources.Done);
                 formBienvenido.ShowDialog();
                 this.Close();
@@ -235,6 +236,7 @@ namespace GestIn.UI.Login
                 else {
                     updateErrorLbl("     Error, por favor intentelo nuevamente");
                 }
+                */
             }
         }
 

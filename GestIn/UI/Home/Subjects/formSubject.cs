@@ -81,6 +81,9 @@ namespace GestIn.UI.Home.Subjects
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }else
+            {
+                dataGridViewTeachers.Rows.Clear();
             }
         }
 
@@ -210,6 +213,11 @@ namespace GestIn.UI.Home.Subjects
         {
             lblResult.Visible = false;
             lableTimer.Stop();
+        }
+
+        private void dataGridViewMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -23,8 +23,6 @@ namespace GestIn.UI.Home.Users
         private void formTeacher_Load(object sender, EventArgs e)
         {
             NullCheck();
-            studentPanel.Visible = false;
-            teacherPanel.Visible = false;
             cmbUserType.SelectedIndex = 0;
             cmbGender.SelectedIndex = 0;
         }
@@ -41,8 +39,6 @@ namespace GestIn.UI.Home.Users
         private void cmbUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkCurrentState();
-            lblSearchInfo.Visible = true;
-            listBoxSearchResults.Visible = true;
         }
 
         public void checkCurrentState()
@@ -80,6 +76,22 @@ namespace GestIn.UI.Home.Users
             return state;
         }
 
+        public void ClearAllTextBoxes()
+        {
+            txtDNI.ResetText();
+            txtCUILL.ResetText();
+            txtTitle.ResetText();
+            txtUserBirthPlace.ResetText();
+            txtUserDni.ResetText();
+            txtUserEmail.ResetText();
+            txtUserEmergencyContact.ResetText();
+            txtUserLastName.ResetText();
+            txtUserName.ResetText();
+            txtUserPhoneNumber.ResetText();
+            UserDateBirth.ResetText();
+            lblResult.Text = "";
+        }
+
         private void btnInsert_Click(object sender, EventArgs e)
         {
             if (ValidateObligatoryInformation() && ValidateDate())
@@ -89,7 +101,8 @@ namespace GestIn.UI.Home.Users
                     try
                     {
                         userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text,
-                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, cmbGender.SelectedItem.ToString(), txtUserEmergencyContact.Text,
+                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, cmbGender.SelectedItem.ToString(), 
+                            txtUserEmergencyContact.Text,
                             cbAnalitic.Checked, cbDni.Checked, cbBirthCert.Checked, cbMedicCerf.Checked, cbPhotos.Checked, cbCuil.Checked);
                         lblResult.Text = "Estudiante creado";
                         lblResult.Visible = true;
@@ -103,11 +116,13 @@ namespace GestIn.UI.Home.Users
                     try
                     {
                         userController.inputTeacher(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
-                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(), txtCUILL.Text, txtTitle.Text);
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(), 
+                            txtCUILL.Text, txtTitle.Text);
                         lblResult.Text = "Docente creado";
                         lblResult.Visible = true;
                         lblTeacherCount.Text = userController.countTeachers().ToString();
                         StartLableRemovalTimer();
+                        ClearAllTextBoxes();
                     }
                     catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
@@ -115,11 +130,11 @@ namespace GestIn.UI.Home.Users
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            ClearAllTextBoxes();
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            ClearAllTextBoxes();
         }
 
         public void StartLableRemovalTimer()
@@ -133,6 +148,106 @@ namespace GestIn.UI.Home.Users
         {
             lblResult.Visible = false;
             lableTimer.Stop();
+        }
+
+        public void refreshUserNameLable(string name)
+        {
+            lblUserResult.Visible = true;
+            lblUserResult.Text = name;
+        }
+
+        public bool checkUserDependency()
+        {
+            if(cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void loadSearchResults()
+        {
+            int Integer = 0;
+            bool checkState = Int32.TryParse(textBoxSearchBar.Text, out Integer);
+            if(checkUserDependency())
+            {
+                if (checkState)
+                {
+                    listBoxSearchResults.DataSource = userController.searchBoxStudentWithInt(Int32.Parse(textBoxSearchBar.Text));
+                }
+                else
+                {
+                    listBoxSearchResults.DataSource = userController.searchBoxStudentWithString(textBoxSearchBar.Text);
+                }
+            }
+            else
+            {
+                if (checkState)
+                {
+                    listBoxSearchResults.DataSource = userController.searchBoxTeacherWithInt(Int32.Parse(textBoxSearchBar.Text));
+                }
+                else
+                {
+                    listBoxSearchResults.DataSource = userController.searchBoxTeacherWithString(textBoxSearchBar.Text);
+                }
+            }
+            
+        }
+
+        private void textBoxSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxSearchBar.Text.Length == 0)
+            {
+                listBoxSearchResults.Visible = false;
+            }
+            else
+            {
+                listBoxSearchResults.Visible = true;
+                loadSearchResults();
+            }
+        }
+
+        private void textBoxSearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                listBoxSearchResults.Focus();
+            }
+        }
+
+        private void listBoxSearchResults_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up && listBoxSearchResults.SelectedIndex <= 0)
+            {
+                listBoxSearchResults.ClearSelected();
+                textBoxSearchBar.Focus();
+            }
+            if (e.KeyCode == Keys.Enter && listBoxSearchResults.SelectedIndex >= 0)
+            {
+                refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).FullName());
+                btnInsert.Enabled = true;
+            }
+        }
+
+        private void listBoxSearchResults_DoubleClick(object sender, EventArgs e)
+        {
+            int index = listBoxSearchResults.SelectedIndex;
+            if (index != null || index < 0)
+            {
+                if(checkUserDependency())
+                {
+                    refreshUserNameLable(userController.getStudent(listBoxSearchResults.SelectedItem).FullName()); ;
+                }
+                else
+                {
+                    refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).FullName());
+                }
+                btnInsert.Enabled = true;
+                listBoxSearchResults.Visible = false;
+            }
         }
     }
 }

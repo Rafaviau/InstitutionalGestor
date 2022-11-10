@@ -38,7 +38,7 @@ namespace GestIn.UI.Home.ExamEnrolment
             var std = (Student)lbStudents.SelectedItem;
             if (std != null) {
                 var result = formConfirmation.ShowDialog(this, "¿Esta seguro que desea desinscribir este estudiante?",
-                    ("El estudiante " +std.FullnameToString()+ " sera dado de baja del examen de "+ exam.IdSubjectNavigation.Name));
+                    ("El estudiante " +std.FullName()+ " sera dado de baja del examen de "+ exam.IdSubjectNavigation.Name));
                 if (result == DialogResult.Yes) { MessageBox.Show("Yes"); }
                 else { MessageBox.Show("No"); }
             }
