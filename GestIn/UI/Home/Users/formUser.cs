@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Wordprocessing;
 using GestIn.Controllers;
+using GestIn.Model;
 
 namespace GestIn.UI.Home.Users
 {
@@ -38,6 +40,8 @@ namespace GestIn.UI.Home.Users
 
         private void cmbUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblResult.Text = "";
+            listBoxSearchResults.ResetText();
             checkCurrentState();
         }
 
@@ -58,7 +62,7 @@ namespace GestIn.UI.Home.Users
         public bool ValidateObligatoryInformation()
         {
             bool state = true;
-            if (txtUserDni.Equals("") || txtUserEmail.Equals("") || txtUserLastName.Equals("") || txtUserName.Equals("")) 
+            if (txtUserDni.Equals("") || txtUserEmail.Equals("") || txtUserLastName.Equals("") || txtUserName.Equals(""))
             {
                 state = false;
                 MessageBox.Show("Complete todos los campos obligatorios {X}");
@@ -68,7 +72,7 @@ namespace GestIn.UI.Home.Users
         public bool ValidateDate()
         {
             bool state = true;
-            if(UserDateBirth.Value.Date.Equals(DateTime.Now) || DateTime.Now<UserDateBirth.Value.Date)
+            if (UserDateBirth.Value.Date.Equals(DateTime.Now) || DateTime.Now < UserDateBirth.Value.Date)
             {
                 state = false;
                 MessageBox.Show("Error, fecha ingresada de formato incorrecto");
@@ -78,8 +82,7 @@ namespace GestIn.UI.Home.Users
 
         public void ClearAllTextBoxes()
         {
-            txtDNI.ResetText();
-            txtCUILL.ResetText();
+            txtCuil.ResetText();
             txtTitle.ResetText();
             txtUserBirthPlace.ResetText();
             txtUserDni.ResetText();
@@ -90,6 +93,45 @@ namespace GestIn.UI.Home.Users
             txtUserPhoneNumber.ResetText();
             UserDateBirth.ResetText();
             lblResult.Text = "";
+        }
+
+        public void SetTextBoxValues(object userType)
+        {
+            if(cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
+            {
+                Student student = userController.getStudent(userType);
+                txtUserBirthPlace.Text = student.User.PlaceOfBirth;
+                txtUserDni.Text = (student.User.Dni).ToString();
+                txtUserEmail.Text = (student.LoginInformation.Email).ToString(); 
+                txtUserLastName.Text = (student.User.LastName).ToString(); 
+                txtUserName.Text = (student.User.Name).ToString(); 
+                cmbGender.SelectedText = student.User.Gender;
+                txtUserPhoneNumber.Text = student.User.PhoneNumbre;
+                txtUserEmergencyContact.Text = student.User.EmergencyPhoneNumber;
+                UserDateBirth.Text = ((DateTime)student.User.DateOfBirth).ToString();
+
+                cbAnalitic.Checked = student.HighSchoolTitPhotocopy;
+                cbBirthCert.Checked = student.BirthCertificate;
+                cbCuil.Checked = student.CuilConstansy;
+                cbDni.Checked = student.DniPhotocopy;
+                cbMedicCerf.Checked = student.MedicalCertificate;
+                cbPhotos.Checked = student.Photo4x4;
+            }
+            else
+            {
+                Teacher teacher = userController.getTeacher(userType);
+                txtUserBirthPlace.Text = teacher.User.PlaceOfBirth;
+                txtUserDni.Text = (teacher.User.Dni).ToString();
+                txtUserEmail.Text = (teacher.LoginInformation.Email).ToString(); 
+                txtUserLastName.Text = (teacher.User.LastName).ToString(); 
+                txtUserName.Text = (teacher.User.Name).ToString(); 
+                txtCuil.Text = (teacher.Cuil).ToString();
+                cmbGender.SelectedText = teacher.User.Gender;
+                txtUserPhoneNumber.Text = teacher.User.PhoneNumbre;
+                txtTitle.Text = teacher.Titulo;
+                txtUserEmergencyContact.Text = teacher.User.EmergencyPhoneNumber;
+                UserDateBirth.Text = ((DateTime)teacher.User.DateOfBirth).ToString();
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -109,7 +151,8 @@ namespace GestIn.UI.Home.Users
                         lblStudentCount.Text = userController.countStudents().ToString();
                         StartLableRemovalTimer();
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch { MessageBox.Show("Estudiante con mismo DNI"); }
+                
                 }
                 else //Teacher
                 {
@@ -117,19 +160,49 @@ namespace GestIn.UI.Home.Users
                     {
                         userController.inputTeacher(Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
                             UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(), 
-                            txtCUILL.Text, txtTitle.Text);
+                            txtCuil.Text, txtTitle.Text);
                         lblResult.Text = "Docente creado";
                         lblResult.Visible = true;
                         lblTeacherCount.Text = userController.countTeachers().ToString();
                         StartLableRemovalTimer();
-                        ClearAllTextBoxes();
+                        
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch { MessageBox.Show("Docente con mismo DNI"); }
                 }
             }
+            ClearAllTextBoxes();
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (ValidateObligatoryInformation() && ValidateDate())
+            {
+                if (cmbUserType.SelectedItem.ToString().Equals("Estudiante")) //Student
+                {
+                    try
+                    {
+                        //Work to be done
+                        MessageBox.Show("En Trabajo");
+                        lblResult.Text = "Estudiante modificado";
+                        lblResult.Visible = true;
+                        StartLableRemovalTimer();
+                    }
+                    catch { MessageBox.Show("Estudiante con mismo DNI"); }
+                }
+                else //Teacher
+                {
+                    try
+                    {
+                        userController.modifyUserTeacher(listBoxSearchResults.SelectedItem, Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(),
+                            txtCuil.Text, txtTitle.Text);
+                        lblResult.Text = "Docente modificado";
+                        lblResult.Visible = true;
+                        StartLableRemovalTimer();
+
+                    }
+                    catch { MessageBox.Show("Docente con mismo DNI"); }
+                }
+            }
             ClearAllTextBoxes();
         }
         private void btnDelete_Click(object sender, EventArgs e)
@@ -239,11 +312,13 @@ namespace GestIn.UI.Home.Users
             {
                 if(checkUserDependency())
                 {
-                    refreshUserNameLable(userController.getStudent(listBoxSearchResults.SelectedItem).FullName()); ;
+                    refreshUserNameLable(userController.getStudent(listBoxSearchResults.SelectedItem).FullName());
+                    SetTextBoxValues(listBoxSearchResults.SelectedItem);
                 }
                 else
                 {
                     refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).FullName());
+                    SetTextBoxValues(listBoxSearchResults.SelectedItem);
                 }
                 btnInsert.Enabled = true;
                 listBoxSearchResults.Visible = false;

@@ -56,7 +56,8 @@ namespace GestIn.Controllers
             Career car = (Career)career;
             try
             {
-                var student = cntUser.findStudent(dni);
+                var student = cntUser.findStudent
+                    (dni);
                 if(student != null)
                 {
                     CareerEnrolment enrol = new CareerEnrolment();
