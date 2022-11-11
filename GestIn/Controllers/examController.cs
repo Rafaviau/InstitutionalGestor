@@ -168,7 +168,7 @@ namespace GestIn.Controllers
                     var aprovedExams = db.Grades.Where(x => x.Student.User.Dni == studentDni).Select(x => x.SubjectId).ToList();
 
                     // trae las materia en las que ya se inscribio al examen y la fecha es mayor a la actual
-                    var alreadyEnroledExams = db.ExamEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Exam.Date > DateTime.Now))
+                    var alreadyEnroledExams = db.ExamEnrolments.Where(x => (x.Student.User.Dni == studentDni && x.Exam.Date > DateTime.Now && x.DeletedAt == null))
                         .Select(x => x.Exam.IdSubject)
                         .ToList();
 

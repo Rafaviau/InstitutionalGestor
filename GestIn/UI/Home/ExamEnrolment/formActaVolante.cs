@@ -1,5 +1,6 @@
 ﻿using GestIn.Controllers;
 using GestIn.Model;
+using GestIn.Properties;
 using GestIn.UI.Commons;
 using System;
 using System.Collections.Generic;
@@ -39,10 +40,29 @@ namespace GestIn.UI.Home.ExamEnrolment
             if (std != null) {
                 var result = formConfirmation.ShowDialog(this, "¿Esta seguro que desea desinscribir este estudiante?",
                     ("El estudiante " +std.FullName()+ " sera dado de baja del examen de "+ exam.IdSubjectNavigation.Name));
-                if (result == DialogResult.Yes) { MessageBox.Show("Yes"); }
-                else { MessageBox.Show("No"); }
+                if (result == DialogResult.Yes) {
+                    var status = cntExamEnrol.unrolStudent(lbStudents.SelectedItem, exam);
+                    updateUnenrolLabel(status.Item2,status.Item1);
+                    if (status.Item1) lbStudents.Items.Remove(lbStudents.SelectedItem);
+                }
             }
-            
+        }
+        private async Task updateUnenrolLabel(string msg, bool success)
+        {
+            if (!success)
+            {
+                lblError.ForeColor = Color.IndianRed;
+                lblError.Image = Resources.Error;
+            }
+            else
+            {
+                lblError.ForeColor = Color.FromArgb(75, 181, 67);
+                lblError.Image = Resources.TickIcon;
+            }
+            lblError.Text = "         " + msg;
+            lblError.Visible = true;
+            await Task.Delay(2000);
+            lblError.Visible = false;
         }
     }
 }

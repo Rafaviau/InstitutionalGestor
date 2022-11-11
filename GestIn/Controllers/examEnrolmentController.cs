@@ -69,7 +69,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    return db.ExamEnrolments.Where(x => x.ExamId == IdExam).Include(x => x.Student.User).Select(x => x.Student).ToList();
+                    return db.ExamEnrolments.Where(x => (x.ExamId == IdExam && x.DeletedAt == null)).Include(x => x.Student.User).Select(x => x.Student).ToList();
                 }
                 catch (SqlException exception) { throw exception; }
             }
@@ -80,10 +80,38 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    return db.ExamEnrolments.Count(x => x.ExamId == IdExam);
+                    return db.ExamEnrolments.Count(x => (x.DeletedAt == null && x.ExamId == IdExam));
                 }
                 catch (SqlException exception) { throw exception; }
             }
         }
-    }
+        public ExamEnrolment findExamEnrolment(int studentId, Exam exam)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.ExamEnrolments.Where(x => (x.StudentId == studentId && x.ExamId == exam.Id)).FirstOrDefault();
+                }
+                catch { }
+                return null;
+
+            }
+        }
+        public (bool,string) unrolStudent(object student, Exam exam) {
+                try
+                {
+                Student stu = (Student)student;
+                    var _exam = findExamEnrolment(stu.Id, exam);
+                    _exam.DeletedAt = DateTime.Now;
+                    using (var db = new Context())
+                    {
+                        db.Update(_exam);
+                        db.SaveChanges();
+                        return (true,"Estudiante dado de baja correctamente");
+                    }
+                }
+                catch (Exception exception) { return (false, exception.Message); }
+            }
+        }
 }
