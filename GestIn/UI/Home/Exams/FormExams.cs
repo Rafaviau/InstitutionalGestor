@@ -218,10 +218,10 @@ namespace GestIn.UI.Home.Exams
             lblShowPlace.Text = exam.Place;
             lblShowSubject.Text = exam.IdSubjectNavigation.Name;
 
-            if(exam.FirstVowelNavigation != null) lblShowFirst.Text = exam.FirstVowelNavigation.User.Name + " " + exam.FirstVowelNavigation.User.Dni;
-            if (exam.SecondVowelNavigation != null)lblShowSec.Text = exam.SecondVowelNavigation.User.Name + " " + exam.SecondVowelNavigation.User.Dni;
-            if(exam.ThirdVowelNavigation != null)lblShowThird.Text = exam.ThirdVowelNavigation.User.Name + " " + exam.ThirdVowelNavigation.User.Dni;
-            if (exam.TitularNavigation != null)lblShowTit.Text = exam.TitularNavigation.User.Name + " " + exam.TitularNavigation.User.Dni;
+            lblShowFirst.Text = exam?.FirstVowelNavigation?.User.Name + " " + exam?.FirstVowelNavigation?.User.Dni;
+            lblShowSec.Text = exam?.SecondVowelNavigation?.User.Name + " " + exam?.SecondVowelNavigation?.User.Dni;
+            lblShowThird.Text = exam?.ThirdVowelNavigation?.User.Name + " " + exam?.ThirdVowelNavigation?.User.Dni;
+            lblShowTit.Text = exam?.TitularNavigation?.User.Name + " " + exam?.TitularNavigation?.User.Dni;
         }
 
         private void dgvExams_SelectionChanged(object sender, EventArgs e)

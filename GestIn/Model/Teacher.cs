@@ -48,19 +48,7 @@ namespace GestIn.Model
         [InverseProperty("Teacher")]
         public virtual ICollection<TeacherSubject> TeacherSubjects { get; set; }
 
-        public string TOSTRING() //Deprecated
-        {
-            return "ID HERE" +  " "  + this.Id.ToString() + " "
-                + this.Cuil.ToString() + " "
-                + this.UserId.ToString();
-        }
-
         public override string ToString()
-        {
-            return this.User.LastName + " " + this.User.Name;
-        }
-
-        public string FullName()
         {
             return this.User.LastName + " " + this.User.Name;
         }

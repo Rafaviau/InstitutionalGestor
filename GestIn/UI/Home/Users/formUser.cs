@@ -300,7 +300,7 @@ namespace GestIn.UI.Home.Users
             }
             if (e.KeyCode == Keys.Enter && listBoxSearchResults.SelectedIndex >= 0)
             {
-                refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).FullName());
+                refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).ToString());
                 btnInsert.Enabled = true;
             }
         }
@@ -317,7 +317,7 @@ namespace GestIn.UI.Home.Users
                 }
                 else
                 {
-                    refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).FullName());
+                    refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).ToString());
                     SetTextBoxValues(listBoxSearchResults.SelectedItem);
                 }
                 btnInsert.Enabled = true;
