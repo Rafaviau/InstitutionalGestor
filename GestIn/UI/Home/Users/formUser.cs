@@ -80,7 +80,7 @@ namespace GestIn.UI.Home.Users
             return state;
         }
 
-        public void ClearAllTextBoxes()
+        public void ClearScreen()
         {
             txtCuil.ResetText();
             txtTitle.ResetText();
@@ -92,7 +92,9 @@ namespace GestIn.UI.Home.Users
             txtUserName.ResetText();
             txtUserPhoneNumber.ResetText();
             UserDateBirth.ResetText();
-            lblResult.Text = "";
+            listBoxSearchResults.ResetText();
+            lblUserResult.ResetText();
+            lblSearchInfo.ResetText();
         }
 
         public void SetTextBoxValues(object userType)
@@ -170,7 +172,7 @@ namespace GestIn.UI.Home.Users
                     catch { MessageBox.Show("Docente con mismo DNI"); }
                 }
             }
-            ClearAllTextBoxes();
+            ClearScreen();
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -203,11 +205,11 @@ namespace GestIn.UI.Home.Users
                     catch { MessageBox.Show("Docente con mismo DNI"); }
                 }
             }
-            ClearAllTextBoxes();
+            ClearScreen();
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            ClearAllTextBoxes();
+            ClearScreen();
         }
 
         public void StartLableRemovalTimer()
