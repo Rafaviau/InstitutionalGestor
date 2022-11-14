@@ -77,6 +77,11 @@
             this.panelInfo = new System.Windows.Forms.Panel();
             this.panelMainSearch = new System.Windows.Forms.Panel();
             this.studentPanel = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtWorkHours = new System.Windows.Forms.TextBox();
+            this.txtOcupation = new System.Windows.Forms.TextBox();
             this.cbCooperative = new System.Windows.Forms.CheckBox();
             this.cbPhotos = new System.Windows.Forms.CheckBox();
             this.cbCuil = new System.Windows.Forms.CheckBox();
@@ -84,6 +89,7 @@
             this.cbDni = new System.Windows.Forms.CheckBox();
             this.cbMedicCerf = new System.Windows.Forms.CheckBox();
             this.cbAnalitic = new System.Windows.Forms.CheckBox();
+            this.txtHealthcare = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -484,7 +490,7 @@
             this.lblResult.AutoSize = true;
             this.lblResult.BackColor = System.Drawing.Color.Crimson;
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResult.Location = new System.Drawing.Point(343, 647);
+            this.lblResult.Location = new System.Drawing.Point(701, 380);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(222, 50);
             this.lblResult.TabIndex = 56;
@@ -583,6 +589,12 @@
             // 
             this.studentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.studentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.studentPanel.Controls.Add(this.txtHealthcare);
+            this.studentPanel.Controls.Add(this.label13);
+            this.studentPanel.Controls.Add(this.label4);
+            this.studentPanel.Controls.Add(this.label1);
+            this.studentPanel.Controls.Add(this.txtWorkHours);
+            this.studentPanel.Controls.Add(this.txtOcupation);
             this.studentPanel.Controls.Add(this.cbCooperative);
             this.studentPanel.Controls.Add(this.cbPhotos);
             this.studentPanel.Controls.Add(this.cbCuil);
@@ -590,10 +602,51 @@
             this.studentPanel.Controls.Add(this.cbDni);
             this.studentPanel.Controls.Add(this.cbMedicCerf);
             this.studentPanel.Controls.Add(this.cbAnalitic);
-            this.studentPanel.Location = new System.Drawing.Point(339, 380);
+            this.studentPanel.Location = new System.Drawing.Point(838, 88);
             this.studentPanel.Name = "studentPanel";
-            this.studentPanel.Size = new System.Drawing.Size(312, 217);
+            this.studentPanel.Size = new System.Drawing.Size(367, 645);
             this.studentPanel.TabIndex = 63;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 353);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 20);
+            this.label13.TabIndex = 64;
+            this.label13.Text = "Obra Social";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 282);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 20);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Ocupación Horas";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 215);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "Ocupación";
+            // 
+            // txtWorkHours
+            // 
+            this.txtWorkHours.Location = new System.Drawing.Point(17, 305);
+            this.txtWorkHours.Name = "txtWorkHours";
+            this.txtWorkHours.Size = new System.Drawing.Size(264, 27);
+            this.txtWorkHours.TabIndex = 28;
+            // 
+            // txtOcupation
+            // 
+            this.txtOcupation.Location = new System.Drawing.Point(17, 238);
+            this.txtOcupation.Name = "txtOcupation";
+            this.txtOcupation.Size = new System.Drawing.Size(264, 27);
+            this.txtOcupation.TabIndex = 27;
             // 
             // cbCooperative
             // 
@@ -685,6 +738,13 @@
             this.cbAnalitic.TabIndex = 20;
             this.cbAnalitic.Text = "Analitico secundario";
             this.cbAnalitic.UseVisualStyleBackColor = true;
+            // 
+            // txtHealthcare
+            // 
+            this.txtHealthcare.Location = new System.Drawing.Point(17, 376);
+            this.txtHealthcare.Name = "txtHealthcare";
+            this.txtHealthcare.Size = new System.Drawing.Size(264, 27);
+            this.txtHealthcare.TabIndex = 65;
             // 
             // formUser
             // 
@@ -780,5 +840,11 @@
         private CheckBox cbDni;
         private CheckBox cbMedicCerf;
         private CheckBox cbAnalitic;
+        private Label label13;
+        private Label label4;
+        private Label label1;
+        private TextBox txtWorkHours;
+        private TextBox txtOcupation;
+        private TextBox txtHealthcare;
     }
 }

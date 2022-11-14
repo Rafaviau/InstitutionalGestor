@@ -87,6 +87,18 @@ namespace GestIn.UI.Home.Subjects
             }
         }
 
+        public bool VerifyInputs()
+        {
+            if (txtNombre.Text.Length == 0 || txtCargaHorariaTotal.Text.Length == 0 || cbbSubjectYear.SelectedText.Length == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public void RefreshCbbCareers()
         {
             try
@@ -113,27 +125,42 @@ namespace GestIn.UI.Home.Subjects
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if(careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text)))
+            if(VerifyInputs())
             {
-                lblResult.Text = "Materia Guardada";
-                lblResult.Visible = true;
-                StartLableRemovalTimer();
+                try
+                {
+                    careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+                    lblResult.Text = "Materia Guardada";
+                    lblResult.Visible = true;
+                    StartLableRemovalTimer();
+                }
+                catch { }
+                RefreshTableSubjects();
             }
-            RefreshTableSubjects();
+            else
+            {
+                MessageBox.Show("Campos Invalidos");
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dataGridViewMaterias.CurrentRow.Cells[0].Value!=null)
+            if (VerifyInputs() && dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
             {
-                object selectedMateria = SetGlobalSubject();
-                if(careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text)))
+                try
                 {
+                    object selectedMateria = SetGlobalSubject();
+                    careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
                     lblResult.Text = "Materia Actualizada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
                 }
+                catch { }
                 RefreshTableSubjects();
+            }
+            else
+            {
+                MessageBox.Show("Campos Invalidos");
             }
         }
 

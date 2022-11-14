@@ -35,6 +35,18 @@ namespace GestIn.UI.Home.Careers
             }
         }
 
+        public bool VerifyInputs()
+        {
+            if(txtNumResolucion.Text.Length==0 || txtNombre.Text.Length==0 || txtTitulo.Text.Length==0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public void RefreshTableCarrera()
         {
             BindingSourceCarreras.DataSource = careerController.loadCareers();
@@ -49,13 +61,22 @@ namespace GestIn.UI.Home.Careers
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text))
+            if (VerifyInputs())
             {
-                lblResult.Text = "Carrera Guardada";
-                lblResult.Visible = true;
-                StartLableRemovalTimer();
+                try
+                {
+                    careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text);
+                    lblResult.Text = "Carrera Guardada";
+                    lblResult.Visible = true;
+                    StartLableRemovalTimer();
+                    RefreshTableCarrera();
+                }
+                catch { }
             }
-            RefreshTableCarrera();
+            else
+            {
+                MessageBox.Show("Campos Incorrectos");
+            }
             ClearAll();
         }
 
@@ -63,13 +84,21 @@ namespace GestIn.UI.Home.Careers
         {
             dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            if(careerController.updateCareer(id, txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text, chkActivo.Checked))
+            if(VerifyInputs() && id!=null)
             {
-                lblResult.Text = "Carrera Actualizada";
-                lblResult.Visible = true;
-                StartLableRemovalTimer();
+                try
+                {
+                    careerController.updateCareer(id, txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text, chkActivo.Checked);
+                    lblResult.Text = "Carrera Actualizada";
+                    lblResult.Visible = true;
+                    StartLableRemovalTimer();
+                    RefreshTableCarrera();
+                } catch { }
             }
-            RefreshTableCarrera();
+            else
+            {
+                MessageBox.Show("Campos Incorrectos");
+            }
             ClearAll();
         }
 
