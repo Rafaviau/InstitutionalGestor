@@ -40,8 +40,8 @@ namespace GestIn.UI.Home.Users
 
         private void cmbUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblResult.Text = "";
-            listBoxSearchResults.ResetText();
+            NullifySearchResults();
+            ClearScreen();
             checkCurrentState();
         }
 
@@ -91,10 +91,25 @@ namespace GestIn.UI.Home.Users
             txtUserLastName.ResetText();
             txtUserName.ResetText();
             txtUserPhoneNumber.ResetText();
+            txtOcupation.ResetText();
+            txtHealthcare.ResetText();
+            txtWorkHours.ResetText();
             UserDateBirth.ResetText();
+            lblUserResult.Text = "";
+            lblSearchInfo.Text = "";
+            chkAnalitic.Checked = false;
+            chkBirthCertificate.Checked = false;
+            chkCooperative.Checked = false;
+            chkCUIL.Checked = false;
+            chkDNI.Checked = false;
+            chkMedicalCertificate.Checked = false;
+            chkPhoto.Checked = false;
+        }
+
+        public void NullifySearchResults()
+        {
+            listBoxSearchResults.DataSource = null;
             listBoxSearchResults.ResetText();
-            lblUserResult.ResetText();
-            lblSearchInfo.ResetText();
         }
 
         public void SetTextBoxValues(object userType)
@@ -111,13 +126,17 @@ namespace GestIn.UI.Home.Users
                 txtUserPhoneNumber.Text = student.User.PhoneNumbre;
                 txtUserEmergencyContact.Text = student.User.EmergencyPhoneNumber;
                 UserDateBirth.Text = ((DateTime)student.User.DateOfBirth).ToString();
+                txtOcupation.Text = student.WorkActivity;
+                txtWorkHours.Text = student.WorkingHours.ToString();
+                txtHealthcare.Text = student.SocialWork;
 
-                cbAnalitic.Checked = student.HighSchoolTitPhotocopy;
-                cbBirthCert.Checked = student.BirthCertificate;
-                cbCuil.Checked = student.CuilConstansy;
-                cbDni.Checked = student.DniPhotocopy;
-                cbMedicCerf.Checked = student.MedicalCertificate;
-                cbPhotos.Checked = student.Photo4x4;
+                chkAnalitic.Checked = student.HighSchoolTitPhotocopy;
+                chkBirthCertificate.Checked = student.BirthCertificate;
+                chkCUIL.Checked = student.CuilConstansy;
+                chkDNI.Checked = student.DniPhotocopy;
+                chkMedicalCertificate.Checked = student.MedicalCertificate;
+                chkPhoto.Checked = student.Photo4x4;
+                chkCooperative.Checked = student.Cooperative;
             }
             else
             {
@@ -140,14 +159,14 @@ namespace GestIn.UI.Home.Users
         {
             if (ValidateObligatoryInformation() && ValidateDate())
             {
-                if (cmbUserType.SelectedItem.ToString().Equals("Estudiante")) //Student
+                if (checkUserType()) //Student
                 {
                     try
                     {
                         userController.enrolStudent(Int32.Parse(txtUserDni.Text), txtUserEmail.Text,
-                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, cmbGender.SelectedItem.ToString(), 
-                            txtUserEmergencyContact.Text,
-                            cbAnalitic.Checked, cbDni.Checked, cbBirthCert.Checked, cbMedicCerf.Checked, cbPhotos.Checked, cbCuil.Checked);
+                            txtUserName.Text, txtUserLastName.Text, UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, cmbGender.SelectedItem.ToString(), txtUserEmergencyContact.Text,
+                            txtOcupation.Text, txtWorkHours.Text, txtHealthcare.Text,
+                            chkAnalitic.Checked, chkDNI.Checked, chkBirthCertificate.Checked, chkMedicalCertificate.Checked, chkPhoto.Checked, chkCUIL.Checked, chkCooperative.Checked); ;
                         lblResult.Text = "Estudiante creado";
                         lblResult.Visible = true;
                         lblStudentCount.Text = userController.countStudents().ToString();
@@ -178,12 +197,15 @@ namespace GestIn.UI.Home.Users
         {
             if (ValidateObligatoryInformation() && ValidateDate())
             {
-                if (cmbUserType.SelectedItem.ToString().Equals("Estudiante")) //Student
+                if (checkUserType()) //Student
                 {
                     try
                     {
                         //Work to be done
-                        MessageBox.Show("En Trabajo");
+                        userController.modifyUserStudent(listBoxSearchResults.SelectedItem, Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(),
+                            txtOcupation.Text, txtWorkHours.Text, txtHealthcare.Text, chkAnalitic.Checked, chkDNI.Checked, chkBirthCertificate.Checked, chkMedicalCertificate.Checked,
+                            chkPhoto.Checked, chkCUIL.Checked, chkCooperative.Checked);
                         lblResult.Text = "Estudiante modificado";
                         lblResult.Visible = true;
                         StartLableRemovalTimer();
@@ -231,23 +253,21 @@ namespace GestIn.UI.Home.Users
             lblUserResult.Text = name;
         }
 
-        public bool checkUserDependency()
+        public bool checkUserType()
         {
+            bool dependency = false;
             if(cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
             {
-                return true;
+                dependency = true;
             }
-            else
-            {
-                return false;
-            }
+            return dependency;
         }
 
         private void loadSearchResults()
         {
             int Integer = 0;
             bool checkState = Int32.TryParse(textBoxSearchBar.Text, out Integer);
-            if(checkUserDependency())
+            if(checkUserType())
             {
                 if (checkState)
                 {
@@ -309,10 +329,11 @@ namespace GestIn.UI.Home.Users
 
         private void listBoxSearchResults_DoubleClick(object sender, EventArgs e)
         {
+            ClearScreen();
             int index = listBoxSearchResults.SelectedIndex;
             if (index != null || index < 0)
             {
-                if(checkUserDependency())
+                if(checkUserType())
                 {
                     refreshUserNameLable(userController.getStudent(listBoxSearchResults.SelectedItem).FullName());
                     SetTextBoxValues(listBoxSearchResults.SelectedItem);
@@ -325,6 +346,11 @@ namespace GestIn.UI.Home.Users
                 btnInsert.Enabled = true;
                 listBoxSearchResults.Visible = false;
             }
+        }
+
+        private void studentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
