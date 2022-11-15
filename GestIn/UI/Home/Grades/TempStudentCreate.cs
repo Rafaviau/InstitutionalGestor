@@ -99,7 +99,7 @@ namespace GestIn.UI.Home.Grades
         {
             try
             {
-                userController.updateStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text);
+                //userController.updateStudent(Int32.Parse(txtDni.Text), txtEmail.Text, txtName.Text, txtLastName.Text);
                 MessageBox.Show("Guardado correctamente");
                 CleanText();
                 txtDni.ReadOnly = false;
