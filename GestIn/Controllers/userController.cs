@@ -90,7 +90,7 @@ namespace GestIn.Controllers
             return repetition;
         }
 
-        public User findUser(int dni)
+        public User? findUser(int dni)
         {
             using (var db = new Context())
             {
@@ -108,24 +108,20 @@ namespace GestIn.Controllers
         {
             try
             {
-                User user = new User();
-                user.Dni = Dni;
-                user.Name = name;
-                user.LastName = lastname;
-                user.DateOfBirth = dateOfBirth;
-                user.PlaceOfBirth = placeOfBirth;
-                user.Gender = gender;
-                user.PhoneNumbre = phone;
-                user.EmergencyPhoneNumber = emergencyphone;
-                user.CreatedAt = DateTime.Now;
-                user.LastModificationBy = name + " " + lastname;
-
-                using (var db = new Context())
-                {
-                    db.Users.Add(user);
-                    db.SaveChanges();
+            User user = new User();
+            user = findUser(Dni);
+                if (user == null) {
+                    user.Dni = Dni;
+                    user.Name = name;
+                    user.LastName = lastname;
+                    user.DateOfBirth = dateOfBirth;
+                    user.PlaceOfBirth = placeOfBirth;
+                    user.Gender = gender;
+                    user.PhoneNumbre = phone;
+                    user.EmergencyPhoneNumber = emergencyphone;
+                    user.CreatedAt = DateTime.Now;
+                    user.LastModificationBy = name + " " + lastname;
                 }
-
                 return user;
             }
             catch (SqlException exception) { throw exception; }
@@ -189,13 +185,6 @@ namespace GestIn.Controllers
                 log.Password = System.Web.Helpers.Crypto.HashPassword(dni.ToString());
                 log.CreatedAt = DateTime.Now;
                 log.LastModificationBy = "Preceptor cargando notas";
-
-                using (var db = new Context())
-                {
-                    db.LoginInformations.Add(log);
-                    db.SaveChanges();
-                }
-
                 return log;
             }
             catch (SqlException exception) { throw exception; }
@@ -211,8 +200,8 @@ namespace GestIn.Controllers
             try
             {
                 Student student = new Student();
-                student.UserId = user.Id;
-                student.LoginInformationId = log.Id;
+                student.User = user;
+                student.LoginInformation = log;
                 student.DniPhotocopy = dni;
                 student.HighSchoolTitPhotocopy = analitic;
                 student.Photo4x4 = photo;
@@ -262,38 +251,25 @@ namespace GestIn.Controllers
         }
 
         User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string phone)
-        {//EXCEL
-            Student search = findStudent(Dni); 
-            if (search != null) { return search.User; }
+        {
+            User user = new User();
+            user = findUser(Dni);
             try
             {
-                User user = new User();
-                user.Dni = Dni;
-                user.Name = name;
-                user.LastName = lastname;
-                user.DateOfBirth = dateOfBirth;
-                user.PhoneNumbre = phone;
-                user.CreatedAt = DateTime.Now;
-                user.LastModificationBy = "Preceptor cargando notas";
-
-                using (var db = new Context())
+                if (user == null)
                 {
-                    db.Users.Add(user);
-                    db.SaveChanges();
+                    user.Dni = Dni;
+                    user.Name = name;
+                    user.LastName = lastname;
+                    user.DateOfBirth = dateOfBirth;
+                    user.PhoneNumbre = phone;
+                    user.CreatedAt = DateTime.Now;
+                    user.LastModificationBy = "Preceptor cargando notas";
                 }
-
                 return user;
             }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE DNI DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
+
+            catch (SqlException exception) { throw exception; }
         }
 
         public bool ExistStudentAsExistingUser(User user, int dni)
@@ -594,251 +570,4 @@ namespace GestIn.Controllers
 
         #endregion
     }
-
-    /*
-     public bool inputTeacher(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
-                        string phone, string emergencyphone, string gender, string cuil, string title)
-        {
-            //Not in Use
-            User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
-            if (user != null)
-            {
-                LoginInformation log = createLoginInformation(mail, password, name, lastname);
-                if (log != null)
-                {
-                    return (createTeacher(Dni, mail, password, name, lastname, dateOfBirth, placeOfBirth,
-                            gender, phone, emergencyphone, cuil, title, log, user));
-                }
-            }
-            return false;
-        }
-
-
-    public bool enrolStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
-                                string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours)
-        {      
-            if (findStudent(Dni)!=null)
-                {
-                    LoginInformation log = createLoginInformation(mail, password, name, lastname);
-                    User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, gender, phone, emergencyphone);
-                    return (createStudent(Dni, mail, password, name, lastname, dateOfBirth, placeOfBirth,
-                            gender, phone, emergencyphone, socialWork, workActivity, workingHours, log, user));
-            }
-            else
-            {
-                MessageBox.Show("El estudiante que intenta crear ya existe");
-            }
-
-            //borrar todo
-            return false;
-        }
-
-    bool createStudent(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string placeOfBirth,
-                                string gender, string phone, string emergencyphone, string socialWork, string workActivity, string workingHours,LoginInformation log, User user) {
-            try
-            {
-                Student student = new Student();
-                student.UserId = user.Id;
-                student.LoginInformationId = log.Id;
-                student.DniPhotocopy = false;
-                student.HighSchoolTitPhotocopy = false;
-                student.Photo4x4 = false;
-                student.MedicalCertificate = false;
-                student.BirthCertificate = false;
-                student.CuilConstansy = false;
-                student.Cooperative = false;
-                student.SocialWork = socialWork;
-                student.WorkActivity = workActivity;
-                student.WorkingHours = workingHours;
-                student.CreatedAt = DateTime.Now;
-                student.LastModificationBy = name + " " + lastname;
-                using (var db = new Context())
-                {
-                    db.Students.Add(student);
-                    db.SaveChanges();
-                }
-
-                return true;
-            }
-            catch (SqlException exception) { throw exception; }
-
-        }
-
-    
-    User createUser(int Dni, string name, string lastname)
-    {
-        Student search = findStudent(Dni);
-        if (search != null) { return search.User; }
-        try
-        {
-            User user = new User();
-            user.Dni = Dni;
-            user.Name = name;
-            user.LastName = lastname;
-            user.CreatedAt = DateTime.Now;
-            user.LastModificationBy = "Preceptor cargando notas";
-
-            using (var db = new Context())
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-            }
-
-            return user;
-        }
-        catch (SqlException exception)
-        {
-            if (exception.Number == 2601)
-            {
-                // MANEJAR ERROR DE DNI DUPLICADO
-                return null;
-            }
-            else
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-        }
-        return null;
-    }
-    /*
-    User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string phone)
-    {
-        Student search = findStudent(Dni);
-        if (search != null) { return search.User; }
-        try
-        {
-            User user = new User();
-            user.Dni = Dni;
-            user.Name = name;
-            user.LastName = lastname;
-            user.DateOfBirth = dateOfBirth;
-            user.PhoneNumbre = phone;
-            user.CreatedAt = DateTime.Now;
-            user.LastModificationBy = "Preceptor cargando notas";
-
-            using (var db = new Context())
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-            }
-
-            return user;
-        }
-        catch (SqlException exception)
-        {
-            if (exception.Number == 2601)
-            {
-                // MANEJAR ERROR DE DNI DUPLICADO
-                return null;
-            }
-            else
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-        }
-    }
-    User createUser(int Dni, string name, string lastname)
-    {
-        Student search = findStudent(Dni);
-        if (search != null) { return search.User; }
-        try
-        {
-            User user = new User();
-            user.Dni = Dni;
-            user.Name = name;
-            user.LastName = lastname;
-            user.CreatedAt = DateTime.Now;
-            user.LastModificationBy = "Preceptor cargando notas";
-
-            using (var db = new Context())
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-            }
-
-            return user;
-        }
-        catch (SqlException exception)
-        {
-            if (exception.Number == 2601)
-            {
-                // MANEJAR ERROR DE DNI DUPLICADO
-                return null;
-            }
-            else
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-        }
-        return null;
-    }
-
-    public bool enrolStudent(int Dni, string mail, string name, string lastname, DateTime? dateOfBirth, string phone)
-    {
-        User user = createUser(Dni, name, lastname, dateOfBirth, phone);
-        if (user != null)
-        {
-            LoginInformation log = createLoginInformation(mail, Dni);
-            if (log != null)
-            {
-                return (createStudent(Dni, mail, name, lastname, log, user));
-            }
-        }
-        return false;
-    }
-
-    bool createTeacher(int Dni, string mail, string password, string name, string lastname, DateTime? dateOfBirth, string? placeOfBirth,
-                                string? gender, string? phone, string? emergencyphone, string cuil, string? title, LoginInformation log, User user)
-        {
-            // not in use
-            try
-            {
-                Teacher teacher = new Teacher();
-                teacher.UserId = user.Id;
-                teacher.LoginInformationId = log.Id;
-                teacher.Cuil = cuil;
-                teacher.Titulo = title;
-                teacher.CreatedAt = DateTime.Now;
-                teacher.LastModificationBy = name + " " + lastname;
-                using (var db = new Context())
-                {
-                    db.Teachers.Add(teacher);
-                    db.SaveChanges();
-                }
-                return true;
-            }
-            catch (SqlException exception)
-            {
-                throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
-            return false;
-
-        }
-
-    LoginInformation createLoginInformation(string email, string password, string name, string lastname)
-        {
-            try
-            {
-                LoginInformation log = new LoginInformation();
-                log.Email = email;
-                log.Password = System.Web.Helpers.Crypto.HashPassword(password);
-                log.CreatedAt = DateTime.Now;
-                log.LastModificationBy = name + " " + lastname;
-
-                using (var db = new Context())
-                {
-                    db.LoginInformations.Add(log);
-                    db.SaveChanges();
-                }
-
-                return log;
-            }
-            catch (SqlException exception)
-            {
-                if (exception.Number == 2601)
-                {
-                    // MANEJAR ERROR DE EMAIL DUPLICADO
-                    return null;
-                }
-                else
-                    throw; // MANEAJAR EXCEPEPTION INDEFINIDA
-            }
-            return null;
-        }
-*/
-
 }

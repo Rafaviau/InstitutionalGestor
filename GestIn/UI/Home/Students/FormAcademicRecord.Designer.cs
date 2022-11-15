@@ -59,7 +59,6 @@
             this.cbDni = new System.Windows.Forms.CheckBox();
             this.cbMedicCerf = new System.Windows.Forms.CheckBox();
             this.cbAnalitic = new System.Windows.Forms.CheckBox();
-            this.btnCreateStudent = new System.Windows.Forms.Button();
             this.panelLeftMenu = new System.Windows.Forms.Panel();
             this.panelStudentInfoRead = new System.Windows.Forms.Panel();
             this.lblStudentId = new System.Windows.Forms.Label();
@@ -380,7 +379,6 @@
             this.lbSearch.Size = new System.Drawing.Size(274, 84);
             this.lbSearch.TabIndex = 32;
             this.lbSearch.Visible = false;
-            this.lbSearch.SelectedIndexChanged += new System.EventHandler(this.lbSearch_SelectedIndexChanged);
             this.lbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbSearch_KeyDown);
             this.lbSearch.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbSearch_MouseDoubleClick);
             // 
@@ -476,21 +474,6 @@
             this.cbAnalitic.TabIndex = 0;
             this.cbAnalitic.Text = "Analitico secundario";
             this.cbAnalitic.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateStudent
-            // 
-            this.btnCreateStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.btnCreateStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreateStudent.ForeColor = System.Drawing.Color.White;
-            this.btnCreateStudent.Location = new System.Drawing.Point(338, 9);
-            this.btnCreateStudent.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCreateStudent.Name = "btnCreateStudent";
-            this.btnCreateStudent.Size = new System.Drawing.Size(127, 35);
-            this.btnCreateStudent.TabIndex = 35;
-            this.btnCreateStudent.Text = "Crear estudiante";
-            this.btnCreateStudent.UseVisualStyleBackColor = false;
             // 
             // panelLeftMenu
             // 
@@ -766,7 +749,6 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.panel4.Controls.Add(this.btnCreateStudent);
             this.panel4.Controls.Add(this.btnAddGrade);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(728, 0);
@@ -782,7 +764,7 @@
             this.btnAddGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddGrade.ForeColor = System.Drawing.Color.White;
-            this.btnAddGrade.Location = new System.Drawing.Point(217, 9);
+            this.btnAddGrade.Location = new System.Drawing.Point(330, 10);
             this.btnAddGrade.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddGrade.Name = "btnAddGrade";
             this.btnAddGrade.Size = new System.Drawing.Size(112, 35);
@@ -901,7 +883,6 @@
         private CheckBox cbDni;
         private CheckBox cbMedicCerf;
         private CheckBox cbAnalitic;
-        private Button btnCreateStudent;
         private Panel panelLeftMenu;
         private Panel panel2;
         private Panel panel3;

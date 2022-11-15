@@ -262,12 +262,5 @@ namespace GestIn.UI.Home.Students
 
             
         }
-
-        private void lbSearch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
