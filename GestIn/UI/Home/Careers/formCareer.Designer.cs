@@ -64,6 +64,8 @@
             this.panelGrid = new System.Windows.Forms.Panel();
             this.lableTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).BeginInit();
@@ -349,6 +351,8 @@
             // panelInfo
             // 
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.panelInfo.Controls.Add(this.lblTotalAmount);
+            this.panelInfo.Controls.Add(this.label4);
             this.panelInfo.Controls.Add(this.lblResult);
             this.panelInfo.Controls.Add(this.cbbTurno);
             this.panelInfo.Controls.Add(this.txtNumResolucion);
@@ -393,6 +397,26 @@
             // lableTimer
             // 
             this.lableTimer.Tick += new System.EventHandler(this.lableTimer_Tick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(873, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 20);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Cantidad Materias:";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.White;
+            this.lblTotalAmount.Location = new System.Drawing.Point(1012, 103);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(60, 20);
+            this.lblTotalAmount.TabIndex = 25;
+            this.lblTotalAmount.Text = "amount";
             // 
             // formCareer
             // 
@@ -456,5 +480,7 @@
         private Label lblResult;
         private System.Windows.Forms.Timer lableTimer;
         private ToolTip toolTip1;
+        private Label lblTotalAmount;
+        private Label label4;
     }
 }

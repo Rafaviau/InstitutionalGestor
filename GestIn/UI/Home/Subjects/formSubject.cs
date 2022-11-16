@@ -89,14 +89,12 @@ namespace GestIn.UI.Home.Subjects
 
         public bool VerifyInputs()
         {
-            if (txtNombre.Text.Length == 0 || txtCargaHorariaTotal.Text.Length == 0 || cbbSubjectYear.SelectedText.Length == 0)
+            bool state = true;
+            if (txtNombre.Text.Length == 0 || txtCargaHorariaTotal.Text.Length == 0 || cbbSubjectYear.Text.Length == 0)
             {
-                return false;
+                state = false;
             }
-            else
-            {
-                return true;
-            }
+            return state;
         }
 
         public void RefreshCbbCareers()
@@ -129,7 +127,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 try
                 {
-                    careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+                    careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text), txtCupof.Text);
                     lblResult.Text = "Materia Guardada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
@@ -150,8 +148,28 @@ namespace GestIn.UI.Home.Subjects
                 try
                 {
                     object selectedMateria = SetGlobalSubject();
-                    careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text));
+                    careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text), txtCupof.Text);
                     lblResult.Text = "Materia Actualizada";
+                    lblResult.Visible = true;
+                    StartLableRemovalTimer();
+                }
+                catch { }
+                RefreshTableSubjects();
+            }
+            else
+            {
+                MessageBox.Show("Campos Invalidos");
+            }
+        }
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
+            {
+                try
+                {
+                    object selectedMateria = SetGlobalSubject();
+                    careerController.softDeleteSubject(selectedMateria);
+                    lblResult.Text = "Materia Eliminada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
                 }

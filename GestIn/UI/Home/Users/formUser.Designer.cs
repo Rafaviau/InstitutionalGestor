@@ -77,19 +77,19 @@
             this.panelInfo = new System.Windows.Forms.Panel();
             this.panelMainSearch = new System.Windows.Forms.Panel();
             this.studentPanel = new System.Windows.Forms.Panel();
-            this.txtHealthcare = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtWorkHours = new System.Windows.Forms.TextBox();
-            this.txtOcupation = new System.Windows.Forms.TextBox();
-            this.chkAnalitic = new System.Windows.Forms.CheckBox();
-            this.chkDNI = new System.Windows.Forms.CheckBox();
-            this.chkBirthCertificate = new System.Windows.Forms.CheckBox();
-            this.chkPhoto = new System.Windows.Forms.CheckBox();
-            this.chkCUIL = new System.Windows.Forms.CheckBox();
-            this.chkCooperative = new System.Windows.Forms.CheckBox();
             this.chkMedicalCertificate = new System.Windows.Forms.CheckBox();
+            this.chkCooperative = new System.Windows.Forms.CheckBox();
+            this.chkCUIL = new System.Windows.Forms.CheckBox();
+            this.chkPhoto = new System.Windows.Forms.CheckBox();
+            this.chkBirthCertificate = new System.Windows.Forms.CheckBox();
+            this.chkDNI = new System.Windows.Forms.CheckBox();
+            this.chkAnalitic = new System.Windows.Forms.CheckBox();
+            this.txtHealthcare = new System.Windows.Forms.TextBox();
+            this.txtOcupation = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtWorkHours = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -466,6 +466,7 @@
             this.lblDNI.Size = new System.Drawing.Size(34, 20);
             this.lblDNI.TabIndex = 19;
             this.lblDNI.Text = "Cuil";
+            this.lblDNI.Click += new System.EventHandler(this.lblDNI_Click);
             // 
             // txtTitle
             // 
@@ -608,103 +609,15 @@
             this.studentPanel.TabIndex = 63;
             this.studentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.studentPanel_Paint);
             // 
-            // txtHealthcare
+            // chkMedicalCertificate
             // 
-            this.txtHealthcare.Location = new System.Drawing.Point(17, 182);
-            this.txtHealthcare.Name = "txtHealthcare";
-            this.txtHealthcare.Size = new System.Drawing.Size(264, 27);
-            this.txtHealthcare.TabIndex = 65;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 159);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 20);
-            this.label13.TabIndex = 64;
-            this.label13.Text = "Obra Social";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 20);
-            this.label4.TabIndex = 64;
-            this.label4.Text = "Ocupación Horas";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Ocupación";
-            // 
-            // txtWorkHours
-            // 
-            this.txtWorkHours.Location = new System.Drawing.Point(17, 111);
-            this.txtWorkHours.Name = "txtWorkHours";
-            this.txtWorkHours.Size = new System.Drawing.Size(264, 27);
-            this.txtWorkHours.TabIndex = 28;
-            // 
-            // txtOcupation
-            // 
-            this.txtOcupation.Location = new System.Drawing.Point(17, 44);
-            this.txtOcupation.Name = "txtOcupation";
-            this.txtOcupation.Size = new System.Drawing.Size(264, 27);
-            this.txtOcupation.TabIndex = 27;
-            // 
-            // chkAnalitic
-            // 
-            this.chkAnalitic.AutoSize = true;
-            this.chkAnalitic.Location = new System.Drawing.Point(15, 240);
-            this.chkAnalitic.Name = "chkAnalitic";
-            this.chkAnalitic.Size = new System.Drawing.Size(168, 24);
-            this.chkAnalitic.TabIndex = 66;
-            this.chkAnalitic.Text = "Analitico Secundario";
-            this.chkAnalitic.UseVisualStyleBackColor = true;
-            // 
-            // chkDNI
-            // 
-            this.chkDNI.AutoSize = true;
-            this.chkDNI.Location = new System.Drawing.Point(15, 268);
-            this.chkDNI.Name = "chkDNI";
-            this.chkDNI.Size = new System.Drawing.Size(57, 24);
-            this.chkDNI.TabIndex = 67;
-            this.chkDNI.Text = "DNI";
-            this.chkDNI.UseVisualStyleBackColor = true;
-            // 
-            // chkBirthCertificate
-            // 
-            this.chkBirthCertificate.AutoSize = true;
-            this.chkBirthCertificate.Location = new System.Drawing.Point(15, 298);
-            this.chkBirthCertificate.Name = "chkBirthCertificate";
-            this.chkBirthCertificate.Size = new System.Drawing.Size(203, 24);
-            this.chkBirthCertificate.TabIndex = 68;
-            this.chkBirthCertificate.Text = "Certificado de nacimiento";
-            this.chkBirthCertificate.UseVisualStyleBackColor = true;
-            // 
-            // chkPhoto
-            // 
-            this.chkPhoto.AutoSize = true;
-            this.chkPhoto.Location = new System.Drawing.Point(15, 358);
-            this.chkPhoto.Name = "chkPhoto";
-            this.chkPhoto.Size = new System.Drawing.Size(67, 24);
-            this.chkPhoto.TabIndex = 69;
-            this.chkPhoto.Text = "Fotos";
-            this.chkPhoto.UseVisualStyleBackColor = true;
-            // 
-            // chkCUIL
-            // 
-            this.chkCUIL.AutoSize = true;
-            this.chkCUIL.Location = new System.Drawing.Point(15, 388);
-            this.chkCUIL.Name = "chkCUIL";
-            this.chkCUIL.Size = new System.Drawing.Size(61, 24);
-            this.chkCUIL.TabIndex = 67;
-            this.chkCUIL.Text = "CUIL";
-            this.chkCUIL.UseVisualStyleBackColor = true;
+            this.chkMedicalCertificate.AutoSize = true;
+            this.chkMedicalCertificate.Location = new System.Drawing.Point(15, 328);
+            this.chkMedicalCertificate.Name = "chkMedicalCertificate";
+            this.chkMedicalCertificate.Size = new System.Drawing.Size(158, 24);
+            this.chkMedicalCertificate.TabIndex = 70;
+            this.chkMedicalCertificate.Text = "Certificado Medico";
+            this.chkMedicalCertificate.UseVisualStyleBackColor = true;
             // 
             // chkCooperative
             // 
@@ -716,15 +629,103 @@
             this.chkCooperative.Text = "Cooperativa";
             this.chkCooperative.UseVisualStyleBackColor = true;
             // 
-            // chkMedicalCertificate
+            // chkCUIL
             // 
-            this.chkMedicalCertificate.AutoSize = true;
-            this.chkMedicalCertificate.Location = new System.Drawing.Point(15, 328);
-            this.chkMedicalCertificate.Name = "chkMedicalCertificate";
-            this.chkMedicalCertificate.Size = new System.Drawing.Size(158, 24);
-            this.chkMedicalCertificate.TabIndex = 70;
-            this.chkMedicalCertificate.Text = "Certificado Medico";
-            this.chkMedicalCertificate.UseVisualStyleBackColor = true;
+            this.chkCUIL.AutoSize = true;
+            this.chkCUIL.Location = new System.Drawing.Point(15, 388);
+            this.chkCUIL.Name = "chkCUIL";
+            this.chkCUIL.Size = new System.Drawing.Size(61, 24);
+            this.chkCUIL.TabIndex = 67;
+            this.chkCUIL.Text = "CUIL";
+            this.chkCUIL.UseVisualStyleBackColor = true;
+            // 
+            // chkPhoto
+            // 
+            this.chkPhoto.AutoSize = true;
+            this.chkPhoto.Location = new System.Drawing.Point(15, 358);
+            this.chkPhoto.Name = "chkPhoto";
+            this.chkPhoto.Size = new System.Drawing.Size(67, 24);
+            this.chkPhoto.TabIndex = 69;
+            this.chkPhoto.Text = "Fotos";
+            this.chkPhoto.UseVisualStyleBackColor = true;
+            // 
+            // chkBirthCertificate
+            // 
+            this.chkBirthCertificate.AutoSize = true;
+            this.chkBirthCertificate.Location = new System.Drawing.Point(15, 298);
+            this.chkBirthCertificate.Name = "chkBirthCertificate";
+            this.chkBirthCertificate.Size = new System.Drawing.Size(203, 24);
+            this.chkBirthCertificate.TabIndex = 68;
+            this.chkBirthCertificate.Text = "Certificado de nacimiento";
+            this.chkBirthCertificate.UseVisualStyleBackColor = true;
+            // 
+            // chkDNI
+            // 
+            this.chkDNI.AutoSize = true;
+            this.chkDNI.Location = new System.Drawing.Point(15, 268);
+            this.chkDNI.Name = "chkDNI";
+            this.chkDNI.Size = new System.Drawing.Size(57, 24);
+            this.chkDNI.TabIndex = 67;
+            this.chkDNI.Text = "DNI";
+            this.chkDNI.UseVisualStyleBackColor = true;
+            // 
+            // chkAnalitic
+            // 
+            this.chkAnalitic.AutoSize = true;
+            this.chkAnalitic.Location = new System.Drawing.Point(15, 240);
+            this.chkAnalitic.Name = "chkAnalitic";
+            this.chkAnalitic.Size = new System.Drawing.Size(168, 24);
+            this.chkAnalitic.TabIndex = 66;
+            this.chkAnalitic.Text = "Analitico Secundario";
+            this.chkAnalitic.UseVisualStyleBackColor = true;
+            // 
+            // txtHealthcare
+            // 
+            this.txtHealthcare.Location = new System.Drawing.Point(17, 182);
+            this.txtHealthcare.Name = "txtHealthcare";
+            this.txtHealthcare.Size = new System.Drawing.Size(264, 27);
+            this.txtHealthcare.TabIndex = 65;
+            // 
+            // txtOcupation
+            // 
+            this.txtOcupation.Location = new System.Drawing.Point(17, 44);
+            this.txtOcupation.Name = "txtOcupation";
+            this.txtOcupation.Size = new System.Drawing.Size(264, 27);
+            this.txtOcupation.TabIndex = 27;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 159);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 20);
+            this.label13.TabIndex = 64;
+            this.label13.Text = "Obra Social";
+            // 
+            // txtWorkHours
+            // 
+            this.txtWorkHours.Location = new System.Drawing.Point(17, 111);
+            this.txtWorkHours.Name = "txtWorkHours";
+            this.txtWorkHours.Size = new System.Drawing.Size(264, 27);
+            this.txtWorkHours.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "Ocupación";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 20);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Ocupación Horas";
             // 
             // formUser
             // 

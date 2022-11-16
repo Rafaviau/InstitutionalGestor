@@ -56,6 +56,7 @@
             this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +68,8 @@
             this.cbbCarreraSelector = new System.Windows.Forms.ComboBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.panelCombo = new System.Windows.Forms.Panel();
+            this.txtCupof = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
@@ -125,10 +128,10 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(462, 76);
+            this.btnInsert.Location = new System.Drawing.Point(369, 51);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(74, 111);
+            this.btnInsert.Size = new System.Drawing.Size(75, 149);
             this.btnInsert.TabIndex = 4;
             this.btnInsert.Text = "Crear Materia";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -136,7 +139,7 @@
             // 
             // txtCargaHorariaTotal
             // 
-            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(281, 157);
+            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(174, 135);
             this.txtCargaHorariaTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCargaHorariaTotal.Name = "txtCargaHorariaTotal";
             this.txtCargaHorariaTotal.Size = new System.Drawing.Size(175, 27);
@@ -144,7 +147,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(281, 76);
+            this.txtNombre.Location = new System.Drawing.Point(174, 53);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(175, 27);
@@ -154,7 +157,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(119, 164);
+            this.label5.Location = new System.Drawing.Point(12, 142);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 20);
             this.label5.TabIndex = 21;
@@ -162,9 +165,9 @@
             // 
             // btnDocentes
             // 
-            this.btnDocentes.Location = new System.Drawing.Point(552, 159);
+            this.btnDocentes.Location = new System.Drawing.Point(733, 130);
             this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Size = new System.Drawing.Size(175, 31);
+            this.btnDocentes.Size = new System.Drawing.Size(147, 44);
             this.btnDocentes.TabIndex = 6;
             this.btnDocentes.Text = "Cargar Docentes";
             this.btnDocentes.UseVisualStyleBackColor = true;
@@ -174,7 +177,7 @@
             // 
             this.label123.AutoSize = true;
             this.label123.ForeColor = System.Drawing.Color.White;
-            this.label123.Location = new System.Drawing.Point(229, 38);
+            this.label123.Location = new System.Drawing.Point(316, 21);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(155, 20);
             this.label123.TabIndex = 37;
@@ -182,9 +185,9 @@
             // 
             // btnCorrelativas
             // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(552, 117);
+            this.btnCorrelativas.Location = new System.Drawing.Point(733, 73);
             this.btnCorrelativas.Name = "btnCorrelativas";
-            this.btnCorrelativas.Size = new System.Drawing.Size(175, 31);
+            this.btnCorrelativas.Size = new System.Drawing.Size(147, 46);
             this.btnCorrelativas.TabIndex = 6;
             this.btnCorrelativas.Text = "Cargar Correlativas";
             this.btnCorrelativas.UseVisualStyleBackColor = true;
@@ -194,7 +197,7 @@
             // 
             this.lblAnioCarrera.AutoSize = true;
             this.lblAnioCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblAnioCarrera.Location = new System.Drawing.Point(119, 124);
+            this.lblAnioCarrera.Location = new System.Drawing.Point(12, 101);
             this.lblAnioCarrera.Name = "lblAnioCarrera";
             this.lblAnioCarrera.Size = new System.Drawing.Size(43, 20);
             this.lblAnioCarrera.TabIndex = 20;
@@ -204,7 +207,7 @@
             // 
             this.lblShowSubjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblShowSubjectName.ForeColor = System.Drawing.Color.White;
-            this.lblShowSubjectName.Location = new System.Drawing.Point(390, 30);
+            this.lblShowSubjectName.Location = new System.Drawing.Point(477, 13);
             this.lblShowSubjectName.Name = "lblShowSubjectName";
             this.lblShowSubjectName.Size = new System.Drawing.Size(337, 32);
             this.lblShowSubjectName.TabIndex = 38;
@@ -214,7 +217,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(119, 83);
+            this.lblNombre.Location = new System.Drawing.Point(12, 60);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(71, 20);
             this.lblNombre.TabIndex = 19;
@@ -225,7 +228,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(11, 13);
+            this.lblTitle.Location = new System.Drawing.Point(3, 4);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(118, 41);
             this.lblTitle.TabIndex = 31;
@@ -240,14 +243,14 @@
             "2",
             "3",
             "4"});
-            this.cbbSubjectYear.Location = new System.Drawing.Point(281, 116);
+            this.cbbSubjectYear.Location = new System.Drawing.Point(174, 93);
             this.cbbSubjectYear.Name = "cbbSubjectYear";
             this.cbbSubjectYear.Size = new System.Drawing.Size(175, 28);
             this.cbbSubjectYear.TabIndex = 2;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(552, 76);
+            this.btnUpdate.Location = new System.Drawing.Point(503, 91);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(175, 31);
@@ -268,7 +271,7 @@
             this.teacherDataGridViewTextBoxColumn,
             this.Condition});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
-            this.dataGridViewTeachers.Location = new System.Drawing.Point(810, 38);
+            this.dataGridViewTeachers.Location = new System.Drawing.Point(886, 38);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
             this.dataGridViewTeachers.RowHeadersVisible = false;
@@ -298,6 +301,9 @@
             // panelInfo
             // 
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.panelInfo.Controls.Add(this.label1);
+            this.panelInfo.Controls.Add(this.txtCupof);
+            this.panelInfo.Controls.Add(this.btnRemove);
             this.panelInfo.Controls.Add(this.dataGridViewTeachers);
             this.panelInfo.Controls.Add(this.btnUpdate);
             this.panelInfo.Controls.Add(this.cbbSubjectYear);
@@ -317,6 +323,17 @@
             this.panelInfo.Name = "panelInfo";
             this.panelInfo.Size = new System.Drawing.Size(1350, 213);
             this.panelInfo.TabIndex = 39;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(503, 135);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(175, 31);
+            this.btnRemove.TabIndex = 40;
+            this.btnRemove.Text = "Dar de baja materia";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // dataGridViewMaterias
             // 
@@ -450,6 +467,24 @@
             this.panelCombo.Size = new System.Drawing.Size(1350, 48);
             this.panelCombo.TabIndex = 31;
             // 
+            // txtCupof
+            // 
+            this.txtCupof.Location = new System.Drawing.Point(174, 173);
+            this.txtCupof.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCupof.Name = "txtCupof";
+            this.txtCupof.Size = new System.Drawing.Size(175, 27);
+            this.txtCupof.TabIndex = 41;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Cupof: ";
+            // 
             // formSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -528,5 +563,8 @@
         private ComboBox cbbCarreraSelector;
         private Label lblResult;
         private Panel panelCombo;
+        private Button btnRemove;
+        private Label label1;
+        private TextBox txtCupof;
     }
 }

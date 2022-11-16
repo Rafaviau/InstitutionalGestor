@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using static System.Windows.Forms.AxHost;
 
 namespace GestIn.Controllers
 {
@@ -207,6 +206,45 @@ namespace GestIn.Controllers
             return false;
         }
 
+        void addCareerSubjectAmount(int id)
+        {
+            try
+            {
+                using (var db = new Context())
+                {
+                    var result = findCareer(id);
+                    if (result != null)
+                    { 
+                        //result.TotalAmountSubjects = result.TotalAmountSubjects + result.TotalAmountSubjects++;//temporary
+                        db.Update(result);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            catch (SqlException exception) { throw exception; }
+        }
+
+        void removeCareerSubjectAmount(int id)
+        {
+            int? amount;
+            try
+            {
+                using (var db = new Context())
+                {
+                    var result = findCareer(id);
+                    if (result != null)
+                    {
+                        amount = result.TotalAmountSubjects;
+                        amount--;
+                        result.TotalAmountSubjects = amount;//temporary
+                        db.Update(result);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            catch (SqlException exception) { throw exception; }
+        }
+
         public Dictionary<string, string> loadCareerInformation(string ResolutionNum)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
@@ -313,7 +351,7 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
+                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
                     return specifiedListSubjects;
                 }
                 catch (SqlException exception) { throw exception; }
@@ -329,7 +367,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool createSubject(int careerID, string name, int yearInCareer, int annualTotalhours)
+        public bool createSubject(int careerID, string name, int yearInCareer, int annualTotalhours, string cupof)
         {
             bool status = false;
             try
@@ -339,8 +377,10 @@ namespace GestIn.Controllers
                 nuevaMateria.Name = name;
                 nuevaMateria.YearInCareer = yearInCareer;
                 nuevaMateria.AnnualHourlyLoad = annualTotalhours;
+                nuevaMateria.Cupof = cupof;
                 nuevaMateria.CreatedAt = DateTime.Now;
                 nuevaMateria.LastModificationBy = "Preceptor cargando materias";
+                addCareerSubjectAmount(careerID);
                 using (var db = new Context())
                 {
                     db.Subjects.Add(nuevaMateria);
@@ -356,7 +396,7 @@ namespace GestIn.Controllers
             return status;
         }
 
-        public Subject createSubject(int careerID, string name, int yearInCareer, int annualTotalhours, object career) //Rafa
+        public Subject createSubject(int careerID, string name, int yearInCareer, int annualTotalhours) //Rafa
         {
             Subject nuevaMateria = new Subject();
             try
@@ -381,7 +421,7 @@ namespace GestIn.Controllers
             }
         }
 
-        public bool updateSubject(object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal)
+        public bool updateSubject(object materiaObject, string nombre, int anioEnCarrera, int cargaHorariaTotal, string cupof)
         {
             Subject existingSubject = (Subject)materiaObject;
             try
@@ -394,7 +434,7 @@ namespace GestIn.Controllers
                         resultSubject.Name = nombre;
                         resultSubject.YearInCareer = anioEnCarrera;
                         resultSubject.AnnualHourlyLoad = cargaHorariaTotal;
-                        //resultSubject.CareerId = carreraExistente.Id; //Check Later
+                        resultSubject.Cupof = cupof;
                         resultSubject.LastModificationBy = "Alguien actualizo esta materia";
                         resultSubject.UpdatedAt = DateTime.Now;
                         db.Update(resultSubject);
@@ -404,6 +444,29 @@ namespace GestIn.Controllers
                 }
             }
 
+            catch { }
+            return false;
+        }
+
+        public bool softDeleteSubject(object materiaObject)
+        {
+            Subject existingSubject = (Subject)materiaObject;
+            try
+            {
+                using (var db = new Context())
+                {
+                    var resultSubject = findSubject(existingSubject);
+                    if (resultSubject != null)
+                    {
+                        resultSubject.LastModificationBy = "Alguien actualizo esta materia";
+                        resultSubject.DeletedAt = DateTime.Now;
+                        removeCareerSubjectAmount(existingSubject.Id);
+                        db.Update(resultSubject);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+            }
             catch { }
             return false;
         }

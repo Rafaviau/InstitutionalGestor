@@ -23,6 +23,7 @@ namespace GestIn.Model
         public string Name { get; set; } = null!;
         public int YearInCareer { get; set; }
         public int AnnualHourlyLoad { get; set; }
+        public string? Cupof { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
