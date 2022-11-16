@@ -41,6 +41,7 @@ namespace GestIn.UI.Home.Grades
 
         private void btnCreateSubject_Click(object sender, EventArgs e)
         {
+            /*
             try {
                 careerController.createSubject(123,
                 txtSubjectName.Text,
@@ -52,7 +53,7 @@ namespace GestIn.UI.Home.Grades
             } catch {
                 MessageBox.Show("No se pudo guardar");
             };
-            
+            */
         }
 
         private void bntSearchRes_Click(object sender, EventArgs e)

@@ -37,14 +37,12 @@ namespace GestIn.UI.Home.Careers
 
         public bool VerifyInputs()
         {
+            bool state = true;
             if(txtNumResolucion.Text.Length==0 || txtNombre.Text.Length==0 || txtTitulo.Text.Length==0)
             {
-                return false;
+                state = false;
             }
-            else
-            {
-                return true;
-            }
+            return state;
         }
 
         public void RefreshTableCarrera()

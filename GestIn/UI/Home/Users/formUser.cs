@@ -352,5 +352,10 @@ namespace GestIn.UI.Home.Users
         {
 
         }
+
+        private void lblDNI_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
