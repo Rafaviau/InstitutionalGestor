@@ -62,6 +62,9 @@ namespace GestIn.UI.Home.Subjects
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }else
+            {
+                dataGridViewMaterias.DataSource = null;
             }
         }
 
@@ -176,22 +179,18 @@ namespace GestIn.UI.Home.Subjects
                 catch { }
                 RefreshTableSubjects();
             }
-            else
-            {
-                MessageBox.Show("Campos Invalidos");
-            }
         }
 
         private object SetGlobalSubject() //a seleccionar una fila/materia de la grilla
         {
-            int idmaterium;
+            int idsubject;
             object selectedSubject;
             try
             {
                 if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem!=null)
                 {
-                    idmaterium = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
-                    selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idmaterium);
+                    idsubject = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
+                    selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idsubject);
                     RefreshLableSubjectName(selectedSubject);
                     return selectedSubject;
                 }

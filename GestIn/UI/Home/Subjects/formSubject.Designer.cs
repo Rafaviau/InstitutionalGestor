@@ -56,20 +56,21 @@
             this.teacherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCupof = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.lblCarrera = new System.Windows.Forms.Label();
             this.cbbCarreraSelector = new System.Windows.Forms.ComboBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.panelCombo = new System.Windows.Forms.Panel();
-            this.txtCupof = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupof = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
@@ -165,7 +166,7 @@
             // 
             // btnDocentes
             // 
-            this.btnDocentes.Location = new System.Drawing.Point(733, 130);
+            this.btnDocentes.Location = new System.Drawing.Point(696, 126);
             this.btnDocentes.Name = "btnDocentes";
             this.btnDocentes.Size = new System.Drawing.Size(147, 44);
             this.btnDocentes.TabIndex = 6;
@@ -177,7 +178,7 @@
             // 
             this.label123.AutoSize = true;
             this.label123.ForeColor = System.Drawing.Color.White;
-            this.label123.Location = new System.Drawing.Point(316, 21);
+            this.label123.Location = new System.Drawing.Point(174, 21);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(155, 20);
             this.label123.TabIndex = 37;
@@ -185,7 +186,7 @@
             // 
             // btnCorrelativas
             // 
-            this.btnCorrelativas.Location = new System.Drawing.Point(733, 73);
+            this.btnCorrelativas.Location = new System.Drawing.Point(696, 69);
             this.btnCorrelativas.Name = "btnCorrelativas";
             this.btnCorrelativas.Size = new System.Drawing.Size(147, 46);
             this.btnCorrelativas.TabIndex = 6;
@@ -207,9 +208,9 @@
             // 
             this.lblShowSubjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblShowSubjectName.ForeColor = System.Drawing.Color.White;
-            this.lblShowSubjectName.Location = new System.Drawing.Point(477, 13);
+            this.lblShowSubjectName.Location = new System.Drawing.Point(335, 13);
             this.lblShowSubjectName.Name = "lblShowSubjectName";
-            this.lblShowSubjectName.Size = new System.Drawing.Size(337, 32);
+            this.lblShowSubjectName.Size = new System.Drawing.Size(545, 32);
             this.lblShowSubjectName.TabIndex = 38;
             this.lblShowSubjectName.Text = "                                   ";
             // 
@@ -250,7 +251,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(503, 91);
+            this.btnUpdate.Location = new System.Drawing.Point(466, 87);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(175, 31);
@@ -324,9 +325,27 @@
             this.panelInfo.Size = new System.Drawing.Size(1350, 213);
             this.panelInfo.TabIndex = 39;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Cupof: ";
+            // 
+            // txtCupof
+            // 
+            this.txtCupof.Location = new System.Drawing.Point(174, 173);
+            this.txtCupof.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCupof.Name = "txtCupof";
+            this.txtCupof.Size = new System.Drawing.Size(175, 27);
+            this.txtCupof.TabIndex = 41;
+            // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(503, 135);
+            this.btnRemove.Location = new System.Drawing.Point(466, 131);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(175, 31);
@@ -349,6 +368,7 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
+            this.Cupof,
             this.dataGridViewTextBoxColumn14});
             this.dataGridViewMaterias.DataSource = this.subjectBindingSource1;
             this.dataGridViewMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -364,54 +384,6 @@
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             this.dataGridViewMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "CareerId";
-            this.dataGridViewTextBoxColumn11.HeaderText = "CareerId";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn12.FillWeight = 40F;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
-            this.dataGridViewTextBoxColumn13.FillWeight = 10.32264F;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
-            this.dataGridViewTextBoxColumn14.FillWeight = 8.928704F;
-            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // panelGrid
             // 
@@ -467,23 +439,62 @@
             this.panelCombo.Size = new System.Drawing.Size(1350, 48);
             this.panelCombo.TabIndex = 31;
             // 
-            // txtCupof
+            // dataGridViewTextBoxColumn10
             // 
-            this.txtCupof.Location = new System.Drawing.Point(174, 173);
-            this.txtCupof.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCupof.Name = "txtCupof";
-            this.txtCupof.Size = new System.Drawing.Size(175, 27);
-            this.txtCupof.TabIndex = 41;
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 28;
             // 
-            // label1
+            // dataGridViewTextBoxColumn11
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Cupof: ";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "CareerId";
+            this.dataGridViewTextBoxColumn11.HeaderText = "CareerId";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn12.FillWeight = 64.39043F;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "YearInCareer";
+            this.dataGridViewTextBoxColumn13.FillWeight = 16.61698F;
+            this.dataGridViewTextBoxColumn13.HeaderText = "Año";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Cupof
+            // 
+            this.Cupof.DataPropertyName = "Cupof";
+            this.Cupof.FillWeight = 14F;
+            this.Cupof.HeaderText = "Cupof";
+            this.Cupof.MinimumWidth = 6;
+            this.Cupof.Name = "Cupof";
+            this.Cupof.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "AnnualHourlyLoad";
+            this.dataGridViewTextBoxColumn14.FillWeight = 14.37308F;
+            this.dataGridViewTextBoxColumn14.HeaderText = "Horas anuales";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // formSubject
             // 
@@ -553,11 +564,6 @@
         private DataGridViewTextBoxColumn Condition;
         private Panel panelInfo;
         private DataGridView dataGridViewMaterias;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private Panel panelGrid;
         private Label lblCarrera;
         private ComboBox cbbCarreraSelector;
@@ -566,5 +572,11 @@
         private Button btnRemove;
         private Label label1;
         private TextBox txtCupof;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn Cupof;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }

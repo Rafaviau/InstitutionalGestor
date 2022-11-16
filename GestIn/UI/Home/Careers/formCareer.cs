@@ -32,14 +32,7 @@ namespace GestIn.UI.Home.Careers
             if (careerController.countCareers() != 0)
             {
                 RefreshTableCarrera();
-                RefreshLableTotalAmount();
             }
-        }
-
-        public void RefreshLableTotalAmount()
-        {
-            int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            lblTotalAmount.Text = careerController.getCareer(id).TotalAmountSubjects.ToString();
         }
 
         public bool VerifyInputs()

@@ -208,14 +208,15 @@ namespace GestIn.Controllers
 
         void addCareerSubjectAmount(int id)
         {
+            int count = getSubjectsFromCareer(id).Count;
             try
             {
                 using (var db = new Context())
                 {
                     var result = findCareer(id);
                     if (result != null)
-                    { 
-                        //result.TotalAmountSubjects = result.TotalAmountSubjects + result.TotalAmountSubjects++;//temporary
+                    {
+                        result.TotalAmountSubjects = count+=1;
                         db.Update(result);
                         db.SaveChanges();
                     }
@@ -226,17 +227,15 @@ namespace GestIn.Controllers
 
         void removeCareerSubjectAmount(int id)
         {
-            int? amount;
+            int count = getSubjectsFromCareer(id).Count;
             try
             {
                 using (var db = new Context())
                 {
                     var result = findCareer(id);
-                    if (result != null)
+                    if (result != null && count<=0)
                     {
-                        amount = result.TotalAmountSubjects;
-                        amount--;
-                        result.TotalAmountSubjects = amount;//temporary
+                        result.TotalAmountSubjects = count-=1;
                         db.Update(result);
                         db.SaveChanges();
                     }
@@ -352,6 +351,22 @@ namespace GestIn.Controllers
                 try
                 {
                     specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
+                    return specifiedListSubjects;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
+        public List<Subject> getSubjectsFromCareer(int careerid) //overload del metodo anterior
+        {
+
+            List<Subject> specifiedListSubjects = new List<Subject>();
+
+            using (var db = new Context())
+            {
+                try
+                {
+                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == careerid).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
                     return specifiedListSubjects;
                 }
                 catch (SqlException exception) { throw exception; }
