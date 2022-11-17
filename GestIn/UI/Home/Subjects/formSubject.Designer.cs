@@ -60,17 +60,17 @@
             this.txtCupof = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.dataGridViewMaterias = new System.Windows.Forms.DataGridView();
-            this.panelGrid = new System.Windows.Forms.Panel();
-            this.lblCarrera = new System.Windows.Forms.Label();
-            this.cbbCarreraSelector = new System.Windows.Forms.ComboBox();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.panelCombo = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupof = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelGrid = new System.Windows.Forms.Panel();
+            this.lblCarrera = new System.Windows.Forms.Label();
+            this.cbbCarreraSelector = new System.Windows.Forms.ComboBox();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.panelCombo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCarreras)).BeginInit();
@@ -385,60 +385,6 @@
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             this.dataGridViewMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellContentClick);
             // 
-            // panelGrid
-            // 
-            this.panelGrid.Controls.Add(this.dataGridViewMaterias);
-            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGrid.Location = new System.Drawing.Point(0, 0);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(1350, 613);
-            this.panelGrid.TabIndex = 40;
-            // 
-            // lblCarrera
-            // 
-            this.lblCarrera.AutoSize = true;
-            this.lblCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblCarrera.Location = new System.Drawing.Point(3, 10);
-            this.lblCarrera.Name = "lblCarrera";
-            this.lblCarrera.Size = new System.Drawing.Size(138, 20);
-            this.lblCarrera.TabIndex = 29;
-            this.lblCarrera.Text = "Seleccionar carrera:";
-            // 
-            // cbbCarreraSelector
-            // 
-            this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCarreraSelector.FormattingEnabled = true;
-            this.cbbCarreraSelector.Location = new System.Drawing.Point(147, 7);
-            this.cbbCarreraSelector.Name = "cbbCarreraSelector";
-            this.cbbCarreraSelector.Size = new System.Drawing.Size(754, 28);
-            this.cbbCarreraSelector.TabIndex = 0;
-            this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblResult.ForeColor = System.Drawing.Color.White;
-            this.lblResult.Location = new System.Drawing.Point(931, 10);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(75, 20);
-            this.lblResult.TabIndex = 30;
-            this.lblResult.Text = "Resultado";
-            this.lblResult.Visible = false;
-            // 
-            // panelCombo
-            // 
-            this.panelCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelCombo.Controls.Add(this.lblResult);
-            this.panelCombo.Controls.Add(this.cbbCarreraSelector);
-            this.panelCombo.Controls.Add(this.lblCarrera);
-            this.panelCombo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCombo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelCombo.Location = new System.Drawing.Point(0, 565);
-            this.panelCombo.Name = "panelCombo";
-            this.panelCombo.Size = new System.Drawing.Size(1350, 48);
-            this.panelCombo.TabIndex = 31;
-            // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -448,7 +394,7 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Visible = false;
-            this.dataGridViewTextBoxColumn10.Width = 28;
+            this.dataGridViewTextBoxColumn10.Width = 125;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -495,6 +441,60 @@
             this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Controls.Add(this.dataGridViewMaterias);
+            this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrid.Location = new System.Drawing.Point(0, 0);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(1350, 613);
+            this.panelGrid.TabIndex = 40;
+            // 
+            // lblCarrera
+            // 
+            this.lblCarrera.AutoSize = true;
+            this.lblCarrera.ForeColor = System.Drawing.Color.White;
+            this.lblCarrera.Location = new System.Drawing.Point(3, 10);
+            this.lblCarrera.Name = "lblCarrera";
+            this.lblCarrera.Size = new System.Drawing.Size(138, 20);
+            this.lblCarrera.TabIndex = 29;
+            this.lblCarrera.Text = "Seleccionar carrera:";
+            // 
+            // cbbCarreraSelector
+            // 
+            this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCarreraSelector.FormattingEnabled = true;
+            this.cbbCarreraSelector.Location = new System.Drawing.Point(147, 7);
+            this.cbbCarreraSelector.Name = "cbbCarreraSelector";
+            this.cbbCarreraSelector.Size = new System.Drawing.Size(754, 28);
+            this.cbbCarreraSelector.TabIndex = 0;
+            this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.BackColor = System.Drawing.Color.Crimson;
+            this.lblResult.ForeColor = System.Drawing.Color.White;
+            this.lblResult.Location = new System.Drawing.Point(941, 10);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(75, 20);
+            this.lblResult.TabIndex = 30;
+            this.lblResult.Text = "Resultado";
+            this.lblResult.Visible = false;
+            // 
+            // panelCombo
+            // 
+            this.panelCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelCombo.Controls.Add(this.lblResult);
+            this.panelCombo.Controls.Add(this.cbbCarreraSelector);
+            this.panelCombo.Controls.Add(this.lblCarrera);
+            this.panelCombo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelCombo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelCombo.Location = new System.Drawing.Point(0, 565);
+            this.panelCombo.Name = "panelCombo";
+            this.panelCombo.Size = new System.Drawing.Size(1350, 48);
+            this.panelCombo.TabIndex = 31;
             // 
             // formSubject
             // 

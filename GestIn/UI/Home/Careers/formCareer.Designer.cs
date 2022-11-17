@@ -41,6 +41,13 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridViewCarreras = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resolutionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.degreeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmountSubjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.careerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.careerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,13 +65,6 @@
             this.panelGrid = new System.Windows.Forms.Panel();
             this.lableTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resolutionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.degreeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmountSubjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).BeginInit();
@@ -198,6 +198,72 @@
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // resolutionDataGridViewTextBoxColumn1
+            // 
+            this.resolutionDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.resolutionDataGridViewTextBoxColumn1.DataPropertyName = "Resolution";
+            this.resolutionDataGridViewTextBoxColumn1.FillWeight = 25F;
+            this.resolutionDataGridViewTextBoxColumn1.HeaderText = "Resolución";
+            this.resolutionDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.resolutionDataGridViewTextBoxColumn1.Name = "resolutionDataGridViewTextBoxColumn1";
+            this.resolutionDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // degreeDataGridViewTextBoxColumn1
+            // 
+            this.degreeDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.degreeDataGridViewTextBoxColumn1.DataPropertyName = "Degree";
+            this.degreeDataGridViewTextBoxColumn1.FillWeight = 60F;
+            this.degreeDataGridViewTextBoxColumn1.HeaderText = "Titulo";
+            this.degreeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.degreeDataGridViewTextBoxColumn1.Name = "degreeDataGridViewTextBoxColumn1";
+            this.degreeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // turnDataGridViewTextBoxColumn1
+            // 
+            this.turnDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.turnDataGridViewTextBoxColumn1.DataPropertyName = "Turn";
+            this.turnDataGridViewTextBoxColumn1.FillWeight = 20F;
+            this.turnDataGridViewTextBoxColumn1.HeaderText = "Turno";
+            this.turnDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.turnDataGridViewTextBoxColumn1.Name = "turnDataGridViewTextBoxColumn1";
+            this.turnDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // TotalAmountSubjects
+            // 
+            this.TotalAmountSubjects.DataPropertyName = "TotalAmountSubjects";
+            this.TotalAmountSubjects.FillWeight = 35F;
+            this.TotalAmountSubjects.HeaderText = "Cantidad Materias";
+            this.TotalAmountSubjects.MinimumWidth = 6;
+            this.TotalAmountSubjects.Name = "TotalAmountSubjects";
+            this.TotalAmountSubjects.ReadOnly = true;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.FillWeight = 10F;
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.activeDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // careerBindingSource1
             // 
             this.careerBindingSource1.DataSource = typeof(GestIn.Model.Career);
@@ -316,8 +382,9 @@
             // lblResult
             // 
             this.lblResult.AutoSize = true;
+            this.lblResult.BackColor = System.Drawing.Color.Crimson;
             this.lblResult.ForeColor = System.Drawing.Color.White;
-            this.lblResult.Location = new System.Drawing.Point(355, 149);
+            this.lblResult.Location = new System.Drawing.Point(355, 158);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(82, 20);
             this.lblResult.TabIndex = 23;
@@ -337,72 +404,6 @@
             // lableTimer
             // 
             this.lableTimer.Tick += new System.EventHandler(this.lableTimer_Tick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // resolutionDataGridViewTextBoxColumn1
-            // 
-            this.resolutionDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.resolutionDataGridViewTextBoxColumn1.DataPropertyName = "Resolution";
-            this.resolutionDataGridViewTextBoxColumn1.FillWeight = 25F;
-            this.resolutionDataGridViewTextBoxColumn1.HeaderText = "Resolución";
-            this.resolutionDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.resolutionDataGridViewTextBoxColumn1.Name = "resolutionDataGridViewTextBoxColumn1";
-            this.resolutionDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // degreeDataGridViewTextBoxColumn1
-            // 
-            this.degreeDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.degreeDataGridViewTextBoxColumn1.DataPropertyName = "Degree";
-            this.degreeDataGridViewTextBoxColumn1.FillWeight = 60F;
-            this.degreeDataGridViewTextBoxColumn1.HeaderText = "Titulo";
-            this.degreeDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.degreeDataGridViewTextBoxColumn1.Name = "degreeDataGridViewTextBoxColumn1";
-            this.degreeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // turnDataGridViewTextBoxColumn1
-            // 
-            this.turnDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.turnDataGridViewTextBoxColumn1.DataPropertyName = "Turn";
-            this.turnDataGridViewTextBoxColumn1.FillWeight = 20F;
-            this.turnDataGridViewTextBoxColumn1.HeaderText = "Turno";
-            this.turnDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.turnDataGridViewTextBoxColumn1.Name = "turnDataGridViewTextBoxColumn1";
-            this.turnDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // TotalAmountSubjects
-            // 
-            this.TotalAmountSubjects.DataPropertyName = "TotalAmountSubjects";
-            this.TotalAmountSubjects.FillWeight = 35F;
-            this.TotalAmountSubjects.HeaderText = "Cantidad Materias";
-            this.TotalAmountSubjects.MinimumWidth = 6;
-            this.TotalAmountSubjects.Name = "TotalAmountSubjects";
-            this.TotalAmountSubjects.ReadOnly = true;
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.FillWeight = 10F;
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Activo";
-            this.activeDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // formCareer
             // 

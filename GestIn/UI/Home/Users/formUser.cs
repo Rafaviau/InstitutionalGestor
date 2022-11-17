@@ -127,7 +127,7 @@ namespace GestIn.UI.Home.Users
                 txtUserEmergencyContact.Text = student.User.EmergencyPhoneNumber;
                 UserDateBirth.Text = ((DateTime)student.User.DateOfBirth).ToString();
                 txtOcupation.Text = student.WorkActivity;
-                txtWorkHours.Text = student.WorkingHours.ToString();
+                txtWorkHours.Text = Convert.ToString(student.WorkingHours);
                 txtHealthcare.Text = student.SocialWork;
 
                 chkAnalitic.Checked = student.HighSchoolTitPhotocopy;
@@ -172,7 +172,7 @@ namespace GestIn.UI.Home.Users
                         lblStudentCount.Text = userController.countStudents().ToString();
                         StartLableRemovalTimer();
                     }
-                    catch { MessageBox.Show("Estudiante con mismo DNI"); }
+                    catch { MessageBox.Show("Error Estudiante con mismo DNI"); }
                 
                 }
                 else //Teacher
@@ -188,7 +188,7 @@ namespace GestIn.UI.Home.Users
                         StartLableRemovalTimer();
                         
                     }
-                    catch { MessageBox.Show("Docente con mismo DNI"); }
+                    catch { MessageBox.Show("Error Docente con mismo DNI"); }
                 }
             }
             ClearScreen();

@@ -90,6 +90,7 @@
             this.txtWorkHours = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -98,6 +99,7 @@
             this.panelSearch.SuspendLayout();
             this.panelInfo.SuspendLayout();
             this.studentPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInsert
@@ -376,7 +378,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1080, 647);
+            this.label5.Location = new System.Drawing.Point(70, 460);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 20);
             this.label5.TabIndex = 46;
@@ -385,7 +387,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1080, 680);
+            this.label11.Location = new System.Drawing.Point(70, 493);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 47;
@@ -396,7 +398,7 @@
             this.lblStudentCount.AutoSize = true;
             this.lblStudentCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblStudentCount.ForeColor = System.Drawing.Color.White;
-            this.lblStudentCount.Location = new System.Drawing.Point(1222, 647);
+            this.lblStudentCount.Location = new System.Drawing.Point(212, 460);
             this.lblStudentCount.Name = "lblStudentCount";
             this.lblStudentCount.Size = new System.Drawing.Size(13, 20);
             this.lblStudentCount.TabIndex = 48;
@@ -406,7 +408,7 @@
             // 
             this.lblTeacherCount.AutoSize = true;
             this.lblTeacherCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.lblTeacherCount.Location = new System.Drawing.Point(1222, 680);
+            this.lblTeacherCount.Location = new System.Drawing.Point(212, 493);
             this.lblTeacherCount.Name = "lblTeacherCount";
             this.lblTeacherCount.Size = new System.Drawing.Size(13, 20);
             this.lblTeacherCount.TabIndex = 49;
@@ -444,7 +446,7 @@
             this.teacherPanel.Controls.Add(this.lblDNI);
             this.teacherPanel.Controls.Add(this.txtTitle);
             this.teacherPanel.Controls.Add(this.label2);
-            this.teacherPanel.Location = new System.Drawing.Point(336, 380);
+            this.teacherPanel.Location = new System.Drawing.Point(55, 88);
             this.teacherPanel.Name = "teacherPanel";
             this.teacherPanel.Size = new System.Drawing.Size(318, 136);
             this.teacherPanel.TabIndex = 55;
@@ -491,7 +493,7 @@
             this.lblResult.AutoSize = true;
             this.lblResult.BackColor = System.Drawing.Color.Crimson;
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResult.Location = new System.Drawing.Point(701, 380);
+            this.lblResult.Location = new System.Drawing.Point(62, 16);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(222, 50);
             this.lblResult.TabIndex = 56;
@@ -502,7 +504,7 @@
             // 
             this.textBoxSearchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBoxSearchBar.ForeColor = System.Drawing.Color.White;
-            this.textBoxSearchBar.Location = new System.Drawing.Point(17, 43);
+            this.textBoxSearchBar.Location = new System.Drawing.Point(15, 55);
             this.textBoxSearchBar.Name = "textBoxSearchBar";
             this.textBoxSearchBar.Size = new System.Drawing.Size(386, 27);
             this.textBoxSearchBar.TabIndex = 58;
@@ -515,7 +517,7 @@
             this.listBoxSearchResults.ForeColor = System.Drawing.Color.White;
             this.listBoxSearchResults.FormattingEnabled = true;
             this.listBoxSearchResults.ItemHeight = 20;
-            this.listBoxSearchResults.Location = new System.Drawing.Point(17, 76);
+            this.listBoxSearchResults.Location = new System.Drawing.Point(15, 88);
             this.listBoxSearchResults.Name = "listBoxSearchResults";
             this.listBoxSearchResults.Size = new System.Drawing.Size(386, 124);
             this.listBoxSearchResults.TabIndex = 59;
@@ -526,7 +528,7 @@
             // lblSearchInfo
             // 
             this.lblSearchInfo.AutoSize = true;
-            this.lblSearchInfo.Location = new System.Drawing.Point(17, 20);
+            this.lblSearchInfo.Location = new System.Drawing.Point(15, 32);
             this.lblSearchInfo.Name = "lblSearchInfo";
             this.lblSearchInfo.Size = new System.Drawing.Size(319, 20);
             this.lblSearchInfo.TabIndex = 60;
@@ -540,15 +542,20 @@
             this.panelSearch.Controls.Add(this.listBoxSearchResults);
             this.panelSearch.Controls.Add(this.lblSearchInfo);
             this.panelSearch.Controls.Add(this.textBoxSearchBar);
-            this.panelSearch.Location = new System.Drawing.Point(339, 23);
+            this.panelSearch.Controls.Add(this.lblTeacherCount);
+            this.panelSearch.Controls.Add(this.label11);
+            this.panelSearch.Controls.Add(this.lblStudentCount);
+            this.panelSearch.Controls.Add(this.label5);
+            this.panelSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelSearch.Location = new System.Drawing.Point(860, 0);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(438, 264);
+            this.panelSearch.Size = new System.Drawing.Size(432, 745);
             this.panelSearch.TabIndex = 61;
             // 
             // lblUserResult
             // 
             this.lblUserResult.AutoSize = true;
-            this.lblUserResult.Location = new System.Drawing.Point(183, 221);
+            this.lblUserResult.Location = new System.Drawing.Point(181, 233);
             this.lblUserResult.Name = "lblUserResult";
             this.lblUserResult.Size = new System.Drawing.Size(73, 20);
             this.lblUserResult.TabIndex = 62;
@@ -558,7 +565,7 @@
             // lblUserSelected
             // 
             this.lblUserSelected.AutoSize = true;
-            this.lblUserSelected.Location = new System.Drawing.Point(18, 220);
+            this.lblUserSelected.Location = new System.Drawing.Point(16, 232);
             this.lblUserSelected.Name = "lblUserSelected";
             this.lblUserSelected.Size = new System.Drawing.Size(159, 20);
             this.lblUserSelected.TabIndex = 61;
@@ -603,9 +610,9 @@
             this.studentPanel.Controls.Add(this.txtWorkHours);
             this.studentPanel.Controls.Add(this.label1);
             this.studentPanel.Controls.Add(this.label4);
-            this.studentPanel.Location = new System.Drawing.Point(913, 32);
+            this.studentPanel.Location = new System.Drawing.Point(55, 88);
             this.studentPanel.Name = "studentPanel";
-            this.studentPanel.Size = new System.Drawing.Size(367, 645);
+            this.studentPanel.Size = new System.Drawing.Size(367, 469);
             this.studentPanel.TabIndex = 63;
             this.studentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.studentPanel_Paint);
             // 
@@ -727,21 +734,27 @@
             this.label4.TabIndex = 64;
             this.label4.Text = "Ocupación Horas";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.studentPanel);
+            this.panel1.Controls.Add(this.teacherPanel);
+            this.panel1.Controls.Add(this.lblResult);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(316, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(544, 745);
+            this.panel1.TabIndex = 63;
+            // 
             // formUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1292, 745);
-            this.Controls.Add(this.studentPanel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.panelSearch);
-            this.Controls.Add(this.lblResult);
-            this.Controls.Add(this.teacherPanel);
-            this.Controls.Add(this.lblTeacherCount);
-            this.Controls.Add(this.lblStudentCount);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "formUser";
@@ -760,6 +773,8 @@
             this.panelInfo.PerformLayout();
             this.studentPanel.ResumeLayout(false);
             this.studentPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -827,5 +842,6 @@
         private CheckBox chkPhoto;
         private CheckBox chkBirthCertificate;
         private CheckBox chkMedicalCertificate;
+        private Panel panel1;
     }
 }

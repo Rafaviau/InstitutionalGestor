@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 using GestIn.Model;
 using System.Net;
+using Microsoft.VisualBasic.Logging;
 
 namespace GestIn.Controllers
 {
@@ -108,24 +109,47 @@ namespace GestIn.Controllers
         {
             try
             {
-            User user = new User();
-            user = findUser(Dni);
-                if (user == null) {
-                    user.Dni = Dni;
-                    user.Name = name;
-                    user.LastName = lastname;
-                    user.DateOfBirth = dateOfBirth;
-                    user.PlaceOfBirth = placeOfBirth;
-                    user.Gender = gender;
-                    user.PhoneNumbre = phone;
-                    user.EmergencyPhoneNumber = emergencyphone;
-                    user.CreatedAt = DateTime.Now;
-                    user.LastModificationBy = name + " " + lastname;
+                User user = new User();
+                user.Dni = Dni;
+                user.Name = name;
+                user.LastName = lastname;
+                user.DateOfBirth = dateOfBirth;
+                user.PlaceOfBirth = placeOfBirth;
+                user.Gender = gender;
+                user.PhoneNumbre = phone;
+                user.EmergencyPhoneNumber = emergencyphone;
+                user.CreatedAt = DateTime.Now;
+                user.LastModificationBy = name + " " + lastname;
+                using (var db = new Context())
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
                 }
                 return user;
             }
             catch (SqlException exception) { throw exception; }
-            return null;
+        }
+
+        User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string phone)
+        {
+            User user = new User();
+            user = findUser(Dni);
+            try
+            {
+                if (user == null)
+                {
+                    user.Dni = Dni;
+                    user.Name = name;
+                    user.LastName = lastname;
+                    user.DateOfBirth = dateOfBirth;
+                    user.PhoneNumbre = phone;
+                    user.CreatedAt = DateTime.Now;
+                    user.LastModificationBy = "Preceptor cargando notas";
+                }
+                return user;
+            }
+
+            catch (SqlException exception) { throw exception; }
         }
 
         bool updateUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string? placeOfBirth,
@@ -155,6 +179,21 @@ namespace GestIn.Controllers
             catch (SqlException exception) { throw exception; return false; }
         }
 
+        LoginInformation createLoginInformation(string email, int dni)
+        {
+            try
+            {
+                LoginInformation log = new LoginInformation();
+                log.Email = email;
+                log.Password = System.Web.Helpers.Crypto.HashPassword(dni.ToString());
+                log.CreatedAt = DateTime.Now;
+                log.LastModificationBy = "Preceptor cargando notas";
+                return log;
+            }
+            catch (SqlException exception) { throw exception; }
+            return null;
+        }
+
         bool updateLoginInformation(string? email, int dni)
         {
             LoginInformation existingLog = findTeacher(dni).LoginInformation;
@@ -176,36 +215,22 @@ namespace GestIn.Controllers
             catch (SqlException exception) { throw exception; return false; }
         }
 
-        LoginInformation createLoginInformation(string email, int dni)
-        {
-            try
-            {
-                LoginInformation log = new LoginInformation();
-                log.Email = email;
-                log.Password = System.Web.Helpers.Crypto.HashPassword(dni.ToString());
-                log.CreatedAt = DateTime.Now;
-                log.LastModificationBy = "Preceptor cargando notas";
-                return log;
-            }
-            catch (SqlException exception) { throw exception; }
-            return null;
-        }
-
         #endregion
 
         #region Alumnos
 
-        bool createStudent(string? ocupation, string? workhours, string? healthcare,
-            bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, bool cooperative, LoginInformation log, User user)
+        bool createStudent(int Dni, string? ocupation, string? workhours, string? healthcare,
+            bool analitic, bool photodni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, bool cooperative , User user, LoginInformation log)
         {
+            bool status = false;
             try
             {
+                User thisUser = findUser(Dni);
                 Student student = new Student();
-
                 student.WorkActivity = ocupation;
                 student.WorkingHours = workhours;
                 student.SocialWork = healthcare;
-                student.DniPhotocopy = dni;
+                student.DniPhotocopy = photodni;
                 student.HighSchoolTitPhotocopy = analitic;
                 student.Photo4x4 = photo;
                 student.MedicalCertificate = medicalCertificate;
@@ -213,16 +238,18 @@ namespace GestIn.Controllers
                 student.CuilConstansy = cuil;
                 student.Cooperative = cooperative;
                 student.CreatedAt = DateTime.Now;
+                student.UserId = user.Id;
+                student.LoginInformation = log;
                 student.LastModificationBy = "Preceptor carando notas";
                 using (var db = new Context())
                 {
                     db.Students.Add(student);
                     db.SaveChanges();
                 }
-
-                return true;
+                status = true;
             }
             catch (SqlException exception) { throw exception; }
+            return status;
         }
 
         public bool modifyUserStudent(object student, int Dni, string mail, string name, string lastname, DateTime? dateOfBirth, string? placeBirth,
@@ -276,28 +303,6 @@ namespace GestIn.Controllers
             catch (SqlException exception) { throw exception; }
             return false;
         }
-
-        User createUser(int Dni, string name, string lastname, DateTime? dateOfBirth, string phone)
-        {
-            User user = new User();
-            user = findUser(Dni);
-            try
-            {
-                if (user == null)
-                {
-                    user.Dni = Dni;
-                    user.Name = name;
-                    user.LastName = lastname;
-                    user.DateOfBirth = dateOfBirth;
-                    user.PhoneNumbre = phone;
-                    user.CreatedAt = DateTime.Now;
-                    user.LastModificationBy = "Preceptor cargando notas";
-                }
-                return user;
-            }
-
-            catch (SqlException exception) { throw exception; }
-        }
         
         public void updateStudent(Student existingStudent, string? ocupation, string? workhours, string? healthcare,
             bool analitic, bool dniPhoto, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, bool cooperative)
@@ -323,13 +328,13 @@ namespace GestIn.Controllers
 
         public bool enrolStudent(int Dni, string mail, string name, string lastname,DateTime? dateOfBirth, string? placeOfBirth, 
             string? phone, string? emergencyphone, string? gender, string? ocupation, string? workHours, string? healthcare,
-            bool analitic, bool dni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, bool cooperative)
+            bool analitic, bool photodni, bool birthCertificate, bool medicalCertificate, bool photo, bool cuil, bool cooperative)
         {
             if (findStudent(Dni) == null)
             {
-                User user = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, phone, emergencyphone, gender);
-                LoginInformation log = createLoginInformation(mail, Dni);
-                return createStudent(ocupation, workHours, healthcare, analitic, dni, birthCertificate, medicalCertificate, photo, cuil, cooperative, log, user);
+                User thisuser = createUser(Dni, name, lastname, dateOfBirth, placeOfBirth, phone, emergencyphone, gender);
+                LoginInformation createdLog = createLoginInformation(mail, Dni);
+                return createStudent(Dni, ocupation, workHours, healthcare, analitic, photodni, birthCertificate, medicalCertificate, photo, cuil, cooperative, thisuser, createdLog);
             }
             else
             { 
@@ -342,7 +347,8 @@ namespace GestIn.Controllers
             User user = createUser(Dni, name, lastname, dateOfBirth, phone);
             if (user != null)
             {
-                LoginInformation log = createLoginInformation(mail, Dni);
+                //LoginInformation log = createLoginInformation(mail, Dni);
+                LoginInformation log = new LoginInformation();
                 if (log != null)
                 {
                     return (createStudent(Dni, mail, name, lastname, log, user));
@@ -454,15 +460,17 @@ namespace GestIn.Controllers
             }
         }
 
-        bool createTeacher(string? cuil, string? title, LoginInformation log, User user)
+        bool createTeacher(int dni, string? cuil, string? title, User user, LoginInformation log)
         {
+            bool status = false;
             try
             {
+                User thisUser = findUser(dni);
                 Teacher teacher = new Teacher();
-                teacher.UserId = user.Id;
-                teacher.LoginInformationId = log.Id;
                 teacher.Cuil = cuil;
                 teacher.Titulo = title;
+                teacher.UserId = user.Id;
+                teacher.LoginInformation = log;
                 teacher.CreatedAt = DateTime.Now;
                 teacher.LastModificationBy = "Preceptor";
                 using (var db = new Context())
@@ -470,17 +478,16 @@ namespace GestIn.Controllers
                     db.Teachers.Add(teacher);
                     db.SaveChanges();
                 }
-
-                return true;
+                status = true;
             }
             catch (SqlException exception)
             {
                 throw; // MANEAJAR EXCEPEPTION INDEFINIDA
             }
-            return false;
+            return status;
         }
 
-        public bool updateTeacher(Teacher existingTeacher,string? cuil, string? title)
+        public bool updateTeacher(Teacher existingTeacher, string? cuil, string? title)
         {
             using (var db = new Context())
             {
@@ -494,7 +501,7 @@ namespace GestIn.Controllers
                     db.SaveChanges();
                     return true;
                 }
-                catch(SqlException exception) { throw exception; }
+                catch (SqlException exception) { throw exception; }
             }
         }
 
@@ -504,8 +511,9 @@ namespace GestIn.Controllers
             if (findTeacher(Dni) == null) 
             {
                 User user = createUser(Dni, name, lastname, dateOfBirth, placeBirth, phone, emergencyphone, gender);
-                LoginInformation log = createLoginInformation(mail, Dni);
-                return createTeacher(cuil, title, log, user);
+                LoginInformation createdLog = createLoginInformation(mail, Dni);
+                return createTeacher(Dni, cuil, title, user, createdLog);
+                //return JoinUserTypeLoginInformation(createdTeacher, createdLog);
             }
             else
             {
@@ -518,9 +526,9 @@ namespace GestIn.Controllers
         {
             Teacher existingTeacher = (Teacher)teacher;
             bool state = false;
-            if(findTeacher(Dni) != null)
+            if(findTeacher(Dni) == null)
             {
-                state = false;
+                state = true;
             }
             else
             {
@@ -584,5 +592,33 @@ namespace GestIn.Controllers
         }
 
         #endregion
+
+        public bool JoinUserTypeLoginInformation(object userType, LoginInformation log) 
+        {
+            bool status = false; 
+            if(userType is Student) //bro wtf is this
+            {
+                Student thisStudent = (Student)userType;
+                using (var db = new Context())
+                {
+                    thisStudent.LoginInformation = log;
+                    db.Update(thisStudent);
+                    db.SaveChanges();
+                    status = true;
+                }
+            }
+            else
+            {
+                Teacher thisTeacher = (Teacher)userType;
+                using (var db = new Context())
+                {
+                    thisTeacher.LoginInformation = log;
+                    db.Update(thisTeacher);
+                    db.SaveChanges();
+                    status = true;
+                }
+            }
+            return status;
+        }
     }
 }
