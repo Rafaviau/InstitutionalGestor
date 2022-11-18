@@ -125,7 +125,6 @@ namespace GestIn.UI.Home.Careers
         {
             if (e.KeyCode == Keys.Enter)
             {
-               
                 e.SuppressKeyPress = true;
             }
         }
@@ -142,10 +141,8 @@ namespace GestIn.UI.Home.Careers
             }
             else { cbbTurno.SelectedIndex = -1; }
             chkActivo.Checked = Convert.ToBoolean(dataGridViewCarreras.CurrentRow.Cells[5].Value);
-
         }
             
-
         public void StartLableRemovalTimer()
         {
             lableTimer.Interval = 4000; // 4 segundos

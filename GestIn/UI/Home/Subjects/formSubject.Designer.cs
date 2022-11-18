@@ -383,7 +383,6 @@
             this.dataGridViewMaterias.Size = new System.Drawing.Size(1181, 402);
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
-            this.dataGridViewMaterias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellContentClick);
             this.dataGridViewMaterias.SelectionChanged += new System.EventHandler(this.dataGridViewMaterias_SelectionChanged);
             this.dataGridViewMaterias.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewMaterias_KeyDown);
             // 

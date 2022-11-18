@@ -41,6 +41,7 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
+                if(dataGridViewMaterias.CurrentRow != null)
                 this.lblShowSubjectName.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
             }
             catch (Exception exc)
@@ -122,6 +123,10 @@ namespace GestIn.UI.Home.Subjects
         {
             txtNombre.Clear();
             txtCargaHorariaTotal.Clear();
+            txtCupof.Clear();
+            lblShowSubjectName.Text = "";
+            cbbSubjectYear.SelectedIndex = -1;
+
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -142,6 +147,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show("Campos Invalidos");
             }
+            ClearAll();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -163,6 +169,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show("Campos Invalidos");
             }
+            ClearAll();
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
@@ -195,6 +202,7 @@ namespace GestIn.UI.Home.Subjects
                 return selectedSubject;
             }
             catch(Exception e) { throw e; }
+            ClearAll();
         }
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -223,6 +231,7 @@ namespace GestIn.UI.Home.Subjects
         private void cbCareerSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshTableSubjects();
+            ClearAll();
         }
 
         private void btnTeachers_Click(object sender, EventArgs e)
@@ -266,11 +275,6 @@ namespace GestIn.UI.Home.Subjects
         {
             lblResult.Visible = false;
             lableTimer.Stop();
-        }
-
-        private void dataGridViewMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dataGridViewMaterias_SelectionChanged(object sender, EventArgs e)

@@ -208,7 +208,7 @@ namespace GestIn.Controllers
 
         void addCareerSubjectAmount(int id)
         {
-            int count = getSubjectsFromCareer(id).Count;
+            int? count = getSubjectsFromCareer(id).Count;
             try
             {
                 using (var db = new Context())
@@ -216,7 +216,7 @@ namespace GestIn.Controllers
                     var result = findCareer(id);
                     if (result != null)
                     {
-                        result.TotalAmountSubjects = count+=1;
+                        result.TotalAmountSubjects = count++;
                         db.Update(result);
                         db.SaveChanges();
                     }
@@ -227,15 +227,15 @@ namespace GestIn.Controllers
 
         void removeCareerSubjectAmount(int id)
         {
-            int count = getSubjectsFromCareer(id).Count;
+            int? count = getSubjectsFromCareer(id).Count;
             try
             {
                 using (var db = new Context())
                 {
                     var result = findCareer(id);
-                    if (result != null && count<=0)
+                    if (result != null && count>0)
                     {
-                        result.TotalAmountSubjects = count-=1;
+                        result.TotalAmountSubjects = count--;
                         db.Update(result);
                         db.SaveChanges();
                     }
@@ -465,25 +465,22 @@ namespace GestIn.Controllers
 
         public bool softDeleteSubject(object materiaObject)
         {
+            bool status = false;
             Subject existingSubject = (Subject)materiaObject;
             try
             {
                 using (var db = new Context())
                 {
-                    var resultSubject = findSubject(existingSubject);
-                    if (resultSubject != null)
-                    {
-                        resultSubject.LastModificationBy = "Alguien actualizo esta materia";
-                        resultSubject.DeletedAt = DateTime.Now;
-                        removeCareerSubjectAmount(existingSubject.Id);
-                        db.Update(resultSubject);
-                        db.SaveChanges();
-                        return true;
-                    }
+                    existingSubject.LastModificationBy = "Materia fue eliminada";
+                    existingSubject.DeletedAt = DateTime.Now;
+                    removeCareerSubjectAmount(existingSubject.CareerId);
+                    db.Update(existingSubject);
+                    db.SaveChanges();
+                    status = true;
                 }
             }
-            catch { }
-            return false;
+            catch (SqlException exception) { throw exception; }
+            return status;
         }
 
         public Subject findSubject(object objectSubject)
