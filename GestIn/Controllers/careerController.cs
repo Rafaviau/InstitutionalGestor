@@ -131,16 +131,16 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    Career nuevacarrera = new Career();
-                    nuevacarrera.Resolution = ResolutionNum;
-                    nuevacarrera.Name = name;
-                    nuevacarrera.Degree = degree;
-                    nuevacarrera.Turn = turn;
-                    nuevacarrera.CreatedAt = DateTime.Now;
-                    nuevacarrera.LastModificationBy = "Preceptor cargando materias";
+                    Career newCareer = new Career();
+                    newCareer.Resolution = ResolutionNum;
+                    newCareer.Name = name;
+                    newCareer.Degree = degree;
+                    newCareer.Turn = turn;
+                    newCareer.CreatedAt = DateTime.Now;
+                    newCareer.LastModificationBy = "Preceptor cargando materias";
                     using (var db = new Context())
                     {
-                        db.Careers.Add(nuevacarrera);
+                        db.Careers.Add(newCareer);
                         db.SaveChanges();
                         status = true;
                     }
@@ -188,15 +188,15 @@ namespace GestIn.Controllers
             {
                 using (var db = new Context())
                 {
-                    var result = findCareer(id);
-                    if (result != null)
+                    var updatedCareer = findCareer(id);
+                    if (updatedCareer != null)
                     {
-                        result.Resolution = reso;
-                        result.Name = name;
-                        result.Degree = degree;
-                        result.LastModificationBy = "Preceptor cargando notas";
-                        result.UpdatedAt = DateTime.Now;
-                        db.Update(result);
+                        updatedCareer.Resolution = reso;
+                        updatedCareer.Name = name;
+                        updatedCareer.Degree = degree;
+                        updatedCareer.LastModificationBy = "Preceptor cargando notas";
+                        updatedCareer.UpdatedAt = DateTime.Now;
+                        db.Update(updatedCareer);
                         db.SaveChanges();
                         return true;
                     }
@@ -206,37 +206,17 @@ namespace GestIn.Controllers
             return false;
         }
 
-        void addCareerSubjectAmount(int id)
+        void updateCareerSubjectCount(int id)
         {
-            int? count = getSubjectsFromCareer(id).Count;
             try
             {
                 using (var db = new Context())
                 {
-                    var result = findCareer(id);
-                    if (result != null)
+                    var thisCareer = findCareer(id);
+                    if (thisCareer != null)
                     {
-                        result.TotalAmountSubjects = count++;
-                        db.Update(result);
-                        db.SaveChanges();
-                    }
-                }
-            }
-            catch (SqlException exception) { throw exception; }
-        }
-
-        void removeCareerSubjectAmount(int id)
-        {
-            int? count = getSubjectsFromCareer(id).Count;
-            try
-            {
-                using (var db = new Context())
-                {
-                    var result = findCareer(id);
-                    if (result != null && count>0)
-                    {
-                        result.TotalAmountSubjects = count--;
-                        db.Update(result);
+                        thisCareer.TotalAmountSubjects = getSubjectsFromCareer(id).Count;
+                        db.Update(thisCareer);
                         db.SaveChanges();
                     }
                 }
@@ -262,8 +242,8 @@ namespace GestIn.Controllers
         } //Rafa
 
         public bool CheckSameResolutionNumber(string ResolutionNum)
-        {
-            bool repetition = false;
+        { //verifica que no se repitan los numeros de resolucion
+            bool repetition = false; 
             if (findCareer(ResolutionNum)!=null)
             {
                 repetition = true;
@@ -395,7 +375,7 @@ namespace GestIn.Controllers
                 nuevaMateria.Cupof = cupof;
                 nuevaMateria.CreatedAt = DateTime.Now;
                 nuevaMateria.LastModificationBy = "Preceptor cargando materias";
-                addCareerSubjectAmount(careerID);
+                updateCareerSubjectCount(careerID);
                 using (var db = new Context())
                 {
                     db.Subjects.Add(nuevaMateria);
@@ -469,13 +449,13 @@ namespace GestIn.Controllers
             Subject existingSubject = (Subject)materiaObject;
             try
             {
+                existingSubject.LastModificationBy = "Materia fue eliminada";
+                existingSubject.DeletedAt = DateTime.Now;
                 using (var db = new Context())
                 {
-                    existingSubject.LastModificationBy = "Materia fue eliminada";
-                    existingSubject.DeletedAt = DateTime.Now;
-                    removeCareerSubjectAmount(existingSubject.CareerId);
                     db.Update(existingSubject);
                     db.SaveChanges();
+                    updateCareerSubjectCount(existingSubject.CareerId);
                     status = true;
                 }
             }
@@ -923,8 +903,8 @@ namespace GestIn.Controllers
                         }
                     }
                     return existingCharge;
-                    //var result = db.TeacherSubjects.Where(x => x.SubjectId == subject.Id).First();
-                    //return result;
+                    //var updatedCareer = db.TeacherSubjects.Where(x => x.SubjectId == subject.Id).First();
+                    //return updatedCareer;
                 }
                 catch (SqlException exception) { throw exception; }
             }
