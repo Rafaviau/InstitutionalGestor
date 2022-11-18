@@ -16,6 +16,7 @@ namespace GestIn.UI.Home.Careers
     public partial class formCareer : Form
     {
         careerController careerController;
+        public event EventHandler EnterPressed;
         public formCareer()
         {
             careerController = careerController.GetInstance();
@@ -25,6 +26,7 @@ namespace GestIn.UI.Home.Careers
         private void formCarrera_Load(object sender, EventArgs e)
         {
             NullCheckCarreras();
+
         }
 
         public void NullCheckCarreras()
@@ -32,6 +34,7 @@ namespace GestIn.UI.Home.Careers
             if (careerController.countCareers() != 0)
             {
                 RefreshTableCarrera();
+                dataGridViewCarreras.Focus();
             }
         }
 
@@ -115,7 +118,20 @@ namespace GestIn.UI.Home.Careers
 
         private void dataGridViewCarreras_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
+            FillCareerValues();
+        }
+
+        private void dataGridViewCarreras_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        public void FillCareerValues()
+        {
             txtNumResolucion.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[1].Value);
             txtNombre.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[2].Value);
             txtTitulo.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[3].Value);
@@ -126,7 +142,9 @@ namespace GestIn.UI.Home.Careers
             }
             else { cbbTurno.SelectedIndex = -1; }
             chkActivo.Checked = Convert.ToBoolean(dataGridViewCarreras.CurrentRow.Cells[5].Value);
+
         }
+            
 
         public void StartLableRemovalTimer()
         {
@@ -149,6 +167,16 @@ namespace GestIn.UI.Home.Careers
         private void chkActivo_MouseHover(object sender, EventArgs e)
         {
            //toolTip1.SetToolTip(chkActivo, "Indica si la carrera se ecnuentra activa para inscripciones.");
+        }
+
+        private void dataGridViewCarreras_SelectionChanged(object sender, EventArgs e)
+        {
+            FillCareerValues();
+        }
+
+        private void formCareer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

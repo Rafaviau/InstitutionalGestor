@@ -224,6 +224,14 @@ namespace GestIn.UI.Home.Exams
             lblShowTit.Text = exam?.TitularNavigation?.User.Name + " " + exam?.TitularNavigation?.User.Dni;
         }
 
+        private void dgvExams_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void dgvExams_SelectionChanged(object sender, EventArgs e)
         {
             addExamInfoToLbl(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString()));
@@ -309,5 +317,7 @@ namespace GestIn.UI.Home.Exams
             if (index == null) cbbTitular.SelectedIndex = cbbTitular.FindString("--Vacio--");
             else cbbTitular.SelectedIndex = index.Value;
         }
+
+       
     }
 }

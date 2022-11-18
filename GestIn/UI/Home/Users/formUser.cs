@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using GestIn.Controllers;
 using GestIn.Model;
+using Color = System.Drawing.Color;
 
 namespace GestIn.UI.Home.Users
 {
@@ -96,7 +99,7 @@ namespace GestIn.UI.Home.Users
             txtWorkHours.ResetText();
             UserDateBirth.ResetText();
             lblUserResult.Text = "";
-            lblSearchInfo.Text = "";
+            cmbGender.SelectedIndex = -1;
             chkAnalitic.Checked = false;
             chkBirthCertificate.Checked = false;
             chkCooperative.Checked = false;
@@ -112,7 +115,7 @@ namespace GestIn.UI.Home.Users
             listBoxSearchResults.ResetText();
         }
 
-        public void SetTextBoxValues(object userType)
+        public void SetUserValues(object userType)
         {
             if(cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
             {
@@ -122,10 +125,15 @@ namespace GestIn.UI.Home.Users
                 txtUserEmail.Text = (student.LoginInformation.Email).ToString(); 
                 txtUserLastName.Text = (student.User.LastName).ToString(); 
                 txtUserName.Text = (student.User.Name).ToString(); 
-                cmbGender.SelectedText = student.User.Gender;
-                txtUserPhoneNumber.Text = student.User.PhoneNumbre;
+                cmbGender.SelectedItem = student.User.Gender;
+                txtUserPhoneNumber.Text = student.User.PhoneNumbre;                
                 txtUserEmergencyContact.Text = student.User.EmergencyPhoneNumber;
-                UserDateBirth.Text = ((DateTime)student.User.DateOfBirth).ToString();
+                if (student.User.DateOfBirth != null)
+                {
+                    UserDateBirth.CalendarForeColor = Color.Red;
+                    UserDateBirth.Text = ((DateTime)student.User.DateOfBirth).ToString();
+                }
+                else UserDateBirth.Text = "01/01/1900";
                 txtOcupation.Text = student.WorkActivity;
                 txtWorkHours.Text = Convert.ToString(student.WorkingHours);
                 txtHealthcare.Text = student.SocialWork;
@@ -146,12 +154,16 @@ namespace GestIn.UI.Home.Users
                 txtUserEmail.Text = (teacher.LoginInformation.Email).ToString(); 
                 txtUserLastName.Text = (teacher.User.LastName).ToString(); 
                 txtUserName.Text = (teacher.User.Name).ToString(); 
-                txtCuil.Text = (teacher.Cuil).ToString();
-                cmbGender.SelectedText = teacher.User.Gender;
+                cmbGender.SelectedItem = teacher.User.Gender;
                 txtUserPhoneNumber.Text = teacher.User.PhoneNumbre;
-                txtTitle.Text = teacher.Titulo;
                 txtUserEmergencyContact.Text = teacher.User.EmergencyPhoneNumber;
-                UserDateBirth.Text = ((DateTime)teacher.User.DateOfBirth).ToString();
+                if (teacher.User.DateOfBirth != null)
+                {
+                    UserDateBirth.CalendarForeColor = Color.Red;
+                    UserDateBirth.Text = ((DateTime)teacher.User.DateOfBirth).ToString();
+                }
+                txtTitle.Text = teacher.Titulo;
+                txtCuil.Text = (teacher.Cuil).ToString();
             }
         }
 
@@ -203,7 +215,7 @@ namespace GestIn.UI.Home.Users
                     {
                         //Work to be done
                         userController.modifyUserStudent(listBoxSearchResults.SelectedItem, Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
-                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(),
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedText,
                             txtOcupation.Text, txtWorkHours.Text, txtHealthcare.Text, chkAnalitic.Checked, chkDNI.Checked, chkBirthCertificate.Checked, chkMedicalCertificate.Checked,
                             chkPhoto.Checked, chkCUIL.Checked, chkCooperative.Checked);
                         lblResult.Text = "Estudiante modificado";
@@ -217,7 +229,7 @@ namespace GestIn.UI.Home.Users
                     try
                     {
                         userController.modifyUserTeacher(listBoxSearchResults.SelectedItem, Int32.Parse(txtUserDni.Text), txtUserEmail.Text, txtUserName.Text, txtUserLastName.Text,
-                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedItem.ToString(),
+                            UserDateBirth.Value.Date, txtUserBirthPlace.Text, txtUserPhoneNumber.Text, txtUserEmergencyContact.Text, cmbGender.SelectedText,
                             txtCuil.Text, txtTitle.Text);
                         lblResult.Text = "Docente modificado";
                         lblResult.Visible = true;
@@ -333,29 +345,32 @@ namespace GestIn.UI.Home.Users
             int index = listBoxSearchResults.SelectedIndex;
             if (index != null || index < 0)
             {
-                if(checkUserType())
-                {
-                    refreshUserNameLable(userController.getStudent(listBoxSearchResults.SelectedItem).FullName());
-                    SetTextBoxValues(listBoxSearchResults.SelectedItem);
-                }
-                else
-                {
-                    refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).ToString());
-                    SetTextBoxValues(listBoxSearchResults.SelectedItem);
-                }
+                RefreshByUserType();
                 btnInsert.Enabled = true;
                 listBoxSearchResults.Visible = false;
             }
         }
-
-        private void studentPanel_Paint(object sender, PaintEventArgs e)
+        private void listBoxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(listBoxSearchResults.SelectedIndex>=0)
+            {
+                SetUserValues(listBoxSearchResults.SelectedItem);
+                RefreshByUserType();
+            }
         }
 
-        private void lblDNI_Click(object sender, EventArgs e)
+        public void RefreshByUserType()
         {
-
+            if (checkUserType())
+            {
+                refreshUserNameLable(userController.getStudent(listBoxSearchResults.SelectedItem).FullName());
+                SetUserValues(listBoxSearchResults.SelectedItem);
+            }
+            else
+            {
+                refreshUserNameLable(userController.getTeacher(listBoxSearchResults.SelectedItem).ToString());
+                SetUserValues(listBoxSearchResults.SelectedItem);
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace GestIn.Model
         public string Name { get; set; } = null!;
         [StringLength(50)]
         public string LastName { get; set; } = null!;
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; } = null;
         [StringLength(500)]
         public string? PlaceOfBirth { get; set; }
         [StringLength(50)]
