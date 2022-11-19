@@ -33,6 +33,7 @@ namespace GestIn.UI.Home.Subjects
                 RefreshCbbCareers();
                 RefreshTableSubjects();
                 RefreshLableSubjectName();
+                RefreshTableCorrelatives();
                 dataGridViewMaterias.Focus();
             }
         }
@@ -88,6 +89,32 @@ namespace GestIn.UI.Home.Subjects
             }else
             {
                 dataGridViewTeachers.Rows.Clear();
+                dataGridViewTeachers.DataSource = null;
+            }
+        }
+
+        public void RefreshTableCorrelatives()
+        {
+            if(SetGlobalSubject()!=null)
+            {
+                if (careerController.getCorrelativesFromSubject(SetGlobalSubject()).Count > 0)
+                {
+                    try
+                    {
+                        correlativeBindingSource.DataSource = careerController.getCorrelativesFromSubject(SetGlobalSubject());
+                        correlativeBindingSource.ResetBindings(false);
+                        dataGridViewCorrelatives.DataSource = correlativeBindingSource;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    dataGridViewCorrelatives.Rows.Clear();
+                    dataGridViewCorrelatives.DataSource = null;
+                }
             }
         }
 
@@ -207,7 +234,7 @@ namespace GestIn.UI.Home.Subjects
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            FillSubjectValues();
+            //FillSubjectValues();
         }
         
         public void FillSubjectValues()
@@ -218,6 +245,7 @@ namespace GestIn.UI.Home.Subjects
             txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[5].Value);
             RefreshLableSubjectName();
             RefreshTableTeachers();
+            RefreshTableCorrelatives();
         }
 
         private void dataGridViewMaterias_KeyDown(object sender, KeyEventArgs e)

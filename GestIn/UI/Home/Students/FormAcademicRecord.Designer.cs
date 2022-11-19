@@ -229,6 +229,7 @@
             this.cbbCarrer.Size = new System.Drawing.Size(650, 28);
             this.cbbCarrer.Sorted = true;
             this.cbbCarrer.TabIndex = 14;
+            this.cbbCarrer.SelectedIndexChanged += new System.EventHandler(this.cbbCarrer_SelectedIndexChanged);
             // 
             // label2
             // 

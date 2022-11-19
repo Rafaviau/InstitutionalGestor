@@ -88,6 +88,7 @@
             this.txtWorkHours = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceStudents)).BeginInit();
@@ -96,6 +97,7 @@
             this.panelInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.studentPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInsert
@@ -488,9 +490,9 @@
             // 
             this.textBoxSearchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBoxSearchBar.ForeColor = System.Drawing.Color.White;
-            this.textBoxSearchBar.Location = new System.Drawing.Point(16, 38);
+            this.textBoxSearchBar.Location = new System.Drawing.Point(17, 35);
             this.textBoxSearchBar.Name = "textBoxSearchBar";
-            this.textBoxSearchBar.Size = new System.Drawing.Size(563, 27);
+            this.textBoxSearchBar.Size = new System.Drawing.Size(556, 27);
             this.textBoxSearchBar.TabIndex = 58;
             this.textBoxSearchBar.TextChanged += new System.EventHandler(this.textBoxSearchBar_TextChanged);
             this.textBoxSearchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchBar_KeyDown);
@@ -501,9 +503,9 @@
             this.listBoxSearchResults.ForeColor = System.Drawing.Color.White;
             this.listBoxSearchResults.FormattingEnabled = true;
             this.listBoxSearchResults.ItemHeight = 20;
-            this.listBoxSearchResults.Location = new System.Drawing.Point(16, 81);
+            this.listBoxSearchResults.Location = new System.Drawing.Point(17, 85);
             this.listBoxSearchResults.Name = "listBoxSearchResults";
-            this.listBoxSearchResults.Size = new System.Drawing.Size(563, 224);
+            this.listBoxSearchResults.Size = new System.Drawing.Size(556, 204);
             this.listBoxSearchResults.TabIndex = 59;
             this.listBoxSearchResults.Visible = false;
             this.listBoxSearchResults.SelectedIndexChanged += new System.EventHandler(this.listBoxSearchResults_SelectedIndexChanged);
@@ -513,7 +515,7 @@
             // lblSearchInfo
             // 
             this.lblSearchInfo.AutoSize = true;
-            this.lblSearchInfo.Location = new System.Drawing.Point(16, 15);
+            this.lblSearchInfo.Location = new System.Drawing.Point(15, 10);
             this.lblSearchInfo.Name = "lblSearchInfo";
             this.lblSearchInfo.Size = new System.Drawing.Size(319, 20);
             this.lblSearchInfo.TabIndex = 60;
@@ -522,7 +524,7 @@
             // lblUserResult
             // 
             this.lblUserResult.AutoSize = true;
-            this.lblUserResult.Location = new System.Drawing.Point(181, 319);
+            this.lblUserResult.Location = new System.Drawing.Point(180, 306);
             this.lblUserResult.Name = "lblUserResult";
             this.lblUserResult.Size = new System.Drawing.Size(73, 20);
             this.lblUserResult.TabIndex = 62;
@@ -532,7 +534,7 @@
             // lblUserSelected
             // 
             this.lblUserSelected.AutoSize = true;
-            this.lblUserSelected.Location = new System.Drawing.Point(16, 318);
+            this.lblUserSelected.Location = new System.Drawing.Point(15, 306);
             this.lblUserSelected.Name = "lblUserSelected";
             this.lblUserSelected.Size = new System.Drawing.Size(159, 20);
             this.lblUserSelected.TabIndex = 61;
@@ -554,12 +556,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.studentPanel);
-            this.panel1.Controls.Add(this.lblSearchInfo);
-            this.panel1.Controls.Add(this.listBoxSearchResults);
-            this.panel1.Controls.Add(this.textBoxSearchBar);
-            this.panel1.Controls.Add(this.lblUserResult);
-            this.panel1.Controls.Add(this.lblUserSelected);
             this.panel1.Controls.Add(this.teacherPanel);
             this.panel1.Controls.Add(this.lblResult);
             this.panel1.Controls.Add(this.label11);
@@ -712,6 +710,19 @@
             this.label4.TabIndex = 64;
             this.label4.Text = "Ocupación Horas";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.listBoxSearchResults);
+            this.panel2.Controls.Add(this.lblUserSelected);
+            this.panel2.Controls.Add(this.lblUserResult);
+            this.panel2.Controls.Add(this.lblSearchInfo);
+            this.panel2.Controls.Add(this.textBoxSearchBar);
+            this.panel2.Location = new System.Drawing.Point(6, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(588, 337);
+            this.panel2.TabIndex = 67;
+            // 
             // formUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -738,6 +749,8 @@
             this.panel1.PerformLayout();
             this.studentPanel.ResumeLayout(false);
             this.studentPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -803,5 +816,6 @@
         private TextBox txtWorkHours;
         private Label label1;
         private Label label4;
+        private Panel panel2;
     }
 }

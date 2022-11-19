@@ -78,14 +78,13 @@ namespace GestIn.UI.Home.Exams
             lblShowTit.Visible = !lblShowTit.Visible;
         }
         private void clearExamForm() {
-            cbbCarrer.SelectedIndex = 1;
-            cbbSubject.SelectedIndex = 1;
-            cbb1Vowel.SelectedIndex = 0;
-            cbb2Vowel.SelectedIndex = 0;
-            cbb3Vowel.SelectedIndex = 1;
-            cbbTitular.SelectedIndex = 1;
+            cbbCarrer.SelectedIndex = 0;
+            cbbSubject.SelectedIndex = -1;
+            cbb1Vowel.SelectedIndex = -1;
+            cbb2Vowel.SelectedIndex = -1;
+            cbb3Vowel.SelectedIndex = -1;
+            cbbTitular.SelectedIndex = -1;
             txtPlace.Text = "";
-
         }
         private (bool,string) verifyNewExamInfo() {
             string msg = "Cargado";
@@ -121,7 +120,6 @@ namespace GestIn.UI.Home.Exams
                     showError("Actualizado correctamente", true);
                     dgvExams.Rows.Clear();
                     loadExams();
-
                     clearExamForm();
                     changeStates();
                     changeButtonsState();
@@ -272,7 +270,6 @@ namespace GestIn.UI.Home.Exams
             cbbSubject.SelectedIndex = cbbSubject.FindString(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[2].Value.ToString());
             dtDate.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
             dtTime.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
-
             cbbTitular.SelectedIndex = cbbSubject.FindString("TEST");
         }
 

@@ -48,6 +48,15 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.Subject == subject && x.Approved == true)).First(); ;
             }
         }
+        public SubjectEnrolment getEnrolment(int dni, object subject, object career)
+        {
+            Subject thisSubject = (Subject)subject;
+            CareerEnrolment thisCareer = (CareerEnrolment)career;
+            using (var db = new Context())
+            {
+                return db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.Subject == subject && x.Approved == true && x.Subject.CareerId == thisCareer.CareerId)).FirstOrDefault(); ;
+            }
+        }
         public List<SubjectEnrolment> getEnrolments(int dni)
         {
             using (var db = new Context())
