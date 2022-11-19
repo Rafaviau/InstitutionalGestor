@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>C:\Users\15 3°año\Desktop\Proyect Gestin\Gestin\GestIn\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="pdfTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Commons\formConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
