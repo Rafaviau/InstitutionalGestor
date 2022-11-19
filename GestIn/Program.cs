@@ -17,7 +17,7 @@ namespace GestIn
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new test());
-            Application.Run(new pdfTest());
+            Application.Run(new formHome());
         }
     }
 }

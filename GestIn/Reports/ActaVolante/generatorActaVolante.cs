@@ -105,12 +105,12 @@ namespace GestIn.Reports.ActaVolante
             string filas = string.Empty;
             User u1 = new User();
             u1.Dni = 56156165;
-            u1.Name = "Pepe";
-            u1.LastName = "Argento";
+            u1.Name = "Juan";
+            u1.LastName = "asdd";
             User u2 = new User();
             u2.Dni = 345345;
-            u2.Name = "Marta";
-            u2.LastName = "Dias";
+            u2.Name = "Pedro";
+            u2.LastName = "MFfa";
             List<User> lista = new List<User>();
             lista.Add(u1);
             lista.Add(u2);
