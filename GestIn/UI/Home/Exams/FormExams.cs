@@ -1,6 +1,7 @@
 ﻿using GestIn.Controllers;
 using GestIn.Model;
 using GestIn.Properties;
+using GestIn.Reports;
 using GestIn.UI.Commons;
 using GestIn.UI.Home.ExamEnrolment;
 using System;
@@ -21,19 +22,26 @@ namespace GestIn.UI.Home.Exams
         examController examCnt = examController.GetInstance();
         examEnrolmentController examEnrolCnt = examEnrolmentController.GetInstance();
         userController userCnt = userController.GetInstance();
+        generatorActaVolante genActaVolante = new generatorActaVolante();
 
         public FormExams()
         {
             InitializeComponent();
             dtDate.CustomFormat = "dd-MM-yyyy";
             cbbCarrer.DataSource = careerController.loadCareers();
-            loadExams();
+            loadExams(examCnt.loadExams());
         }
-        private void loadExams()
+        private void loadExams(List<Exam>exams)
         {
-            foreach (Exam e in examCnt.loadExams()) {
+            dgvExams.Rows.Clear();
+            foreach (Exam e in exams) {
                 addExam(e);
             }
+        }
+        private void loadExam(Exam exam)
+        {
+            dgvExams.Rows.Clear();
+            addExam(exam);
         }
         private void addExam(Exam ex)
         {
@@ -78,14 +86,13 @@ namespace GestIn.UI.Home.Exams
             lblShowTit.Visible = !lblShowTit.Visible;
         }
         private void clearExamForm() {
-            cbbCarrer.SelectedIndex = 1;
-            cbbSubject.SelectedIndex = 1;
-            cbb1Vowel.SelectedIndex = 0;
-            cbb2Vowel.SelectedIndex = 0;
-            cbb3Vowel.SelectedIndex = 1;
-            cbbTitular.SelectedIndex = 1;
+            cbbCarrer.SelectedIndex = 0;
+            cbbSubject.SelectedIndex = -1;
+            cbb1Vowel.SelectedIndex = -1;
+            cbb2Vowel.SelectedIndex = -1;
+            cbb3Vowel.SelectedIndex = -1;
+            cbbTitular.SelectedIndex = -1;
             txtPlace.Text = "";
-
         }
         private (bool,string) verifyNewExamInfo() {
             string msg = "Cargado";
@@ -119,9 +126,7 @@ namespace GestIn.UI.Home.Exams
                     )) 
                 {
                     showError("Actualizado correctamente", true);
-                    dgvExams.Rows.Clear();
-                    loadExams();
-
+                    loadExams(examCnt.loadExams());
                     clearExamForm();
                     changeStates();
                     changeButtonsState();
@@ -224,6 +229,14 @@ namespace GestIn.UI.Home.Exams
             lblShowTit.Text = exam?.TitularNavigation?.User.Name + " " + exam?.TitularNavigation?.User.Dni;
         }
 
+        private void dgvExams_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void dgvExams_SelectionChanged(object sender, EventArgs e)
         {
             addExamInfoToLbl(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString()));
@@ -247,8 +260,7 @@ namespace GestIn.UI.Home.Exams
                     ))
                 {
                     showError("Actualizado correctamente", true);
-                    dgvExams.Rows.Clear();
-                    loadExams();
+                    loadExams(examCnt.loadExams());
 
                     clearExamForm();
                     changeStates();
@@ -264,17 +276,23 @@ namespace GestIn.UI.Home.Exams
             cbbSubject.SelectedIndex = cbbSubject.FindString(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[2].Value.ToString());
             dtDate.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
             dtTime.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
-
             cbbTitular.SelectedIndex = cbbSubject.FindString("TEST");
         }
 
         private void btnDeleteExam_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("¿Esta seguro que desa eliminar este examen?", "Confirmar", MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            if (Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells["enrollments"].Value) > 0) {
+                showError("No se pueden eliminar examenes con estudiantes inscriptos. Primero delos de baja", false);
+            }
+            else
             {
-                if (examCnt.deleteExam(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString()))) {
-                    dgvExams.Rows.RemoveAt(dgvExams.CurrentCell.RowIndex);
+                var confirmResult = MessageBox.Show("¿Esta seguro que desa eliminar este examen?", "Confirmar", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    if (examCnt.deleteExam(Int32.Parse(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString())))
+                    {
+                        dgvExams.Rows.RemoveAt(dgvExams.CurrentCell.RowIndex);
+                    }
                 }
             }
         }
@@ -295,7 +313,7 @@ namespace GestIn.UI.Home.Exams
         {
             if(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0] != null) {
                 Helpers.OpenChildForm(
-                    new formActaVolante(
+                    new formGradeFromExam(
                     Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value)), this.Parent);
             }
         }
@@ -308,6 +326,38 @@ namespace GestIn.UI.Home.Exams
             int? index = userCnt.getMostResentActiveTeacherId(cbbSubject.SelectedItem);
             if (index == null) cbbTitular.SelectedIndex = cbbTitular.FindString("--Vacio--");
             else cbbTitular.SelectedIndex = index.Value;
+        }
+
+        private void toggDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggDate.Checked) {
+                dtSearchDate.Enabled = false;
+            }
+            else {
+                dtSearchDate.Enabled = true;
+            }
+        }
+
+        private void btnSearchExam_Click(object sender, EventArgs e)
+        {
+            if (txtSearchCode.Text != "")
+            {
+                loadExam(examCnt.findExam(Convert.ToInt32(txtSearchCode.Text)));
+            }
+            else
+            {
+                if (toggDate.Checked)
+                    loadExams(examCnt.loadExamsRecord());
+                else
+                {
+                    loadExams(examCnt.loadExams(dtSearchDate.Value));
+                }
+            }
+        }
+
+        private void btnGenerateActaVolante_Click(object sender, EventArgs e)
+        {
+            genActaVolante.getActaVolante(Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value));
         }
     }
 }

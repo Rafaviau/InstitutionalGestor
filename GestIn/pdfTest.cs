@@ -18,7 +18,7 @@ namespace GestIn
 {
     public partial class pdfTest : Form
     {
-        actaVolante av = new actaVolante();
+        generatorActaVolante gActaVolante = new generatorActaVolante();
         public pdfTest()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace GestIn
 
         private void button1_Click(object sender, EventArgs e)
         {
-            av.generateActaVolante("123","Pasteleria","Ciencias de las tortas II","Carlos Menem","Los redonditos de ricota y tu hermana xd xd","2 año",DateTime.Today.ToString("dd/MM/yyyy"),"Narnia");
+            //gActaVolante.generateActaVolante("123", "Carrera de prueba", "MAteria de prueba", "Docente titular", "VOCALES", "2°año", DateTime.Now.ToString("dd/MM/yyy"), "Aula 3"); ;
         }
     }
 }

@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using GestIn.Model;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using GestIn.Controllers;
 
 namespace GestIn.Reports
 {
-    internal class actaVolante
+    internal class generatorActaVolante
     {
-           string header = @"
+        examEnrolmentController cntExamEnrol = examEnrolmentController.GetInstance();
+        subjectEnrolmentController cntSubEnrol = subjectEnrolmentController.GetInstance();
+        examController cntExam = examController.GetInstance();
+        string header = @"
             <div style='width:auto; float:left; height:auto;'>
                 <h3 style='margin:0px'>Instituto Superior de Formación Técnica N° 194</h3>
             </div>
@@ -21,12 +26,12 @@ namespace GestIn.Reports
             </div>
             <h5 style='margin: 2px;margin-right:3%;text-align:right'>Libro: ____Folio: ___</h5>
             ";
-            string title = @"
+        string title = @"
             <div style='width:100%;'>
                 <h1 style='text-align: center; padding-top: 0px;'>Acta volante de examen</h1>
             </div>";
-            string info = @"
-    <div style='height:auto; width:100%;line-height: 1px'>
+        string info = @"
+    <div style='height:auto; width:100%'>
         <div style='width:auto; float:left;padding-top=10%'>
             <h5>CARRERA: @career</h5>
             <h5>MATERIA: @subject</h5>
@@ -34,27 +39,27 @@ namespace GestIn.Reports
             <h5>VOCALES: @vowels</h5>
         </div>
         <div style='width: auto;float:right'>
-            <h5>AÑO: @yearInCareer</h5>
+            <h5>AÑO: @yearInCareer° año</h5>
             <h5>FECHA: @date</h5>
             <h5>LUGAR: @place</h5>
             <h5>MODALIDAD: Examen final</h5>
         </div>
     </div>";
-            string table = @"
-            <div style='padding:1px;text-align:center;'>
+        string table = @"
+            <div style='padding:1px;'>
                  <table style='border: 1px solid black; border-collapse: collapse; width:100%'>
                     <tr style='border: 1px solid black;border-collapse: collapse;'>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>N°</td>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>Apellido y nombre</td>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>Dni</td>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>Condición</td>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>Escrito</td>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>Oral</td>
-                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px'>Nota final</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>N°</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>Apellido y nombre</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>Dni</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>Condición</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>Escrito</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>Oral</td>
+                        <td style='border: 1px solid black;border-collapse: collapse;margin:5px;font-weight: bold'>Nota final</td>
                     </tr>
 
 ";
-            string sign = @"
+        string sign = @"
                 </table>
             </div>
             <div style='text-align:left;width:100%;padding-top: 50px'>
@@ -68,7 +73,7 @@ namespace GestIn.Reports
                     <h4 style='display: inline;'>Vocal __________________</h4>
                 </div>
             </div>";
-            string data = @"
+        string data = @"
             <div style='text-align:center;item-align:center;padding-top: 30px;width:100%'>
                 <div style='width:auto; float:right; height:auto;padding-left: 20px;padding-right: 60px'>
                     <h4 style='display: inline;'>Ausentes: ____</h4>
@@ -86,43 +91,42 @@ namespace GestIn.Reports
 
 
             </div>";
-        public void generateActaVolante(string examId, string career, string subject, string titular, string vowels, string yearInCareer, string date, string place)
+
+        public void getActaVolante(int examId)
+        {
+            generate(cntExam.findExam(examId));
+        }
+        void generate(Exam _exam)
         {
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
 
-            header = header.Replace("@ExamId", examId);
+            header = header.Replace("@ExamId", _exam.Id.ToString());
 
-            info = info.Replace("@career", career);
-            info = info.Replace("@subject", subject);
-            info = info.Replace("@titular", titular);
-            info = info.Replace("@vowels", vowels);
-            info = info.Replace("@yearInCareer", yearInCareer);
-            info = info.Replace("@date", date);
-            info = info.Replace("@place", place);
+            info = info.Replace("@career", _exam.IdSubjectNavigation.Career.Name);
+            info = info.Replace("@subject", _exam.IdSubjectNavigation.Name);
+            info = info.Replace("@titular", _exam.TitularNavigation?.User.fullName());
+            info = info.Replace("@vowels", _exam.FirstVowelNavigation?.User.fullName() + " " +
+                                           _exam.SecondVowelNavigation?.User.fullName() + " " +
+                                           _exam.ThirdVowelNavigation?.User.fullName());
+            info = info.Replace("@yearInCareer", _exam.IdSubjectNavigation.YearInCareer.ToString());
+            info = info.Replace("@date", _exam.Date.ToString("dd/MM/yyyy"));
+            info = info.Replace("@place", _exam.Place);
 
             string filas = string.Empty;
-            User u1 = new User();
-            u1.Dni = 56156165;
-            u1.Name = "Pepe";
-            u1.LastName = "Argento";
-            User u2 = new User();
-            u2.Dni = 345345;
-            u2.Name = "Marta";
-            u2.LastName = "Dias";
-            List<User> lista = new List<User>();
-            lista.Add(u1);
-            lista.Add(u2);
-            List<string> ready = new List<string>();
-            foreach (User us in lista)
+            int i = 0;
+            foreach (Student us in cntExamEnrol.getEnroledStudent(_exam.Id))
             {
-                filas = string.Empty;
-                filas += "<tr style='border: 1px solid black;border-collapse: collapse'>>";
-                filas += "<td style='border: 1px solid black;border-collapse: collapse'>>" + us.Name+" "+us.LastName + "</td>";
-                filas += "<td style='border: 1px solid black;border-collapse: collapse'>>" + us.Dni + "</td>";
-                filas += "<td style='border: 1px solid black;border-collapse: collapse'>>" + "Presencial" + "</td>";
-                filas += "</tr style='border: 1px solid black;border-collapse: collapse:5px'>>";
-                ready.Add(filas);
+                filas += "<tr style='border: 1px solid black;border-collapse: collapse;'>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin:2px;'>" + i + "</p></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin:2px;'>" + us.User.LastName + ", " + us.User.Name + "</p></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin:2px;'>" + us.User.Dni + "</p></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin-top:20px;'>" + cntSubEnrol.getAcreditationType(us.User.Dni, _exam.IdSubject) + "</p></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse'></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse'></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse'></td>";
+                filas += "</tr>";
+                i++;
             }
             if (savefile.ShowDialog() == DialogResult.OK)
             {
@@ -134,7 +138,7 @@ namespace GestIn.Reports
                     pdfDoc.Open();
                     pdfDoc.Add(new Phrase(""));
 
-                    using (StringReader sr = new StringReader((header + title + info + table  + sign + data)))
+                    using (StringReader sr = new StringReader(header + title + info + table + filas + sign + data))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                     }
@@ -144,9 +148,6 @@ namespace GestIn.Reports
                 }
 
             }
-        }
-        void replaceText(string examId) {
-            header = header.Replace("@ExamId", examId);
         }
     }
 }

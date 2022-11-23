@@ -258,7 +258,7 @@ namespace GestIn.Controllers
         {
             Student existingStudent = (Student)student;
             bool state = false;
-            if (findStudent(Dni) != null)
+            if (findStudent(Dni) == null)
             {
                 state = false;
             }
@@ -593,32 +593,5 @@ namespace GestIn.Controllers
 
         #endregion
 
-        public bool JoinUserTypeLoginInformation(object userType, LoginInformation log) 
-        {
-            bool status = false; 
-            if(userType is Student) //bro wtf is this
-            {
-                Student thisStudent = (Student)userType;
-                using (var db = new Context())
-                {
-                    thisStudent.LoginInformation = log;
-                    db.Update(thisStudent);
-                    db.SaveChanges();
-                    status = true;
-                }
-            }
-            else
-            {
-                Teacher thisTeacher = (Teacher)userType;
-                using (var db = new Context())
-                {
-                    thisTeacher.LoginInformation = log;
-                    db.Update(thisTeacher);
-                    db.SaveChanges();
-                    status = true;
-                }
-            }
-            return status;
-        }
     }
 }

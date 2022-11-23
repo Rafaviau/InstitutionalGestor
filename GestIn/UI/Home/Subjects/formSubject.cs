@@ -32,14 +32,18 @@ namespace GestIn.UI.Home.Subjects
             {
                 RefreshCbbCareers();
                 RefreshTableSubjects();
+                RefreshLableSubjectName();
+                RefreshTableCorrelatives();
+                dataGridViewMaterias.Focus();
             }
         }
 
-        public void RefreshLableSubjectName(object subject)
+        public void RefreshLableSubjectName()
         {
             try
             {
-                this.lblShowSubjectName.Text = careerController.getSubject(subject).ToString();
+                if(dataGridViewMaterias.CurrentRow != null)
+                this.lblShowSubjectName.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
             }
             catch (Exception exc)
             {
@@ -56,7 +60,6 @@ namespace GestIn.UI.Home.Subjects
                     bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
                     bindingSourceCarreraMaterias.ResetBindings(false);
                     dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
-                    RefreshLableSubjectName(SetGlobalSubject());
                 }
                 catch (Exception ex)
                 {
@@ -78,7 +81,6 @@ namespace GestIn.UI.Home.Subjects
                     teacherSubjectBindingSource.DataSource = careerController.getAllActiveCharges(id);
                     teacherSubjectBindingSource.ResetBindings(false);
                     dataGridViewTeachers.DataSource = teacherSubjectBindingSource;
-                    RefreshLableSubjectName(SetGlobalSubject());
                 }
                 catch (Exception ex)
                 {
@@ -87,6 +89,32 @@ namespace GestIn.UI.Home.Subjects
             }else
             {
                 dataGridViewTeachers.Rows.Clear();
+                dataGridViewTeachers.DataSource = null;
+            }
+        }
+
+        public void RefreshTableCorrelatives()
+        {
+            if(SetGlobalSubject()!=null)
+            {
+                if (careerController.getCorrelativesFromSubject(SetGlobalSubject()).Count > 0)
+                {
+                    try
+                    {
+                        correlativeBindingSource.DataSource = careerController.getCorrelativesFromSubject(SetGlobalSubject());
+                        correlativeBindingSource.ResetBindings(false);
+                        dataGridViewCorrelatives.DataSource = correlativeBindingSource;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    dataGridViewCorrelatives.Rows.Clear();
+                    dataGridViewCorrelatives.DataSource = null;
+                }
             }
         }
 
@@ -122,6 +150,10 @@ namespace GestIn.UI.Home.Subjects
         {
             txtNombre.Clear();
             txtCargaHorariaTotal.Clear();
+            txtCupof.Clear();
+            lblShowSubjectName.Text = "";
+            cbbSubjectYear.SelectedIndex = -1;
+
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -142,6 +174,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show("Campos Invalidos");
             }
+            ClearAll();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -163,6 +196,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show("Campos Invalidos");
             }
+            ClearAll();
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
@@ -184,36 +218,48 @@ namespace GestIn.UI.Home.Subjects
         private object SetGlobalSubject() //a seleccionar una fila/materia de la grilla
         {
             int idsubject;
-            object selectedSubject;
+            object selectedSubject = null;
             try
             {
                 if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem!=null)
                 {
                     idsubject = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
                     selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idsubject);
-                    RefreshLableSubjectName(selectedSubject);
-                    return selectedSubject;
                 }
-                else
-                {
-                    return null;
-                }
+                return selectedSubject;
             }
             catch(Exception e) { throw e; }
+            ClearAll();
         }
 
         private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            RefreshLableSubjectName(SetGlobalSubject());
+            //FillSubjectValues();
+        }
+        
+        public void FillSubjectValues()
+        {
             txtNombre.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
             cbbSubjectYear.SelectedItem = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
-            txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
+            txtCupof.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
+            txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[5].Value);
+            RefreshLableSubjectName();
             RefreshTableTeachers();
+            RefreshTableCorrelatives();
+        }
+
+        private void dataGridViewMaterias_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void cbCareerSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshTableSubjects();
+            ClearAll();
         }
 
         private void btnTeachers_Click(object sender, EventArgs e)
@@ -259,7 +305,12 @@ namespace GestIn.UI.Home.Subjects
             lableTimer.Stop();
         }
 
-        private void dataGridViewMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewMaterias_SelectionChanged(object sender, EventArgs e)
+        {
+            FillSubjectValues();
+        }
+
+        private void formSubject_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }

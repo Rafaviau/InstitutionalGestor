@@ -23,7 +23,7 @@ namespace GestIn.Model
         public string Name { get; set; } = null!;
         [StringLength(50)]
         public string LastName { get; set; } = null!;
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; } = null;
         [StringLength(500)]
         public string? PlaceOfBirth { get; set; }
         [StringLength(50)]
@@ -46,6 +46,10 @@ namespace GestIn.Model
         public override string ToString()
         {
             return this.Name;
+        }
+        public string fullName()
+        {
+            return this.LastName + " " +this.Name;
         }
 
 

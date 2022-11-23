@@ -45,7 +45,6 @@ namespace GestIn.UI.Home.ExamEnrolment
             }
 
         }
-        private void addEmptyRowWithMessage() { }
         private void addExam(Exam ex)
         {
             int StudentsEnroled = 0;

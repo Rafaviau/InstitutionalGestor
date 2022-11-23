@@ -48,6 +48,15 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.Subject == subject && x.Approved == true)).First(); ;
             }
         }
+        public SubjectEnrolment getEnrolment(int dni, object subject, object career)
+        {
+            Subject thisSubject = (Subject)subject;
+            CareerEnrolment thisCareer = (CareerEnrolment)career;
+            using (var db = new Context())
+            {
+                return db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.Subject == subject && x.Approved == true && x.Subject.CareerId == thisCareer.CareerId)).FirstOrDefault(); ;
+            }
+        }
         public List<SubjectEnrolment> getEnrolments(int dni)
         {
             using (var db = new Context())
@@ -62,7 +71,6 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Select(x => x.Subject).ToList(); ;
             }
         }
-
         public SubjectEnrolment findEnrolment(int id)
         {
             using (var db = new Context())
@@ -76,7 +84,6 @@ namespace GestIn.Controllers
 
             }
         }
-        
         public bool updateEnrolment(int enrolmentId, string Year, bool Presential)
         {
             using (var db = new Context())
@@ -107,6 +114,27 @@ namespace GestIn.Controllers
             catch
             {
                 return false;
+            }
+        }
+        public string getAcreditationType(int dni,int Idsubject) {
+            using (var db = new Context())
+            {
+                string result = "Libre";
+                bool state = db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.SubjectId == Idsubject)).Select(x => x.Presential).FirstOrDefault();
+                if (state == true)
+                    result = "Presencial";
+                return result;
+            }
+        }
+        public string getAcreditationTypeWithStudentId(int studentId, int Idsubject)
+        {
+            using (var db = new Context())
+            {
+                string result = "Libre";
+                bool state = db.SubjectEnrolments.Where(x => (x.StudentId == studentId && x.SubjectId == Idsubject)).Select(x => x.Presential).FirstOrDefault();
+                if (state == true)
+                    result = "Presencial";
+                return result;
             }
         }
     }

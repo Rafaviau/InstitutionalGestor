@@ -71,6 +71,30 @@ namespace GestIn.Controllers
                 catch (SqlException exception) { throw exception; }
             }
         }
+        public List<Exam> loadExamsRecord()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Exams.Include(x => x.IdSubjectNavigation).Include(x => x.IdSubjectNavigation.Career).ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+        public List<Exam> loadExams(DateTime _date)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var result = db.Exams.Where(x => x.Date.Date == _date.Date).Include(x => x.IdSubjectNavigation).Include(x => x.IdSubjectNavigation.Career).ToList();
+                    return result;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
         public Exam findExam(int code)
         {
             using (var db = new Context())
@@ -84,8 +108,7 @@ namespace GestIn.Controllers
                         .Include(x => x.FirstVowelNavigation.User)
                         .Include(x => x.SecondVowelNavigation.User)
                         .Include(x => x.ThirdVowelNavigation.User)
-
-                        .First();
+                        .FirstOrDefault();
                 }
                 catch { }
                 return null;

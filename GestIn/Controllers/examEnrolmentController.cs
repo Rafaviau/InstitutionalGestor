@@ -113,5 +113,19 @@ namespace GestIn.Controllers
                 }
                 catch (Exception exception) { return (false, exception.Message); }
             }
+        public (bool, string) unrolStudent(int Idstudent, Exam exam)
+        {
+            try
+            {
+                var _exam = findExamEnrolment(Idstudent, exam);
+                using (var db = new Context())
+                {
+                    db.ExamEnrolments.Remove(_exam);
+                    db.SaveChanges();
+                    return (true, "Estudiante dado de baja correctamente");
+                }
+            }
+            catch (Exception exception) { return (false, exception.Message); }
         }
+    }
 }
