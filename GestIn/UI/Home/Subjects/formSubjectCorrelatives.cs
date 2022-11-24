@@ -71,7 +71,7 @@ namespace GestIn.UI.Home.Subjects
         {
             try
             {
-                lblmateriaName.Text = careerController.getSubject(receivedSubject).Name;
+                lblmateriaName.Text = "[" + " " + careerController.getSubject(receivedSubject).Name + " " + "]";
             }
             catch (Exception exc)
             {
@@ -81,10 +81,14 @@ namespace GestIn.UI.Home.Subjects
 
         private void btnAddCorrelativas_Click(object sender, EventArgs e)
         {
-            object selectedSubject = cbbCorrelativas.SelectedItem;
-            careerController.createCorrelative(receivedSubject, selectedSubject, chkEstado.Checked);
-            RefreshComboboxCorrelativas();
-            RefreshTableCorrelativas();
+            try
+            {
+                object selectedSubject = cbbCorrelativas.SelectedItem;
+                careerController.createCorrelative(receivedSubject, selectedSubject, chkEstado.Checked);
+                RefreshComboboxCorrelativas();
+                RefreshTableCorrelativas();
+            }
+            catch { MessageBox.Show("Ninguna materia seleccionada");}
         }
 
         private void btnRemoveCorrelative_Click(object sender, EventArgs e)

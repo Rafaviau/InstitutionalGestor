@@ -26,7 +26,6 @@ namespace GestIn.UI.Home.Careers
         private void formCarrera_Load(object sender, EventArgs e)
         {
             NullCheckCarreras();
-
         }
 
         public void NullCheckCarreras()
@@ -156,11 +155,6 @@ namespace GestIn.UI.Home.Careers
             lableTimer.Stop();
         }
 
-        private void panelInfo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void chkActivo_MouseHover(object sender, EventArgs e)
         {
            //toolTip1.SetToolTip(chkActivo, "Indica si la carrera se ecnuentra activa para inscripciones.");
@@ -169,11 +163,6 @@ namespace GestIn.UI.Home.Careers
         private void dataGridViewCarreras_SelectionChanged(object sender, EventArgs e)
         {
             FillCareerValues();
-        }
-
-        private void formCareer_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
         }
     }
 }

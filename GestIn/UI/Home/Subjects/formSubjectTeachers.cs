@@ -213,15 +213,5 @@ namespace GestIn.UI.Home.Subjects
             else { cmbCondition.SelectedIndex = -1; }
             RefreshLableTeacherName();
         }
-
-        private void ListboxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblteachername_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

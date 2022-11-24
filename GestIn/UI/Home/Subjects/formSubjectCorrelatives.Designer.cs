@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewCorrelativas = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correlativeSubjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,16 +65,29 @@
             // 
             this.dataGridViewCorrelativas.AllowUserToAddRows = false;
             this.dataGridViewCorrelativas.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.dataGridViewCorrelativas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewCorrelativas.AutoGenerateColumns = false;
             this.dataGridViewCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCorrelativas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCorrelativas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCorrelativas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewCorrelativas.ColumnHeadersHeight = 54;
+            this.dataGridViewCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewCorrelativas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.correlativeSubjectDataGridViewTextBoxColumn,
             this.CorrelativeFinal});
             this.dataGridViewCorrelativas.DataSource = this.correlativeBindingSource1;
             this.dataGridViewCorrelativas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCorrelativas.EnableHeadersVisualStyles = false;
             this.dataGridViewCorrelativas.GridColor = System.Drawing.SystemColors.WindowFrame;
             this.dataGridViewCorrelativas.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewCorrelativas.MultiSelect = false;
@@ -80,11 +95,11 @@
             this.dataGridViewCorrelativas.ReadOnly = true;
             this.dataGridViewCorrelativas.RowHeadersVisible = false;
             this.dataGridViewCorrelativas.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.dataGridViewCorrelativas.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.dataGridViewCorrelativas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewCorrelativas.RowTemplate.Height = 29;
             this.dataGridViewCorrelativas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCorrelativas.Size = new System.Drawing.Size(1159, 455);
+            this.dataGridViewCorrelativas.Size = new System.Drawing.Size(1159, 403);
             this.dataGridViewCorrelativas.TabIndex = 6;
             // 
             // Id
@@ -114,7 +129,7 @@
             this.CorrelativeFinal.MinimumWidth = 6;
             this.CorrelativeFinal.Name = "CorrelativeFinal";
             this.CorrelativeFinal.ReadOnly = true;
-            this.CorrelativeFinal.Width = 96;
+            this.CorrelativeFinal.Width = 121;
             // 
             // correlativeBindingSource1
             // 
@@ -131,20 +146,22 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 158);
+            this.label7.Location = new System.Drawing.Point(19, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 20);
+            this.label7.Size = new System.Drawing.Size(275, 31);
             this.label7.TabIndex = 41;
             this.label7.Text = "Correlativas de la Materia";
             // 
             // btnAddCorrelativas
             // 
-            this.btnAddCorrelativas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.btnAddCorrelativas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnAddCorrelativas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddCorrelativas.ForeColor = System.Drawing.Color.White;
-            this.btnAddCorrelativas.Location = new System.Drawing.Point(989, 6);
+            this.btnAddCorrelativas.Location = new System.Drawing.Point(966, 55);
             this.btnAddCorrelativas.Name = "btnAddCorrelativas";
-            this.btnAddCorrelativas.Size = new System.Drawing.Size(158, 38);
+            this.btnAddCorrelativas.Size = new System.Drawing.Size(170, 49);
             this.btnAddCorrelativas.TabIndex = 4;
             this.btnAddCorrelativas.Text = "Agregar Correlativa";
             this.btnAddCorrelativas.UseVisualStyleBackColor = false;
@@ -156,18 +173,19 @@
             this.cbbCorrelativas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCorrelativas.ForeColor = System.Drawing.Color.Black;
             this.cbbCorrelativas.FormattingEnabled = true;
-            this.cbbCorrelativas.Location = new System.Drawing.Point(12, 76);
+            this.cbbCorrelativas.Location = new System.Drawing.Point(19, 100);
             this.cbbCorrelativas.Name = "cbbCorrelativas";
             this.cbbCorrelativas.Size = new System.Drawing.Size(817, 28);
             this.cbbCorrelativas.TabIndex = 1;
             // 
             // btnRemoveCorrelative
             // 
-            this.btnRemoveCorrelative.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.btnRemoveCorrelative.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnRemoveCorrelative.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRemoveCorrelative.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveCorrelative.Location = new System.Drawing.Point(989, 50);
+            this.btnRemoveCorrelative.Location = new System.Drawing.Point(966, 129);
             this.btnRemoveCorrelative.Name = "btnRemoveCorrelative";
-            this.btnRemoveCorrelative.Size = new System.Drawing.Size(158, 37);
+            this.btnRemoveCorrelative.Size = new System.Drawing.Size(170, 49);
             this.btnRemoveCorrelative.TabIndex = 5;
             this.btnRemoveCorrelative.Text = "Remover Correlativa";
             this.btnRemoveCorrelative.UseVisualStyleBackColor = false;
@@ -176,10 +194,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(19, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 20);
+            this.label1.Size = new System.Drawing.Size(327, 31);
             this.label1.TabIndex = 47;
             this.label1.Text = "Agregando correlatividades a: ";
             // 
@@ -187,7 +206,7 @@
             // 
             this.lblmateriaName.AutoSize = true;
             this.lblmateriaName.ForeColor = System.Drawing.Color.White;
-            this.lblmateriaName.Location = new System.Drawing.Point(231, 15);
+            this.lblmateriaName.Location = new System.Drawing.Point(342, 28);
             this.lblmateriaName.Name = "lblmateriaName";
             this.lblmateriaName.Size = new System.Drawing.Size(91, 20);
             this.lblmateriaName.TabIndex = 48;
@@ -197,7 +216,7 @@
             // 
             this.chkEstado.AutoSize = true;
             this.chkEstado.ForeColor = System.Drawing.Color.White;
-            this.chkEstado.Location = new System.Drawing.Point(12, 118);
+            this.chkEstado.Location = new System.Drawing.Point(19, 142);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(200, 24);
             this.chkEstado.TabIndex = 2;
@@ -207,7 +226,7 @@
             // checkBoxEspecial
             // 
             this.checkBoxEspecial.AutoSize = true;
-            this.checkBoxEspecial.Location = new System.Drawing.Point(218, 118);
+            this.checkBoxEspecial.Location = new System.Drawing.Point(225, 142);
             this.checkBoxEspecial.Name = "checkBoxEspecial";
             this.checkBoxEspecial.Size = new System.Drawing.Size(246, 24);
             this.checkBoxEspecial.TabIndex = 3;
@@ -219,7 +238,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 53);
+            this.label3.Location = new System.Drawing.Point(19, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(240, 20);
             this.label3.TabIndex = 52;
@@ -227,7 +246,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnRemoveCorrelative);
             this.panel1.Controls.Add(this.checkBoxEspecial);
@@ -239,9 +258,9 @@
             this.panel1.Controls.Add(this.chkEstado);
             this.panel1.Controls.Add(this.cbbCorrelativas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 455);
+            this.panel1.Location = new System.Drawing.Point(0, 403);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1159, 199);
+            this.panel1.Size = new System.Drawing.Size(1159, 251);
             this.panel1.TabIndex = 53;
             // 
             // panel2
@@ -250,7 +269,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1159, 455);
+            this.panel2.Size = new System.Drawing.Size(1159, 403);
             this.panel2.TabIndex = 54;
             // 
             // formSubjectCorrelatives
@@ -263,7 +282,7 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "formSubjectCorrelatives";
-            this.Text = "Correlatividades de una materia";
+            this.Text = "Gestin - Correlativas Materia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubjectCorrelatives_FormClosing);
             this.Load += new System.EventHandler(this.formSubjectCorrelatives_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCorrelativas)).EndInit();

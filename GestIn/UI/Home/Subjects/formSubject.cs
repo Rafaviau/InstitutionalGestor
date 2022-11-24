@@ -24,6 +24,7 @@ namespace GestIn.UI.Home.Subjects
         private void formSubject_Load(object sender, EventArgs e)
         {
             NullCheckCarreras();
+            NullCheckCareerSubjectCount();
         }
 
         public void NullCheckCarreras() //Para que no me paresca errores
@@ -31,10 +32,19 @@ namespace GestIn.UI.Home.Subjects
             if (careerController.countCareers() != 0)
             {
                 RefreshCbbCareers();
+                NullCheckCareerSubjectCount();
+                dataGridViewMaterias.Focus();
+            }
+        }
+
+        public void NullCheckCareerSubjectCount()
+        {
+            if(cbbCarreraSelector.SelectedItem != null && 
+                careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem).Count != 0)
+            {
                 RefreshTableSubjects();
                 RefreshLableSubjectName();
                 RefreshTableCorrelatives();
-                dataGridViewMaterias.Focus();
             }
         }
 
@@ -221,7 +231,7 @@ namespace GestIn.UI.Home.Subjects
             object selectedSubject = null;
             try
             {
-                if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem!=null)
+                if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem != null && dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
                 {
                     idsubject = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
                     selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idsubject);
@@ -287,7 +297,6 @@ namespace GestIn.UI.Home.Subjects
                     formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
                     form.Show();
                 }
-
             }
             catch { MessageBox.Show("Error, ninguna materia seleccionada"); }
         }
@@ -308,11 +317,6 @@ namespace GestIn.UI.Home.Subjects
         private void dataGridViewMaterias_SelectionChanged(object sender, EventArgs e)
         {
             FillSubjectValues();
-        }
-
-        private void formSubject_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
         }
     }
 }

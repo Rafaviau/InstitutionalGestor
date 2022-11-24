@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblmateriaName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,6 +62,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnDeactivateTeacher = new System.Windows.Forms.Button();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.panelSearchBack = new System.Windows.Forms.Panel();
             this.GridPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSubjectBindingSource)).BeginInit();
@@ -66,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachersSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).BeginInit();
             this.InfoPanel.SuspendLayout();
+            this.panelSearchBack.SuspendLayout();
             this.GridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +78,7 @@
             // 
             this.lblmateriaName.AutoSize = true;
             this.lblmateriaName.ForeColor = System.Drawing.Color.White;
-            this.lblmateriaName.Location = new System.Drawing.Point(573, 15);
+            this.lblmateriaName.Location = new System.Drawing.Point(573, 27);
             this.lblmateriaName.Name = "lblmateriaName";
             this.lblmateriaName.Size = new System.Drawing.Size(91, 20);
             this.lblmateriaName.TabIndex = 57;
@@ -83,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(395, 15);
+            this.label1.Location = new System.Drawing.Point(395, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 56;
@@ -94,7 +99,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1107, 54);
+            this.label2.Location = new System.Drawing.Point(1100, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 30);
             this.label2.TabIndex = 52;
@@ -104,7 +109,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1074, 15);
+            this.label7.Location = new System.Drawing.Point(1067, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 20);
             this.label7.TabIndex = 51;
@@ -114,10 +119,22 @@
             // 
             this.dataGridViewTeachers.AllowUserToAddRows = false;
             this.dataGridViewTeachers.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.dataGridViewTeachers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTeachers.AutoGenerateColumns = false;
             this.dataGridViewTeachers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTeachers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.dataGridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTeachers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTeachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTeachers.ColumnHeadersHeight = 54;
+            this.dataGridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.teacherDataGridViewTextBoxColumn,
@@ -126,17 +143,23 @@
             this.DateSince,
             this.DateUntil});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
-            this.dataGridViewTeachers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewTeachers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewTeachers.EnableHeadersVisualStyles = false;
             this.dataGridViewTeachers.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewTeachers.MultiSelect = false;
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
             this.dataGridViewTeachers.RowHeadersVisible = false;
             this.dataGridViewTeachers.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTeachers.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTeachers.RowTemplate.Height = 29;
             this.dataGridViewTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTeachers.Size = new System.Drawing.Size(1241, 476);
-            this.dataGridViewTeachers.TabIndex = 58;
+            this.dataGridViewTeachers.TabIndex = 7;
             this.dataGridViewTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeachers_CellClick);
             // 
             // Id
@@ -204,10 +227,12 @@
             // 
             // txtSearchbar
             // 
-            this.txtSearchbar.Location = new System.Drawing.Point(25, 38);
+            this.txtSearchbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtSearchbar.ForeColor = System.Drawing.Color.White;
+            this.txtSearchbar.Location = new System.Drawing.Point(10, 38);
             this.txtSearchbar.Name = "txtSearchbar";
             this.txtSearchbar.Size = new System.Drawing.Size(348, 27);
-            this.txtSearchbar.TabIndex = 59;
+            this.txtSearchbar.TabIndex = 1;
             this.txtSearchbar.TextChanged += new System.EventHandler(this.txtSearchbar_TextChanged);
             this.txtSearchbar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchbar_KeyDown);
             // 
@@ -215,7 +240,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(395, 66);
+            this.label3.Location = new System.Drawing.Point(395, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 20);
             this.label3.TabIndex = 61;
@@ -226,54 +251,59 @@
             this.lblteachername.AutoSize = true;
             this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
-            this.lblteachername.Location = new System.Drawing.Point(573, 66);
+            this.lblteachername.Location = new System.Drawing.Point(573, 78);
             this.lblteachername.Name = "lblteachername";
             this.lblteachername.Size = new System.Drawing.Size(125, 20);
             this.lblteachername.TabIndex = 62;
             this.lblteachername.Text = "                             ";
-            this.lblteachername.Click += new System.EventHandler(this.lblteachername_Click);
             // 
             // ListboxSearchResults
             // 
+            this.ListboxSearchResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.ListboxSearchResults.ForeColor = System.Drawing.Color.White;
             this.ListboxSearchResults.FormattingEnabled = true;
             this.ListboxSearchResults.ItemHeight = 20;
-            this.ListboxSearchResults.Location = new System.Drawing.Point(25, 90);
+            this.ListboxSearchResults.Location = new System.Drawing.Point(-2, -2);
             this.ListboxSearchResults.Name = "ListboxSearchResults";
-            this.ListboxSearchResults.Size = new System.Drawing.Size(348, 124);
-            this.ListboxSearchResults.TabIndex = 63;
-            this.ListboxSearchResults.SelectedIndexChanged += new System.EventHandler(this.ListboxSearchResults_SelectedIndexChanged);
+            this.ListboxSearchResults.Size = new System.Drawing.Size(348, 144);
+            this.ListboxSearchResults.TabIndex = 2;
             this.ListboxSearchResults.DoubleClick += new System.EventHandler(this.ListboxSearchResults_DoubleClick);
             this.ListboxSearchResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListboxSearchResults_KeyDown);
             // 
             // cmbCondition
             // 
+            this.cmbCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.cmbCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCondition.Enabled = false;
+            this.cmbCondition.ForeColor = System.Drawing.Color.White;
             this.cmbCondition.FormattingEnabled = true;
             this.cmbCondition.Items.AddRange(new object[] {
             "Titular",
             "Suplente",
             "Provisional"});
-            this.cmbCondition.Location = new System.Drawing.Point(573, 100);
+            this.cmbCondition.Location = new System.Drawing.Point(573, 112);
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(152, 28);
-            this.cmbCondition.TabIndex = 64;
+            this.cmbCondition.TabIndex = 3;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(395, 180);
+            this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnInsert.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnInsert.ForeColor = System.Drawing.Color.White;
+            this.btnInsert.Location = new System.Drawing.Point(395, 173);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(148, 34);
-            this.btnInsert.TabIndex = 65;
+            this.btnInsert.Size = new System.Drawing.Size(155, 34);
+            this.btnInsert.TabIndex = 4;
             this.btnInsert.Text = "Activar Docente";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(395, 108);
+            this.label4.Location = new System.Drawing.Point(395, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(145, 20);
             this.label4.TabIndex = 66;
@@ -283,7 +313,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(772, 64);
+            this.label5.Location = new System.Drawing.Point(772, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 68;
@@ -293,7 +323,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(772, 110);
+            this.label6.Location = new System.Drawing.Point(772, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 20);
             this.label6.TabIndex = 69;
@@ -301,18 +331,21 @@
             // 
             // btnModifyUntil
             // 
-            this.btnModifyUntil.Location = new System.Drawing.Point(846, 183);
+            this.btnModifyUntil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnModifyUntil.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnModifyUntil.ForeColor = System.Drawing.Color.White;
+            this.btnModifyUntil.Location = new System.Drawing.Point(866, 173);
             this.btnModifyUntil.Name = "btnModifyUntil";
-            this.btnModifyUntil.Size = new System.Drawing.Size(144, 31);
-            this.btnModifyUntil.TabIndex = 72;
+            this.btnModifyUntil.Size = new System.Drawing.Size(155, 34);
+            this.btnModifyUntil.TabIndex = 6;
             this.btnModifyUntil.Text = "Modificar Fechas";
-            this.btnModifyUntil.UseVisualStyleBackColor = true;
+            this.btnModifyUntil.UseVisualStyleBackColor = false;
             this.btnModifyUntil.Click += new System.EventHandler(this.btnModifyDates_Click);
             // 
             // dateTimePickerSince
             // 
             this.dateTimePickerSince.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerSince.Location = new System.Drawing.Point(896, 59);
+            this.dateTimePickerSince.Location = new System.Drawing.Point(896, 71);
             this.dateTimePickerSince.Name = "dateTimePickerSince";
             this.dateTimePickerSince.Size = new System.Drawing.Size(125, 27);
             this.dateTimePickerSince.TabIndex = 74;
@@ -321,7 +354,7 @@
             // dateTimePickerUntil
             // 
             this.dateTimePickerUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerUntil.Location = new System.Drawing.Point(896, 110);
+            this.dateTimePickerUntil.Location = new System.Drawing.Point(896, 122);
             this.dateTimePickerUntil.Name = "dateTimePickerUntil";
             this.dateTimePickerUntil.Size = new System.Drawing.Size(125, 27);
             this.dateTimePickerUntil.TabIndex = 75;
@@ -331,7 +364,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(25, 15);
+            this.label8.Location = new System.Drawing.Point(10, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(231, 20);
             this.label8.TabIndex = 76;
@@ -339,18 +372,22 @@
             // 
             // btnDeactivateTeacher
             // 
-            this.btnDeactivateTeacher.Location = new System.Drawing.Point(573, 180);
+            this.btnDeactivateTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnDeactivateTeacher.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeactivateTeacher.ForeColor = System.Drawing.Color.White;
+            this.btnDeactivateTeacher.Location = new System.Drawing.Point(573, 173);
             this.btnDeactivateTeacher.Name = "btnDeactivateTeacher";
             this.btnDeactivateTeacher.Size = new System.Drawing.Size(155, 34);
-            this.btnDeactivateTeacher.TabIndex = 77;
+            this.btnDeactivateTeacher.TabIndex = 5;
             this.btnDeactivateTeacher.Text = "Desactivar Docente";
-            this.btnDeactivateTeacher.UseVisualStyleBackColor = true;
+            this.btnDeactivateTeacher.UseVisualStyleBackColor = false;
             this.btnDeactivateTeacher.Click += new System.EventHandler(this.btnDeactivateTeacher_Click);
             // 
             // InfoPanel
             // 
-            this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.InfoPanel.Controls.Add(this.ListboxSearchResults);
+            this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.InfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.InfoPanel.Controls.Add(this.panelSearchBack);
             this.InfoPanel.Controls.Add(this.btnModifyUntil);
             this.InfoPanel.Controls.Add(this.label2);
             this.InfoPanel.Controls.Add(this.btnDeactivateTeacher);
@@ -369,18 +406,28 @@
             this.InfoPanel.Controls.Add(this.label1);
             this.InfoPanel.Controls.Add(this.lblmateriaName);
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.InfoPanel.Location = new System.Drawing.Point(0, 473);
+            this.InfoPanel.Location = new System.Drawing.Point(0, 448);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1241, 226);
+            this.InfoPanel.Size = new System.Drawing.Size(1241, 251);
             this.InfoPanel.TabIndex = 78;
+            // 
+            // panelSearchBack
+            // 
+            this.panelSearchBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.panelSearchBack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelSearchBack.Controls.Add(this.ListboxSearchResults);
+            this.panelSearchBack.Location = new System.Drawing.Point(10, 83);
+            this.panelSearchBack.Name = "panelSearchBack";
+            this.panelSearchBack.Size = new System.Drawing.Size(348, 143);
+            this.panelSearchBack.TabIndex = 77;
             // 
             // GridPanel
             // 
             this.GridPanel.Controls.Add(this.dataGridViewTeachers);
-            this.GridPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridPanel.Location = new System.Drawing.Point(0, 0);
             this.GridPanel.Name = "GridPanel";
-            this.GridPanel.Size = new System.Drawing.Size(1241, 476);
+            this.GridPanel.Size = new System.Drawing.Size(1241, 448);
             this.GridPanel.TabIndex = 79;
             // 
             // formSubjectTeachers
@@ -392,7 +439,7 @@
             this.Controls.Add(this.GridPanel);
             this.Controls.Add(this.InfoPanel);
             this.Name = "formSubjectTeachers";
-            this.Text = "Docentes de una Materia";
+            this.Text = "Gestin - Materia Docentes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formSubjectTeachers_FormClosing);
             this.Load += new System.EventHandler(this.formSubjectTeachers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeachers)).EndInit();
@@ -402,6 +449,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTeachers)).EndInit();
             this.InfoPanel.ResumeLayout(false);
             this.InfoPanel.PerformLayout();
+            this.panelSearchBack.ResumeLayout(false);
             this.GridPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -440,5 +488,6 @@
         private DataGridViewTextBoxColumn DateUntil;
         private Panel InfoPanel;
         private Panel GridPanel;
+        private Panel panelSearchBack;
     }
 }

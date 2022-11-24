@@ -132,7 +132,7 @@ namespace GestIn.UI.Home.Students
                 Student student = (Student)lbSearch.SelectedItem;
                 setStudent(student);
                 getStudentCareerInfo(student.User.Dni);
-                getStudentGrades(student.User.Dni);
+                //getStudentGrades(student.User.Dni); //no puede estar
             }
             lbSearch.Visible = false;
         }
@@ -149,15 +149,15 @@ namespace GestIn.UI.Home.Students
         }
         private void getStudentGrades(int dni)
         {
-            var list = cntGrades.getStudentGrades(dni);
-            var list2 = cntSubjectEnrolment.getEnrolments(dni);
-            list2.RemoveAll(x => list.Any(y => y.Subject.Name == x.Subject.Name));
-            foreach (Grade item in list) {
+            var listGrades = cntGrades.getStudentGrades(dni);
+            var listSubjectsEnrolled = cntSubjectEnrolment.getEnrolments(Int32.Parse(txtStudentDni.Text), cbbCarrer.SelectedItem);
+            listSubjectsEnrolled.RemoveAll(x => listGrades.Any(y => y.Subject.Name == x.Subject.Name));
+            foreach (Grade item in listGrades) {
                 var subjectTaken =  cntSubjectEnrolment.getEnrolment(Int32.Parse(txtStudentDni.Text), item.Subject, cbbCarrer.SelectedItem);
                 if(subjectTaken!=null)
                     AddSubjectRecord( item.Id,item.Subject.YearInCareer, item.Subject, subjectTaken.Year.ToString(), item.AccreditationType, item.AccreditationDate.Value.ToString("dd/MM/yyyy"), item.Grade1, item.BookRecord, subjectTaken.Id);
             }
-            foreach (SubjectEnrolment item in list2)
+            foreach (SubjectEnrolment item in listSubjectsEnrolled)
             {
                 AddSubjectRecord( item.Id,item.Subject.YearInCareer, item.Subject,item.Year,item.Presential);
             }
@@ -267,7 +267,7 @@ namespace GestIn.UI.Home.Students
         {
             dgvSubjectsRecord.Rows.Clear();
             getStudentGrades(Convert.ToInt32(txtStudentDni.Text));
-
         }
+
     }
 }

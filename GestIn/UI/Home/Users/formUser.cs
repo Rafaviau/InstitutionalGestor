@@ -372,5 +372,10 @@ namespace GestIn.UI.Home.Users
                 SetUserValues(listBoxSearchResults.SelectedItem);
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            ClearScreen();
+        }
     }
 }
