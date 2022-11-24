@@ -36,7 +36,6 @@ namespace GestIn.UI.Home.ExamEnrolment
         {
             this.Dispose();
         }
-
         private void btnUnrol_Click(object sender, EventArgs e)
         {
             int stdId = (int)dgvStudents.Rows[dgvStudents.CurrentCell.RowIndex].Cells["studentId"].Value;
@@ -45,12 +44,9 @@ namespace GestIn.UI.Home.ExamEnrolment
                 var result = formConfirmation.ShowDialog(this, "¿Esta seguro que desea desinscribir este estudiante?",
                     ("El estudiante " + stdName + " sera dado de baja del examen de "+ exam.IdSubjectNavigation.Name));
                 if (result == DialogResult.Yes) {
-
                     var status = cntExamEnrol.unrolStudent(stdId, exam);
                     updateUnenrolLabel(status.Item2,status.Item1);
                     if (status.Item1) dgvStudents.Rows.RemoveAt(dgvStudents.SelectedRows[0].Index);
-
-
                 }
             }
         }
@@ -73,13 +69,14 @@ namespace GestIn.UI.Home.ExamEnrolment
         }
         private void addExam(int studentId,string name)
         {
-            dgvStudents.Rows.Add(studentId,name);
+            var grade = gradeCnt.getStudentGradeForExams(studentId, exam.IdSubject, exam.Date);
+            dgvStudents.Rows.Add(studentId,name,grade?.Grade1,grade?.BookRecord);
         }
-
         private void btnAddGrades_Click(object sender, EventArgs e)
         {
+            int _grade;
             var result = formConfirmation.ShowDialog(this, "¿Esta seguro que desea agregar notas?",
-                    ("Se actualizaran TODAS las notas que no esten vacias"));
+                    ("Se actualizaran TODAS las notas."));
             if (result == DialogResult.Yes)
             {
                 (bool,string) state = (true,"Notas cargadas correctamente");
@@ -87,16 +84,34 @@ namespace GestIn.UI.Home.ExamEnrolment
                 {
                     foreach (DataGridViewRow row in dgvStudents.Rows)
                     {
-                        if (row.Cells["grade"].Value != null && row.Cells["bookRecord"].Value != null && row.Cells["bookRecord"].Value != "") {
+                        _grade = -1;
+                        if (row.Cells["grade"].Value != "" && row.Cells["grade"].Value != null)
+                            _grade = Convert.ToInt32(row.Cells["grade"].Value);
+
+                        Grade grade = gradeCnt.getStudentGradeForExams(
+                                        (int)row.Cells["studentId"].Value,
+                                        exam.IdSubject,
+                                        (DateTime)exam.Date
+                                        );
+
+                        if (grade == null)
+                        {
                             if (!gradeCnt.addGrade(
-                                  (int)row.Cells["studentId"].Value,
-                                  exam.IdSubjectNavigation,
-                                  Convert.ToInt32(row.Cells["grade"].Value),
-                                  Convert.ToString(row.Cells["bookRecord"].Value),
-                                  exam.Date,
-                                  subEnrolCnt.getAcreditationTypeWithStudentId((int)row.Cells["studentId"].Value, exam.IdSubject)
-                               ))
-                                state = (false,"Error en la fila"+row.Index.ToString());
+                                (int)row.Cells["studentId"].Value,
+                                exam.IdSubjectNavigation,
+                                _grade,
+                                Convert.ToString(row.Cells["bookRecord"].Value),
+                                exam.Date,
+                                subEnrolCnt.getAcreditationTypeWithStudentId((int)row.Cells["studentId"].Value, exam.IdSubject)
+                            ))
+                                state = (false, "Error en la fila" + row.Index.ToString());
+                        }
+                        else {
+                            if (!gradeCnt.updateGrade(grade,
+                                _grade,
+                                Convert.ToString(row.Cells["bookRecord"].Value)
+                                   ))
+                                state = (false, "Error en la fila" + row.Index.ToString());
                         }
                     }
                     updateUnenrolLabel(state.Item2, state.Item1);

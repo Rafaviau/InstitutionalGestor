@@ -91,12 +91,14 @@ namespace GestIn.UI.Home.ExamEnrolment
             }
             if (e.KeyCode == Keys.Enter && lbSearch.SelectedIndex >= 0)
             {
-                Student student = (Student)lbSearch.SelectedItem;
-                loadExams(student.User.Dni,student.User.Name + " " + student.User.LastName,student.Id);
-                searchBox.Clear();
+                searchStudent();
             }
         }
-
+        void searchStudent() {
+            Student student = (Student)lbSearch.SelectedItem;
+            loadExams(student.User.Dni,student.User.Name + " " + student.User.LastName,student.Id);
+            searchBox.Clear();
+        }
         private void btnEnrol_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("¿Esta seguro que desea realizar la inscripcion?", "Confirmar", MessageBoxButtons.YesNo);
@@ -124,6 +126,11 @@ namespace GestIn.UI.Home.ExamEnrolment
                 }
                 
             }
+        }
+
+        private void lbSearch_Click(object sender, EventArgs e)
+        {
+            searchStudent();
         }
     }
 }
