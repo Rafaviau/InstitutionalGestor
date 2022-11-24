@@ -330,7 +330,8 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
+                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).ToList();
+                    //specifiedListSubjects = db.Subjects.Where(x => x.CareerId == carreraSelector.Id).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
                     return specifiedListSubjects;
                 }
                 catch (SqlException exception) { throw exception; }
@@ -346,7 +347,8 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == careerid).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
+                    specifiedListSubjects = db.Subjects.Where(x => x.CareerId == careerid).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).ToList();
+                    //specifiedListSubjects = db.Subjects.Where(x => x.CareerId == careerid).Where(x => !x.DeletedAt.HasValue).Include(x => x.Career).OrderByDescending(x => x.YearInCareer).ToList();
                     return specifiedListSubjects;
                 }
                 catch (SqlException exception) { throw exception; }
