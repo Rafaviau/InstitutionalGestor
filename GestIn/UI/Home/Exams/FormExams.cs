@@ -138,13 +138,14 @@ namespace GestIn.UI.Home.Exams
         private void cbbCarrer_SelectedValueChanged(object sender, EventArgs e)
         {
             cbbSubject.Items.Clear();
-            var list = careerController.loadSubject(cbbCarrer.SelectedItem);
+            var list = careerController.getSubjectsFromCareer(cbbCarrer.SelectedItem);
             foreach (object subject in list)
             {
                 cbbSubject.Items.Add(subject);
             }
             loadTeachersCb();
         }
+
         private void loadTeachersCb() {
             var list = userCnt.getAllTeachersFromCareer(cbbCarrer.SelectedItem);
             cbbTitular.Items.Clear();
@@ -323,9 +324,9 @@ namespace GestIn.UI.Home.Exams
             selectTitularTeacher();
         }
         void selectTitularTeacher() {
-            int? index = userCnt.getMostResentActiveTeacherId(cbbSubject.SelectedItem);
-            if (index == null) cbbTitular.SelectedIndex = cbbTitular.FindString("--Vacio--");
-            else cbbTitular.SelectedIndex = index.Value;
+            User thisTitular = userCnt.getMostResentActiveUserTeacher(cbbSubject.SelectedItem);
+            if (thisTitular == null) cbbTitular.SelectedIndex = cbbTitular.FindString("--Vacio--");
+            else cbbTitular.SelectedIndex = cbbTitular.FindString(thisTitular.fullName());
         }
 
         private void toggDate_CheckedChanged(object sender, EventArgs e)
@@ -358,6 +359,11 @@ namespace GestIn.UI.Home.Exams
         private void btnGenerateActaVolante_Click(object sender, EventArgs e)
         {
             genActaVolante.getActaVolante(Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value));
+        }
+
+        private void cbbTitular_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

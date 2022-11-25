@@ -54,7 +54,7 @@ namespace GestIn.Controllers
             CareerEnrolment thisCareer = (CareerEnrolment)career;
             using (var db = new Context())
             {
-                return db.SubjectEnrolments.Where(x => (x.Student.User.Dni == dni && x.Subject == subject && x.Approved == true && x.Subject.CareerId == thisCareer.CareerId)).FirstOrDefault(); ;
+                return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni && x.SubjectId == thisSubject.Id && x.Approved == true && x.Subject.CareerId == thisCareer.CareerId).FirstOrDefault(); ;
             }
         }
         public List<SubjectEnrolment> getEnrolments(int dni)
@@ -64,6 +64,16 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Include(x => x.Subject).ToList(); ;
             }
         }
+
+        public List<SubjectEnrolment> getEnrolments(int dni, object career)
+        {
+            CareerEnrolment thisCareer = (CareerEnrolment)career;
+            using (var db = new Context())
+            {
+                return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni && x.Subject.CareerId == thisCareer.CareerId).Include(x => x.Subject).ToList(); ;
+            }
+        }
+
         public List<Subject> getEnrolmentsSubjects(int dni)
         {
             using (var db = new Context())
@@ -71,6 +81,7 @@ namespace GestIn.Controllers
                 return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni).Select(x => x.Subject).ToList(); ;
             }
         }
+
         public SubjectEnrolment findEnrolment(int id)
         {
             using (var db = new Context())

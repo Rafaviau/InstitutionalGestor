@@ -460,6 +460,19 @@ namespace GestIn.Controllers
             }
         }
 
+        public Teacher findTeacherByID(int? id)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    var teacher = db.Teachers.Where(x => x.Id == id).Include(x => x.User).Include(x => x.LoginInformation).FirstOrDefault();
+                    return teacher;
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+
         bool createTeacher(int dni, string? cuil, string? title, User user, LoginInformation log)
         {
             bool status = false;
@@ -574,10 +587,12 @@ namespace GestIn.Controllers
                     .Where(x => (x.Subject.CareerId == _career.Id && x.Active == true))
                     .Include(x => x.Teacher.User)
                     .Select(x => x.Teacher)
+                    .Distinct()
                     .ToList();
                 return list;
             }
         }
+
         public int? getMostResentActiveTeacherId(object _Subject) {
             Subject sub = (Subject)_Subject;
             using (var db = new Context())
@@ -588,6 +603,20 @@ namespace GestIn.Controllers
                     .Select(x => x.Teacher.Id)
                     .FirstOrDefault();
                 return teacherId;
+            }
+        }
+
+        public User? getMostResentActiveUserTeacher(object _Subject)
+        {
+            Subject sub = (Subject)_Subject;
+            using (var db = new Context())
+            {
+                var teacher = db.TeacherSubjects?
+                    .Where(x => (x.Subject.Id == sub.Id && x.Active == true))
+                    .OrderBy(x => x.CreatedAt)
+                    .Select(x => x.Teacher.User)
+                    .FirstOrDefault();
+                return teacher;
             }
         }
 
