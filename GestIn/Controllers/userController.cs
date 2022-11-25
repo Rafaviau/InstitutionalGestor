@@ -619,6 +619,18 @@ namespace GestIn.Controllers
                 return teacher;
             }
         }
+        public Teacher? getMostResentActiveTeacher(Subject _Subject)
+        {
+            using (var db = new Context())
+            {
+                var teacher = db.TeacherSubjects?
+                    .Where(x => (x.Subject.Id == _Subject.Id && x.Active == true))
+                    .OrderBy(x => x.CreatedAt)
+                    .Select(x => x.Teacher)
+                    .FirstOrDefault();
+                return teacher;
+            }
+        }
 
         #endregion
 

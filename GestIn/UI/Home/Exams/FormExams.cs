@@ -375,5 +375,10 @@ namespace GestIn.UI.Home.Exams
         {
             genActaVolante.getActaVolante(Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            examCnt.updateAllExamsTitular();
+        }
     }
 }

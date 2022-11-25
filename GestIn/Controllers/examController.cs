@@ -13,6 +13,7 @@ namespace GestIn.Controllers
     {
         #region Singletone
         careerController cntCareer = careerController.GetInstance();
+        userController cntUser = userController.GetInstance();
         private static examController? Instance;
         private examController() { }
 
@@ -231,6 +232,32 @@ namespace GestIn.Controllers
                 }
             }
             
+        }
+        public List<Exam> getAllExams()
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Exams
+                        .Include(x => x.IdSubjectNavigation)
+                        .Include(x => x.IdSubjectNavigation.Career)
+                        .Include(x => x.TitularNavigation.User)
+                        .Include(x => x.FirstVowelNavigation.User)
+                        .Include(x => x.SecondVowelNavigation.User)
+                        .Include(x => x.ThirdVowelNavigation.User)
+                        .ToList();
+                }
+                catch { }
+                return null;
+
+            }
+        }
+        public void updateAllExamsTitular() {
+            foreach(Exam e in getAllExams())
+            {
+                e.TitularNavigation = cntUser.getMostResentActiveTeacher(e.IdSubjectNavigation);
+            }
         }
     }
 }
