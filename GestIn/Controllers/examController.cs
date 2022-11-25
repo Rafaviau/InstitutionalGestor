@@ -115,6 +115,24 @@ namespace GestIn.Controllers
 
             }
         }
+        public Exam getExamTeachers(int code)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Exams.Where(x => x.Id == code)
+                        .Include(x => x.TitularNavigation)
+                        .Include(x => x.FirstVowelNavigation)
+                        .Include(x => x.SecondVowelNavigation)
+                        .Include(x => x.ThirdVowelNavigation)
+                        .FirstOrDefault();
+                }
+                catch { }
+                return null;
+
+            }
+        }
         internal bool updateExam(int Examcode, object subject, object? tituar, object? firstVowel, object? secondVowel, object? thirdVowel, DateTime datetime, string place)
         {
             try
@@ -131,10 +149,10 @@ namespace GestIn.Controllers
                     {
                         exam.IdSubjectNavigation = sub;
                         exam.Date = datetime;
-                        exam.Titular = tit?.Id;
-                        exam.FirstVowel = firstVow?.Id;
-                        exam.SecondVowel = secondVow?.Id;
-                        exam.ThirdVowel = thirdVow?.Id;
+                        exam.TitularNavigation = tit;
+                        exam.FirstVowelNavigation = firstVow;
+                        exam.SecondVowelNavigation = secondVow;
+                        exam.ThirdVowelNavigation = thirdVow;
                         exam.Place = place;
 
                         exam.LastModificationBy = "Preceptor cargando notas";

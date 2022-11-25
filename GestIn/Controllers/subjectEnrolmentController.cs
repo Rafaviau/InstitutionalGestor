@@ -68,6 +68,8 @@ namespace GestIn.Controllers
         public List<SubjectEnrolment> getEnrolments(int dni, object career)
         {
             CareerEnrolment thisCareer = (CareerEnrolment)career;
+            if (thisCareer == null)
+                return new List<SubjectEnrolment>();
             using (var db = new Context())
             {
                 return db.SubjectEnrolments.Where(x => x.Student.User.Dni == dni && x.Subject.CareerId == thisCareer.CareerId).Include(x => x.Subject).ToList(); ;

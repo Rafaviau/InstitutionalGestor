@@ -157,7 +157,7 @@ namespace GestIn.UI.Home.Exams
             cbb1Vowel.Items.Add("--Vacio--");
             cbb2Vowel.Items.Add("--Vacio--");
             cbb3Vowel.Items.Add("--Vacio--");
-            foreach (object subject in list)
+            foreach (Teacher subject in list)
             {
                 cbbTitular.Items.Add(subject);
                 cbb1Vowel.Items.Add(subject);
@@ -272,12 +272,27 @@ namespace GestIn.UI.Home.Exams
         }
         private void loadEditExam()
         {
+            var ex = examCnt.getExamTeachers(Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value));
             lblExamCode.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value.ToString();
             cbbCarrer.SelectedIndex = cbbCarrer.FindString(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[1].Value.ToString());
             cbbSubject.SelectedIndex = cbbSubject.FindString(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[2].Value.ToString());
             dtDate.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
             dtTime.Text = dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[3].Value.ToString();
-            cbbTitular.SelectedIndex = cbbSubject.FindString("TEST");
+            cbbTitular.SelectedIndex = getTeacherIndexInCbb(ex.Titular,cbbTitular);
+            cbb1Vowel.SelectedIndex = getTeacherIndexInCbb(ex.FirstVowel, cbb1Vowel);
+            cbb2Vowel.SelectedIndex = getTeacherIndexInCbb(ex.SecondVowel, cbb2Vowel);
+            cbb3Vowel.SelectedIndex = getTeacherIndexInCbb(ex.ThirdVowel, cbb3Vowel);
+        }
+        int getTeacherIndexInCbb(int? teacherId,ComboBox cbb) {
+            int result = 0;
+            if (cbb.Items.Count > 1 && teacherId != null) {
+                for (int i = 1; i < cbb.Items.Count; ++i)
+                {
+                    if (((Teacher)cbb.Items[i]).Id == teacherId)
+                        result = i;
+                }
+            }
+            return result;
         }
 
         private void btnDeleteExam_Click(object sender, EventArgs e)

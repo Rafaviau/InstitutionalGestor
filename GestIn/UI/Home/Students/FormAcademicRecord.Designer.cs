@@ -859,7 +859,6 @@
             this.Controls.Add(this.panelLeftMenu);
             this.Name = "formAcademicRecord";
             this.Text = "Gestin - Registro académico";
-            this.Load += new System.EventHandler(this.FormAcademicRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubjectsRecord)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

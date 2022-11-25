@@ -57,22 +57,14 @@ namespace GestIn.UI.Home.Students
             if (!acreditationType) { acctype = "Libre"; }
             dgvSubjectsRecord.Rows.Add(null,yearInCarrer, subject, enrolmentAprovalYear, acctype, null,null,null,idEnrolment);
         }
-        
-        private void FormAcademicRecord_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         private void lblPersonalData_Click(object sender, EventArgs e)
         {
 
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (searchBox.Text.Length == 0) { lbSearch.Visible = false; }
@@ -96,7 +88,6 @@ namespace GestIn.UI.Home.Students
                 lbSearch.DataSource = cntUser.searchBoxStudentWithString(searchBox.Text);
             }
         }
-
         private void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down)
@@ -104,7 +95,6 @@ namespace GestIn.UI.Home.Students
                 lbSearch.Focus();
             }
         }
-
         private void lbSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up && lbSearch.SelectedIndex <= 0)
@@ -118,11 +108,9 @@ namespace GestIn.UI.Home.Students
                 Student student = (Student)lbSearch.SelectedItem;
                 setStudent(student);
                 getStudentCareerInfo(student.User.Dni);
-                getStudentGrades(student.User.Dni);
                 lbSearch.Visible = false;
             }
         }
-
         private void lbSearch_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvSubjectsRecord.Rows.Clear();
@@ -132,13 +120,13 @@ namespace GestIn.UI.Home.Students
                 Student student = (Student)lbSearch.SelectedItem;
                 setStudent(student);
                 getStudentCareerInfo(student.User.Dni);
-                //getStudentGrades(student.User.Dni); //no puede estar
             }
             lbSearch.Visible = false;
         }
         private void getStudentCareerInfo(int dni)
         {
             cbbCarrer.Items.Clear();
+            dgvSubjectsRecord.Rows.Clear();
             var ListCareer = cntCareerEnrolment.searchCareerEnrolment(dni);
             foreach (CareerEnrolment item in ListCareer)
             {
