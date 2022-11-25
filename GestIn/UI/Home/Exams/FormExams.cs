@@ -168,8 +168,8 @@ namespace GestIn.UI.Home.Exams
         }
         private object teacherSelection(ComboBox comboBox)
         {
-            if (comboBox.SelectedItem != null)return comboBox.SelectedItem;
-            else return null;
+            if (comboBox.SelectedItem == null || comboBox.SelectedItem == "--Vacio--") return null;
+            else return comboBox.SelectedItem;
         }
         private async Task showError(string msg,bool success)
         {

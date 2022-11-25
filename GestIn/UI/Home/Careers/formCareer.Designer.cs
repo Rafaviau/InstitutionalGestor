@@ -81,39 +81,36 @@
             // 
             this.txtNumResolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.txtNumResolucion.ForeColor = System.Drawing.Color.White;
-            this.txtNumResolucion.Location = new System.Drawing.Point(93, 53);
-            this.txtNumResolucion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNumResolucion.Location = new System.Drawing.Point(106, 71);
             this.txtNumResolucion.Name = "txtNumResolucion";
-            this.txtNumResolucion.Size = new System.Drawing.Size(152, 23);
+            this.txtNumResolucion.Size = new System.Drawing.Size(173, 27);
             this.txtNumResolucion.TabIndex = 0;
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.txtNombre.ForeColor = System.Drawing.Color.White;
-            this.txtNombre.Location = new System.Drawing.Point(313, 53);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Location = new System.Drawing.Point(358, 71);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(544, 23);
+            this.txtNombre.Size = new System.Drawing.Size(621, 27);
             this.txtNombre.TabIndex = 1;
             // 
             // txtTitulo
             // 
             this.txtTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.txtTitulo.ForeColor = System.Drawing.Color.White;
-            this.txtTitulo.Location = new System.Drawing.Point(313, 88);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTitulo.Location = new System.Drawing.Point(358, 117);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(544, 23);
+            this.txtTitulo.Size = new System.Drawing.Size(621, 27);
             this.txtTitulo.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(14, 56);
+            this.label1.Location = new System.Drawing.Point(16, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 15);
+            this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Resolución:";
             // 
@@ -121,9 +118,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(249, 56);
+            this.label2.Location = new System.Drawing.Point(285, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 15);
+            this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nombre:";
             // 
@@ -131,9 +128,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(259, 91);
+            this.label3.Location = new System.Drawing.Point(296, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 15);
+            this.label3.Size = new System.Drawing.Size(50, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Titulo:";
             // 
@@ -147,19 +144,18 @@
             "Mañana",
             "Tarde",
             "Vespertino"});
-            this.cbbTurno.Location = new System.Drawing.Point(66, 88);
-            this.cbbTurno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbTurno.Location = new System.Drawing.Point(75, 117);
             this.cbbTurno.Name = "cbbTurno";
-            this.cbbTurno.Size = new System.Drawing.Size(179, 23);
+            this.cbbTurno.Size = new System.Drawing.Size(204, 28);
             this.cbbTurno.TabIndex = 3;
             // 
             // lbl4
             // 
             this.lbl4.AutoSize = true;
             this.lbl4.ForeColor = System.Drawing.Color.White;
-            this.lbl4.Location = new System.Drawing.Point(17, 91);
+            this.lbl4.Location = new System.Drawing.Point(19, 121);
             this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(42, 15);
+            this.lbl4.Size = new System.Drawing.Size(50, 20);
             this.lbl4.TabIndex = 7;
             this.lbl4.Text = "Turno:";
             // 
@@ -168,10 +164,9 @@
             this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnInsert.ForeColor = System.Drawing.Color.White;
-            this.btnInsert.Location = new System.Drawing.Point(17, 125);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInsert.Location = new System.Drawing.Point(19, 167);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(110, 38);
+            this.btnInsert.Size = new System.Drawing.Size(126, 51);
             this.btnInsert.TabIndex = 5;
             this.btnInsert.Text = "Crear Carrera";
             this.btnInsert.UseVisualStyleBackColor = false;
@@ -182,10 +177,9 @@
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(142, 125);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(162, 167);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(110, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(126, 51);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Actualizar Carrera";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -203,6 +197,7 @@
             this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // resolutionDataGridViewTextBoxColumn
             // 
@@ -240,9 +235,9 @@
             // 
             this.lblqcyo.AutoSize = true;
             this.lblqcyo.ForeColor = System.Drawing.Color.White;
-            this.lblqcyo.Location = new System.Drawing.Point(999, 27);
+            this.lblqcyo.Location = new System.Drawing.Point(1142, 36);
             this.lblqcyo.Name = "lblqcyo";
-            this.lblqcyo.Size = new System.Drawing.Size(119, 15);
+            this.lblqcyo.Size = new System.Drawing.Size(150, 20);
             this.lblqcyo.TabIndex = 15;
             this.lblqcyo.Text = "Carrera seleccionada:";
             // 
@@ -250,9 +245,9 @@
             // 
             this.lblcarreraaqui.AutoSize = true;
             this.lblcarreraaqui.ForeColor = System.Drawing.Color.White;
-            this.lblcarreraaqui.Location = new System.Drawing.Point(325, 27);
+            this.lblcarreraaqui.Location = new System.Drawing.Point(371, 36);
             this.lblcarreraaqui.Name = "lblcarreraaqui";
-            this.lblcarreraaqui.Size = new System.Drawing.Size(31, 15);
+            this.lblcarreraaqui.Size = new System.Drawing.Size(41, 20);
             this.lblcarreraaqui.TabIndex = 18;
             this.lblcarreraaqui.Text = "        ";
             // 
@@ -263,10 +258,9 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.ForeColor = System.Drawing.Color.White;
-            this.chkActivo.Location = new System.Drawing.Point(876, 52);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkActivo.Location = new System.Drawing.Point(1001, 69);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(98, 19);
+            this.chkActivo.Size = new System.Drawing.Size(122, 24);
             this.chkActivo.TabIndex = 4;
             this.chkActivo.Text = "Carrera activa";
             this.toolTip1.SetToolTip(this.chkActivo, "LALALALA");
@@ -291,10 +285,9 @@
             this.panelInfo.Controls.Add(this.btnInsert);
             this.panelInfo.Controls.Add(this.btnUpdate);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfo.Location = new System.Drawing.Point(0, 367);
-            this.panelInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelInfo.Location = new System.Drawing.Point(0, 490);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(1194, 189);
+            this.panelInfo.Size = new System.Drawing.Size(1365, 251);
             this.panelInfo.TabIndex = 22;
             // 
             // lblResult
@@ -303,21 +296,22 @@
             this.lblResult.BackColor = System.Drawing.Color.Crimson;
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblResult.ForeColor = System.Drawing.Color.White;
-            this.lblResult.Location = new System.Drawing.Point(313, 125);
+            this.lblResult.Location = new System.Drawing.Point(358, 167);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(185, 41);
+            this.lblResult.Size = new System.Drawing.Size(222, 50);
             this.lblResult.TabIndex = 57;
             this.lblResult.Text = "Success Text";
             this.lblResult.Visible = false;
+            this.lblResult.Click += new System.EventHandler(this.lblResult_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(17, 11);
+            this.label5.Location = new System.Drawing.Point(19, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(343, 25);
+            this.label5.Size = new System.Drawing.Size(410, 31);
             this.label5.TabIndex = 21;
             this.label5.Text = "Seleccione una carrera para actualizar: ";
             // 
@@ -327,9 +321,8 @@
             this.panelGrid.Controls.Add(this.dataGridViewCarreras);
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
-            this.panelGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(1194, 367);
+            this.panelGrid.Size = new System.Drawing.Size(1365, 490);
             this.panelGrid.TabIndex = 23;
             // 
             // dataGridViewCarreras
@@ -365,7 +358,6 @@
             this.dataGridViewCarreras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCarreras.EnableHeadersVisualStyles = false;
             this.dataGridViewCarreras.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewCarreras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewCarreras.Name = "dataGridViewCarreras";
             this.dataGridViewCarreras.ReadOnly = true;
             this.dataGridViewCarreras.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -386,7 +378,7 @@
             this.dataGridViewCarreras.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewCarreras.RowTemplate.Height = 29;
             this.dataGridViewCarreras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCarreras.Size = new System.Drawing.Size(1194, 367);
+            this.dataGridViewCarreras.Size = new System.Drawing.Size(1365, 490);
             this.dataGridViewCarreras.TabIndex = 14;
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
@@ -466,16 +458,15 @@
             // 
             // formCareer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1194, 556);
+            this.ClientSize = new System.Drawing.Size(1365, 741);
             this.Controls.Add(this.panelGrid);
             this.Controls.Add(this.lblqcyo);
             this.Controls.Add(this.lblcarreraaqui);
             this.Controls.Add(this.panelInfo);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formCareer";
             this.Text = "Gestin - Carreras";
             this.Load += new System.EventHandler(this.formCarrera_Load);

@@ -164,5 +164,10 @@ namespace GestIn.UI.Home.Careers
         {
             FillCareerValues();
         }
+
+        private void lblResult_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
