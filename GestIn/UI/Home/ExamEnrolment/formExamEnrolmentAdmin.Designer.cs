@@ -53,11 +53,10 @@
             this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.searchBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchBox.ForeColor = System.Drawing.Color.White;
-            this.searchBox.Location = new System.Drawing.Point(21, 9);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchBox.Location = new System.Drawing.Point(24, 12);
             this.searchBox.Name = "searchBox";
             this.searchBox.PlaceholderText = "  Buscar estudiante";
-            this.searchBox.Size = new System.Drawing.Size(551, 26);
+            this.searchBox.Size = new System.Drawing.Size(629, 30);
             this.searchBox.TabIndex = 33;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_KeyDown);
@@ -68,13 +67,13 @@
             this.lbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbSearch.ForeColor = System.Drawing.Color.White;
             this.lbSearch.FormattingEnabled = true;
-            this.lbSearch.ItemHeight = 17;
-            this.lbSearch.Location = new System.Drawing.Point(21, 36);
-            this.lbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbSearch.ItemHeight = 20;
+            this.lbSearch.Location = new System.Drawing.Point(24, 48);
             this.lbSearch.Name = "lbSearch";
-            this.lbSearch.Size = new System.Drawing.Size(551, 89);
+            this.lbSearch.Size = new System.Drawing.Size(629, 144);
             this.lbSearch.TabIndex = 34;
             this.lbSearch.Visible = false;
+            this.lbSearch.Click += new System.EventHandler(this.lbSearch_Click);
             this.lbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbSearch_KeyDown);
             // 
             // dgvExams
@@ -106,8 +105,7 @@
             this.Subject,
             this.Date});
             this.dgvExams.EnableHeadersVisualStyles = false;
-            this.dgvExams.Location = new System.Drawing.Point(21, 46);
-            this.dgvExams.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvExams.Location = new System.Drawing.Point(24, 61);
             this.dgvExams.Name = "dgvExams";
             this.dgvExams.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -126,7 +124,7 @@
             this.dgvExams.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExams.RowTemplate.Height = 29;
             this.dgvExams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExams.Size = new System.Drawing.Size(1068, 385);
+            this.dgvExams.Size = new System.Drawing.Size(1221, 513);
             this.dgvExams.TabIndex = 35;
             // 
             // ExamId
@@ -183,9 +181,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(793, 9);
+            this.label1.Location = new System.Drawing.Point(906, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 36;
             this.label1.Text = "Estudiante:";
             // 
@@ -194,9 +192,9 @@
             this.lblStudent.AutoSize = true;
             this.lblStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblStudent.ForeColor = System.Drawing.Color.White;
-            this.lblStudent.Location = new System.Drawing.Point(869, 9);
+            this.lblStudent.Location = new System.Drawing.Point(993, 12);
             this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(53, 17);
+            this.lblStudent.Size = new System.Drawing.Size(63, 20);
             this.lblStudent.TabIndex = 37;
             this.lblStudent.Text = "---------";
             // 
@@ -205,9 +203,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(793, 26);
+            this.label3.Location = new System.Drawing.Point(906, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 17);
+            this.label3.Size = new System.Drawing.Size(40, 20);
             this.label3.TabIndex = 38;
             this.label3.Text = "Dni:";
             // 
@@ -216,9 +214,9 @@
             this.lblDni.AutoSize = true;
             this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDni.ForeColor = System.Drawing.Color.White;
-            this.lblDni.Location = new System.Drawing.Point(869, 26);
+            this.lblDni.Location = new System.Drawing.Point(993, 35);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(53, 17);
+            this.lblDni.Size = new System.Drawing.Size(63, 20);
             this.lblDni.TabIndex = 39;
             this.lblDni.Text = "---------";
             // 
@@ -229,10 +227,9 @@
             this.btnEnrol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEnrol.ForeColor = System.Drawing.Color.White;
-            this.btnEnrol.Location = new System.Drawing.Point(1007, 435);
-            this.btnEnrol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEnrol.Location = new System.Drawing.Point(1151, 580);
             this.btnEnrol.Name = "btnEnrol";
-            this.btnEnrol.Size = new System.Drawing.Size(82, 33);
+            this.btnEnrol.Size = new System.Drawing.Size(94, 44);
             this.btnEnrol.TabIndex = 40;
             this.btnEnrol.Text = "Inscribir";
             this.btnEnrol.UseVisualStyleBackColor = false;
@@ -240,10 +237,10 @@
             // 
             // formExamEnrolmentAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1115, 477);
+            this.ClientSize = new System.Drawing.Size(1274, 636);
             this.Controls.Add(this.btnEnrol);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.label3);
@@ -253,7 +250,6 @@
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.lbSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formExamEnrolmentAdmin";
             this.Text = "formExamEnrolmentAdmin";
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).EndInit();

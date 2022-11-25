@@ -21,12 +21,12 @@ namespace GestIn.Controllers
             }
             return Instance;
         }
-
         public bool addGrade(int studentid, object subject, int grade, string bookRecord, DateTime accreditation,string accreditationType) {
             try
             {
                 Subject subId = (Subject)subject;
                 Grade grade_ = new Grade();
+
                 grade_.StudentId = studentid;
                 grade_.SubjectId = subId.Id;
                 grade_.Grade1 = grade;
@@ -35,6 +35,8 @@ namespace GestIn.Controllers
                 grade_.AccreditationType = accreditationType;
                 grade_.CreatedAt = DateTime.Now;
                 grade_.LastModificationBy = "Preceptor cargando notas";
+
+
                 using (var db = new Context())
                 {
                     db.Grades.Add(grade_);
@@ -53,12 +55,38 @@ namespace GestIn.Controllers
             }
             return false;
         }
+        public bool updateGrade(Grade grade,int grade_, string bookRecord_)
+        {
+            grade.Grade1 = grade_;
+            grade.BookRecord = bookRecord_;
+            grade.UpdatedAt = DateTime.Now;
+            grade.LastModificationBy = "Preceptor cargando notas";
+
+            using (var db = new Context())
+            {
+                db.Grades.Update(grade);
+                db.SaveChanges();
+            }
+            return true;
+
+        }
         public List<Grade> getStudentGrades(int dni) {
             using (var db = new Context())
             {
                 try
                 {
                     return db.Grades.Where(x => x.Student.User.Dni == dni).Include(x => x.Subject).ToList();
+                }
+                catch (SqlException exception) { throw exception; }
+            }
+        }
+        public Grade getStudentGradeForExams(int studentId,int subjectId,DateTime examDate)
+        {
+            using (var db = new Context())
+            {
+                try
+                {
+                    return db.Grades.Where(x => x.StudentId == studentId && x.SubjectId == subjectId && x.AccreditationDate == examDate).FirstOrDefault();
                 }
                 catch (SqlException exception) { throw exception; }
             }
