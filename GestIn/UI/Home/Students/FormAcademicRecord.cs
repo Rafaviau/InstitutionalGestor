@@ -268,6 +268,5 @@ namespace GestIn.UI.Home.Students
             dgvSubjectsRecord.Rows.Clear();
             getStudentGrades(Convert.ToInt32(txtStudentDni.Text));
         }
-
     }
 }

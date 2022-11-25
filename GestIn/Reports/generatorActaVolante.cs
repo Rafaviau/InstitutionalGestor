@@ -101,17 +101,17 @@ namespace GestIn.Reports
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
 
-            header = header.Replace("@ExamId", _exam.Id.ToString());
+            string header_ = header.Replace("@ExamId", _exam.Id.ToString());
 
-            info = info.Replace("@career", _exam.IdSubjectNavigation.Career.Name);
-            info = info.Replace("@subject", _exam.IdSubjectNavigation.Name);
-            info = info.Replace("@titular", _exam.TitularNavigation?.User.fullName());
-            info = info.Replace("@vowels", _exam.FirstVowelNavigation?.User.fullName() + " " +
+            string info_ = info.Replace("@career", _exam.IdSubjectNavigation.Career.Name);
+            info_ = info.Replace("@subject", _exam.IdSubjectNavigation.Name);
+            info_ = info.Replace("@titular", _exam.TitularNavigation?.User.fullName());
+            info_ = info.Replace("@vowels", _exam.FirstVowelNavigation?.User.fullName() + " " +
                                            _exam.SecondVowelNavigation?.User.fullName() + " " +
                                            _exam.ThirdVowelNavigation?.User.fullName());
-            info = info.Replace("@yearInCareer", _exam.IdSubjectNavigation.YearInCareer.ToString());
-            info = info.Replace("@date", _exam.Date.ToString("dd/MM/yyyy"));
-            info = info.Replace("@place", _exam.Place);
+            info_ = info.Replace("@yearInCareer", _exam.IdSubjectNavigation.YearInCareer.ToString());
+            info_ = info.Replace("@date", _exam.Date.ToString("dd/MM/yyyy"));
+            info_ = info.Replace("@place", _exam.Place);
 
             string filas = string.Empty;
             int i = 0;
@@ -138,7 +138,7 @@ namespace GestIn.Reports
                     pdfDoc.Open();
                     pdfDoc.Add(new Phrase(""));
 
-                    using (StringReader sr = new StringReader(header + title + info + table + filas + sign + data))
+                    using (StringReader sr = new StringReader(header_ + title + info_ + table + filas + sign + data))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                     }

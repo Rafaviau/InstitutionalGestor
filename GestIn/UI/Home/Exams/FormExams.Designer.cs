@@ -710,7 +710,6 @@
             this.cbbTitular.Sorted = true;
             this.cbbTitular.TabIndex = 5;
             this.cbbTitular.Visible = false;
-            this.cbbTitular.SelectedIndexChanged += new System.EventHandler(this.cbbTitular_SelectedIndexChanged);
             // 
             // cbbSubject
             // 

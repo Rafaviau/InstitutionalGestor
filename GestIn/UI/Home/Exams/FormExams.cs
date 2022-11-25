@@ -358,12 +358,7 @@ namespace GestIn.UI.Home.Exams
 
         private void btnGenerateActaVolante_Click(object sender, EventArgs e)
         {
-            genActaVolante.getActaVolante(Convert.ToInt32(dgvExams.Rows[dgvExams.SelectedRows[0].Index].Cells[0].Value));
-        }
-
-        private void cbbTitular_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            genActaVolante.getActaVolante(Convert.ToInt32(dgvExams.Rows[dgvExams.CurrentCell.RowIndex].Cells[0].Value));
         }
     }
 }
