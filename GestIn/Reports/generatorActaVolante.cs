@@ -91,15 +91,35 @@ namespace GestIn.Reports
 
 
             </div>";
+        List<Student> Presentials = new List<Student>();
+        List<Student> free = new List<Student>();
 
         public void getActaVolante(int examId)
         {
-            generate(cntExam.findExam(examId));
+            Exam exam = cntExam.findExam(examId);
+            foreach (Student us in cntExamEnrol.getEnroledStudent(exam.Id)) {
+                if (cntSubEnrol.getAcreditationType(us.User.Dni, exam.IdSubject) != "Presencial")
+                {
+                    free.Add(us);
+                }
+                else {
+                    Presentials.Add(us);
+                }
+            }
+            if(Presentials.Count > 0)
+                generate(exam,Presentials,"Presencial");
+            if (free.Count > 0)
+                generate(exam,free,"Libres");
         }
-        void generate(Exam _exam)
+        void generate(Exam _exam,List<Student> stds,string accType)
         {
+            string name = accType.ToUpper() + "-" +
+                        _exam.IdSubjectNavigation.Career.Name + "-" +
+                        _exam.IdSubjectNavigation.Name + "-" +
+                        _exam.Date.ToString("dd-MM-yyyy");
+            name = name.Replace(" ", "");
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+            savefile.FileName = string.Format("{0}.pdf", name);
 
             string header_ = header.Replace("@ExamId", _exam.Id.ToString());
 
@@ -115,13 +135,13 @@ namespace GestIn.Reports
 
             string filas = string.Empty;
             int i = 0;
-            foreach (Student us in cntExamEnrol.getEnroledStudent(_exam.Id))
+            foreach (Student us in stds)
             {
                 filas += "<tr style='border: 1px solid black;border-collapse: collapse;'>";
                 filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin:2px;'>" + i + "</p></td>";
                 filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin:2px;'>" + us.User.LastName + ", " + us.User.Name + "</p></td>";
                 filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin:2px;'>" + us.User.Dni + "</p></td>";
-                filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin-top:20px;'>" + cntSubEnrol.getAcreditationType(us.User.Dni, _exam.IdSubject) + "</p></td>";
+                filas += "<td style='border: 1px solid black;border-collapse: collapse;'><p style='margin-top:20px;'>" + accType + "</p></td>";
                 filas += "<td style='border: 1px solid black;border-collapse: collapse'></td>";
                 filas += "<td style='border: 1px solid black;border-collapse: collapse'></td>";
                 filas += "<td style='border: 1px solid black;border-collapse: collapse'></td>";
