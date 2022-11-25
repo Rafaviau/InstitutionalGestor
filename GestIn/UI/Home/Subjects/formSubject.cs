@@ -39,8 +39,8 @@ namespace GestIn.UI.Home.Subjects
 
         public void NullCheckCareerSubjectCount()
         {
-            if(cbbCarreraSelector.SelectedItem != null && 
-                careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem).Count != 0)
+            if(cbbCareerSelector.SelectedItem != null && 
+                careerController.getSubjectsFromCareer(cbbCareerSelector.SelectedItem).Count != 0)
             {
                 RefreshTableSubjects();
                 RefreshLableSubjectName();
@@ -63,11 +63,11 @@ namespace GestIn.UI.Home.Subjects
 
         public void RefreshTableSubjects()
         {
-            if(cbbCarreraSelector.SelectedItem!= null && careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem).Count>0)
+            if(cbbCareerSelector.SelectedItem!= null && careerController.getSubjectsFromCareer(cbbCareerSelector.SelectedItem).Count>0)
             {
                 try
                 {
-                    bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCarreraSelector.SelectedItem);
+                    bindingSourceCarreraMaterias.DataSource = careerController.getSubjectsFromCareer(cbbCareerSelector.SelectedItem);
                     bindingSourceCarreraMaterias.ResetBindings(false);
                     dataGridViewMaterias.DataSource = bindingSourceCarreraMaterias;
                 }
@@ -131,7 +131,7 @@ namespace GestIn.UI.Home.Subjects
         public bool VerifyInputs()
         {
             bool state = true;
-            if (txtNombre.Text.Length == 0 || txtCargaHorariaTotal.Text.Length == 0 || cbbSubjectYear.Text.Length == 0)
+            if (txtName.Text.Length == 0 || txtTotalHourCount.Text.Length == 0 || cbbSubjectYear.Text.Length == 0)
             {
                 state = false;
             }
@@ -144,10 +144,10 @@ namespace GestIn.UI.Home.Subjects
             {
                 bindingSourceCarreras.DataSource = careerController.loadCareers();
                 bindingSourceCarreras.ResetBindings(true);
-                cbbCarreraSelector.DataSource = bindingSourceCarreras;
-                cbbCarreraSelector.DisplayMember = "NAME";
-                cbbCarreraSelector.ValueMember = "ID";
-                cbbCarreraSelector.SelectedIndex = 0;
+                cbbCareerSelector.DataSource = bindingSourceCarreras;
+                cbbCareerSelector.DisplayMember = "NAME";
+                cbbCareerSelector.ValueMember = "ID";
+                cbbCareerSelector.SelectedIndex = 0;
             }
             catch (Exception exc)
             {
@@ -158,8 +158,8 @@ namespace GestIn.UI.Home.Subjects
 
         public void ClearAll()
         {
-            txtNombre.Clear();
-            txtCargaHorariaTotal.Clear();
+            txtName.Clear();
+            txtTotalHourCount.Clear();
             txtCupof.Clear();
             lblShowSubjectName.Text = "";
             cbbSubjectYear.SelectedIndex = -1;
@@ -172,7 +172,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 try
                 {
-                    careerController.createSubject(Convert.ToInt32(cbbCarreraSelector.SelectedValue), txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text), txtCupof.Text);
+                    careerController.createSubject(Convert.ToInt32(cbbCareerSelector.SelectedValue), txtName.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtTotalHourCount.Text), txtCupof.Text);
                     lblResult.Text = "Materia Guardada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
@@ -194,7 +194,7 @@ namespace GestIn.UI.Home.Subjects
                 try
                 {
                     object selectedMateria = SetGlobalSubject();
-                    careerController.updateSubject(selectedMateria, txtNombre.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtCargaHorariaTotal.Text), txtCupof.Text);
+                    careerController.updateSubject(selectedMateria, txtName.Text, Convert.ToInt32(cbbSubjectYear.SelectedItem), Int32.Parse(txtTotalHourCount.Text), txtCupof.Text);
                     lblResult.Text = "Materia Actualizada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
@@ -206,6 +206,7 @@ namespace GestIn.UI.Home.Subjects
             {
                 MessageBox.Show("Campos Invalidos");
             }
+            dataGridViewMaterias.ClearSelection();
             ClearAll();
         }
         private void btnRemove_Click(object sender, EventArgs e)
@@ -231,10 +232,10 @@ namespace GestIn.UI.Home.Subjects
             object selectedSubject = null;
             try
             {
-                if(dataGridViewMaterias.SelectedRows != null && cbbCarreraSelector.SelectedItem != null && dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
+                if(dataGridViewMaterias.SelectedRows != null && cbbCareerSelector.SelectedItem != null && dataGridViewMaterias.CurrentRow.Cells[0].Value != null)
                 {
                     idsubject = Convert.ToInt32(dataGridViewMaterias.CurrentRow.Cells[0].Value);
-                    selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCarreraSelector.SelectedItem, idsubject);
+                    selectedSubject = careerController.getSpecificSubjectFromCareer(cbbCareerSelector.SelectedItem, idsubject);
                 }
                 return selectedSubject;
             }
@@ -249,10 +250,10 @@ namespace GestIn.UI.Home.Subjects
         
         public void FillSubjectValues()
         {
-            txtNombre.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
+            txtName.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[2].Value);
             cbbSubjectYear.SelectedItem = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[3].Value);
             txtCupof.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[4].Value);
-            txtCargaHorariaTotal.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[5].Value);
+            txtTotalHourCount.Text = Convert.ToString(dataGridViewMaterias.CurrentRow.Cells[5].Value);
             RefreshLableSubjectName();
             RefreshTableTeachers();
             RefreshTableCorrelatives();
@@ -294,7 +295,7 @@ namespace GestIn.UI.Home.Subjects
                 if (SetGlobalSubject() != null)
                 {
                     this.Visible = false;
-                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCarreraSelector.SelectedItem, SetGlobalSubject(), this);
+                    formSubjectCorrelatives form = new formSubjectCorrelatives(cbbCareerSelector.SelectedItem, SetGlobalSubject(), this);
                     form.Show();
                 }
             }

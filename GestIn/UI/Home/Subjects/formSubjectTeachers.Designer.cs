@@ -249,7 +249,7 @@
             // lblteachername
             // 
             this.lblteachername.AutoSize = true;
-            this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblteachername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblteachername.ForeColor = System.Drawing.Color.White;
             this.lblteachername.Location = new System.Drawing.Point(573, 78);
             this.lblteachername.Name = "lblteachername";
@@ -275,6 +275,7 @@
             this.cmbCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.cmbCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCondition.Enabled = false;
+            this.cmbCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCondition.ForeColor = System.Drawing.Color.White;
             this.cmbCondition.FormattingEnabled = true;
             this.cmbCondition.Items.AddRange(new object[] {

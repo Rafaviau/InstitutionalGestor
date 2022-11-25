@@ -34,13 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtNumResolucion = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.txtResolutionNumber = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbbTurno = new System.Windows.Forms.ComboBox();
+            this.cbbTurn = new System.Windows.Forms.ComboBox();
             this.lbl4 = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             this.TotalAmountSubjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lableTimer = new System.Windows.Forms.Timer(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipActive = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.careerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCarreras)).BeginInit();
@@ -77,32 +77,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCarreras)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNumResolucion
+            // txtResolutionNumber
             // 
-            this.txtNumResolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtNumResolucion.ForeColor = System.Drawing.Color.White;
-            this.txtNumResolucion.Location = new System.Drawing.Point(106, 71);
-            this.txtNumResolucion.Name = "txtNumResolucion";
-            this.txtNumResolucion.Size = new System.Drawing.Size(173, 27);
-            this.txtNumResolucion.TabIndex = 0;
+            this.txtResolutionNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtResolutionNumber.ForeColor = System.Drawing.Color.White;
+            this.txtResolutionNumber.Location = new System.Drawing.Point(106, 71);
+            this.txtResolutionNumber.Name = "txtResolutionNumber";
+            this.txtResolutionNumber.Size = new System.Drawing.Size(173, 27);
+            this.txtResolutionNumber.TabIndex = 0;
             // 
-            // txtNombre
+            // txtName
             // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtNombre.ForeColor = System.Drawing.Color.White;
-            this.txtNombre.Location = new System.Drawing.Point(358, 71);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(621, 27);
-            this.txtNombre.TabIndex = 1;
+            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtName.ForeColor = System.Drawing.Color.White;
+            this.txtName.Location = new System.Drawing.Point(358, 71);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(621, 27);
+            this.txtName.TabIndex = 1;
             // 
-            // txtTitulo
+            // txtTitle
             // 
-            this.txtTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtTitulo.ForeColor = System.Drawing.Color.White;
-            this.txtTitulo.Location = new System.Drawing.Point(358, 117);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(621, 27);
-            this.txtTitulo.TabIndex = 2;
+            this.txtTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtTitle.ForeColor = System.Drawing.Color.White;
+            this.txtTitle.Location = new System.Drawing.Point(358, 117);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(621, 27);
+            this.txtTitle.TabIndex = 2;
             // 
             // label1
             // 
@@ -134,20 +134,21 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Titulo:";
             // 
-            // cbbTurno
+            // cbbTurn
             // 
-            this.cbbTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.cbbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTurno.ForeColor = System.Drawing.Color.White;
-            this.cbbTurno.FormattingEnabled = true;
-            this.cbbTurno.Items.AddRange(new object[] {
+            this.cbbTurn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.cbbTurn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbTurn.ForeColor = System.Drawing.Color.White;
+            this.cbbTurn.FormattingEnabled = true;
+            this.cbbTurn.Items.AddRange(new object[] {
             "Mañana",
             "Tarde",
             "Vespertino"});
-            this.cbbTurno.Location = new System.Drawing.Point(75, 117);
-            this.cbbTurno.Name = "cbbTurno";
-            this.cbbTurno.Size = new System.Drawing.Size(204, 28);
-            this.cbbTurno.TabIndex = 3;
+            this.cbbTurn.Location = new System.Drawing.Point(75, 117);
+            this.cbbTurn.Name = "cbbTurn";
+            this.cbbTurn.Size = new System.Drawing.Size(204, 28);
+            this.cbbTurn.TabIndex = 3;
             // 
             // lbl4
             // 
@@ -263,7 +264,7 @@
             this.chkActivo.Size = new System.Drawing.Size(122, 24);
             this.chkActivo.TabIndex = 4;
             this.chkActivo.Text = "Carrera activa";
-            this.toolTip1.SetToolTip(this.chkActivo, "LALALALA");
+            this.tooltipActive.SetToolTip(this.chkActivo, "LALALALA");
             this.chkActivo.UseVisualStyleBackColor = true;
             this.chkActivo.MouseHover += new System.EventHandler(this.chkActivo_MouseHover);
             // 
@@ -272,12 +273,12 @@
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
             this.panelInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelInfo.Controls.Add(this.lblResult);
-            this.panelInfo.Controls.Add(this.cbbTurno);
-            this.panelInfo.Controls.Add(this.txtNumResolucion);
+            this.panelInfo.Controls.Add(this.cbbTurn);
+            this.panelInfo.Controls.Add(this.txtResolutionNumber);
             this.panelInfo.Controls.Add(this.chkActivo);
-            this.panelInfo.Controls.Add(this.txtNombre);
+            this.panelInfo.Controls.Add(this.txtName);
             this.panelInfo.Controls.Add(this.label5);
-            this.panelInfo.Controls.Add(this.txtTitulo);
+            this.panelInfo.Controls.Add(this.txtTitle);
             this.panelInfo.Controls.Add(this.label1);
             this.panelInfo.Controls.Add(this.label2);
             this.panelInfo.Controls.Add(this.label3);
@@ -302,7 +303,6 @@
             this.lblResult.TabIndex = 57;
             this.lblResult.Text = "Success Text";
             this.lblResult.Visible = false;
-            this.lblResult.Click += new System.EventHandler(this.lblResult_Click);
             // 
             // label5
             // 
@@ -382,7 +382,6 @@
             this.dataGridViewCarreras.TabIndex = 14;
             this.dataGridViewCarreras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellClick);
             this.dataGridViewCarreras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarreras_CellDoubleClick);
-            this.dataGridViewCarreras.SelectionChanged += new System.EventHandler(this.dataGridViewCarreras_SelectionChanged);
             this.dataGridViewCarreras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewCarreras_KeyDown);
             // 
             // idDataGridViewTextBoxColumn
@@ -484,13 +483,13 @@
 
         #endregion
 
-        private TextBox txtNumResolucion;
-        private TextBox txtNombre;
-        private TextBox txtTitulo;
+        private TextBox txtResolutionNumber;
+        private TextBox txtName;
+        private TextBox txtTitle;
         private Label label1;
         private Label label2;
         private Label label3;
-        private ComboBox cbbTurno;
+        private ComboBox cbbTurn;
         private Label lbl4;
         private Button btnInsert;
         private Button btnUpdate;
@@ -508,7 +507,7 @@
         private BindingSource careerBindingSource1;
         private Panel panelGrid;
         private System.Windows.Forms.Timer lableTimer;
-        private ToolTip toolTip1;
+        private ToolTip tooltipActive;
         private Label lblResult;
         private DataGridView dataGridViewCarreras;
         private Label label5;

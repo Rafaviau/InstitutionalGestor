@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvExams = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.enrollments = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CareerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCarrer = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,6 +85,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.toggDate = new GestIn.controls.ToggleButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enrollments = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CareerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).BeginInit();
             this.gbNewExam.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,64 +155,6 @@
             this.dgvExams.SelectionChanged += new System.EventHandler(this.dgvExams_SelectionChanged);
             this.dgvExams.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvExams_KeyDown);
             this.dgvExams.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvExams_MouseDoubleClick);
-            // 
-            // id
-            // 
-            this.id.FillWeight = 33.36898F;
-            this.id.HeaderText = "Código";
-            this.id.MinimumWidth = 14;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // carrer
-            // 
-            this.carrer.FillWeight = 87.92809F;
-            this.carrer.HeaderText = "Carrera";
-            this.carrer.MinimumWidth = 6;
-            this.carrer.Name = "carrer";
-            this.carrer.ReadOnly = true;
-            // 
-            // subject
-            // 
-            this.subject.FillWeight = 87.92809F;
-            this.subject.HeaderText = "Materia";
-            this.subject.MinimumWidth = 6;
-            this.subject.Name = "subject";
-            this.subject.ReadOnly = true;
-            // 
-            // date
-            // 
-            this.date.FillWeight = 26.37843F;
-            this.date.HeaderText = "Fecha";
-            this.date.MinimumWidth = 10;
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // enrollments
-            // 
-            this.enrollments.FillWeight = 4.396404F;
-            this.enrollments.HeaderText = "Inscriptos";
-            this.enrollments.MinimumWidth = 100;
-            this.enrollments.Name = "enrollments";
-            this.enrollments.ReadOnly = true;
-            // 
-            // SubjectId
-            // 
-            this.SubjectId.FillWeight = 1F;
-            this.SubjectId.HeaderText = "SubectId";
-            this.SubjectId.MinimumWidth = 6;
-            this.SubjectId.Name = "SubjectId";
-            this.SubjectId.ReadOnly = true;
-            this.SubjectId.Visible = false;
-            // 
-            // CareerId
-            // 
-            this.CareerId.FillWeight = 1F;
-            this.CareerId.HeaderText = "CarrerId";
-            this.CareerId.MinimumWidth = 6;
-            this.CareerId.Name = "CareerId";
-            this.CareerId.ReadOnly = true;
-            this.CareerId.Visible = false;
             // 
             // lblCarrer
             // 
@@ -992,6 +934,64 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1371, 379);
             this.panel3.TabIndex = 30;
+            // 
+            // id
+            // 
+            this.id.FillWeight = 8F;
+            this.id.HeaderText = "Código";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // carrer
+            // 
+            this.carrer.FillWeight = 67.15193F;
+            this.carrer.HeaderText = "Carrera";
+            this.carrer.MinimumWidth = 6;
+            this.carrer.Name = "carrer";
+            this.carrer.ReadOnly = true;
+            // 
+            // subject
+            // 
+            this.subject.FillWeight = 67.15193F;
+            this.subject.HeaderText = "Materia";
+            this.subject.MinimumWidth = 6;
+            this.subject.Name = "subject";
+            this.subject.ReadOnly = true;
+            // 
+            // date
+            // 
+            this.date.FillWeight = 20.14558F;
+            this.date.HeaderText = "Fecha";
+            this.date.MinimumWidth = 10;
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // enrollments
+            // 
+            this.enrollments.FillWeight = 3.357596F;
+            this.enrollments.HeaderText = "Inscriptos";
+            this.enrollments.MinimumWidth = 100;
+            this.enrollments.Name = "enrollments";
+            this.enrollments.ReadOnly = true;
+            // 
+            // SubjectId
+            // 
+            this.SubjectId.FillWeight = 1F;
+            this.SubjectId.HeaderText = "SubectId";
+            this.SubjectId.MinimumWidth = 6;
+            this.SubjectId.Name = "SubjectId";
+            this.SubjectId.ReadOnly = true;
+            this.SubjectId.Visible = false;
+            // 
+            // CareerId
+            // 
+            this.CareerId.FillWeight = 1F;
+            this.CareerId.HeaderText = "CarrerId";
+            this.CareerId.MinimumWidth = 6;
+            this.CareerId.Name = "CareerId";
+            this.CareerId.ReadOnly = true;
+            this.CareerId.Visible = false;
             // 
             // FormExams
             // 

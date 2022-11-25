@@ -28,7 +28,7 @@ namespace GestIn.UI.Home.Users
         private void formTeacher_Load(object sender, EventArgs e)
         {
             NullCheck();
-            cmbUserType.SelectedIndex = 0;
+            cbbUserType.SelectedIndex = 0;
             cmbGender.SelectedIndex = 0;
         }
 
@@ -50,7 +50,7 @@ namespace GestIn.UI.Home.Users
 
         public void checkCurrentState()
         {
-            if (cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
+            if (cbbUserType.SelectedItem.ToString().Equals("Estudiante"))
             {
                 studentPanel.Visible = true;
                 teacherPanel.Visible = false;
@@ -117,7 +117,7 @@ namespace GestIn.UI.Home.Users
 
         public void SetUserValues(object userType)
         {
-            if(cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
+            if(cbbUserType.SelectedItem.ToString().Equals("Estudiante"))
             {
                 Student student = userController.getStudent(userType);
                 txtUserBirthPlace.Text = student.User.PlaceOfBirth;
@@ -268,7 +268,7 @@ namespace GestIn.UI.Home.Users
         public bool checkUserType()
         {
             bool dependency = false;
-            if(cmbUserType.SelectedItem.ToString().Equals("Estudiante"))
+            if(cbbUserType.SelectedItem.ToString().Equals("Estudiante"))
             {
                 dependency = true;
             }

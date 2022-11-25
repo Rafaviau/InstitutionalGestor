@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.subjectBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,17 +55,17 @@
             this.Cupof = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGrid = new System.Windows.Forms.Panel();
-            this.lblCarrera = new System.Windows.Forms.Label();
-            this.cbbCarreraSelector = new System.Windows.Forms.ComboBox();
+            this.lblCarrer = new System.Windows.Forms.Label();
+            this.cbbCareerSelector = new System.Windows.Forms.ComboBox();
             this.panelCombo = new System.Windows.Forms.Panel();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.txtCargaHorariaTotal = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtTotalHourCount = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnDocentes = new System.Windows.Forms.Button();
-            this.label123 = new System.Windows.Forms.Label();
-            this.btnCorrelativas = new System.Windows.Forms.Button();
+            this.btnTeachers = new System.Windows.Forms.Button();
+            this.lblSelectedSubjectText = new System.Windows.Forms.Label();
+            this.btnCorrelatives = new System.Windows.Forms.Button();
             this.lblAnioCarrera = new System.Windows.Forms.Label();
             this.lblShowSubjectName = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -148,20 +148,20 @@
             this.dataGridViewMaterias.AllowUserToAddRows = false;
             this.dataGridViewMaterias.AllowUserToDeleteRows = false;
             this.dataGridViewMaterias.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.dataGridViewMaterias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.dataGridViewMaterias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewMaterias.AutoGenerateColumns = false;
             this.dataGridViewMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMaterias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.dataGridViewMaterias.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewMaterias.ColumnHeadersHeight = 54;
             this.dataGridViewMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -175,20 +175,19 @@
             this.dataGridViewMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaterias.EnableHeadersVisualStyles = false;
             this.dataGridViewMaterias.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewMaterias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewMaterias.MultiSelect = false;
             this.dataGridViewMaterias.Name = "dataGridViewMaterias";
             this.dataGridViewMaterias.ReadOnly = true;
             this.dataGridViewMaterias.RowHeadersVisible = false;
             this.dataGridViewMaterias.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewMaterias.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewMaterias.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewMaterias.RowTemplate.Height = 29;
             this.dataGridViewMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterias.Size = new System.Drawing.Size(1272, 367);
+            this.dataGridViewMaterias.Size = new System.Drawing.Size(1454, 490);
             this.dataGridViewMaterias.TabIndex = 30;
             this.dataGridViewMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMaterias_CellClick);
             this.dataGridViewMaterias.SelectionChanged += new System.EventHandler(this.dataGridViewMaterias_SelectionChanged);
@@ -203,6 +202,7 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 125;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -255,45 +255,45 @@
             this.panelGrid.Controls.Add(this.dataGridViewMaterias);
             this.panelGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGrid.Location = new System.Drawing.Point(0, 0);
-            this.panelGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(1272, 367);
+            this.panelGrid.Size = new System.Drawing.Size(1454, 490);
             this.panelGrid.TabIndex = 40;
             // 
-            // lblCarrera
+            // lblCarrer
             // 
-            this.lblCarrera.AutoSize = true;
-            this.lblCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblCarrera.Location = new System.Drawing.Point(3, 8);
-            this.lblCarrera.Name = "lblCarrera";
-            this.lblCarrera.Size = new System.Drawing.Size(109, 15);
-            this.lblCarrera.TabIndex = 29;
-            this.lblCarrera.Text = "Seleccionar carrera:";
+            this.lblCarrer.AutoSize = true;
+            this.lblCarrer.ForeColor = System.Drawing.Color.White;
+            this.lblCarrer.Location = new System.Drawing.Point(3, 11);
+            this.lblCarrer.Name = "lblCarrer";
+            this.lblCarrer.Size = new System.Drawing.Size(138, 20);
+            this.lblCarrer.TabIndex = 29;
+            this.lblCarrer.Text = "Seleccionar carrera:";
             // 
-            // cbbCarreraSelector
+            // cbbCareerSelector
             // 
-            this.cbbCarreraSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCarreraSelector.FormattingEnabled = true;
-            this.cbbCarreraSelector.Location = new System.Drawing.Point(129, 5);
-            this.cbbCarreraSelector.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbbCarreraSelector.Name = "cbbCarreraSelector";
-            this.cbbCarreraSelector.Size = new System.Drawing.Size(660, 23);
-            this.cbbCarreraSelector.TabIndex = 0;
-            this.cbbCarreraSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
+            this.cbbCareerSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.cbbCareerSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCareerSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbCareerSelector.ForeColor = System.Drawing.Color.White;
+            this.cbbCareerSelector.FormattingEnabled = true;
+            this.cbbCareerSelector.Location = new System.Drawing.Point(147, 7);
+            this.cbbCareerSelector.Name = "cbbCareerSelector";
+            this.cbbCareerSelector.Size = new System.Drawing.Size(754, 28);
+            this.cbbCareerSelector.TabIndex = 0;
+            this.cbbCareerSelector.SelectedIndexChanged += new System.EventHandler(this.cbCareerSelector_SelectedIndexChanged);
             // 
             // panelCombo
             // 
             this.panelCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.panelCombo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCombo.Controls.Add(this.lblResult);
-            this.panelCombo.Controls.Add(this.cbbCarreraSelector);
-            this.panelCombo.Controls.Add(this.lblCarrera);
+            this.panelCombo.Controls.Add(this.cbbCareerSelector);
+            this.panelCombo.Controls.Add(this.lblCarrer);
             this.panelCombo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelCombo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panelCombo.Location = new System.Drawing.Point(0, 326);
-            this.panelCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelCombo.Location = new System.Drawing.Point(0, 436);
             this.panelCombo.Name = "panelCombo";
-            this.panelCombo.Size = new System.Drawing.Size(1272, 41);
+            this.panelCombo.Size = new System.Drawing.Size(1454, 54);
             this.panelCombo.TabIndex = 31;
             // 
             // lblResult
@@ -302,9 +302,9 @@
             this.lblResult.BackColor = System.Drawing.Color.Crimson;
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblResult.ForeColor = System.Drawing.Color.White;
-            this.lblResult.Location = new System.Drawing.Point(804, -1);
+            this.lblResult.Location = new System.Drawing.Point(919, -1);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(185, 41);
+            this.lblResult.Size = new System.Drawing.Size(222, 50);
             this.lblResult.TabIndex = 57;
             this.lblResult.Text = "Success Text";
             this.lblResult.Visible = false;
@@ -314,87 +314,88 @@
             this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnInsert.ForeColor = System.Drawing.Color.White;
-            this.btnInsert.Location = new System.Drawing.Point(231, 84);
+            this.btnInsert.Location = new System.Drawing.Point(264, 112);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(158, 24);
+            this.btnInsert.Size = new System.Drawing.Size(181, 32);
             this.btnInsert.TabIndex = 5;
             this.btnInsert.Text = "Crear Materia";
             this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // txtCargaHorariaTotal
+            // txtTotalHourCount
             // 
-            this.txtCargaHorariaTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtCargaHorariaTotal.ForeColor = System.Drawing.Color.White;
-            this.txtCargaHorariaTotal.Location = new System.Drawing.Point(151, 118);
-            this.txtCargaHorariaTotal.Name = "txtCargaHorariaTotal";
-            this.txtCargaHorariaTotal.Size = new System.Drawing.Size(75, 23);
-            this.txtCargaHorariaTotal.TabIndex = 3;
+            this.txtTotalHourCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtTotalHourCount.ForeColor = System.Drawing.Color.White;
+            this.txtTotalHourCount.Location = new System.Drawing.Point(173, 157);
+            this.txtTotalHourCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTotalHourCount.Name = "txtTotalHourCount";
+            this.txtTotalHourCount.Size = new System.Drawing.Size(85, 27);
+            this.txtTotalHourCount.TabIndex = 3;
             // 
-            // txtNombre
+            // txtName
             // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.txtNombre.ForeColor = System.Drawing.Color.White;
-            this.txtNombre.Location = new System.Drawing.Point(151, 56);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(423, 23);
-            this.txtNombre.TabIndex = 1;
+            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtName.ForeColor = System.Drawing.Color.White;
+            this.txtName.Location = new System.Drawing.Point(173, 75);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(483, 27);
+            this.txtName.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 122);
+            this.label5.Location = new System.Drawing.Point(21, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 15);
+            this.label5.Size = new System.Drawing.Size(104, 20);
             this.label5.TabIndex = 21;
             this.label5.Text = "Horario Total: ";
             // 
-            // btnDocentes
+            // btnTeachers
             // 
-            this.btnDocentes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.btnDocentes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDocentes.ForeColor = System.Drawing.Color.White;
-            this.btnDocentes.Location = new System.Drawing.Point(429, 131);
-            this.btnDocentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Size = new System.Drawing.Size(122, 36);
-            this.btnDocentes.TabIndex = 9;
-            this.btnDocentes.Text = "Ver Docentes";
-            this.btnDocentes.UseVisualStyleBackColor = false;
-            this.btnDocentes.Click += new System.EventHandler(this.btnTeachers_Click);
+            this.btnTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnTeachers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTeachers.ForeColor = System.Drawing.Color.White;
+            this.btnTeachers.Location = new System.Drawing.Point(490, 175);
+            this.btnTeachers.Name = "btnTeachers";
+            this.btnTeachers.Size = new System.Drawing.Size(139, 48);
+            this.btnTeachers.TabIndex = 9;
+            this.btnTeachers.Text = "Ver Docentes";
+            this.btnTeachers.UseVisualStyleBackColor = false;
+            this.btnTeachers.Click += new System.EventHandler(this.btnTeachers_Click);
             // 
-            // label123
+            // lblSelectedSubjectText
             // 
-            this.label123.AutoSize = true;
-            this.label123.ForeColor = System.Drawing.Color.White;
-            this.label123.Location = new System.Drawing.Point(110, 11);
-            this.label123.Name = "label123";
-            this.label123.Size = new System.Drawing.Size(122, 15);
-            this.label123.TabIndex = 37;
-            this.label123.Text = "Materia Seleccionada:";
+            this.lblSelectedSubjectText.AutoSize = true;
+            this.lblSelectedSubjectText.ForeColor = System.Drawing.Color.White;
+            this.lblSelectedSubjectText.Location = new System.Drawing.Point(126, 15);
+            this.lblSelectedSubjectText.Name = "lblSelectedSubjectText";
+            this.lblSelectedSubjectText.Size = new System.Drawing.Size(155, 20);
+            this.lblSelectedSubjectText.TabIndex = 37;
+            this.lblSelectedSubjectText.Text = "Materia Seleccionada:";
             // 
-            // btnCorrelativas
+            // btnCorrelatives
             // 
-            this.btnCorrelativas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.btnCorrelativas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCorrelativas.ForeColor = System.Drawing.Color.White;
-            this.btnCorrelativas.Location = new System.Drawing.Point(429, 86);
-            this.btnCorrelativas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCorrelativas.Name = "btnCorrelativas";
-            this.btnCorrelativas.Size = new System.Drawing.Size(122, 36);
-            this.btnCorrelativas.TabIndex = 8;
-            this.btnCorrelativas.Text = "Ver Correlativas";
-            this.btnCorrelativas.UseVisualStyleBackColor = false;
-            this.btnCorrelativas.Click += new System.EventHandler(this.btnCorrelativas_Click);
+            this.btnCorrelatives.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.btnCorrelatives.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCorrelatives.ForeColor = System.Drawing.Color.White;
+            this.btnCorrelatives.Location = new System.Drawing.Point(490, 115);
+            this.btnCorrelatives.Name = "btnCorrelatives";
+            this.btnCorrelatives.Size = new System.Drawing.Size(139, 48);
+            this.btnCorrelatives.TabIndex = 8;
+            this.btnCorrelatives.Text = "Ver Correlativas";
+            this.btnCorrelatives.UseVisualStyleBackColor = false;
+            this.btnCorrelatives.Click += new System.EventHandler(this.btnCorrelativas_Click);
             // 
             // lblAnioCarrera
             // 
             this.lblAnioCarrera.AutoSize = true;
             this.lblAnioCarrera.ForeColor = System.Drawing.Color.White;
-            this.lblAnioCarrera.Location = new System.Drawing.Point(19, 92);
+            this.lblAnioCarrera.Location = new System.Drawing.Point(22, 123);
             this.lblAnioCarrera.Name = "lblAnioCarrera";
-            this.lblAnioCarrera.Size = new System.Drawing.Size(35, 15);
+            this.lblAnioCarrera.Size = new System.Drawing.Size(43, 20);
             this.lblAnioCarrera.TabIndex = 20;
             this.lblAnioCarrera.Text = "Año: ";
             // 
@@ -402,9 +403,9 @@
             // 
             this.lblShowSubjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.lblShowSubjectName.ForeColor = System.Drawing.Color.White;
-            this.lblShowSubjectName.Location = new System.Drawing.Point(251, 8);
+            this.lblShowSubjectName.Location = new System.Drawing.Point(287, 11);
             this.lblShowSubjectName.Name = "lblShowSubjectName";
-            this.lblShowSubjectName.Size = new System.Drawing.Size(453, 24);
+            this.lblShowSubjectName.Size = new System.Drawing.Size(518, 32);
             this.lblShowSubjectName.TabIndex = 38;
             this.lblShowSubjectName.Text = "                                   ";
             // 
@@ -412,9 +413,9 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(19, 62);
+            this.lblNombre.Location = new System.Drawing.Point(22, 83);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(57, 15);
+            this.lblNombre.Size = new System.Drawing.Size(71, 20);
             this.lblNombre.TabIndex = 19;
             this.lblNombre.Text = "Nombre: ";
             // 
@@ -425,7 +426,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(2, 1);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(95, 32);
+            this.lblTitle.Size = new System.Drawing.Size(118, 41);
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Materia";
             // 
@@ -433,6 +434,7 @@
             // 
             this.cbbSubjectYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.cbbSubjectYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSubjectYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbSubjectYear.ForeColor = System.Drawing.Color.White;
             this.cbbSubjectYear.FormattingEnabled = true;
             this.cbbSubjectYear.Items.AddRange(new object[] {
@@ -440,10 +442,9 @@
             "2",
             "3",
             "4"});
-            this.cbbSubjectYear.Location = new System.Drawing.Point(151, 86);
-            this.cbbSubjectYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbbSubjectYear.Location = new System.Drawing.Point(173, 115);
             this.cbbSubjectYear.Name = "cbbSubjectYear";
-            this.cbbSubjectYear.Size = new System.Drawing.Size(75, 23);
+            this.cbbSubjectYear.Size = new System.Drawing.Size(85, 28);
             this.cbbSubjectYear.TabIndex = 2;
             // 
             // btnUpdate
@@ -451,9 +452,10 @@
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(231, 113);
+            this.btnUpdate.Location = new System.Drawing.Point(264, 151);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(158, 24);
+            this.btnUpdate.Size = new System.Drawing.Size(181, 32);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Actualizar Materia";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -467,33 +469,32 @@
             this.dataGridViewTeachers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTeachers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.dataGridViewTeachers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTeachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTeachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.teacherDataGridViewTextBoxColumn,
             this.Condition});
             this.dataGridViewTeachers.DataSource = this.teacherSubjectBindingSource;
             this.dataGridViewTeachers.EnableHeadersVisualStyles = false;
-            this.dataGridViewTeachers.Location = new System.Drawing.Point(892, 47);
-            this.dataGridViewTeachers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewTeachers.Location = new System.Drawing.Point(1019, 63);
             this.dataGridViewTeachers.Name = "dataGridViewTeachers";
             this.dataGridViewTeachers.ReadOnly = true;
             this.dataGridViewTeachers.RowHeadersVisible = false;
             this.dataGridViewTeachers.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewTeachers.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTeachers.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTeachers.RowTemplate.Height = 29;
-            this.dataGridViewTeachers.Size = new System.Drawing.Size(294, 130);
+            this.dataGridViewTeachers.Size = new System.Drawing.Size(336, 173);
             this.dataGridViewTeachers.TabIndex = 39;
             // 
             // teacherDataGridViewTextBoxColumn
@@ -519,9 +520,10 @@
             this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(231, 143);
+            this.btnRemove.Location = new System.Drawing.Point(264, 191);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(158, 24);
+            this.btnRemove.Size = new System.Drawing.Size(181, 32);
             this.btnRemove.TabIndex = 7;
             this.btnRemove.Text = "Dar de baja materia";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -531,18 +533,19 @@
             // 
             this.txtCupof.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.txtCupof.ForeColor = System.Drawing.Color.White;
-            this.txtCupof.Location = new System.Drawing.Point(151, 146);
+            this.txtCupof.Location = new System.Drawing.Point(173, 195);
+            this.txtCupof.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCupof.Name = "txtCupof";
-            this.txtCupof.Size = new System.Drawing.Size(75, 23);
+            this.txtCupof.Size = new System.Drawing.Size(85, 27);
             this.txtCupof.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 152);
+            this.label1.Location = new System.Drawing.Point(22, 203);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 15);
+            this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 42;
             this.label1.Text = "Cupof: ";
             // 
@@ -554,32 +557,31 @@
             this.dataGridViewCorrelatives.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCorrelatives.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.dataGridViewCorrelatives.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCorrelatives.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCorrelatives.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewCorrelatives.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCorrelatives.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CorrelativeSubject});
             this.dataGridViewCorrelatives.DataSource = this.correlativeBindingSource;
             this.dataGridViewCorrelatives.EnableHeadersVisualStyles = false;
-            this.dataGridViewCorrelatives.Location = new System.Drawing.Point(596, 47);
-            this.dataGridViewCorrelatives.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewCorrelatives.Location = new System.Drawing.Point(681, 63);
             this.dataGridViewCorrelatives.Name = "dataGridViewCorrelatives";
             this.dataGridViewCorrelatives.ReadOnly = true;
             this.dataGridViewCorrelatives.RowHeadersVisible = false;
             this.dataGridViewCorrelatives.RowHeadersWidth = 51;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewCorrelatives.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewCorrelatives.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewCorrelatives.RowTemplate.Height = 29;
-            this.dataGridViewCorrelatives.Size = new System.Drawing.Size(290, 130);
+            this.dataGridViewCorrelatives.Size = new System.Drawing.Size(331, 173);
             this.dataGridViewCorrelatives.TabIndex = 43;
             // 
             // CorrelativeSubject
@@ -605,31 +607,29 @@
             this.panelInfo.Controls.Add(this.lblNombre);
             this.panelInfo.Controls.Add(this.lblShowSubjectName);
             this.panelInfo.Controls.Add(this.lblAnioCarrera);
-            this.panelInfo.Controls.Add(this.btnCorrelativas);
-            this.panelInfo.Controls.Add(this.label123);
-            this.panelInfo.Controls.Add(this.btnDocentes);
+            this.panelInfo.Controls.Add(this.btnCorrelatives);
+            this.panelInfo.Controls.Add(this.lblSelectedSubjectText);
+            this.panelInfo.Controls.Add(this.btnTeachers);
             this.panelInfo.Controls.Add(this.label5);
-            this.panelInfo.Controls.Add(this.txtNombre);
-            this.panelInfo.Controls.Add(this.txtCargaHorariaTotal);
+            this.panelInfo.Controls.Add(this.txtName);
+            this.panelInfo.Controls.Add(this.txtTotalHourCount);
             this.panelInfo.Controls.Add(this.btnInsert);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfo.Location = new System.Drawing.Point(0, 367);
-            this.panelInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelInfo.Location = new System.Drawing.Point(0, 490);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(1272, 189);
+            this.panelInfo.Size = new System.Drawing.Size(1454, 251);
             this.panelInfo.TabIndex = 39;
             // 
             // formSubject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1272, 556);
+            this.ClientSize = new System.Drawing.Size(1454, 741);
             this.Controls.Add(this.panelCombo);
             this.Controls.Add(this.panelGrid);
             this.Controls.Add(this.panelInfo);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formSubject";
             this.Text = "Materias";
             this.Load += new System.EventHandler(this.formSubject_Load);
@@ -674,8 +674,8 @@
         private System.Windows.Forms.Timer lableTimer;
         private DataGridView dataGridViewMaterias;
         private Panel panelGrid;
-        private Label lblCarrera;
-        private ComboBox cbbCarreraSelector;
+        private Label lblCarrer;
+        private ComboBox cbbCareerSelector;
         private Panel panelCombo;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
@@ -686,12 +686,12 @@
         private BindingSource correlativeBindingSource;
         private Label lblResult;
         private Button btnInsert;
-        private TextBox txtCargaHorariaTotal;
-        private TextBox txtNombre;
+        private TextBox txtTotalHourCount;
+        private TextBox txtName;
         private Label label5;
-        private Button btnDocentes;
-        private Label label123;
-        private Button btnCorrelativas;
+        private Button btnTeachers;
+        private Label lblSelectedSubjectText;
+        private Button btnCorrelatives;
         private Label lblAnioCarrera;
         private Label lblShowSubjectName;
         private Label lblNombre;

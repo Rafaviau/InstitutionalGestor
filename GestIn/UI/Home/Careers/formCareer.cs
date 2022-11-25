@@ -40,7 +40,7 @@ namespace GestIn.UI.Home.Careers
         public bool VerifyInputs()
         {
             bool state = true;
-            if(txtNumResolucion.Text.Length==0 || txtNombre.Text.Length==0 || txtTitulo.Text.Length==0)
+            if(txtResolutionNumber.Text.Length==0 || txtName.Text.Length==0 || txtTitle.Text.Length==0)
             {
                 state = false;
             }
@@ -65,7 +65,7 @@ namespace GestIn.UI.Home.Careers
             {
                 try
                 {
-                    careerController.createCareer(txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text);
+                    careerController.createCareer(txtResolutionNumber.Text, txtName.Text, txtTitle.Text, cbbTurn.Text);
                     lblResult.Text = "Carrera Guardada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
@@ -82,23 +82,19 @@ namespace GestIn.UI.Home.Careers
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            dataGridViewCarreras.ClearSelection();
             int id = Convert.ToInt32(dataGridViewCarreras.CurrentRow.Cells[0].Value);
-            if(VerifyInputs() && id!=null)
+            if (VerifyInputs() && id != null)
             {
                 try
                 {
-                    careerController.updateCareer(id, txtNumResolucion.Text, txtNombre.Text, txtTitulo.Text, cbbTurno.Text, chkActivo.Checked);
+                    careerController.updateCareer(id, txtResolutionNumber.Text, txtName.Text, txtTitle.Text, cbbTurn.Text, chkActivo.Checked);
                     lblResult.Text = "Carrera Actualizada";
                     lblResult.Visible = true;
                     StartLableRemovalTimer();
                     RefreshTableCarrera();
                 } catch { }
             }
-            else
-            {
-                MessageBox.Show("Campos Incorrectos");
-            }
+            dataGridViewCarreras.ClearSelection();
             ClearAll();
         }
 
@@ -109,10 +105,10 @@ namespace GestIn.UI.Home.Careers
 
         public void ClearAll()
         {
-            txtNumResolucion.Clear();
-            txtNombre.Clear();
-            txtTitulo.Clear();
-            cbbTurno.SelectedIndex = -1;
+            txtResolutionNumber.Clear();
+            txtName.Clear();
+            txtTitle.Clear();
+            cbbTurn.SelectedIndex = -1;
         }
 
         private void dataGridViewCarreras_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -130,15 +126,15 @@ namespace GestIn.UI.Home.Careers
 
         public void FillCareerValues()
         {
-            txtNumResolucion.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[1].Value);
-            txtNombre.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[2].Value);
-            txtTitulo.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[3].Value);
+            txtResolutionNumber.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[1].Value);
+            txtName.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[2].Value);
+            txtTitle.Text = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[3].Value);
 
             if (!Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value).Equals(""))
             {
-                cbbTurno.SelectedItem = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value);
+                cbbTurn.SelectedItem = Convert.ToString(dataGridViewCarreras.CurrentRow.Cells[4].Value);
             }
-            else { cbbTurno.SelectedIndex = -1; }
+            else { cbbTurn.SelectedIndex = -1; }
             chkActivo.Checked = Convert.ToBoolean(dataGridViewCarreras.CurrentRow.Cells[5].Value);
         }
             
@@ -157,17 +153,7 @@ namespace GestIn.UI.Home.Careers
 
         private void chkActivo_MouseHover(object sender, EventArgs e)
         {
-           //toolTip1.SetToolTip(chkActivo, "Indica si la carrera se ecnuentra activa para inscripciones.");
-        }
-
-        private void dataGridViewCarreras_SelectionChanged(object sender, EventArgs e)
-        {
-            FillCareerValues();
-        }
-
-        private void lblResult_Click(object sender, EventArgs e)
-        {
-
+           tooltipActive.SetToolTip(chkActivo, "Indica si la carrera se ecnuentra activa para inscripciones.");
         }
     }
 }
