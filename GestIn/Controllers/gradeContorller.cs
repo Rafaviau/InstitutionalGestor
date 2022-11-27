@@ -86,7 +86,8 @@ namespace GestIn.Controllers
             {
                 try
                 {
-                    return db.Grades.Where(x => x.StudentId == studentId && x.SubjectId == subjectId && x.AccreditationDate == examDate).FirstOrDefault();
+                    return db.Grades.Where(x => x.StudentId == studentId && x.SubjectId == subjectId && x.AccreditationDate == examDate)
+                        .FirstOrDefault();
                 }
                 catch (SqlException exception) { throw exception; }
             }

@@ -96,6 +96,8 @@ namespace GestIn.Reports
 
         public void getActaVolante(int examId)
         {
+            Presentials.Clear();
+            free.Clear();
             Exam exam = cntExam.findExam(examId);
             foreach (Student us in cntExamEnrol.getEnroledStudent(exam.Id)) {
                 if (cntSubEnrol.getAcreditationType(us.User.Dni, exam.IdSubject) != "Presencial")

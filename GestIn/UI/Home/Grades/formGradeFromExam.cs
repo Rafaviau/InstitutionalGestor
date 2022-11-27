@@ -22,14 +22,18 @@ namespace GestIn.UI.Home.ExamEnrolment
         gradeContorller gradeCnt = gradeContorller.GetInstance();
         subjectEnrolmentController subEnrolCnt = subjectEnrolmentController.GetInstance();
         Exam exam;
+        string bookRecordPresential;
+        string bookRecordFree;
         public formGradeFromExam(int IdExam)
         {
             InitializeComponent();
             exam = cntExam.findExam(IdExam);
             lblExam.Text = exam.IdSubjectNavigation.Name + " " + exam.Date.ToString("dd-MM-yyyy");
             foreach (Student item in cntExamEnrol.getEnroledStudent(IdExam)) {
-                addExam(item.Id,item.FullName());
+                addExam(item);
             }
+            txtFreeBook.Text = bookRecordFree;
+            txtPresentialBook.Text = bookRecordPresential;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -67,14 +71,28 @@ namespace GestIn.UI.Home.ExamEnrolment
             await Task.Delay(2000);
             lblError.Visible = false;
         }
-        private void addExam(int studentId,string name)
+        private void addExam(Student std)
         {
-            var grade = gradeCnt.getStudentGradeForExams(studentId, exam.IdSubject, exam.Date);
-            dgvStudents.Rows.Add(studentId,name,grade?.Grade1,grade?.BookRecord);
+            try {
+                var grade = gradeCnt.getStudentGradeForExams(std.Id, exam.IdSubject, exam.Date);
+                var accType = subEnrolCnt.getAcreditationType(std.User.Dni, exam.IdSubject);
+                if (grade.Grade1 == -1)
+                    dgvStudents.Rows.Add(std.Id, std.User.fullName(), accType, "AUSENTE");
+                else
+                    dgvStudents.Rows.Add(std.Id, std.User.fullName(), accType, grade?.Grade1);
+                if (accType == "Presencial" && grade != null)
+                    bookRecordPresential = grade.BookRecord;
+                if (accType == "Libre" && grade != null)
+                    bookRecordFree = grade.BookRecord;
+            }
+            catch (Exception ex) {
+                updateUnenrolLabel(ex.Message, false);
+            }
         }
         private void btnAddGrades_Click(object sender, EventArgs e)
         {
             int _grade;
+            string bookRecord;
             var result = formConfirmation.ShowDialog(this, "¿Esta seguro que desea agregar notas?",
                     ("Se actualizaran TODAS las notas."));
             if (result == DialogResult.Yes)
@@ -85,7 +103,13 @@ namespace GestIn.UI.Home.ExamEnrolment
                     foreach (DataGridViewRow row in dgvStudents.Rows)
                     {
                         _grade = -1;
-                        if (row.Cells["grade"].Value != "" && row.Cells["grade"].Value != null)
+
+                        if (row.Cells["condition"].Value.ToString() == "Libre")
+                            bookRecord = txtFreeBook.Text;
+                        else
+                            bookRecord = txtPresentialBook.Text;
+
+                        if (row.Cells["grade"].Value != "AUSENTE" && row.Cells["grade"].Value != null)
                             _grade = Convert.ToInt32(row.Cells["grade"].Value);
 
                         Grade grade = gradeCnt.getStudentGradeForExams(
@@ -100,7 +124,7 @@ namespace GestIn.UI.Home.ExamEnrolment
                                 (int)row.Cells["studentId"].Value,
                                 exam.IdSubjectNavigation,
                                 _grade,
-                                Convert.ToString(row.Cells["bookRecord"].Value),
+                                bookRecord,
                                 exam.Date,
                                 subEnrolCnt.getAcreditationTypeWithStudentId((int)row.Cells["studentId"].Value, exam.IdSubject)
                             ))
@@ -109,7 +133,7 @@ namespace GestIn.UI.Home.ExamEnrolment
                         else {
                             if (!gradeCnt.updateGrade(grade,
                                 _grade,
-                                Convert.ToString(row.Cells["bookRecord"].Value)
+                                bookRecord
                                    ))
                                 state = (false, "Error en la fila" + row.Index.ToString());
                         }

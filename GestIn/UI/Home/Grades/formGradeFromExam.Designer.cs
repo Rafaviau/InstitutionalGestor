@@ -36,13 +36,17 @@
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.studentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookRecord = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.btnAddGrades = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.btnUnrol = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPresentialBook = new System.Windows.Forms.TextBox();
+            this.txtFreeBook = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblExam = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
@@ -71,10 +75,10 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
             this.panel2.Controls.Add(this.dgvStudents);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(9, 36);
+            this.panel2.Location = new System.Drawing.Point(9, 76);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(1101, 578);
+            this.panel2.Size = new System.Drawing.Size(1101, 538);
             this.panel2.TabIndex = 4;
             // 
             // dgvStudents
@@ -98,8 +102,8 @@
             this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.studentId,
             this.name,
-            this.grade,
-            this.bookRecord});
+            this.condition,
+            this.grade});
             this.dgvStudents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudents.EnableHeadersVisualStyles = false;
             this.dgvStudents.Location = new System.Drawing.Point(10, 10);
@@ -122,7 +126,7 @@
             this.dgvStudents.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudents.RowTemplate.Height = 29;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(1081, 558);
+            this.dgvStudents.Size = new System.Drawing.Size(1081, 518);
             this.dgvStudents.TabIndex = 36;
             // 
             // studentId
@@ -137,17 +141,18 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
+            // condition
+            // 
+            this.condition.FillWeight = 20F;
+            this.condition.HeaderText = "Condicion";
+            this.condition.Name = "condition";
+            this.condition.ReadOnly = true;
+            // 
             // grade
             // 
             this.grade.FillWeight = 10F;
             this.grade.HeaderText = "Nota";
             this.grade.Name = "grade";
-            // 
-            // bookRecord
-            // 
-            this.bookRecord.FillWeight = 10F;
-            this.bookRecord.HeaderText = "Libro/Folio";
-            this.bookRecord.Name = "bookRecord";
             // 
             // bottomPanel
             // 
@@ -212,14 +217,68 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.txtPresentialBook);
+            this.panel1.Controls.Add(this.txtFreeBook);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.lblExam);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(9, 8);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1101, 28);
+            this.panel1.Size = new System.Drawing.Size(1101, 68);
             this.panel1.TabIndex = 1;
+            // 
+            // txtPresentialBook
+            // 
+            this.txtPresentialBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPresentialBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtPresentialBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPresentialBook.ForeColor = System.Drawing.Color.White;
+            this.txtPresentialBook.Location = new System.Drawing.Point(745, 32);
+            this.txtPresentialBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPresentialBook.Name = "txtPresentialBook";
+            this.txtPresentialBook.Size = new System.Drawing.Size(109, 24);
+            this.txtPresentialBook.TabIndex = 31;
+            // 
+            // txtFreeBook
+            // 
+            this.txtFreeBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFreeBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.txtFreeBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFreeBook.ForeColor = System.Drawing.Color.White;
+            this.txtFreeBook.Location = new System.Drawing.Point(982, 32);
+            this.txtFreeBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFreeBook.Name = "txtFreeBook";
+            this.txtFreeBook.Size = new System.Drawing.Size(109, 24);
+            this.txtFreeBook.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(857, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Libro/Folio libres:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(563, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Libro/Folio presenciales:";
             // 
             // btnBack
             // 
@@ -282,10 +341,14 @@
         private Button btnBack;
         private Label lblError;
         private DataGridView dgvStudents;
+        private Button btnAddGrades;
+        private Label label2;
+        private Label label1;
         private DataGridViewTextBoxColumn studentId;
         private DataGridViewTextBoxColumn name;
+        private DataGridViewTextBoxColumn condition;
         private DataGridViewTextBoxColumn grade;
-        private DataGridViewTextBoxColumn bookRecord;
-        private Button btnAddGrades;
+        private TextBox txtPresentialBook;
+        private TextBox txtFreeBook;
     }
 }
