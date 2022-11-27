@@ -45,8 +45,11 @@ namespace GestIn.UI.Home.Exams
         }
         private void addExam(Exam ex)
         {
-            int StudentsEnroled = examEnrolCnt.countEnroledStudent(ex.Id);
-            dgvExams.Rows.Add(ex.Id, ex.IdSubjectNavigation.Career.Name, ex.IdSubjectNavigation.Name, ex.Date, StudentsEnroled);
+            try {
+                int StudentsEnroled = examEnrolCnt.countEnroledStudent(ex.Id);
+                dgvExams.Rows.Add(ex.Id, ex.IdSubjectNavigation.Career.Name, ex.IdSubjectNavigation.Name, ex.Date, StudentsEnroled);
+            } catch { }
+            
         }
         private void btnNewExam_Click(object sender, EventArgs e)
         {

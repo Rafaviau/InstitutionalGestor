@@ -85,7 +85,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.toggDate = new GestIn.controls.ToggleButton();
             this.panel3 = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carrer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,9 +92,7 @@
             this.enrollments = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CareerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
             this.button1 = new System.Windows.Forms.Button();
->>>>>>> 6631b5b6d17632583f5edda7d0760b64a44a9f2c
             ((System.ComponentModel.ISupportInitialize)(this.dgvExams)).BeginInit();
             this.gbNewExam.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -940,7 +937,6 @@
             this.panel3.Size = new System.Drawing.Size(1371, 379);
             this.panel3.TabIndex = 30;
             // 
-<<<<<<< HEAD
             // id
             // 
             this.id.FillWeight = 8F;
@@ -998,7 +994,6 @@
             this.CareerId.Name = "CareerId";
             this.CareerId.ReadOnly = true;
             this.CareerId.Visible = false;
-=======
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(724, 10);
@@ -1008,7 +1003,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
->>>>>>> 6631b5b6d17632583f5edda7d0760b64a44a9f2c
             // 
             // FormExams
             // 

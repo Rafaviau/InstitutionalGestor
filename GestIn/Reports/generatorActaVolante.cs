@@ -124,14 +124,14 @@ namespace GestIn.Reports
             string header_ = header.Replace("@ExamId", _exam.Id.ToString());
 
             string info_ = info.Replace("@career", _exam.IdSubjectNavigation.Career.Name);
-            info_ = info.Replace("@subject", _exam.IdSubjectNavigation.Name);
-            info_ = info.Replace("@titular", _exam.TitularNavigation?.User.fullName());
-            info_ = info.Replace("@vowels", _exam.FirstVowelNavigation?.User.fullName() + " " +
+            info_ = info_.Replace("@subject", _exam.IdSubjectNavigation.Name);
+            info_ = info_.Replace("@titular", _exam.TitularNavigation?.User.fullName());
+            info_ = info_.Replace("@vowels", _exam.FirstVowelNavigation?.User.fullName() + " " +
                                            _exam.SecondVowelNavigation?.User.fullName() + " " +
                                            _exam.ThirdVowelNavigation?.User.fullName());
-            info_ = info.Replace("@yearInCareer", _exam.IdSubjectNavigation.YearInCareer.ToString());
-            info_ = info.Replace("@date", _exam.Date.ToString("dd/MM/yyyy"));
-            info_ = info.Replace("@place", _exam.Place);
+            info_ = info_.Replace("@yearInCareer", _exam.IdSubjectNavigation.YearInCareer.ToString());
+            info_ = info_.Replace("@date", _exam.Date.ToString("dd/MM/yyyy"));
+            info_ = info_.Replace("@place", _exam.Place);
 
             string filas = string.Empty;
             int i = 0;

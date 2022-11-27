@@ -241,11 +241,6 @@ namespace GestIn.Controllers
                 {
                     return db.Exams
                         .Include(x => x.IdSubjectNavigation)
-                        .Include(x => x.IdSubjectNavigation.Career)
-                        .Include(x => x.TitularNavigation.User)
-                        .Include(x => x.FirstVowelNavigation.User)
-                        .Include(x => x.SecondVowelNavigation.User)
-                        .Include(x => x.ThirdVowelNavigation.User)
                         .ToList();
                 }
                 catch { }
@@ -254,14 +249,16 @@ namespace GestIn.Controllers
             }
         }
         public void updateAllExamsTitular() {
-            foreach(Exam e in getAllExams())
+            using (var db = new Context())
             {
-                e.TitularNavigation = cntUser.getMostResentActiveTeacher(e.IdSubjectNavigation);
-                using (var db = new Context())
+                var list = getAllExams();
+                foreach(Exam e in list)
                 {
+                    e.Titular = cntUser.getMostResentActiveTeacher(e.IdSubjectNavigation)?.Id;
                     db.Update(e);
-                    db.SaveChanges();
+                    
                 }
+                db.SaveChanges();
             }
         }
     }

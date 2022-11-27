@@ -7,9 +7,6 @@
     <Compile Update="controls\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="pdfTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="UI\Commons\formConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>

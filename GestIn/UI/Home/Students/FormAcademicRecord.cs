@@ -183,39 +183,45 @@ namespace GestIn.UI.Home.Students
 
         private void dgvSubjectsRecord_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value == null)
+            try
             {
-                var subject = (Subject)dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[2].Value;
-                formEditGrade formEditGrade_ = new formEditGrade(
-                    Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()),
-                    txtStudent.Text,
-                    subject.Name,
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[3].Value.ToString(),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString().Equals("Presencial"),
-                    Int32.Parse(lblStudentId.Text),
-                    subject
+                if (dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value == null)
+                {
+                    var subject = (Subject)dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[2].Value;
+                    formEditGrade formEditGrade_ = new formEditGrade(
+                        Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()),
+                        txtStudent.Text,
+                        subject.Name,
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[3].Value.ToString(),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString().Equals("Presencial"),
+                        Int32.Parse(lblStudentId.Text),
+                        subject
+                        );
+                    formEditGrade_.ShowDialog();
+                }
+                else
+                {
+                    formEditGrade formEditGrade_ = new formEditGrade(
+                        Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value.ToString()),
+                        Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()),
+                        txtStudent.Text,
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[2].Value.ToString(),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[3].Value.ToString(),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString().Equals("Presencial"),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[6].Value.ToString(),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[7].Value.ToString(),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[5].Value.ToString(),
+                        dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString()
                     );
-                formEditGrade_.ShowDialog();
+                    formEditGrade_.ShowDialog();
+                }
+                //--------------------------------cambiar para no renderizar todo denuevo---------------------------------//
+                dgvSubjectsRecord.Rows.Clear();
+                getStudentGrades(Int32.Parse(txtStudentDni.Text));
+                //-----------------------------------------------------------------------//
             }
-            else {
-                formEditGrade formEditGrade_ = new formEditGrade(
-                    Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[0].Value.ToString()),
-                    Int32.Parse(dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[8].Value.ToString()),
-                    txtStudent.Text, 
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[2].Value.ToString(),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[3].Value.ToString(),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString().Equals("Presencial"),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[6].Value.ToString(),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[7].Value.ToString(),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[5].Value.ToString(),
-                    dgvSubjectsRecord.Rows[dgvSubjectsRecord.CurrentCell.RowIndex].Cells[4].Value.ToString()
-                );
-                formEditGrade_.ShowDialog();
-            }
-            //--------------------------------cambiar para no renderizar todo denuevo---------------------------------//
-            dgvSubjectsRecord.Rows.Clear();
-            getStudentGrades(Int32.Parse(txtStudentDni.Text));
-            //-----------------------------------------------------------------------//
+            catch { }
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
